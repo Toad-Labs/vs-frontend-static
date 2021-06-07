@@ -1,56 +1,22 @@
 {
-  "name": "vuejs-boiler",
-  "version": "0.1.0",
-  "private": true,
+  "name": "vc-frontend-static",
+  "version": "0.0.1",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
   },
   "dependencies": {
-    "axios": "^0.21.0",
-    "core-js": "^3.7.0",
-    "tailwindcss": "^1.9.6",
-    "vue": "^3.0.2",
-    "vue-router": "^4.0.0-rc.2",
-    "vuex": "^4.0.0-rc.1"
+    "vue": "^3.0.11",
+    "vue-router": "^4.0.8",
+    "vuex": "^4.0.1"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^4.7.0",
-    "@typescript-eslint/parser": "^4.7.0",
-    "@vue/cli-plugin-babel": "~4.5.8",
-    "@vue/cli-plugin-eslint": "~4.5.8",
-    "@vue/cli-plugin-router": "~4.5.8",
-    "@vue/cli-plugin-typescript": "~4.5.8",
-    "@vue/cli-plugin-vuex": "~4.5.8",
-    "@vue/cli-service": "~4.5.8",
-    "@vue/compiler-sfc": "^3.0.2",
-    "@vue/eslint-config-airbnb": "^5.0.2",
-    "@vue/eslint-config-typescript": "^7.0.0",
-    "eslint": "^7.13.0",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-vue": "^7.1.0",
-    "typescript": "~4.0.5",
-    "vue-cli-plugin-vue-next": "~0.1.4"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/vue3-essential",
-      "@vue/airbnb",
-      "@vue/typescript/recommended"
-    ],
-    "parserOptions": {
-      "ecmaVersion": 2020
-    },
-    "rules": {}
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ]
+    "@tailwindcss/forms": "^0.3.3",
+    "@vitejs/plugin-vue": "^1.2.3",
+    "@vue/compiler-sfc": "^3.0.11",
+    "autoprefixer": "^10.2.6",
+    "tailwindcss": "^2.1.4",
+    "vite": "^2.3.6"
+  }
 }

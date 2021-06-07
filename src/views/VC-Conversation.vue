@@ -1,0 +1,9 @@
+<template>
+  <section>
+    <h1
+      class="text-4xl"
+      id="maincontent"
+      name="maincontent">
+      Conversation</h1>
+  </section>
+</template>

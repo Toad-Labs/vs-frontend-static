@@ -15,14 +15,6 @@
              <p class="text-gray-800 font-semibold">Site Title</p>
            </div>
 
-          <!-- Application links -->
-          <nav>
-            <div class="font-semibold text-gray-700">
-              <router-link to="/" active-class="text-green-600">Home</router-link> |
-              <router-link to="/about" active-class="text-green-600">About</router-link>
-            </div>
-          </nav>
-
         </div>
       </div>
     </header>
