@@ -39,6 +39,10 @@ module.exports = {
         disabledDK: "#9C9C9C",
         disabledLT: "#D6D6D6",
       },
+      "btn": {
+        dark: "#1d5b90",
+        light: "#e7e8ea",
+      }
     },
   },
 },
