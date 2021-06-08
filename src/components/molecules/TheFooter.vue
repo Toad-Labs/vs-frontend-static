@@ -8,7 +8,7 @@
             <!-- Hidden heading -->
             <h2 class="sr-only">Site Footer Information</h2>
 
-            <p>Footer information</p>
+            <p class="font-body">Footer information</p>
 
           </div>
         </div>
