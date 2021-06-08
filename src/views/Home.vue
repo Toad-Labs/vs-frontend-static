@@ -13,6 +13,7 @@
       Conversation
     </router-link>
     </p>
+    <ConversationWindow />
 
     <p>
     <router-link
@@ -26,11 +27,13 @@
 </template>
 
 <script>
+import ConversationWindow from "../components/organisms/ConversationWindow.vue"
 // @ is an alias to /src
 
 export default {
   name: 'Home',
   components: {
+    ConversationWindow
   },
 };
 </script>
