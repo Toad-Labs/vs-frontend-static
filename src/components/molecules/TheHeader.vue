@@ -8,7 +8,7 @@
           <h2 class="sr-only">Site Header Information</h2>
 
           <!-- Brand Logo -->
-          <img class="h-10" alt="Vue logo" src="../assets/logo.png">
+          <img class="h-10" alt="Vue logo" src="../../assets/logo.png">
 
           <!-- Site title -->
            <div>
