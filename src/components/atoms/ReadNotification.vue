@@ -5,7 +5,7 @@
     <p>{{dayRead}}</p>
   </div>
   <div v-else class="flex items-center justify-center h-full">
-    <div class="bg-primary-light rounded-full w-4 h-4" />
+    <div class="bg-blue-400 rounded-full w-4 h-4" />
   </div>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <h1 class="text-4xl">Inbox</h1>
+  <h1 class="font-heading text-4xl p-2">Inbox</h1>
   <inbox-item />
   <inbox-item dayRead="Weds" selected='true' />
   <inbox-item dayRead="Weds" />
