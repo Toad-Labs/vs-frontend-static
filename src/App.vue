@@ -12,7 +12,7 @@
       <main>
         <router-view/>
       </main>
-      <long-button colorClass="bg-primary-main text-gray-light" text="Provide Feedback" />
+      <long-button colorClass="bg-primary-dark text-gray-light" text="Provide Feedback" />
     </div>
 
     <!-- The footer component -->
