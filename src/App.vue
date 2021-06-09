@@ -12,9 +12,9 @@
       <main>
         <router-view/>
       </main>
+      <long-button colorClass="bg-primary-main text-gray-light" text="Provide Feedback" />
     </div>
 
-    <button-footer />
     <!-- The footer component -->
     <the-footer />
 
@@ -25,6 +25,7 @@
 import TheSkipNav from './components/molecules/TheSkipNav.vue';
 import TheHeader from './components/molecules/TheHeader.vue';
 import TheFooter from './components/molecules/TheFooter.vue';
+import LongButton from "./components/atoms/LongButton.vue";
 import ButtonFooter from './components/molecules/ButtonFooter.vue';
 
 export default ({
@@ -33,7 +34,7 @@ export default ({
     TheSkipNav,
     TheHeader,
     TheFooter,
-    ButtonFooter
+    LongButton
   },
 });
 </script>
