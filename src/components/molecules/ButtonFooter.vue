@@ -1,7 +1,6 @@
 <template>
     <div class="flex flex-col w-full items-center container mx-auto md:p-5 md:block">
-        <long-button colorClass="bg-btn-dark text-gray-light" text="Provide Feedback" />
-        <!-- <long-button colorClass="bg-btn-light text-primary-main" text="Report a problem or a mistake on this page" /> -->
+        <long-button colorClass="bg-primary-main text-gray-light" text="Provide Feedback" />
     </div>
 </template>
 
