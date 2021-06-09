@@ -1,14 +1,27 @@
 <template>
-    <div class="relative w-full border border-gray-200"> 
+    <div class="relative w-full border border-gray-200">
+        <div class="flex border border-gray-200 p-2">
+            <img src="../../assets/logo.png" alt="Bot Image." class="h-10 mt-auto w-10">
+            <span class=" font-bold pt-2 pl-2">Jerry S. (Do Not Reply)</span>
+        </div> 
         <div class="flex">
             <img src="../../assets/logo.png" alt="Bot Image." class="h-10 mt-auto w-10">
-            <div class="w-full pr-6">
-                <p class="text-center font-light text-gray-400">WEDS 10:04 AM </p>
-                <ConversationMessage :isBot=true :text="'Hi, how can I help you?'" />
-                <ConversationMessage :isBot=false :text="'I need help! My desk is on fire!'" />
-                <ConversationMessage :isBot=true :text="'I appreciate your concern. Apply water vigorously and call 911.'" />
-                <ConversationMessage :isBot=false :text="'I meant I am working too hard; I am all fired up right now.'"/>
+            <div class="w-full pr-6 overflow-auto max-h-96 flex flex-col-reverse">
+                <!-- New text dialogs need to be added at the top since the div is flex reverse -->
                 <ConversationMessage :isBot=true :text="'Oh... Well, this is akward.'" />
+                <ConversationMessage :isBot=false :text="'I meant I am working too hard; I am all fired up right now.'"/>
+                <ConversationMessage :isBot=true :text="'I appreciate your concern. Apply water vigorously and call 911.'" />                
+                <ConversationMessage :isBot=false :text="'I need help! My desk is on fire!'" />
+                <ConversationMessage :isBot=true :text="'Hi, how can I help you?'" />
+                <!-- duplicate for content placeholder -->
+                <ConversationMessage :isBot=true :text="'Oh... Well, this is akward.'" />
+                <ConversationMessage :isBot=false :text="'I meant I am working too hard; I am all fired up right now.'"/>
+                <ConversationMessage :isBot=true :text="'I appreciate your concern. Apply water vigorously and call 911.'" />                
+                <ConversationMessage :isBot=false :text="'I need help! My desk is on fire!'" />
+                <ConversationMessage :isBot=true :text="'Hi, how can I help you?'" />
+                <!-- here -->
+                 
+                <p class="text-center font-light text-gray-400">WEDS 10:04 AM </p>
             </div>     
         </div>
             <TextInput />
