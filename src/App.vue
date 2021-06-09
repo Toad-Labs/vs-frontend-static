@@ -26,7 +26,6 @@ import TheSkipNav from './components/molecules/TheSkipNav.vue';
 import TheHeader from './components/molecules/TheHeader.vue';
 import TheFooter from './components/molecules/TheFooter.vue';
 import LongButton from "./components/atoms/LongButton.vue";
-import ButtonFooter from './components/molecules/ButtonFooter.vue';
 
 export default ({
   name: 'App',
