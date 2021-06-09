@@ -30,7 +30,7 @@
         >
           <!-- Language toggle on desktop -->
 
-          <a id="lang-toggle-full" class="m-1 font-body underline">
+          <a id="lang-toggle-full" class="px-5 py-1 font-body underline">
             Français
             <!-- {language === "en" ? "English" : "Français"} -->
           </a>
@@ -41,7 +41,7 @@
         <!-- start gc logo -->
         <!-- src={language === "en" ? "../../assets/sig-blk-en.svg" : "../../assets/sig-blk-fr.svg"} -->
         <div
-          className="flex flex-col sm:flex-row container w-full mx-auto p-1 justify-between items-center"
+          className="flex flex-col sm:flex-row container w-full mx-auto py-1 px-5 justify-between items-center"
         >
           <div className="flex flex-row items-center w-full justify-between">
             <img
