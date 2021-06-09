@@ -13,7 +13,7 @@
       Conversation
     </router-link>
     </p>
-
+    
     <p>
     <router-link
         :to="{ name: 'notice'}"
