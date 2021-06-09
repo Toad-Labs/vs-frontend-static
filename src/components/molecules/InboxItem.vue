@@ -2,7 +2,7 @@
   <div :class="[selected ? 'bg-blue-100':'', 'flex items-center w-full h-16 md:h-20 border-2 border-transparent focus:border-black hover:bg-gray-100 cursor-pointer']">
     <div class="p-4">
       <p class="bg-primary-light rounded-full flex items-center justify-center font-heading w-10 h-10 md:w-12 md:h-12 text-3xl">
-        J
+        {{icon}}
       </p>
     </div>
     <div class="flex-auto truncate">
@@ -20,7 +20,8 @@ import ReadNotification from '../atoms/ReadNotification.vue';
 export default ({
   props: {  
     dayRead: String,
-    selected: Boolean
+    selected: Boolean,
+    icon: String,
   },
   setup() {
     return {
