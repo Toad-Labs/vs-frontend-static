@@ -1,12 +1,12 @@
 <template>
   <div :class="[selected ? 'bg-blue-100':'', 'flex items-center w-full h-20']">
     <div class="p-4">
-      <div class="bg-primary-light rounded-full w-12 h-12 flex items-center justify-center">
+      <p class="bg-primary-light rounded-full w-12 h-12 flex items-center justify-center font-heading text-3xl">
         J
-      </div>
+      </p>
     </div>
     <div class="flex-auto truncate">
-        <p class="font-body font-bold md:text-lg truncate overflow-ellipsis">Virtual Concierge</p>
+        <p :class="[!dayRead ? 'font-bold':'', 'font-body md:text-lg truncate overflow-ellipsis']">Virtual Concierge</p>
         <p class="font-body text-sm md:text-base truncate overflow-ellipsis">Hi Mary, I'm your Virtual Con...</p>
     </div>
     <div class="p-4 w-20 h-20">
