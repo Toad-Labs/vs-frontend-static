@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="flex m-1 items-center uppercase">
+    <div id="menu" class="flex m-1 items-center uppercase">
       {{ text }}
       <span class="pl-2">
         <svg
