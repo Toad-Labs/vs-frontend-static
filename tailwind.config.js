@@ -35,7 +35,7 @@ module.exports = {
       "gray": {
         default: "#262626",
         medium: "#8C8C8C",
-        light: "#FBFBFB",
+        light: "#F8F8F8",
         disabledDK: "#9C9C9C",
         disabledLT: "#D6D6D6",
       },

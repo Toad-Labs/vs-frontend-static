@@ -1,17 +1,13 @@
 <template>
   <div>
     <header>
-      <div class="pb-2 sm:pb-3 border-b-2 border-gray-200">
+      <div class="pb-2 sm:pb-4 border-b border-gray-200">
         <!-- Hidden heading -->
         <h2 class="sr-only">Site Header Information</h2>
         <div
-          class="
-            w-full
-            mx-auto
-            p-5
-            flex
-            items-center
-            justify-end
+          class="sm:flex
+            hidden
+            w-full mx-auto p-5 items-center justify-end
             bg-gray-default
           "
         ></div>
@@ -29,7 +25,7 @@
         >
           <!-- Language toggle on desktop -->
 
-          <a class="m-1 font-body underline">
+          <a id="lang-toggle-full" class="m-1 font-body underline">
             Français
             <!-- {language === "en" ? "English" : "Français"} -->
           </a>
@@ -44,14 +40,13 @@
         >
           <div className="flex flex-row items-center w-full justify-between">
             <img
-              className="h-6  sm:h-8 md:h-8 lg:h-7 xl:h-8  "
+              className="h-7  sm:h-8 md:h-8 mx-3 sm:mx-0 "
               src="../../assets/sig-blk-en.svg"
               alt="canada logo en"
             />
-            <a
+            <a id="lang-toggle-small"
               class="
                 sm:hidden
-                bg-blue-300
                 m-3
                 sm:m-0
                 font-semibold font-body
@@ -66,15 +61,18 @@
           <!-- start gc search bar -->
           <div className="inline-flex w-full sm:w-80 sm:h-10">
             <form
-              className="w-full inline-flex border border-solid border-gray-light-100"
+              className="w-full inline-flex border border-solid border-gray-light-100 mx-2 sm:mx-0"
             >
               <input
+              id="searchbar"
+               aria-label="Search"
                 type="text"
                 placeholder="Search Canada.ca"
                 className="w-full placeholder-text-gray text-text-gray font-body py-1 px-2 focus:outline-none"
               />
 
               <button
+              id="searchbutton"
                 title="Search bar button"
                 type="submit"
                 class="
@@ -87,7 +85,7 @@
                   focus:bg-gray-default
                 "
               >
-                <span>
+                <span id="search-icon">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="h-6 w-6"
