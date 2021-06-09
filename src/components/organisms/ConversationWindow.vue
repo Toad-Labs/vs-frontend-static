@@ -1,5 +1,5 @@
 <template>
-    <div class="relative w-full border border-gray-200">
+    <div class="relative w-full">
         <div class="flex border-b border-gray-200 p-2">
             <img src="../../assets/logo.png" alt="Bot Image." class="h-10 mt-auto w-10">
             <span class=" font-bold pt-2 pl-2">Jerry S. (Do Not Reply)</span>
