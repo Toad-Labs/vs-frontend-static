@@ -11,8 +11,8 @@
     <div class="w-full mx-auto container p-5">
       <main>
         <router-view/>
+        <feedback-button colorClass="bg-primary-dark text-gray-light" text="Provide Feedback" />
       </main>
-      <long-button colorClass="bg-primary-dark text-gray-light" text="Provide Feedback" />
     </div>
 
     <!-- The footer component -->
@@ -25,7 +25,7 @@
 import TheSkipNav from './components/molecules/TheSkipNav.vue';
 import TheHeader from './components/molecules/TheHeader.vue';
 import TheFooter from './components/molecules/TheFooter.vue';
-import LongButton from "./components/atoms/LongButton.vue";
+import FeedbackButton from "./components/atoms/FeedbackButton.vue";
 
 export default ({
   name: 'App',
@@ -33,7 +33,7 @@ export default ({
     TheSkipNav,
     TheHeader,
     TheFooter,
-    LongButton
+    FeedbackButton
   },
 });
 </script>
