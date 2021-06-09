@@ -5,9 +5,14 @@
         <!-- Hidden heading -->
         <h2 class="sr-only">Site Header Information</h2>
         <div
-          class="sm:flex
+          class="
+            sm:flex
             hidden
-            w-full mx-auto p-5 items-center justify-end
+            w-full
+            mx-auto
+            p-5
+            items-center
+            justify-end
             bg-gray-default
           "
         ></div>
@@ -44,14 +49,9 @@
               src="../../assets/sig-blk-en.svg"
               alt="canada logo en"
             />
-            <a id="lang-toggle-small"
-              class="
-                sm:hidden
-                m-3
-                sm:m-0
-                font-semibold font-body
-                underline
-              "
+            <a
+              id="lang-toggle-small"
+              class="sm:hidden m-3 sm:m-0 font-semibold font-body underline"
             >
               FR
               <!-- {language === "en" ? "EN" : "FR"} -->
@@ -64,15 +64,15 @@
               className="w-full inline-flex border border-solid border-gray-light-100 mx-2 sm:mx-0"
             >
               <input
-              id="searchbar"
-               aria-label="Search"
+                id="searchbar"
+                aria-label="Search"
                 type="text"
                 placeholder="Search Canada.ca"
                 className="w-full placeholder-text-gray text-text-gray font-body py-1 px-2 focus:outline-none"
               />
 
               <button
-              id="searchbutton"
+                id="searchbutton"
                 title="Search bar button"
                 type="submit"
                 class="
@@ -107,12 +107,29 @@
           <!-- end search bar -->
         </div>
       </div>
+      <div class="sm:flex hidden">
+        <Menu
+          class="
+            w-full
+            mx-auto
+            container
+            items-center
+            justify-start
+          "
+          text="menu"
+        ></Menu>
+      </div>
     </header>
   </div>
 </template>
 
 <script lang="ts">
+import Menu from "../atoms/Menu.vue";
 export default {
+  name: "TheHeader",
+  components: {
+    Menu,
+  },
   setup() {
     return {};
   },
