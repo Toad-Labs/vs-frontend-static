@@ -7,7 +7,7 @@
     </div>
     <div class="flex-auto truncate">
         <p :class="[!dayRead ? 'font-bold':'', 'font-body md:text-lg truncate overflow-ellipsis']">Virtual Concierge</p>
-        <p class="font-body truncate overflow-ellipsis">Hi Mary, I'm your Virtual Con...</p>
+        <p class="font-body font-light text-sm md:text-base truncate overflow-ellipsis">Hi Mary, I'm your Virtual Con...</p>
     </div>
     <div class="p-4 w-20 h-20">
       <read-notification v-bind:dayRead='dayRead' />
