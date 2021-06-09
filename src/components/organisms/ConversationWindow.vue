@@ -8,17 +8,17 @@
             <img src="../../assets/logo.png" alt="Bot Image." class="h-10 mt-auto w-10">
             <div class="w-full pr-6 overflow-auto max-h-96 flex flex-col-reverse">
                 <!-- New text dialogs need to be added at the top since the div is flex reverse -->
-                <ConversationMessage :isBot=true :text="'Oh... Well, this is akward.'" />
-                <ConversationMessage :isBot=false :text="'I meant I am working too hard; I am all fired up right now.'"/>
-                <ConversationMessage :isBot=true :text="'I appreciate your concern. Apply water vigorously and call 911.'" />                
-                <ConversationMessage :isBot=false :text="'I need help! My desk is on fire!'" />
-                <ConversationMessage :isBot=true :text="'Hi, how can I help you?'" />
+                <ConversationMessage :isUser=false :text="'Oh... Well, this is akward.'" />
+                <ConversationMessage :isUser=true :text="'I meant I am working too hard; I am all fired up right now.'"/>
+                <ConversationMessage :isUser=false :text="'I appreciate your concern. Apply water vigorously and call 911.'" />                
+                <ConversationMessage :isUser=true :text="'I need help! My desk is on fire!'" />
+                <ConversationMessage :isUser=false :text="'Hi, how can I help you?'" />
                 <!-- duplicate for content placeholder -->
-                <ConversationMessage :isBot=true :text="'Oh... Well, this is akward.'" />
-                <ConversationMessage :isBot=false :text="'I meant I am working too hard; I am all fired up right now.'"/>
-                <ConversationMessage :isBot=true :text="'I appreciate your concern. Apply water vigorously and call 911.'" />                
-                <ConversationMessage :isBot=false :text="'I need help! My desk is on fire!'" />
-                <ConversationMessage :isBot=true :text="'Hi, how can I help you?'" />
+                <ConversationMessage :isUser=false :text="'Oh... Well, this is akward.'" />
+                <ConversationMessage :isUser=true :text="'I meant I am working too hard; I am all fired up right now.'"/>
+                <ConversationMessage :isUser=false :text="'I appreciate your concern. Apply water vigorously and call 911.'" />                
+                <ConversationMessage :isUser=true :text="'I need help! My desk is on fire!'" />
+                <ConversationMessage :isUser=false :text="'Hi, how can I help you?'" />
                 <!-- here -->
                  
                 <p class="text-center font-light text-gray-400">WEDS 10:04 AM </p>
