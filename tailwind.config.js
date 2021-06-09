@@ -39,7 +39,7 @@ module.exports = {
         light: "#F8F8F8",
         disabledDK: "#9C9C9C",
         disabledLT: "#D6D6D6",
-      },
+      }
     },
   },
 },
