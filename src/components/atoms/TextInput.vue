@@ -1,6 +1,6 @@
 <template>
     <div>
-        <input type="text" placeholder="How can we help?" class="w-full border border-gray-200 p-3" />
+        <input type="text" placeholder="Write something..." class="w-full border border-gray-200 p-3" />
         <div class="w-full border border-gray-200 h-10">
             <button class="float-right cursor-pointer"><img src="../../assets/logo.png" alt="Bot Image." class="h-10 "></button>
         </div>

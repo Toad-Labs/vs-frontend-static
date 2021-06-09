@@ -13,8 +13,7 @@
       Conversation
     </router-link>
     </p>
-    <ConversationWindow />
-
+    
     <p>
     <router-link
         :to="{ name: 'notice'}"
@@ -22,18 +21,19 @@
         Notice
     </router-link>
     </p>
-
+    
+    <messages-container />
   </div>
 </template>
 
 <script>
-import ConversationWindow from "../components/organisms/ConversationWindow.vue"
+import MessagesContainer from '../components/organisms/MessagesContainer.vue';
 // @ is an alias to /src
 
 export default {
   name: 'Home',
   components: {
-    ConversationWindow
+    MessagesContainer
   },
 };
 </script>
