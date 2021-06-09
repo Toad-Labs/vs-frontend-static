@@ -5,9 +5,9 @@
         J
       </div>
     </div>
-    <div class="flex-auto">
-      <p class="font-body font-bold text-lg">Virtual Concierge</p>
-      <p class="font-body text">Hi Mary, I'm your Virtual Con...</p>
+    <div class="flex-auto truncate">
+        <p class="font-body font-bold md:text-lg truncate overflow-ellipsis">Virtual Concierge</p>
+        <p class="font-body text-sm md:text-base truncate overflow-ellipsis">Hi Mary, I'm your Virtual Con...</p>
     </div>
     <div class="p-4 w-20 h-20">
       <read-notification v-bind:dayRead='dayRead' />
