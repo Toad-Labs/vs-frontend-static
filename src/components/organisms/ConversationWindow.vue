@@ -1,12 +1,12 @@
 <template>
-    <div class="relative w-full">
+    <div class="w-full h-full flex flex-col">
         <div class="flex border-b border-gray-infomd p-2">
             <img src="../../assets/logo.png" alt="Bot Image." class="h-10 mt-auto w-10">
             <span class=" font-bold pt-2 pl-2">Jerry S. (Do Not Reply)</span>
         </div> 
-        <div class="flex">
+        <div class="flex h-full overflow-auto">
             <img src="../../assets/logo.png" alt="Bot Image." class="h-10 mt-auto w-10">
-            <div class="w-full pr-6 overflow-auto max-h-96 flex flex-col-reverse">
+            <div class="w-full pr-6 overflow-auto flex flex-col-reverse">
                 <!-- New text dialogs need to be added at the top since the div is flex reverse -->
                 <ConversationMessage :isUser=false :text="'Oh... Well, this is akward.'" />
                 <ConversationMessage :isUser=true :text="'I meant I am working too hard; I am all fired up right now.'"/>
@@ -24,7 +24,9 @@
                 <p class="text-center font-light text-gray-dark">WEDS 10:04 AM </p>
             </div>     
         </div>
-            <TextInput />
+            <!-- The logic on how the buttonOptions are passed as props will 
+                 depend on how we get the possible answers from VC. -->
+            <TextInput :buttonOptions="['Yes', 'No']" />
     </div>
 </template>
 <script>
