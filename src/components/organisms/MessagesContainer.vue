@@ -4,6 +4,7 @@
       <inbox />
     </div>
     <div class="flex-auto hidden md:block md:border md:border-gray">
+      <message-header headerText="Jerry S. (Do not reply)" imageName="logo.png" imagePath="" />
       <ConversationWindow />
     </div>
   </div>
@@ -12,11 +13,13 @@
 <script lang="ts">
 
 import Inbox from '../molecules/Inbox.vue';
+import MessageHeader from '../atoms/MessageHeader.vue'
 import ConversationWindow from "./ConversationWindow.vue";
 
 export default ({
   components: {
     ConversationWindow,
+    MessageHeader,
     Inbox,
   },
   setup() {
