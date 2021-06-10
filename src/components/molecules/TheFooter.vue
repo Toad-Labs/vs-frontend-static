@@ -1,7 +1,7 @@
 <template>
   <div>
     <footer>
-      <div class="bg-gray-light w-full p-5">
+      <div class="bg-gray-infolt w-full p-5">
         <div
           class="
             flex flex-col
@@ -23,7 +23,7 @@
             "
           >
             <!-- Hidden heading -->
-            <h2 class="sr-only bg-gray-500 p-1">Site Footer Information</h2>
+            <h2 class="sr-only p-1">Site Footer Information</h2>
             <date-modified></date-modified>
             <div class="flex justify-end sm:p-2">
               <img

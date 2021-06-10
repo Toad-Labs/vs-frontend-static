@@ -1,9 +1,9 @@
 <template>
   <div class="flex">
-    <div class="w-full md:w-1/3 md:border md:border-r-0 md:border-gray">
+    <div class="w-full md:w-1/3 md:border md:border-r-0 md:border-gray-infomd">
       <inbox />
     </div>
-    <div class="flex-auto hidden md:block md:border md:border-gray">
+    <div class="flex-auto hidden md:block md:border md:border-gray-infomd">
       <ConversationWindow />
     </div>
   </div>
