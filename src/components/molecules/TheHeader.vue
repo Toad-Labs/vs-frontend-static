@@ -110,6 +110,7 @@
       <div class="sm:flex hidden">
         <Menu
           class="
+          sm:pt-3
             w-full
             mx-auto
             container
@@ -120,7 +121,7 @@
           text="menu"
         ></Menu>
       </div>
-      <div>
+      <div class="sm:py-4">
          <Banner title="Service Canada Labs" body="This site will change as we test ideas" ></Banner>
       </div>
     </header>
