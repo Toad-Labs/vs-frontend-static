@@ -1,9 +1,0 @@
-<template>
-  <section>
-    <h1
-      class="text-4xl"
-      id="maincontent"
-      name="maincontent">
-      Notice</h1>
-  </section>
-</template>
