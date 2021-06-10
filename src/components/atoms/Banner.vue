@@ -20,7 +20,7 @@
       <div class="">
         <p
           class="
-            -mt-1
+            -mt-0.5
             px-3
             py-1
             inline-block
