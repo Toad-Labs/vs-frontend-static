@@ -24,7 +24,9 @@
                 <p class="text-center font-light text-gray-400">WEDS 10:04 AM </p>
             </div>     
         </div>
-            <TextInput />
+            <!-- The logic on how the buttonOptions are passed as props will 
+                 depend on how we get the possible answers from VC. -->
+            <TextInput :buttonOptions="['Yes', 'No']" />
     </div>
 </template>
 <script>
