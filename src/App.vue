@@ -11,7 +11,7 @@
     <div class="w-full mx-auto container p-5">
       <main>
         <router-view/>
-        <feedback-button colorClass="bg-primary-dark text-gray-light" text="Provide Feedback" />
+        <feedback-button colorClass="bg-blue-primary text-white" text="Provide Feedback" />
       </main>
     </div>
 

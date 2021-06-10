@@ -1,6 +1,6 @@
 <template>
     <div class="relative w-full">
-        <div class="flex border-b border-gray-200 p-2">
+        <div class="flex border-b border-gray-infomd p-2">
             <img src="../../assets/logo.png" alt="Bot Image." class="h-10 mt-auto w-10">
             <span class=" font-bold pt-2 pl-2">Jerry S. (Do Not Reply)</span>
         </div> 
@@ -21,7 +21,7 @@
                 <ConversationMessage :isUser=false :text="'Hi, how can I help you?'" />
                 <!-- here -->
                  
-                <p class="text-center font-light text-gray-400">WEDS 10:04 AM </p>
+                <p class="text-center font-light text-gray-dark">WEDS 10:04 AM </p>
             </div>     
         </div>
             <TextInput />
