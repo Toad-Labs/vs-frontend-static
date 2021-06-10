@@ -120,16 +120,21 @@
           text="menu"
         ></Menu>
       </div>
+      <div>
+         <Banner title="Service Canada Labs" body="This site will change as we test ideas" ></Banner>
+      </div>
     </header>
   </div>
 </template>
 
 <script lang="ts">
 import Menu from "../atoms/Menu.vue";
+import Banner from "../atoms/Banner.vue";
 export default {
   name: "TheHeader",
   components: {
     Menu,
+    Banner,
   },
   setup() {
     return {};
