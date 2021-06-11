@@ -1,10 +1,10 @@
-import { createApp } from 'vue'
-import App from './App.vue'
-import { router } from './router/index';
+import { createApp } from "vue";
+import App from "./App.vue";
+import { router } from "./router/index";
 //import { store } from './store/index';
 
 // Add tailwindcss
-import './assets/styles/main.css';
+import "./assets/styles/main.css";
 
 // Create the app
 let app = createApp(App);
@@ -16,4 +16,4 @@ app.use(router);
 // app.use(store);
 
 // Mount the app
-app.mount('#app');
+app.mount("#app");
