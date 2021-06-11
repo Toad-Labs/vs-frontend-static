@@ -4,18 +4,7 @@
       <div class="pb-2 sm:pb-4 border-b border-gray-infomd">
         <!-- Hidden heading -->
         <h2 class="sr-only">Site Header Information</h2>
-        <div
-          class="
-            sm:flex
-            hidden
-            w-full
-            mx-auto
-            p-5
-            items-center
-            justify-end
-            bg-gray-dark
-          "
-        ></div>
+     
         <div
           class="
             sm:flex
@@ -110,6 +99,7 @@
       <div class="sm:flex hidden">
         <Menu
           class="
+          sm:pt-3
             w-full
             mx-auto
             container
@@ -120,16 +110,21 @@
           text="menu"
         ></Menu>
       </div>
+      <div class="sm:py-4">
+         <Banner title="Service Canada Labs" body="This site will change as we test ideas" ></Banner>
+      </div>
     </header>
   </div>
 </template>
 
 <script lang="ts">
 import Menu from "../atoms/Menu.vue";
+import Banner from "../atoms/Banner.vue";
 export default {
   name: "TheHeader",
   components: {
     Menu,
+    Banner,
   },
   setup() {
     return {};
