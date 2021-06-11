@@ -50,14 +50,14 @@
           <!-- start gc search bar -->
           <div className="inline-flex w-full sm:w-80 sm:h-10">
             <form
-              className="w-full inline-flex border border-solid border-gray-light mx-2 sm:mx-0"
+              className="w-full inline-flex border border-gray-infomd mx-2 sm:mx-0"
             >
               <input
                 id="searchbar"
                 aria-label="Search"
                 type="text"
                 placeholder="Search Canada.ca"
-                className="w-full placeholder-gray-light text-gray-medium font-body py-1 px-2 focus:outline-none"
+                className="w-full placeholder-gray-light text-gray-dark font-body py-1 px-2 focus:outline-none"
               />
 
               <button
@@ -65,7 +65,7 @@
                 title="Search bar button"
                 type="submit"
                 class="
-                  bg-blue-primary
+                  bg-blue-deep
                   text-white text-center
                   p-2
                   rounded-none
