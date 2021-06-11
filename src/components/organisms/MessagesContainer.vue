@@ -13,8 +13,8 @@
 <script lang="ts">
 
 import Inbox from '../molecules/Inbox.vue';
-import MessageHeader from '../atoms/MessageHeader.vue'
 import ConversationWindow from "./ConversationWindow.vue";
+import MessageHeader from "../atoms/MessageHeader.vue";
 
 export default ({
   components: {

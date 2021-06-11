@@ -1,5 +1,5 @@
 <template>    
-    <button :class="'flex rounded w-11/12 justify-center py-2 md:mt-6 md:w-1/4 ' + colorClass ">
+    <button :class="'w-full rounded justify-center py-2 mt-4 md:mt-6 md:w-1/3 ' + colorClass ">
       {{ text }}
     </button>
 </template>
