@@ -11,7 +11,7 @@ import MailContainer from '../components/organisms/MailContainer.vue';
 // @ is an alias to /src
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
     MailContainer,
     MessagesContainer

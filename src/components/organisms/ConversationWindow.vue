@@ -25,13 +25,11 @@
 import ConversationMessage from "../atoms/ConversationMessage.vue";
 import TextInput from "../atoms/TextInput.vue";
 export default {
-    name: "ConversationWindow",
-    components: {
-        ConversationMessage,
-        TextInput
-    }
-}
+  name: "ConversationWindow",
+  components: {
+    ConversationMessage,
+    TextInput,
+  },
+};
 </script>
-<style scoped>
-    
-</style>
+<style scoped></style>

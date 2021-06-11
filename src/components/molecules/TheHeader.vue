@@ -4,7 +4,7 @@
       <div class="pb-2 sm:pb-4 border-b border-gray-infomd">
         <!-- Hidden heading -->
         <h2 class="sr-only">Site Header Information</h2>
-     
+
         <div
           class="
             sm:flex
@@ -19,7 +19,10 @@
         >
           <!-- Language toggle on desktop -->
 
-          <a id="lang-toggle-full" class="px-5 py-1 font-body underline text-blue-link">
+          <a
+            id="lang-toggle-full"
+            class="px-5 py-1 font-body underline text-blue-link"
+          >
             Français
             <!-- {language === "en" ? "English" : "Français"} -->
           </a>
@@ -40,7 +43,14 @@
             />
             <a
               id="lang-toggle-small"
-              class="sm:hidden m-3 sm:m-0 font-semibold font-body underline text-blue-link"
+              class="
+                sm:hidden
+                m-3
+                sm:m-0
+                font-semibold font-body
+                underline
+                text-blue-link
+              "
             >
               FR
               <!-- {language === "en" ? "EN" : "FR"} -->
@@ -50,14 +60,14 @@
           <!-- start gc search bar -->
           <div className="inline-flex w-full sm:w-80 sm:h-10">
             <form
-              className="w-full inline-flex border border-solid border-gray-light mx-2 sm:mx-0"
+              className="w-full inline-flex border border-gray-infomd mx-2 sm:mx-0"
             >
               <input
                 id="searchbar"
                 aria-label="Search"
                 type="text"
                 placeholder="Search Canada.ca"
-                className="w-full placeholder-gray-light text-gray-medium font-body py-1 px-2 focus:outline-none"
+                className="w-full placeholder-gray-light text-gray-dark font-body py-1 px-2 focus:outline-none"
               />
 
               <button
@@ -65,7 +75,7 @@
                 title="Search bar button"
                 type="submit"
                 class="
-                  bg-blue-primary
+                  bg-blue-deep
                   text-white text-center
                   p-2
                   rounded-none
@@ -99,7 +109,7 @@
       <div class="sm:flex hidden">
         <Menu
           class="
-          sm:pt-3
+            sm:pt-3
             w-full
             mx-auto
             container
@@ -111,7 +121,10 @@
         ></Menu>
       </div>
       <div class="sm:py-4">
-         <Banner title="Service Canada Labs" body="This site will change as we test ideas" ></Banner>
+        <Banner
+          title="Service Canada Labs"
+          body="This site will change as we test ideas"
+        ></Banner>
       </div>
     </header>
   </div>

@@ -5,14 +5,13 @@
 </template>
 
 <script lang="ts">
-export default ({
-    props: {
-        text: String,
-        colorClass: String
-    },
-  setup() {
-    return {
-    };
+export default {
+  props: {
+    text: String,
+    colorClass: String,
   },
-});
+  setup() {
+    return {};
+  },
+};
 </script>

@@ -17,8 +17,7 @@
             class="
               flex flex-col
               w-full
-              sm:flex-row
-              sm:items-center
+              sm:flex-row sm:items-center
               justify-between
             "
           >
