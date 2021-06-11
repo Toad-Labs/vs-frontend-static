@@ -5,12 +5,16 @@ module.exports = {
         heading: ["Lato", "sans-serif"],
         body: ["Noto sans", "sans-serif"],
       },
+      backgroundImage: (theme) => ({
+        "banner-img": "url('../../assets/v-c-banner.jpg')",
+      }),
       colors: {
         blue: {
           primary: "#4F5b8B",
           light: "#C7CFEF",
           selected: "#E6E9F7",
           link: "#284162",
+          deep: "#26374A"
         },
         gray: {
           dark: "#252525",

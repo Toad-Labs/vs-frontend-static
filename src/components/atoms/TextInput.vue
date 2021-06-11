@@ -12,7 +12,11 @@
         :text="option"
       />
       <button class="float-right cursor-pointer my-2">
-        <img src="../../assets/logo.png" alt="Bot Image." class="h-10" />
+        <img
+          src="../../assets/Send/Active/Default.svg"
+          alt="Bot Image."
+          class="h-10"
+        />
       </button>
     </div>
   </div>

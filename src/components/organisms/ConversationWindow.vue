@@ -2,7 +2,7 @@
   <div class="w-full h-full flex flex-col">
     <div class="flex border-b border-gray-infomd p-2">
       <img
-        src="../../assets/logo.png"
+        src="../../assets/UserAccount/VirtualConcierge.svg"
         alt="Bot Image."
         class="h-10 mt-auto w-10"
       />
@@ -10,7 +10,7 @@
     </div>
     <div class="flex h-full overflow-auto">
       <img
-        src="../../assets/logo.png"
+        src="../../assets/UserAccount/VirtualConcierge.svg"
         alt="Bot Image."
         class="h-10 mt-auto w-10"
       />
