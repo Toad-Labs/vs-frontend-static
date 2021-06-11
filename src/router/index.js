@@ -1,8 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../views/Home.vue';
 
-const VCConversation = () => import('../views/VC-Conversation.vue');
-const VCNotice = () => import('../views/VC-Notice.vue');
 const NotFound = () => import('../views/NotFound.vue');
 
 export const router = createRouter({
@@ -12,16 +10,6 @@ export const router = createRouter({
       path: '/',
       name: 'home',
       component: Home,
-    },
-    {
-      path: '/conversation',
-      name: 'conversation',
-      component: VCConversation,
-    },
-    {
-      path: '/notice',
-      name: 'notice',
-      component: VCNotice,
     },
     {
       path: '/404',

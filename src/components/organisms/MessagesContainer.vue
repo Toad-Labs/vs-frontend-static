@@ -1,9 +1,9 @@
 <template>
-  <div class="flex">
-    <div class="w-full md:w-1/3 md:border md:border-r-0 md:border-gray">
+  <div class="flex md:h-96">
+    <div class="w-full md:w-1/3 md:border md:border-r-0 md:border-gray flex flex-col">
       <inbox />
     </div>
-    <div class="flex-auto hidden md:block md:border md:border-gray">
+    <div :class='[drawerOpen? "": "hidden", "bg-white w-screen h-screen absolute md:relative top-0 left-0 md:flex-auto md:block md:border md:border-gray md:h-full"]'>
       <message-header headerText="Jerry S. (Do not reply)" imageName="logo.png" imagePath="" />
       <ConversationWindow />
     </div>
@@ -17,6 +17,9 @@ import ConversationWindow from "./ConversationWindow.vue";
 import MessageHeader from "../atoms/MessageHeader.vue";
 
 export default ({
+  props: {  
+    drawerOpen: Boolean,
+  },
   components: {
     ConversationWindow,
     MessageHeader,
