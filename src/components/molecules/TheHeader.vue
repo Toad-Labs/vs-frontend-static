@@ -4,18 +4,7 @@
       <div class="pb-2 sm:pb-4 border-b border-gray-infomd">
         <!-- Hidden heading -->
         <h2 class="sr-only">Site Header Information</h2>
-        <div
-          class="
-            sm:flex
-            hidden
-            w-full
-            mx-auto
-            p-5
-            items-center
-            justify-end
-            bg-gray-dark
-          "
-        ></div>
+     
         <div
           class="
             sm:flex

@@ -20,7 +20,6 @@
       <div>
         <p
           class="
-            
             px-3
             py-1
             inline-block
