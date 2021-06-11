@@ -5,8 +5,8 @@
     </div>
     <div class="flex-auto hidden md:block md:border md:border-gray">
       <message-header
-        imagePath="User Account/Medium/"
-        imageName="Mail@2x.png"
+        imagePath="UserAccount/"
+        imageName="Mail.svg"
         headerText="Job Bank"
       />
       <message-list />
