@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col h-96 bg-gray-infolt p-6 space-y-6 overflow-auto"> 
+    <div class="bg-gray-infolt p-6 space-y-6 overflow-auto"> 
         <message-card 
             timestamp="Weds, May 14th, 10:04 am" 
             title="Your Employment Insurance Claim - You've been subscribed to Job Alerts" 
