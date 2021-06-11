@@ -4,15 +4,15 @@
       <img
         src="../../assets/UserAccount/VirtualConcierge.svg"
         alt="Bot Image."
-        class="h-10 mt-auto w-10"
+        class="h-9 mt-auto w-10"
       />
-      <span class="font-bold pt-2 pl-2">Jerry S. (Do Not Reply)</span>
+      <span class="font-bold pt-2 pl-2">Virtual Concierge</span>
     </div>
     <div class="flex h-full overflow-auto">
       <img
         src="../../assets/UserAccount/VirtualConcierge.svg"
         alt="Bot Image."
-        class="h-10 mt-auto w-10"
+        class="h-6 mt-auto w-10 mb-3"
       />
       <div class="w-full pr-6 overflow-auto flex flex-col-reverse">
         <!-- New text dialogs need to be added at the top since the div is flex reverse -->

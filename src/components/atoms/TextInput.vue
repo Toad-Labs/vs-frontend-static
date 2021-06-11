@@ -1,24 +1,22 @@
 <template>
-  <div>
-    <input
-      type="text"
-      placeholder="Write something..."
-      class="w-full border-t border-b border-gray-200 p-3"
+  <input
+    type="text"
+    placeholder="Write something..."
+    class="w-full border-t border-b border-gray-200 p-3 mb-px"
+  />
+  <div class="w-full bg-gray-infolt">
+    <chat-option-button
+      v-for="(option, index) in buttonOptions"
+      :key="index"
+      :text="option"
     />
-    <div class="w-full">
-      <chat-option-button
-        v-for="(option, index) in buttonOptions"
-        :key="index"
-        :text="option"
+    <button class="float-right cursor-pointer my-2">
+      <img
+        src="../../assets/Send/Active/Default.svg"
+        alt="Bot Image."
+        class="h-8"
       />
-      <button class="float-right cursor-pointer my-2">
-        <img
-          src="../../assets/Send/Active/Default.svg"
-          alt="Bot Image."
-          class="h-10"
-        />
-      </button>
-    </div>
+    </button>
   </div>
 </template>
 <script>

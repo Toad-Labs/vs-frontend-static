@@ -11,7 +11,7 @@
     </div>
     <div
       :class="[
-        !drawerOpen ? '' : 'hidden',
+        drawerOpen ? '' : 'hidden',
         'bg-white w-screen h-screen absolute md:relative top-0 left-0 md:flex-auto md:block md:border md:border-gray md:h-full',
       ]"
     >
