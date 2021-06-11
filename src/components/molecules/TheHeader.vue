@@ -30,7 +30,10 @@
         >
           <!-- Language toggle on desktop -->
 
-          <a id="lang-toggle-full" class="px-5 py-1 font-body underline text-blue-link">
+          <a
+            id="lang-toggle-full"
+            class="px-5 py-1 font-body underline text-blue-link"
+          >
             Français
             <!-- {language === "en" ? "English" : "Français"} -->
           </a>
@@ -51,7 +54,14 @@
             />
             <a
               id="lang-toggle-small"
-              class="sm:hidden m-3 sm:m-0 font-semibold font-body underline text-blue-link"
+              class="
+                sm:hidden
+                m-3
+                sm:m-0
+                font-semibold font-body
+                underline
+                text-blue-link
+              "
             >
               FR
               <!-- {language === "en" ? "EN" : "FR"} -->

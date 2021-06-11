@@ -1,8 +1,8 @@
 <template>
-
-  
   <div v-if="dayRead" class="flex items-center">
-    <p class="font-body font-light text-sm md:text-base w-full text-center">{{dayRead}}</p>
+    <p class="font-body font-light text-sm md:text-base w-full text-center">
+      {{ dayRead }}
+    </p>
   </div>
   <div v-else class="flex items-center justify-center h-full">
     <div class="bg-alert-main rounded-full w-4 h-4" />
@@ -10,14 +10,12 @@
 </template>
 
 <script lang="ts">
-export default ({
+export default {
   props: {
-    dayRead: String
+    dayRead: String,
   },
   setup() {
-    return {
-    };
+    return {};
   },
-
-});
+};
 </script>

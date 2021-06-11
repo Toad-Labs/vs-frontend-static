@@ -24,9 +24,9 @@
 
 <script lang="ts">
 export default {
-       props: {
-        text: String
-    },
+  props: {
+    text: String,
+  },
   setup() {
     return {};
   },

@@ -10,8 +10,8 @@
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
-    "lint": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,md}\"",
-    "lint:formatting": "prettier --check \"src/**/*.{js,jsx,ts,tsx,json,md}\""
+    "lint": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,md,vue}\"",
+    "lint:formatting": "prettier --check \"src/**/*.{js,jsx,ts,tsx,json,md,vue}\""
   },
   "dependencies": {
     "husky": "^4.3.0",
@@ -30,7 +30,7 @@
     "vite": "^2.3.6"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx,json,md}": [
+    "src/**/*.{js,jsx,ts,tsx,json,md,vue}": [
       "prettier --write"
     ]
   }
