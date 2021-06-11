@@ -17,10 +17,10 @@
       >
         {{ title }}
       </h1>
-      <div class="">
+      <div>
         <p
           class="
-            -mt-0.5
+            
             px-3
             py-1
             inline-block
