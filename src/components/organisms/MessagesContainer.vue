@@ -3,8 +3,9 @@
     <div
       class="
         w-full
-        md:w-1/3 md:border md:border-r-0 md:border-gray
-        flex flex-col
+        md:w-1/3 md:max-w-sm
+        md:border md:border-r-0 md:border-gray
+        flex flex-col flex-shrink-0
       "
     >
       <inbox />
