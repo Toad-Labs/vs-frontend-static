@@ -1,7 +1,6 @@
 <template>
   <div class="home">
-    <!-- <messages-container /> -->
-    <mail-container />
+    <messages-container />
   </div>
 </template>
 

@@ -14,7 +14,6 @@
             <ConversationMessage :isUser=false :text="'I appreciate your concern. Apply water vigorously and call 911.'" />                
             <ConversationMessage :isUser=true :text="'I need help! My desk is on fire!'" />
             <ConversationMessage :isUser=false :text="'Hi, how can I help you?'" />
-            <!-- here -->
                 
             <p class="text-center font-light text-gray-400">WEDS 10:04 AM </p>
         </div>     

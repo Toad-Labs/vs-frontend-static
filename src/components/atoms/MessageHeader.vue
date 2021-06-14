@@ -1,6 +1,6 @@
 <template>
     <div class="flex border-b border-gray-200 p-2">
-        <img :src="'../src/assets/' + imagePath + imageName" :alt="altText" class="h-10 mt-auto w-10">
+        <img :src="'../src/assets/' + imagePath" :alt="altText" class="h-10 mt-auto w-10">
         <span class=" font-bold pt-2 pl-2">{{ headerText }}</span>
     </div> 
 </template>
@@ -9,7 +9,6 @@
 export default {
     props: {
         imagePath: String,
-        imageName: String,
         altText: String,
         headerText: String,
     },
