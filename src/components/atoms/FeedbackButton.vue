@@ -1,7 +1,7 @@
 <template>
   <button
     :class="
-      'w-full rounded justify-center py-2 mt-6 md:mt-6 md:w-1/3 md:max-w-sm'+' '+ colorClass
+      'w-full rounded justify-center py-2 mt-6 md:w-1/3 md:max-w-sm'+' '+ colorClass
     "
   >
     {{ text }}
