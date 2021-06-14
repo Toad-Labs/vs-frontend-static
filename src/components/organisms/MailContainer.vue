@@ -7,6 +7,7 @@
       <message-header
         imagePath="UserAccount/"
         imageName="Mail.svg"
+        altText="Mail"
         headerText="Job Bank"
       />
       <message-list />

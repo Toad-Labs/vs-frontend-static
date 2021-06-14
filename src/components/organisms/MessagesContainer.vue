@@ -10,7 +10,7 @@
       <inbox />
     </div>
     <div :class='[drawerOpen? "": "hidden", "bg-white w-screen h-screen absolute md:relative top-0 left-0 md:flex-auto md:block md:border md:border-gray md:h-full"]'>
-      <message-header headerText="Jerry S. (Do not reply)" imageName="logo.png" imagePath="" />
+      <message-header headerText="Jerry S. (Do not reply)" imageName="logo.png" imagePath="" altText="Concierge" />
       <ConversationWindow />
     </div>
   </div>
