@@ -11,7 +11,7 @@ import MessagesContainer from '../components/organisms/MessagesContainer.vue';
 export default {
   name: "Home",
   components: {
-    MailContainer,
+    MessagesContainer,
   },
 };
 </script>
