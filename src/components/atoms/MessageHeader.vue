@@ -9,7 +9,9 @@
 import icons from "../../assets/UserAccount/icons.js";
 export default {
     data () {
-        return icons;
+        return {
+            icons
+        };
     },
     props: {
         imageName: String,
