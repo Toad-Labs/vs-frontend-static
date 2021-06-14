@@ -28,7 +28,7 @@
     <!-- Message List -->
     <div class="flex-auto hidden md:block md:border md:border-gray">
       <message-header
-        imagePath="UserAccount/Mail.svg"
+        imageName="Mail"
         altText="Mail"
         headerText="Job Bank"
       />
