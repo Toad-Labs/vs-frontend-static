@@ -9,7 +9,8 @@
       ml-3
       mr-1
       rounded-3xl
-      hover:bg-gray-200
+      bg-white
+      hover:bg-gray-infolt
     "
     @click="sendFromButton"
   >

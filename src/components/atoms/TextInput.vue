@@ -2,21 +2,20 @@
   <input
     type="text"
     placeholder="Write something..."
-    class="w-full border-t border-b border-gray-200 p-3 mb-px"
+    class="w-full border-t border-b border-gray-200 p-3"
     v-model="text"
   />
-  <div class="w-full bg-gray-infolt">
+  <div class="w-full bg-gray-infolt mt-px">
     <chat-option-button
       v-for="(option, index) in buttonOptions"
       :key="index"
       :text="option"
       @send-button="sendBtnText"
     />
-    <button class="float-right cursor-pointer my-2" @click="sendText">
+    <button class="float-right cursor-pointer" @click="sendText">
       <img
         src="../../assets/Send/Active/Default.svg"
         alt="Bot Image."
-        class="h-8"
       />
     </button>
   </div>
