@@ -1,10 +1,10 @@
 <template>
   <div>
     <header>
-      <div class="pb-2 sm:pb-4 border-b border-gray-infomd">
+      <div class="pb-2 sm:pb-4 sm:border-b sm:border-gray-infomd">
         <!-- Hidden heading -->
         <h2 class="sr-only">Site Header Information</h2>
-
+        <!-- Language toggle on desktop -->
         <div
           class="
             sm:flex
@@ -17,8 +17,6 @@
             justify-end
           "
         >
-          <!-- Language toggle on desktop -->
-
           <a
             id="lang-toggle-full"
             class="px-5 py-1 font-body underline text-blue-link"
@@ -26,18 +24,17 @@
             Français
             <!-- {language === "en" ? "English" : "Français"} -->
           </a>
-
-          <!-- end lang toggle desktop -->
         </div>
+        <!-- end lang toggle desktop -->
 
-        <!-- start gc logo -->
+        <!-- start gc logo with mobile lang toggle -->
         <!-- src={language === "en" ? "../../assets/sig-blk-en.svg" : "../../assets/sig-blk-fr.svg"} -->
         <div
           className="flex flex-col sm:flex-row container w-full mx-auto py-1 px-5 justify-between items-center"
         >
           <div className="flex flex-row items-center w-full justify-between">
             <img
-              className="h-7  sm:h-8 md:h-8 mx-3 sm:mx-0 "
+              className="h-5 xs:h-7 sm:h-8 md:h-10 mx-3 xs:mx-0"
               src="../../assets/sig-blk-en.svg"
               alt="canada logo en"
             />
@@ -58,7 +55,7 @@
           </div>
           <!-- end gc logo -->
           <!-- start gc search bar -->
-          <div className="inline-flex w-full sm:w-80 sm:h-10">
+          <div className=" sm:flex hidden w-full sm:w-80 sm:h-10">
             <form
               className="w-full inline-flex border border-gray-infomd mx-2 sm:mx-0"
             >
