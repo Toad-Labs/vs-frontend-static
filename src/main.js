@@ -1,7 +1,7 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 import { router } from "./router/index";
-//import { store } from './store/index';
+import { store } from './store/index';
 
 // Add tailwindcss
 import "./assets/styles/main.css";
@@ -13,7 +13,7 @@ let app = createApp(App);
 app.use(router);
 
 // Setup Vue to use the Vuex store
-// app.use(store);
+app.use(store);
 
 // Mount the app
 app.mount("#app");
