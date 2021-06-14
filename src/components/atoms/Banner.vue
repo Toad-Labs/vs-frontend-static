@@ -1,9 +1,10 @@
 <template>
-  <div class="bg-banner-img bg-cover py-8 px-2 sm:p-10">
+  <div class="bg-banner-img bg-cover py-2 sm:py-8 px-2 sm:p-10">
     <div class="mx-auto container sm:px-3">
       <h1
         class="
-          text-3xl
+          text-2xl
+          xs:text-3xl
           sm:text-4xl
           px-3
           py-1
