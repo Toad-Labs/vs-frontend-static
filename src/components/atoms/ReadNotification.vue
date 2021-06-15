@@ -1,6 +1,6 @@
 <template>
   <div v-if="dayRead" class="flex items-center">
-    <p class="font-body font-light text-sm md:text-base w-full text-center">
+    <p class="font-heading font-light text-sm md:text-sm w-full text-center">
       {{ dayRead }}
     </p>
   </div>
