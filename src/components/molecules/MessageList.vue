@@ -5,25 +5,12 @@
       <message-card
         timestamp="Weds, May 14th, 10:04 am"
         title="Your Employment Insurance Claim - You've been subscribed to Job Alerts"
-        :paragraphs="`Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-            Harum ea eos ducimus nulla sit quae, commodi eaque ut eveniet laudantium amet maxime consectetur, facere repellendus ipsum tenetur numquam officia mollitia?
-            Aliquam fuga aliquid quidem, nesciunt laudantium ducimus accusamus velit nemo distinctio molestias, dolorum veritatis culpa rem nobis tempore libero id odit, delectus quisquam necessitatibus esse. Facilis, dolorum!            
-            
-            Thank You,
-            
-            Job Bank`"
+        :paragraphs="`You are receiving this email because you recently completed an application for Employment Insurance. When you filed your claim, you agreed to be actively looking for work. To help you with your job search, we’ve subscribed you to Job Alerts.
+
+Thank you,
+
+Job Bank`"
       />
-      <!-- <message-card
-        timestamp="Weds, May 14th, 10:04 am"
-        title="Your Employment Insurance Claim - You've been subscribed to Job Alerts"
-        :paragraphs="`Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-            Harum ea eos ducimus nulla sit quae, commodi eaque ut eveniet laudantium amet maxime consectetur, facere repellendus ipsum tenetur numquam officia mollitia?
-            Aliquam fuga aliquid quidem, nesciunt laudantium ducimus accusamus velit nemo distinctio molestias, dolorum veritatis culpa rem nobis tempore libero id odit, delectus quisquam necessitatibus esse. Facilis, dolorum!            
-            
-            Thank You,
-            
-            Job Bank`"
-      /> -->
       <!--  Note that multiple message cards can be added into this component. If you want to view yourself, you can copy-paste the above -->
     </div>
   </div>
