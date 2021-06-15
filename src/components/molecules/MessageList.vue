@@ -13,7 +13,7 @@
             
             Job Bank`"
       />
-      <message-card
+      <!-- <message-card
         timestamp="Weds, May 14th, 10:04 am"
         title="Your Employment Insurance Claim - You've been subscribed to Job Alerts"
         :paragraphs="`Lorem ipsum dolor sit amet consectetur adipisicing elit. 
@@ -23,7 +23,7 @@
             Thank You,
             
             Job Bank`"
-      />
+      /> -->
       <!--  Note that multiple message cards can be added into this component. If you want to view yourself, you can copy-paste the above -->
     </div>
   </div>
