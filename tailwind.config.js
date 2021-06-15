@@ -1,5 +1,10 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
 module.exports = {
   theme: {
+    screens: {
+      'xs': '376px',
+      ...defaultTheme.screens,
+    },
     extend: {
       fontFamily: {
         heading: ["Lato", "sans-serif"],

@@ -2,7 +2,7 @@
   <h1 class="font-heading text-4xl p-2">Inbox</h1>
   <div class="md:overflow-auto">
     <inbox-item tabindex="0" icon="V" />
-    <inbox-item tabindex="0" dayRead="Weds" selected='true' icon="K" />
+    <inbox-item tabindex="0" dayRead="Weds" selected="true" icon="K" />
     <inbox-item tabindex="0" dayRead="Thurs" icon="J" />
     <inbox-item tabindex="0" icon="N" />
     <inbox-item tabindex="0" icon="R" />
@@ -12,15 +12,13 @@
 </template>
 
 <script lang="ts">
-import InboxItem from './InboxItem.vue';
-export default ({
-
+import InboxItem from "./InboxItem.vue";
+export default {
   setup() {
-    return {
-    };
+    return {};
   },
   components: {
-    InboxItem
+    InboxItem,
   },
-});
+};
 </script>
