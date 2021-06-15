@@ -31,9 +31,6 @@ export default {
   components: {
     ConversationWindow,
     Inbox,
-  },
-  setup() {
-    return {};
-  },
+  }
 };
 </script>

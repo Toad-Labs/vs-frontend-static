@@ -45,10 +45,10 @@ export default {
     const store = useStore();
     function sendMessage(msg) {
       const newMessage = {isUser: true, text: msg}
-      store.dispatch("sendMessage", newMessage);
+      store.dispatch("inbox/sendMessage", newMessage);
     }
   return{
-    chatbotConvo: computed(() => store.state.messages.chatbot),
+    chatbotConvo: computed(() => store.getters["inbox/getInbox"]),
     sendMessage
   }
   }
