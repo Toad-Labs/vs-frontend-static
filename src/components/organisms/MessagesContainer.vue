@@ -11,6 +11,7 @@
     >
       <inbox />
     </div>
+    <!-- Conversation Window -->
     <!-- <div
       :class="[
         drawerOpen ? '' : 'hidden',

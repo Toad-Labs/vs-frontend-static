@@ -2,8 +2,8 @@
   <div class="w-full h-full flex flex-col">
       <message-header
         imageName="VC"
-        altText="VC"
-        headerText="VC"
+        altText="Virtual Concierge"
+        headerText="Virtual Concierge"
       />
     <div class="flex h-full overflow-auto">
       <img
