@@ -1,13 +1,10 @@
 <template>
   <div class="w-full h-full flex flex-col">
-    <div class="flex border-b border-gray-infomd p-2">
-      <img
-        src="../../assets/UserAccount/VirtualConcierge.svg"
-        alt="Bot Image."
-        class="h-9 mt-auto w-10"
+      <message-header
+        imageName="VC"
+        altText="Virtual Concierge"
+        headerText="Virtual Concierge"
       />
-      <span class="font-bold pt-2 pl-2">Virtual Concierge</span>
-    </div>
     <div class="flex h-full overflow-auto">
       <img
         src="../../assets/UserAccount/VirtualConcierge.svg"
@@ -57,7 +54,6 @@
           :isUser="false"
           :text="'Hi, how can I help you?'"
         />
-        <!-- here -->
 
         <p class="text-center font-light text-gray-dark">WEDS 10:04 AM</p>
       </div>
@@ -69,11 +65,13 @@
 </template>
 <script>
 import ConversationMessage from "../atoms/ConversationMessage.vue";
+import MessageHeader from "../atoms/MessageHeader.vue";
 import TextInput from "../atoms/TextInput.vue";
 export default {
   name: "ConversationWindow",
   components: {
     ConversationMessage,
+    MessageHeader,
     TextInput,
   },
 };
