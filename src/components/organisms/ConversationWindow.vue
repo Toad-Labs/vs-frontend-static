@@ -12,61 +12,27 @@
         class="h-6 mt-auto w-10 mb-3"
       />
       <div class="w-full pr-6 overflow-auto flex flex-col-reverse">
-        <!-- New text dialogs need to be added at the top since the div is flex reverse -->
         <ConversationMessage
-          :isUser="false"
-          :text="'Oh... Well, this is akward.'"
+          v-for="(message, index) in chatbotConvo"
+          :key="index"
+          :isUser="message.isUser"
+          :text="message.text"
         />
-        <ConversationMessage
-          :isUser="true"
-          :text="'I meant I am working too hard; I am all fired up right now.'"
-        />
-        <ConversationMessage
-          :isUser="false"
-          :text="'I appreciate your concern. Apply water vigorously and call 911.'"
-        />
-        <ConversationMessage
-          :isUser="true"
-          :text="'I need help! My desk is on fire!'"
-        />
-        <ConversationMessage
-          :isUser="false"
-          :text="'Hi, how can I help you?'"
-        />
-        <!-- duplicate for content placeholder -->
-        <ConversationMessage
-          :isUser="false"
-          :text="'Oh... Well, this is akward.'"
-        />
-        <ConversationMessage
-          :isUser="true"
-          :text="'I meant I am working too hard; I am all fired up right now.'"
-        />
-        <ConversationMessage
-          :isUser="false"
-          :text="'I appreciate your concern. Apply water vigorously and call 911.'"
-        />
-        <ConversationMessage
-          :isUser="true"
-          :text="'I need help! My desk is on fire!'"
-        />
-        <ConversationMessage
-          :isUser="false"
-          :text="'Hi, how can I help you?'"
-        />
-
         <p class="text-center font-light text-gray-dark">WEDS 10:04 AM</p>
       </div>
     </div>
     <!-- The logic on how the buttonOptions are passed as props will 
                  depend on how we get the possible answers from VC. -->
-    <TextInput :buttonOptions="['Yes', 'No']" />
+    <TextInput :buttonOptions="['Yes', 'No']" @add-message="sendMessage"/>
   </div>
 </template>
 <script>
 import ConversationMessage from "../atoms/ConversationMessage.vue";
 import MessageHeader from "../atoms/MessageHeader.vue";
 import TextInput from "../atoms/TextInput.vue";
+import { useStore } from "vuex";
+import { computed } from "vue";
+
 export default {
   name: "ConversationWindow",
   components: {
@@ -74,6 +40,17 @@ export default {
     MessageHeader,
     TextInput,
   },
+  setup() {
+    const store = useStore();
+    function sendMessage(msg) {
+      const newMessage = {isUser: true, text: msg}
+      store.dispatch("inbox/sendMessage", newMessage);
+    }
+  return{
+    chatbotConvo: computed(() => store.getters["inbox/getInbox"]),
+    sendMessage
+  }
+  }
 };
 </script>
 <style scoped></style>

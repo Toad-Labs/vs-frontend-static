@@ -3,14 +3,16 @@
     type="text"
     placeholder="Write something..."
     class="w-full border-t border-b border-gray-200 p-3"
+    v-model="text"
   />
   <div class="w-full bg-gray-infolt mt-px">
     <chat-option-button
       v-for="(option, index) in buttonOptions"
       :key="index"
       :text="option"
+      @send-button="sendBtnText"
     />
-    <button class="float-right cursor-pointer">
+    <button class="float-right cursor-pointer" @click="sendText">
       <img
         src="../../assets/Send/Active/Default.svg"
         alt="Bot Image."
@@ -27,7 +29,26 @@ export default {
   },
   components: {
     ChatOptionButton,
-  },
+  }, 
+  emits: ["add-message"],
+  setup(_, context){
+    const text = "";
+    function sendText(){
+      if(this.text.length > 0){
+        context.emit("add-message", this.text)
+      }
+    }
+    function sendBtnText(btnText) {
+    if(btnText.length > 0){
+        context.emit("add-message", btnText)
+      }
+    }
+    return {
+      text,
+      sendText,
+      sendBtnText
+    }
+  }
 };
 </script>
 <style scoped></style>

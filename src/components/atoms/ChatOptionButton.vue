@@ -12,6 +12,7 @@
       bg-white
       hover:bg-gray-infolt
     "
+    @click="sendFromButton"
   >
     {{ text }}
   </button>
@@ -21,5 +22,14 @@ export default {
   props: {
     text: String,
   },
+  setup(props, context) {
+    function sendFromButton (){
+      // console.log(props.text);
+      context.emit("send-button", props.text)
+    }
+    return {
+      sendFromButton
+    }
+  }
 };
 </script>
