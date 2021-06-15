@@ -33,14 +33,10 @@
         Virtual Concierge
       </p>
       <p
-        class="
-          font-body font-light
-          text-sm
-          md:text-base
-          truncate
-          overflow-ellipsis
-          text-gray-dark
-        "
+        :class="[
+          !dayRead ? 'font-body' : 'font-heading font-light',
+          'text-sm md:text-base truncate overflow-ellipsis text-gray-dark',
+        ]"
       >
         Hi Mary, I'm your Virtual Con...
       </p>

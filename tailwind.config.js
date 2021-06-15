@@ -50,6 +50,9 @@ module.exports = {
           light: "#FFC7BD",
         },
       },
+      height:{
+        "vh-1/2": "50vh"
+      }
     },
   },
   variants: {},
