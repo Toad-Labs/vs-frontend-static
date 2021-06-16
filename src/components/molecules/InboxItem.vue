@@ -5,7 +5,7 @@
       'flex items-center w-full h-16 md:h-20 border-2 border-transparent focus:border-black hover:bg-gray-100 cursor-pointer',
     ]"
   >
-    <div class="p-4">
+    <div class="p-2 md:p-4">
       <p
         class="
           bg-blue-light
@@ -41,7 +41,7 @@
         Hi Mary, I'm your Virtual Con...
       </p>
     </div>
-    <div class="p-4 w-20 h-20">
+    <div class="p-4 w-20 h-full">
       <read-notification v-bind:dayRead="dayRead" />
     </div>
   </div>
