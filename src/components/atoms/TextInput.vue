@@ -4,6 +4,7 @@
     placeholder="Write something..."
     class="w-full border-t border-b border-gray-200 p-3"
     v-model="text"
+    @keyup.enter="sendText"
   />
   <div class="w-full bg-gray-infolt mt-px">
     <chat-option-button
