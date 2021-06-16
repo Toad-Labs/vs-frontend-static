@@ -34,7 +34,7 @@
         >
           <div className="flex flex-row items-center w-full justify-between">
             <img
-              className="h-5 xs:h-7 sm:h-8 md:h-10 mx-3 xs:mx-0"
+              className="h-5 xs:h-7 sm:h-8 md:h-9 mx-3 xs:mx-0"
               src="../../assets/sig-blk-en.svg"
               alt="canada logo en"
             />
