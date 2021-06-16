@@ -38,6 +38,7 @@ export default {
   },
   components: {
     ConversationWindow,
+    MessageList,
     Inbox,
   }
 };
