@@ -5,7 +5,7 @@
       tabindex="0"
       :senderName="'Virtual Concierge'"
       :bodyText="'Hi Mary, I am your virtual concierge and I am a robot'"
-      :icon="'src/assets/UserAccount/VirtualConcierge.svg'"
+      imageName="VC"
     />
     <inbox-item
       tabindex="0"
@@ -13,7 +13,7 @@
       :selected="true"
       :senderName="'Job Bank'"
       :bodyText="'Your Employment Insurance Concierge'"
-      :icon="'src/assets/UserAccount/Mail.svg'"
+      imageName="Mail"
     />
     <!-- <inbox-item
       tabindex="0"

@@ -8,7 +8,7 @@
     <div class="p-1">
       <img
         class="w-12 h-12 md:w-12 md:h-12"
-        :src="icon"
+        :src="icons[imageName]"
         :alt="altText"
         role="presentation"
         aria-hidden="true"
@@ -39,18 +39,21 @@
 </template>
 
 <script lang="ts">
+import icons from "../../assets/UserAccount/icons.js";
 import ReadNotification from "../atoms/ReadNotification.vue";
 export default {
   props: {
     dayRead: String,
     selected: Boolean,
-    icon: String,
+    imageName: String,
     senderName: String,
     bodyText: String,
     altText: String,
   },
   setup() {
-    return {};
+    return {
+      icons,
+    };
   },
   components: {
     ReadNotification,
