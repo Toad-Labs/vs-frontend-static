@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="dayRead"
-    class="flex-auto items-baseline h-16 w-16 md:h-20 md:w-20 bg-yellow-300"
+    class="flex-auto items-baseline h-16 w-16 md:h-20 md:w-20"
   >
     <p
       class="
@@ -11,7 +11,6 @@
         w-full
         text-center
         pt-4
-        bg-pink-300
       "
     >
       {{ dayRead }}
@@ -26,8 +25,7 @@
       h-16
       w-16
       md:h-20 md:w-20
-      pb-4
-      bg-blue-400
+      pb-5
     "
   >
     <div class="bg-alert-main rounded-full w-4 h-4" />

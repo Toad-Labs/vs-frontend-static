@@ -3,9 +3,7 @@
     <div
       class="
         w-full
-        md:w-1/3
-        md:max-w-sm
-        md:border md:border-r-0 md:border-gray
+        md:w-1/3 md:max-w-sm md:border md:border-r-0 md:border-gray
         flex flex-col flex-shrink-0
       "
     >
@@ -21,7 +19,7 @@
       <ConversationWindow />
     </div> -->
     <!-- Message List -->
-    <div class="flex-auto hidden md:block md:border md:border-gray md:max-h-96">
+    <div class="flex-auto hidden md:block md:border md:border-gray">
       <message-list />
     </div>
   </div>
@@ -38,7 +36,8 @@ export default {
   },
   components: {
     ConversationWindow,
+    MessageList,
     Inbox,
-  }
+  },
 };
 </script>

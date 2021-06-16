@@ -15,7 +15,7 @@
       :bodyText="'Your Employment Insurance Concierge'"
       :icon="'src/assets/UserAccount/Mail.svg'"
     />
-    <inbox-item
+    <!-- <inbox-item
       tabindex="0"
       dayRead="Thurs"
       :icon="'src/assets/UserAccount/VirtualConcierge.svg'"
@@ -23,7 +23,7 @@
     <inbox-item
       tabindex="0"
       :icon="'src/assets/UserAccount/VirtualConcierge.svg'"
-    />
+    /> -->
   </div>
 </template>
 

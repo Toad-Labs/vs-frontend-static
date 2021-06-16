@@ -1,11 +1,11 @@
 <template>
   <div
     :class="[
-      selected ? 'bg-blue-selected rounded-none' : 'bg-indigo-300',
+      selected ? 'bg-blue-selected rounded-none' : '',
       'flex items-center w-full h-16 md:h-20 rounded focus:border-black hover:bg-gray-infolt cursor-pointer',
     ]"
   >
-    <div class="p-1 bg-pink-200">
+    <div class="p-1">
       <img
         class="w-12 h-12 md:w-12 md:h-12"
         :src="icon"
@@ -18,7 +18,7 @@
       <p
         :class="[
           !dayRead ? 'font-bold' : '',
-          'font-body md:text-lg truncate overflow-ellipsis text-gray-dark bg-yellow-300',
+          'font-body md:text-lg truncate overflow-ellipsis text-gray-dark pl-1',
         ]"
       >
         {{ senderName }}
@@ -26,7 +26,7 @@
       <p
         :class="[
           !dayRead ? 'font-body' : 'font-heading font-light',
-          'text-sm md:text-lg truncate overflow-ellipsis text-gray-dark bg-secondary-light',
+          'text-sm md:text-lg truncate overflow-ellipsis text-gray-dark pl-1',
         ]"
       >
         {{ bodyText }}
