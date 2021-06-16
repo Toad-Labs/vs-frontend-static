@@ -2,82 +2,56 @@
 // import InboxService from '../../services/inbox/inbox';
 
 const state = {
-  inbox: [
-        {isUser: false, text: 'Oh... Well, this is akward.'},
-        {isUser: true, text: 'I meant I am working too hard; I am all fired up right now.'},
-        {isUser: false, text: 'I appreciate your concern. Apply water vigorously and call 911.'},
-        {isUser: true, text: 'I need help! My desk is on fire!'},
-        {isUser: false, text: 'Hi, how can I help you?'},
-        {isUser: false, text: 'Oh... Well, this is akward.'},
-        {isUser: true, text: 'I meant I am working too hard; I am all fired up right now.'},
-        {isUser: false, text: 'I appreciate your concern. Apply water vigorously and call 911.'},
-        {isUser: true, text: 'I need help! My desk is on fire!'},
-        {isUser: false, text: 'Hi, how can I help you?'}]
-}
+  selectedInboxItemIndex: 0,
+  // other inbox state values
+};
 
 // getters
 const getters = {
-
-    // Get all inbox items
-  getInbox (state) {
-    return state.inbox;
-  }
-
-}
+  getInboxItems(state) {
+    let inboxItems = [
+      {
+        id: 5,
+        senderIcon: "./src/assets/UserAccount/VirtualConcierge.svg",
+        senderName: "Virtual Concierge",
+        messageTeaser: "Hi, how can I help you?",
+        dayRead: "",
+        selected: false,
+      },
+      {
+        id: 100,
+        senderIcon: "./src/assets/UserAccount/VirtualConcierge.svg",
+        senderName: "Job Bank",
+        messageTeaser:
+          "You are receiving this email because you recently completed an application for Employment Insurance.",
+        dayRead: "Weds",
+        select: false,
+      },
+    ];
+    inboxItems[state.selectedInboxItemIndex].selected = true;
+    return inboxItems;
+  },
+};
 
 // actions
 const actions = {
-
-// Don't mind this commented section. It will be used with the InboxService.
-
-//   initializeInbox ({ dispatch }) {
-
-//     dispatch('fetchInbox');
-
-//   },
-
-//   // Fetch and load the categories
-//   fetchInbox ({ commit, state, getters }) {
-
-//      // Get all of the Product Categories from the API
-//      InboxService
-//      .getAll()
-//      .then((inbox) => {
-
-//       commit('setInbox', inbox);
-
-//     //   commit('setLoadedState', true);
-
-//      });
-
-//   },
-
-
-  async sendMessage(context, payload){
-    // make await api call here with the text
-    context.commit("addChatbotMessage", payload)           
+  async selectInboxItem(context, index) {
+    console.log(index);
+    context.commit("updateSelectedInboxItemIndex", index);
   },
-
-}
+};
 
 // mutations
 const mutations = {
-
-  setInbox (state,  inbox) {
-    state.inbox = inbox;
+  updateSelectedInboxItemIndex(state, index) {
+    state.selectedInboxItemIndex = index;
   },
-
-  addChatbotMessage(state, payload){
-    const newMessage = {isUser: payload.isUser, text: payload.text};
-    state.inbox.unshift(newMessage);
-
- }
-}
+};
 
 export default {
   namespaced: true,
   state,
   getters,
   actions,
-  mutations
-}
+  mutations,
+};
