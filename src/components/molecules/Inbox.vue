@@ -1,13 +1,29 @@
 <template>
-  <h1 class="font-heading font-bold text-4xl pl-4 pt-4">Inbox</h1>
-  <div class="md:overflow-auto">
-    <inbox-item tabindex="0" icon="V" />
-    <inbox-item tabindex="0" dayRead="Weds" :selected="true" icon="K" />
-    <inbox-item tabindex="0" dayRead="Thurs" icon="J" />
-    <inbox-item tabindex="0" icon="N" />
-    <inbox-item tabindex="0" icon="R" />
-    <inbox-item tabindex="0" icon="D" />
-    <inbox-item tabindex="0" icon="S" />
+  <h1 class="font-heading font-bold text-4xl pl-3 pt-4">Inbox</h1>
+  <div class="md:overflow-auto space-y-1">
+    <inbox-item
+      tabindex="0"
+      :senderName="'Virtual Concierge'"
+      :bodyText="'Hi Mary, I am your virtual concierge and I am a robot'"
+      :icon="'src/assets/UserAccount/VirtualConcierge.svg'"
+    />
+    <inbox-item
+      tabindex="0"
+      dayRead="Weds"
+      :selected="true"
+      :senderName="'Job Bank'"
+      :bodyText="'Your Employment Insurance Concierge'"
+      :icon="'src/assets/UserAccount/Mail.svg'"
+    />
+    <inbox-item
+      tabindex="0"
+      dayRead="Thurs"
+      :icon="'src/assets/UserAccount/VirtualConcierge.svg'"
+    />
+    <inbox-item
+      tabindex="0"
+      :icon="'src/assets/UserAccount/VirtualConcierge.svg'"
+    />
   </div>
 </template>
 
