@@ -75,6 +75,7 @@ const state = [
 const getters = {
   // Get virtual concierge items
   getChatMessagesOrderedByDate(state) {
+    // state[0] will change to the selected inbox item
     const conversation = [...state[0].messages].sort((a, b) => {
       if (a.receivedTime > b.receivedTime) {
         return -1;
@@ -87,6 +88,7 @@ const getters = {
     return conversation;
   },
   getChatMessageObject(state) {
+    // state[0] will change to the selected inbox item
     return state[0];
   },
 };
