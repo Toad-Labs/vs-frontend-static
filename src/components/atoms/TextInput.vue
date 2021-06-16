@@ -13,10 +13,7 @@
       @send-button="sendBtnText"
     />
     <button class="float-right cursor-pointer" @click="sendText">
-      <img
-        src="../../assets/Send/Active/Default.svg"
-        alt="Bot Image."
-      />
+      <img src="../../assets/Send/Active/Default.svg" alt="Bot Image." />
     </button>
   </div>
 </template>
@@ -29,26 +26,26 @@ export default {
   },
   components: {
     ChatOptionButton,
-  }, 
+  },
   emits: ["add-message"],
-  setup(_, context){
+  setup(_, context) {
     const text = "";
-    function sendText(){
-      if(this.text.length > 0){
-        context.emit("add-message", this.text)
+    function sendText() {
+      if (this.text.length > 0) {
+        context.emit("add-message", this.text);
       }
     }
     function sendBtnText(btnText) {
-    if(btnText.length > 0){
-        context.emit("add-message", btnText)
+      if (btnText.length > 0) {
+        context.emit("add-message", btnText);
       }
     }
     return {
       text,
       sendText,
-      sendBtnText
-    }
-  }
+      sendBtnText,
+    };
+  },
 };
 </script>
 <style scoped></style>

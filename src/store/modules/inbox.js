@@ -4,27 +4,21 @@
 const state = {
   selectedInboxItemId: 0,
   // other inbox state values
-}
+};
 
 // getters
-const getters = {
-
-}
+const getters = {};
 
 // actions
-const actions = {
-
-}
+const actions = {};
 
 // mutations
-const mutations = {
-
-}
+const mutations = {};
 
 export default {
   namespaced: true,
   state,
   getters,
   actions,
-  mutations
-}
+  mutations,
+};

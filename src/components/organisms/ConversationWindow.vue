@@ -1,10 +1,10 @@
 <template>
   <div class="w-full h-full flex flex-col">
-      <message-header
-        imageName="VC"
-        altText="Virtual Concierge"
-        headerText="Virtual Concierge"
-      />
+    <message-header
+      imageName="VC"
+      altText="Virtual Concierge"
+      headerText="Virtual Concierge"
+    />
     <div class="flex h-full overflow-auto">
       <img
         src="../../assets/UserAccount/VirtualConcierge.svg"
@@ -23,7 +23,7 @@
     </div>
     <!-- The logic on how the buttonOptions are passed as props will 
                  depend on how we get the possible answers from VC. -->
-    <TextInput :buttonOptions="['Yes', 'No']" @add-message="sendMessage"/>
+    <TextInput :buttonOptions="['Yes', 'No']" @add-message="sendMessage" />
   </div>
 </template>
 <script>
@@ -42,16 +42,22 @@ export default {
   },
   setup() {
     const store = useStore();
-    const chatbotConvo = computed(() => store.getters["chatMessages/getChatMessage"]);
+    const chatbotConvo = computed(
+      () => store.getters["chatMessages/getChatMessage"]
+    );
     function sendMessage(msg) {
-      const newMessage = {chatId: chatbotConvo.value.chatId, isUser: true, text: msg}
+      const newMessage = {
+        chatId: chatbotConvo.value.chatId,
+        isUser: true,
+        text: msg,
+      };
       store.dispatch("chatMessages/sendMessage", newMessage);
     }
-  return{
-    chatbotConvo,
-    sendMessage
-  }
-  }
+    return {
+      chatbotConvo,
+      sendMessage,
+    };
+  },
 };
 </script>
 <style scoped></style>
