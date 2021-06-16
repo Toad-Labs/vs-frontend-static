@@ -13,7 +13,7 @@
       />
       <div class="w-full pr-6 overflow-auto flex flex-col-reverse">
         <ConversationMessage
-          v-for="message in chatbotConvo.messages"
+          v-for="message in chatbotConvo"
           :key="message.chatMessageId"
           :isUser="message.isUser"
           :text="message.text"
@@ -42,12 +42,15 @@ export default {
   },
   setup() {
     const store = useStore();
+    const chatbotObject = computed(
+      () => store.getters["chatMessages/getChatMessageObject"]
+    );
     const chatbotConvo = computed(
-      () => store.getters["chatMessages/getChatMessage"]
+      () => store.getters["chatMessages/getChatMessagesOrderedByDate"]
     );
     function sendMessage(msg) {
       const newMessage = {
-        chatId: chatbotConvo.value.chatId,
+        chatId: chatbotObject.value.chatId,
         isUser: true,
         text: msg,
       };

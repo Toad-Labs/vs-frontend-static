@@ -9,63 +9,63 @@ const state = [
     messages: [
       {
         chatMessageId: 1,
-        receivedTime: Date.now(),
+        receivedTime: new Date("August 11, 1975 23:15:30"),
         isUser: false,
-        text: "Oh... Well, this is akward.",
+        text: "Hi, how can I help you?",
       },
       {
         chatMessageId: 2,
-        receivedTime: Date.now(),
+        receivedTime: new Date("August 13, 1975 23:15:30"),
         isUser: true,
-        text: "I meant I am working too hard; I am all fired up right now.",
+        text: "I need help! My desk is on fire!",
       },
       {
         chatMessageId: 3,
-        receivedTime: Date.now(),
+        receivedTime: new Date("August 15, 1975 23:15:30"),
         isUser: false,
         text: "I appreciate your concern. Apply water vigorously and call 911.",
       },
       {
         chatMessageId: 4,
-        receivedTime: Date.now(),
-        isUser: true,
-        text: "I need help! My desk is on fire!",
-      },
-      {
-        chatMessageId: 5,
-        receivedTime: Date.now(),
-        isUser: false,
-        text: "Hi, how can I help you?",
-      },
-      {
-        chatMessageId: 6,
-        receivedTime: Date.now(),
-        isUser: false,
-        text: "Oh... Well, this is akward.",
-      },
-      {
-        chatMessageId: 7,
-        receivedTime: Date.now(),
+        receivedTime: new Date("August 17, 1975 23:15:30"),
         isUser: true,
         text: "I meant I am working too hard; I am all fired up right now.",
       },
       {
+        chatMessageId: 5,
+        receivedTime: new Date("August 19, 1975 23:15:30"),
+        isUser: false,
+        text: "Oh... Well, this is akward.",
+      },
+      {
+        chatMessageId: 6,
+        receivedTime: new Date("August 20, 1975 23:15:30"),
+        isUser: false,
+        text: "Hi, how can I help you?",
+      },
+      {
+        chatMessageId: 7,
+        receivedTime: new Date("August 22, 1975 23:15:30"),
+        isUser: true,
+        text: "I need help! My desk is on fire!",
+      },
+      {
         chatMessageId: 8,
-        receivedTime: Date.now(),
+        receivedTime: new Date("August 23, 1975 23:15:30"),
         isUser: false,
         text: "I appreciate your concern. Apply water vigorously and call 911.",
       },
       {
         chatMessageId: 9,
-        receivedTime: Date.now(),
+        receivedTime: new Date("August 25, 1975 23:15:30"),
         isUser: true,
-        text: "I need help! My desk is on fire!",
+        text: "I meant I am working too hard; I am all fired up right now.",
       },
       {
         chatMessageId: 10,
-        receivedTime: Date.now(),
+        receivedTime: new Date("August 27, 1975 23:15:30"),
         isUser: false,
-        text: "Hi, how can I help you?",
+        text: "Oh... Well, this is akward.",
       },
     ],
   },
@@ -74,7 +74,19 @@ const state = [
 // getters
 const getters = {
   // Get virtual concierge items
-  getChatMessage(state) {
+  getChatMessagesOrderedByDate(state) {
+    const conversation = [...state[0].messages].sort((a, b) => {
+      if (a.receivedTime > b.receivedTime) {
+        return -1;
+      }
+      if (a.receivedTime < b.receivedTime) {
+        return 1;
+      }
+      return 0;
+    });
+    return conversation;
+  },
+  getChatMessageObject(state) {
     return state[0];
   },
 };
@@ -122,17 +134,15 @@ const mutations = {
     // Create the new message object.
     const newMessage = {
       chatMessageId: nextMessageId,
-      receivedTime: Date.now(),
+      receivedTime: new Date(),
       isUser: payload.isUser,
       text: payload.text,
     };
-    // Find index of the chat in the state.
-    const index = state.findIndex((chat) => chat.chatId === payload.chatId);
     // Add the new message to the correct conversation.
-    state[index].messages.unshift(newMessage); // need to find the index
+    conversation.messages.push(newMessage);
   },
 
-  setChatMessages(state, payload) {
+  setChatMessages(payload) {
     state = payload;
   },
 };
