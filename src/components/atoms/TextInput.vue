@@ -20,6 +20,7 @@
 </template>
 <script>
 import ChatOptionButton from "./ChatOptionButton.vue";
+import { ref } from "vue";
 export default {
   name: "TextInput",
   props: {
@@ -30,10 +31,11 @@ export default {
   },
   emits: ["add-message"],
   setup(_, context) {
-    const text = "";
+    const text = ref();
     function sendText() {
       if (this.text.length > 0) {
         context.emit("add-message", this.text);
+        text.value = "";
       }
     }
     function sendBtnText(btnText) {
