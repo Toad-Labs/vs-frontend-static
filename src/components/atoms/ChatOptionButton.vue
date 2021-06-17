@@ -23,13 +23,13 @@ export default {
     text: String,
   },
   setup(props, context) {
-    function sendFromButton (){
+    function sendFromButton() {
       // console.log(props.text);
-      context.emit("send-button", props.text)
+      context.emit("send-button", props.text);
     }
     return {
-      sendFromButton
-    }
-  }
+      sendFromButton,
+    };
+  },
 };
 </script>
