@@ -10,18 +10,18 @@
       <inbox />
     </div>
     <!-- Conversation Window -->
-    <div
+    <!-- <div
       :class="[
         drawerOpen ? '' : 'hidden',
         'bg-white w-screen h-screen absolute md:relative top-0 left-0 md:flex-auto md:block md:border md:border-gray md:h-full',
       ]"
     >
       <ConversationWindow />
-    </div>
-    <!-- Message List -->
-    <!-- <div class="flex-auto hidden md:block md:border md:border-gray">
-      <message-list />
     </div> -->
+    <!-- Message List -->
+    <div class="flex-auto hidden md:block md:border md:border-gray">
+      <message-list />
+    </div>
   </div>
 </template>
 

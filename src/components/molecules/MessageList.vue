@@ -1,17 +1,15 @@
 <template>
   <div class="w-full h-full flex flex-col">
     <message-header imageName="Mail" altText="Mail" headerText="Job Bank" />
+
     <div class="flex bg-gray-infolt flex-col p-6 space-y-6 overflow-auto">
       <message-card
-        timestamp="Weds, May 14th, 10:04 am"
-        title="Your Employment Insurance Claim - You've been subscribed to Job Alerts"
-        :paragraphs="`You are receiving this email because you recently completed an application for Employment Insurance. When you filed your claim, you agreed to be actively looking for work. To help you with your job search, we’ve subscribed you to Job Alerts.
-
-Thank you,
-
-Job Bank`"
+        v-for="email of emails"
+        :key="email.emailId"
+        :timestamp="email.receivedTime.toDateString()"
+        :title="email.messageTitle"
+        :paragraphs="email.messageBody"
       />
-      <!--  Note that multiple message cards can be added into this component. If you want to view yourself, you can copy-paste the above -->
     </div>
   </div>
 
@@ -28,6 +26,8 @@ Job Bank`"
 <script>
 import MessageCard from "./MessageCard.vue";
 import MessageHeader from "../atoms/MessageHeader.vue";
+import { useStore } from "vuex";
+import { computed } from "vue";
 
 export default {
   //  not 100% sure how to implemnet prop passing
@@ -38,6 +38,15 @@ export default {
     MessageCard,
     MessageHeader,
   },
-  setup() {},
+  setup() {
+    const store = useStore();
+    const emails = computed(
+      () => store.getters["emails/getEmailsMostRecentFirst"]
+    );
+
+    return {
+      emails,
+    };
+  },
 };
 </script>
