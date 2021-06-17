@@ -1,7 +1,7 @@
 <template>
   <div class="flex border-b border-gray-200 p-2">
     <img :src="icons[imageName]" :alt="altText" class="h-10 mt-auto w-10" />
-    <span class="font-bold pt-2 pl-2">{{ headerText }}</span>
+    <span class="font-bold font-body pt-2 pl-2">{{ headerText }}</span>
   </div>
 </template>
 

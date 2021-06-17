@@ -19,9 +19,9 @@
       <ConversationWindow />
     </div>
     <!-- Message List -->
-    <!-- <div class="flex-auto hidden md:block md:border md:border-gray md:max-h-96">
+    <div class="flex-auto hidden md:block md:border md:border-gray">
       <message-list />
-    </div> -->
+    </div>
   </div>
 </template>
 

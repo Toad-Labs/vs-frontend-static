@@ -1,62 +1,59 @@
 <template>
   <div
     :class="[
-      selected ? 'bg-blue-selected' : '',
-      'flex items-center w-full h-16 md:h-20 border-2 border-transparent focus:border-black hover:bg-gray-100 cursor-pointer',
+      selected ? 'bg-blue-selected rounded-none' : '',
+      'flex items-center w-full h-16 md:h-20 rounded focus:border-black hover:bg-gray-infolt cursor-pointer',
     ]"
   >
-    <div class="p-2 md:p-4">
-      <p
-        class="
-          bg-blue-light
-          rounded-full
-          flex
-          items-center
-          justify-center
-          font-heading
-          w-10
-          h-10
-          md:w-12 md:h-12
-          text-3xl
-        "
-      >
-        {{ icon }}
-      </p>
+    <div class="p-1">
+      <img
+        class="w-12 h-12 md:w-12 md:h-12"
+        :src="icons[imageName]"
+        :alt="altText"
+        role="presentation"
+        aria-hidden="true"
+      />
     </div>
-    <div class="flex-auto truncate">
+    <div class="flex-1 truncate">
       <p
         :class="[
           !dayRead ? 'font-bold' : '',
-          'font-body md:text-lg truncate overflow-ellipsis text-gray-dark',
+          'font-body md:text-lg truncate overflow-ellipsis text-gray-dark pl-1',
         ]"
       >
-        Virtual Concierge
+        {{ senderName }}
       </p>
       <p
         :class="[
           !dayRead ? 'font-body' : 'font-heading font-light',
-          'text-sm md:text-base truncate overflow-ellipsis text-gray-dark',
+          'text-sm md:text-lg truncate overflow-ellipsis text-gray-dark pl-1',
         ]"
       >
-        Hi Mary, I'm your Virtual Con...
+        {{ bodyText }}
       </p>
     </div>
-    <div class="p-4 w-20 h-full">
+    <div>
       <read-notification v-bind:dayRead="dayRead" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
+import icons from "../../assets/UserAccount/icons.js";
 import ReadNotification from "../atoms/ReadNotification.vue";
 export default {
   props: {
     dayRead: String,
     selected: Boolean,
-    icon: String,
+    imageName: String,
+    senderName: String,
+    bodyText: String,
+    altText: String,
   },
   setup() {
-    return {};
+    return {
+      icons,
+    };
   },
   components: {
     ReadNotification,

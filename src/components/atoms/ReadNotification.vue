@@ -1,10 +1,33 @@
 <template>
-  <div v-if="dayRead" class="flex items-center">
-    <p class="font-heading font-light text-sm md:text-sm w-full text-center">
+  <div
+    v-if="dayRead"
+    class="flex-auto items-baseline h-16 w-16 md:h-20 md:w-20"
+  >
+    <p
+      class="
+        font-heading font-light
+        text-sm
+        md:text-base
+        w-full
+        text-center
+        pt-4
+      "
+    >
       {{ dayRead }}
     </p>
   </div>
-  <div v-else class="flex items-center justify-center h-full">
+  <div
+    v-else
+    class="
+      flex
+      place-items-center
+      justify-center
+      h-16
+      w-16
+      md:h-20 md:w-20
+      pb-5
+    "
+  >
     <div class="bg-alert-main rounded-full w-4 h-4" />
   </div>
 </template>
