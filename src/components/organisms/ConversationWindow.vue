@@ -1,6 +1,7 @@
 <template>
-  <div class="w-full h-full flex flex-col">
+  <div class="w-full h-full flex flex-col p-4 sm:p-0">
     <message-header
+      backIcon="Back"
       imageName="VC"
       altText="Virtual Concierge"
       headerText="Virtual Concierge"

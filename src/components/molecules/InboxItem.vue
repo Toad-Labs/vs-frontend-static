@@ -40,7 +40,7 @@
 </template>
 
 <script lang="ts">
-import icons from "../../assets/UserAccount/icons.js";
+import icons from "../../assets/icons.js";
 import ReadNotification from "../atoms/ReadNotification.vue";
 export default {
   props: {

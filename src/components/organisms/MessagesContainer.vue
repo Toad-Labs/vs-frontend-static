@@ -1,9 +1,11 @@
 <template>
-  <div class="flex md:h-vh-1/2">
+  <div class="flex sm:h-vh-1/2">
     <div
       class="
         w-full
-        md:w-1/3 md:max-w-sm md:border md:border-r-0 md:border-gray
+        sm:w-2/5
+        md:w-1/3
+        sm:max-w-sm sm:border sm:border-r-0 sm:border-gray
         flex flex-col flex-shrink-0
       "
     >
@@ -13,7 +15,7 @@
     <div
       :class="[
         isMobileDrawerOpen ? '' : 'hidden',
-        'bg-white w-screen h-screen absolute md:relative top-0 left-0 md:flex-auto md:block md:border md:border-gray md:h-full',
+        'bg-white w-screen h-screen absolute sm:relative top-0 left-0 sm:flex-auto sm:block sm:border sm:border-gray sm:h-full',
       ]"
     >
       <ConversationWindow v-if="inboxItemType === 'chat'" />
