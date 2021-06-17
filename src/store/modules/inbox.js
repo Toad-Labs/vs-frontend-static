@@ -2,7 +2,8 @@
 // import InboxService from '../../services/inbox/inbox';
 
 const state = {
-  selectedInboxItemId: 0,
+  selectedInboxItemId: 5,
+  mobileDrawerOpen: false,
 };
 
 // getters
@@ -16,6 +17,7 @@ const getters = {
         teaserText: "Hi, how can I help you?",
         dayRead: "",
         selected: false,
+        type: "chat",
       },
       {
         id: 100,
@@ -25,6 +27,7 @@ const getters = {
           "You are receiving this email because you recently completed an application for Employment Insurance.",
         dayRead: "Weds",
         selected: false,
+        type: "email",
       },
     ];
 
@@ -35,12 +38,30 @@ const getters = {
 
     return inboxItems;
   },
+  getSelectedInboxItem(state, getters) {
+    const selectedItem = getters.getInboxItems.find(
+      (inboxItem) => inboxItem.id === state.selectedInboxItemId
+    );
+    return selectedItem;
+  },
+  getSelectedInboxItemType(state, getters) {
+    const selecteItem = getters.getSelectedInboxItem;
+    if (selecteItem) return selecteItem.type;
+    return undefined;
+  },
+  isMobileDrawerOpen(state, getters) {
+    return state.mobileDrawerOpen;
+  },
 };
 
 // actions
 const actions = {
   async selectInboxItem(context, id) {
     context.commit("updateSelectedInboxItemId", id);
+    context.commit("updateMobileDrawerOpen", true);
+  },
+  async closeInboxItem(context, id) {
+    context.commit("updateMobileDrawerOpen", false);
   },
 };
 
@@ -48,6 +69,9 @@ const actions = {
 const mutations = {
   updateSelectedInboxItemIndex(state, id) {
     state.selectedInboxItemId = id;
+  },
+  updateMobileDrawerOpen(state, isOpen) {
+    state.mobileDrawerOpen = isOpen;
   },
 };
 

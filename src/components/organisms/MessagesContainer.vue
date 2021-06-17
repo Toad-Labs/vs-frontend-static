@@ -12,24 +12,22 @@
     <!-- Conversation Window -->
     <div
       :class="[
-        drawerOpen ? '' : 'hidden',
+        isMobileDrawerOpen ? '' : 'hidden',
         'bg-white w-screen h-screen absolute md:relative top-0 left-0 md:flex-auto md:block md:border md:border-gray md:h-full',
       ]"
     >
-      <ConversationWindow />
+      <ConversationWindow v-if="inboxItemType === 'chat'" />
+      <message-list v-else-if="inboxItemType === 'email'" />
     </div>
-    <!-- Message List -->
-    <!-- <div class="flex-auto hidden md:block md:border md:border-gray">
-      <message-list />
-    </div> -->
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import Inbox from "../molecules/Inbox.vue";
 import ConversationWindow from "./ConversationWindow.vue";
 import MessageList from "../molecules/MessageList.vue";
-
+import { useStore } from "vuex";
+import { computed } from "vue";
 export default {
   props: {
     drawerOpen: Boolean,
@@ -38,6 +36,19 @@ export default {
     ConversationWindow,
     MessageList,
     Inbox,
+  },
+  setup() {
+    const store = useStore();
+    const inboxItemType = computed(
+      () => store.getters["inbox/getSelectedInboxItemType"]
+    );
+    const isMobileDrawerOpen = computed(
+      () => store.getters["inbox/isMobileDrawerOpen"]
+    );
+    return {
+      inboxItemType,
+      isMobileDrawerOpen,
+    };
   },
 };
 </script>
