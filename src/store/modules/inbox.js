@@ -12,7 +12,7 @@ const getters = {
     let inboxItems = [
       {
         id: 5,
-        senderIcon: "./src/assets/UserAccount/VirtualConcierge.svg",
+        senderIcon: "VC",
         senderName: "Virtual Concierge",
         teaserText: "Hi, how can I help you?",
         dayRead: "",
@@ -21,7 +21,7 @@ const getters = {
       },
       {
         id: 100,
-        senderIcon: "./src/assets/UserAccount/VirtualConcierge.svg",
+        senderIcon: "Mail",
         senderName: "Job Bank",
         teaserText:
           "You are receiving this email because you recently completed an application for Employment Insurance.",
@@ -67,7 +67,7 @@ const actions = {
 
 // mutations
 const mutations = {
-  updateSelectedInboxItemIndex(state, id) {
+  updateSelectedInboxItemId(state, id) {
     state.selectedInboxItemId = id;
   },
   updateMobileDrawerOpen(state, isOpen) {
