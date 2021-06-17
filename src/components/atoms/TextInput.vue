@@ -4,6 +4,7 @@
     placeholder="Write something..."
     class="w-full border-t border-b border-gray-200 p-3"
     v-model="text"
+    @keyup.enter="sendText"
   />
   <div class="w-full bg-gray-infolt mt-px">
     <chat-option-button
@@ -13,15 +14,13 @@
       @send-button="sendBtnText"
     />
     <button class="float-right cursor-pointer" @click="sendText">
-      <img
-        src="../../assets/Send/Active/Default.svg"
-        alt="Bot Image."
-      />
+      <img src="../../assets/Send/Active/Default.svg" alt="Bot Image." />
     </button>
   </div>
 </template>
 <script>
 import ChatOptionButton from "./ChatOptionButton.vue";
+import { ref } from "vue";
 export default {
   name: "TextInput",
   props: {
@@ -29,26 +28,27 @@ export default {
   },
   components: {
     ChatOptionButton,
-  }, 
+  },
   emits: ["add-message"],
-  setup(_, context){
-    const text = "";
-    function sendText(){
-      if(this.text.length > 0){
-        context.emit("add-message", this.text)
+  setup(_, context) {
+    const text = ref();
+    function sendText() {
+      if (this.text.length > 0) {
+        context.emit("add-message", this.text);
+        text.value = "";
       }
     }
     function sendBtnText(btnText) {
-    if(btnText.length > 0){
-        context.emit("add-message", btnText)
+      if (btnText.length > 0) {
+        context.emit("add-message", btnText);
       }
     }
     return {
       text,
       sendText,
-      sendBtnText
-    }
-  }
+      sendBtnText,
+    };
+  },
 };
 </script>
 <style scoped></style>

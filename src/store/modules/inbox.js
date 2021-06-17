@@ -2,8 +2,7 @@
 // import InboxService from '../../services/inbox/inbox';
 
 const state = {
-  selectedInboxItemIndex: 0,
-  // other inbox state values
+  selectedInboxItemId: 0,
 };
 
 // getters
@@ -30,7 +29,7 @@ const getters = {
     ];
 
     let selectedItem = inboxItems.find(
-      (inboxItem) => inboxItem.id === state.selectedInboxItemIndex
+      (inboxItem) => inboxItem.id === state.selectedInboxItemId
     );
     if (selectedItem) selectedItem.selected = true;
 
@@ -40,15 +39,15 @@ const getters = {
 
 // actions
 const actions = {
-  async selectInboxItem(context, index) {
-    context.commit("updateSelectedInboxItemIndex", index);
+  async selectInboxItem(context, id) {
+    context.commit("updateSelectedInboxItemId", id);
   },
 };
 
 // mutations
 const mutations = {
-  updateSelectedInboxItemIndex(state, index) {
-    state.selectedInboxItemIndex = index;
+  updateSelectedInboxItemIndex(state, id) {
+    state.selectedInboxItemId = id;
   },
 };
 
