@@ -2,10 +2,10 @@
   <h1 class="font-heading font-bold text-4xl pl-3 pt-4">Inbox</h1>
   <div class="md:overflow-auto space-y-1">
     <inbox-item
-      v-for="(inboxItema, index) in inboxItems"
+      v-for="(inboxItem, index) in inboxItems"
       :key="index"
       tabindex="0"
-      :inboxItem="inboxItema"
+      :inboxItem="inboxItem"
       @select-inbox-item="selectInboxItem"
     />
   </div>
