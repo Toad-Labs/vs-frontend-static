@@ -1,10 +1,10 @@
 <template>
   <div class="w-full h-full flex flex-col">
-      <message-header
-        imageName="VC"
-        altText="Virtual Concierge"
-        headerText="Virtual Concierge"
-      />
+    <message-header
+      imageName="VC"
+      altText="Virtual Concierge"
+      headerText="Virtual Concierge"
+    />
     <div class="flex h-full overflow-auto">
       <img
         src="../../assets/UserAccount/VirtualConcierge.svg"
@@ -13,8 +13,8 @@
       />
       <div class="w-full pr-6 overflow-auto flex flex-col-reverse">
         <ConversationMessage
-          v-for="(message, index) in chatbotConvo"
-          :key="index"
+          v-for="message in chatbotConvo"
+          :key="message.chatMessageId"
           :isUser="message.isUser"
           :text="message.text"
         />
@@ -23,7 +23,7 @@
     </div>
     <!-- The logic on how the buttonOptions are passed as props will 
                  depend on how we get the possible answers from VC. -->
-    <TextInput :buttonOptions="['Yes', 'No']" @add-message="sendMessage"/>
+    <TextInput :buttonOptions="['Yes', 'No']" @add-message="sendMessage" />
   </div>
 </template>
 <script>
@@ -42,15 +42,25 @@ export default {
   },
   setup() {
     const store = useStore();
+    const chatbotObject = computed(
+      () => store.getters["chatMessages/getChatMessageObject"]
+    );
+    const chatbotConvo = computed(
+      () => store.getters["chatMessages/getChatMessagesOrderedByDate"]
+    );
     function sendMessage(msg) {
-      const newMessage = {isUser: true, text: msg}
-      store.dispatch("inbox/sendMessage", newMessage);
+      const newMessage = {
+        chatId: chatbotObject.value.chatId,
+        isUser: true,
+        text: msg,
+      };
+      store.dispatch("chatMessages/sendMessage", newMessage);
     }
-  return{
-    chatbotConvo: computed(() => store.getters["inbox/getInbox"]),
-    sendMessage
-  }
-  }
+    return {
+      chatbotConvo,
+      sendMessage,
+    };
+  },
 };
 </script>
 <style scoped></style>
