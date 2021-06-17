@@ -14,7 +14,7 @@ const getters = {
         id: 5,
         senderIcon: "./src/assets/UserAccount/VirtualConcierge.svg",
         senderName: "Virtual Concierge",
-        messageTeaser: "Hi, how can I help you?",
+        teaserText: "Hi, how can I help you?",
         dayRead: "",
         selected: false,
       },
@@ -22,13 +22,18 @@ const getters = {
         id: 100,
         senderIcon: "./src/assets/UserAccount/VirtualConcierge.svg",
         senderName: "Job Bank",
-        messageTeaser:
+        teaserText:
           "You are receiving this email because you recently completed an application for Employment Insurance.",
         dayRead: "Weds",
-        select: false,
+        selected: false,
       },
     ];
-    inboxItems[state.selectedInboxItemIndex].selected = true;
+
+    let selectedItem = inboxItems.find(
+      (inboxItem) => inboxItem.id === state.selectedInboxItemIndex
+    );
+    if (selectedItem) selectedItem.selected = true;
+
     return inboxItems;
   },
 };
