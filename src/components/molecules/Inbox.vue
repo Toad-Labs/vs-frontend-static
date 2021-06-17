@@ -15,15 +15,6 @@
       :bodyText="'Your Employment Insurance Concierge'"
       imageName="Mail"
     />
-    <!-- <inbox-item
-      tabindex="0"
-      dayRead="Thurs"
-      :icon="'src/assets/UserAccount/VirtualConcierge.svg'"
-    />
-    <inbox-item
-      tabindex="0"
-      :icon="'src/assets/UserAccount/VirtualConcierge.svg'"
-    /> -->
   </div>
 </template>
 
