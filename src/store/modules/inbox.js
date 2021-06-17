@@ -41,7 +41,6 @@ const getters = {
 // actions
 const actions = {
   async selectInboxItem(context, index) {
-    console.log(index);
     context.commit("updateSelectedInboxItemIndex", index);
   },
 };
