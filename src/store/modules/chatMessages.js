@@ -10,6 +10,7 @@ const getters = {
   getChatMessagesOrderedByDate(state) {
     // state[0] will change to the selected inbox item
     if (state.chatMessages.length !== 0) {
+      // [...state.chatMessages[0].messages] makes a copy of the state array. Getters cannot mutate the state directly.
       const conversation = [...state.chatMessages[0].messages].sort((a, b) => {
         const firstDate = new Date(a.receivedTime).getTime();
         const secondDate = new Date(b.receivedTime).getTime();
