@@ -65,7 +65,8 @@ const mutations = {
     // Create the new message object.
     const newMessage = {
       chatMessageId: nextMessageId,
-      receivedTime: "August 30, 2021 23:15:30",
+      receivedTime: Date.now(),
+      // receivedTime: "August 30, 2021 23:15:30",
       isUser: payload.isUser,
       text: payload.text,
     };
