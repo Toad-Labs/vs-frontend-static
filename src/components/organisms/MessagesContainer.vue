@@ -1,5 +1,5 @@
 <template>
-  <div class="flex h-60 md:h-vh-1/2">
+  <div class="flex md:h-screen">
     <div
       class="
         w-full
