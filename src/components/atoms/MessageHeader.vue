@@ -4,7 +4,7 @@
       <img
         :src="icons[backIcon]"
         :alt="altText"
-        class="sm:hidden h-10 mt-auto w-10"
+        class="sm:hidden h-10 mt-auto w-10 mr-4"
         @click="clickBack"
       />
     </span>

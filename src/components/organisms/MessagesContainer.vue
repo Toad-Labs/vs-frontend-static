@@ -1,5 +1,5 @@
 <template>
-  <div class="flex sm:h-vh-1/2">
+  <div class="flex h-60 md:h-vh-1/2">
     <div
       class="
         w-full
@@ -7,6 +7,7 @@
         md:w-1/3
         sm:max-w-sm sm:border sm:border-r-0 sm:border-gray
         flex flex-col flex-shrink-0
+        px-1
       "
     >
       <inbox />
