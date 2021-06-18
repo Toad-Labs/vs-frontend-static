@@ -6,12 +6,18 @@
 
 <script>
 import MessagesContainer from "../components/organisms/MessagesContainer.vue";
-// @ is an alias to /src
+import { useStore } from "vuex";
 
 export default {
   name: "Home",
   components: {
     MessagesContainer,
+  },
+  setup() {
+    // Use the store
+    const store = useStore();
+    // Initialize the chat messages
+    store.dispatch("chatMessages/initializeChatMessages");
   },
 };
 </script>
