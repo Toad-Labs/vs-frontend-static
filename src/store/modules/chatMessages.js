@@ -1,87 +1,22 @@
 import ChatMessageService from "../../services/chatMessages/chatMessages";
 
-const state = [];
-// const state = [
-//   {
-//     chatId: 1,
-//     senderName: "Virtual Concierge",
-//     senderIcon: "logo.png",
-//     messages: [
-//       {
-//         chatMessageId: 1,
-//         receivedTime: new Date("August 11, 1975 23:15:30"),
-//         isUser: false,
-//         text: "Hi, how can I help you?",
-//       },
-//       {
-//         chatMessageId: 2,
-//         receivedTime: new Date("August 13, 1975 23:15:30"),
-//         isUser: true,
-//         text: "I need help! My desk is on fire!",
-//       },
-//       {
-//         chatMessageId: 3,
-//         receivedTime: new Date("August 15, 1975 23:15:30"),
-//         isUser: false,
-//         text: "I appreciate your concern. Apply water vigorously and call 911.",
-//       },
-//       {
-//         chatMessageId: 4,
-//         receivedTime: new Date("August 17, 1975 23:15:30"),
-//         isUser: true,
-//         text: "I meant I am working too hard; I am all fired up right now.",
-//       },
-//       {
-//         chatMessageId: 5,
-//         receivedTime: new Date("August 19, 1975 23:15:30"),
-//         isUser: false,
-//         text: "Oh... Well, this is akward.",
-//       },
-//       {
-//         chatMessageId: 6,
-//         receivedTime: new Date("August 20, 1975 23:15:30"),
-//         isUser: false,
-//         text: "Hi, how can I help you?",
-//       },
-//       {
-//         chatMessageId: 7,
-//         receivedTime: new Date("August 22, 1975 23:15:30"),
-//         isUser: true,
-//         text: "I need help! My desk is on fire!",
-//       },
-//       {
-//         chatMessageId: 8,
-//         receivedTime: new Date("August 23, 1975 23:15:30"),
-//         isUser: false,
-//         text: "I appreciate your concern. Apply water vigorously and call 911.",
-//       },
-//       {
-//         chatMessageId: 9,
-//         receivedTime: new Date("August 25, 1975 23:15:30"),
-//         isUser: true,
-//         text: "I meant I am working too hard; I am all fired up right now.",
-//       },
-//       {
-//         chatMessageId: 10,
-//         receivedTime: new Date("August 27, 1975 23:15:30"),
-//         isUser: false,
-//         text: "Oh... Well, this is akward.",
-//       },
-//     ],
-//   },
-// ];
+const state = {
+  chatMessages: [],
+};
 
 // getters
 const getters = {
   // Get virtual concierge items
   getChatMessagesOrderedByDate(state) {
     // state[0] will change to the selected inbox item
-    if (state.length !== 0) {
-      const conversation = [...state[0].messages].sort((a, b) => {
-        if (a.receivedTime > b.receivedTime) {
+    if (state.chatMessages.length !== 0) {
+      const conversation = [...state.chatMessages[0].messages].sort((a, b) => {
+        const firstDate = new Date(a.receivedTime).getTime();
+        const secondDate = new Date(b.receivedTime).getTime();
+        if (firstDate > secondDate) {
           return -1;
         }
-        if (a.receivedTime < b.receivedTime) {
+        if (firstDate < secondDate) {
           return 1;
         }
         return 0;
@@ -92,7 +27,7 @@ const getters = {
   },
   getChatMessageObject(state) {
     // state[0] will change to the selected inbox item
-    return state[0];
+    return state.chatMessages[0];
   },
 };
 
@@ -120,14 +55,16 @@ const actions = {
 const mutations = {
   addChatbotMessage(state, payload) {
     // Find the conversation to use the messages of that conversation.
-    const conversation = state.find((chat) => chat.chatId === payload.chatId);
+    const conversation = state.chatMessages.find(
+      (chat) => chat.chatId === payload.chatId
+    );
     // Find the next message id.
     const nextMessageId =
       Math.max(...conversation.messages.map((msg) => msg.chatMessageId)) + 1;
     // Create the new message object.
     const newMessage = {
       chatMessageId: nextMessageId,
-      receivedTime: new Date(),
+      receivedTime: "August 30, 2021 23:15:30",
       isUser: payload.isUser,
       text: payload.text,
     };
@@ -137,7 +74,7 @@ const mutations = {
 
   setChatMessages(state, payload) {
     if (payload) {
-      state = payload;
+      state.chatMessages = payload;
     }
   },
 };
