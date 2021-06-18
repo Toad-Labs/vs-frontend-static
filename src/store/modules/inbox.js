@@ -60,7 +60,7 @@ const actions = {
     context.commit("updateSelectedInboxItemId", id);
     context.commit("updateMobileDrawerOpen", true);
   },
-  async closeInboxItem(context, id) {
+  async closeInboxItem(context) {
     context.commit("updateMobileDrawerOpen", false);
   },
 };
