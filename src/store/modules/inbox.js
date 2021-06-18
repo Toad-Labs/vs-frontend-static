@@ -45,8 +45,8 @@ const getters = {
     return selectedItem;
   },
   getSelectedInboxItemType(state, getters) {
-    const selecteItem = getters.getSelectedInboxItem;
-    if (selecteItem) return selecteItem.type;
+    const selectedItem = getters.getSelectedInboxItem;
+    if (selectedItem) return selectedItem.type;
     return undefined;
   },
   isMobileDrawerOpen(state, getters) {
