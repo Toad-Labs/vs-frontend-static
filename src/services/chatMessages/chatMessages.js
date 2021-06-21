@@ -22,8 +22,8 @@ function getAll() {
     });
 }
 
-const PeopleService = {
+const ChatMessagesService = {
   getAll, //, update, delete, etc. ...
 };
 
-export default PeopleService;
+export default ChatMessagesService;
