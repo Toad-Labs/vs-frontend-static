@@ -1,10 +1,12 @@
 <template>
-  <div class="flex md:h-screen">
+  <div class="flex md:h-vh-1/2">
     <div
       class="
         w-full
         sm:w-2/5
         md:w-1/3
+        sm:h-vh-2/3
+        md:h-vh-1/2
         sm:max-w-sm sm:border sm:border-r-0 sm:border-gray
         flex flex-col flex-shrink-0
         px-1
@@ -16,7 +18,7 @@
     <div
       :class="[
         isMobileDrawerOpen ? '' : 'hidden',
-        'bg-white w-screen h-screen absolute sm:relative top-0 left-0 sm:flex-auto sm:block sm:border sm:border-gray sm:h-full',
+        'bg-white w-screen sm:h-vh-2/3 md:h-vh-1/2 absolute sm:relative top-0 left-0 sm:flex-auto sm:block sm:border sm:border-gray',
       ]"
     >
       <ConversationWindow v-if="inboxItemType === 'chat'" />
