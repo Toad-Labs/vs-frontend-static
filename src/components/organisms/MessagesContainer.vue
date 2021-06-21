@@ -19,7 +19,7 @@
     <div
       :class="[
         isMobileDrawerOpen ? '' : 'hidden',
-        'bg-yellow-100 w-screen sm:h-vh-2/3 md:h-vh-1/2 absolute sm:relative top-0 left-0 sm:flex-auto sm:block sm:border sm:border-gray',
+        'bg-white w-screen sm:h-vh-2/3 md:h-vh-1/2 absolute sm:relative top-0 left-0 sm:flex-auto sm:block sm:border sm:border-gray',
       ]"
     >
       <ConversationWindow v-if="inboxItemType === 'chat'" />
