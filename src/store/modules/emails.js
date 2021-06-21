@@ -1,50 +1,51 @@
 const state = {
   selectedSenderId: 1,
+  mailObject: [
+    {
+      senderId: 1,
+      senderName: "Jerry",
+      senderIcon: "logo.png",
+      emails: [
+        {
+          emailId: 1,
+          receivedTime: new Date("May 14, 2021 10:04:00"),
+          messageTitle:
+            "Your Employment Insurance Claim - You've been subscribed to Job Alerts",
+          messageBody: `You are receiving this email because you recently completed an application for Employment Insurance. When you filed your claim, you agreed to be actively looking for work. To help you with your job search, we’ve subscribed you to Job Alerts.
+  
+  Thank you,
+  
+  Job Bank`,
+        },
+        {
+          emailId: 2,
+          receivedTime: new Date(),
+          messageTitle: "New Inbox Message!",
+          messageBody: "Lorem Ipsum",
+        },
+      ],
+    },
+  ],
 };
 
 // getters
 const getters = {
-  getEmails() {
-    //this would use the email service
-    let mail = [
-      {
-        senderId: 1,
-        senderName: "Jerry",
-        senderIcon: "logo.png",
-        emails: [
-          {
-            emailId: 1,
-            receivedTime: new Date("May 14, 2021 10:04:00"),
-            messageTitle:
-              "Your Employment Insurance Claim - You've been subscribed to Job Alerts",
-            messageBody: `You are receiving this email because you recently completed an application for Employment Insurance. When you filed your claim, you agreed to be actively looking for work. To help you with your job search, we’ve subscribed you to Job Alerts.
-    
-    Thank you,
-    
-    Job Bank`,
-          },
-          {
-            emailId: 2,
-            receivedTime: new Date(),
-            messageTitle: "New Inbox Message!",
-            messageBody: "Lorem Ipsum",
-          },
-        ],
-      },
-    ];
-
-    return mail;
+  getMailObject(state) {
+    //emails will be set within state from emails service
+    return state.mailObject;
   },
   getSelectedSenderObject(state, getters) {
-    return getters.getEmails.find(
+    //finds the emails attached to the selected sender's ID
+    return getters.getMailObject.find(
       (sender) => sender.senderId === state.selectedSenderId
     );
   },
   //returns all the emails, with most recent ones first
   getEmailsOrderByDateAsc(state, getters) {
-    //sorts a copy of the list of mail (getters should not mutate state)
+    //get list of emails
     const mail = getters.getSelectedSenderObject.emails;
-    const sortedMail = mail.sort((a, b) => {
+    //sorts a copy of the list of mail (getters should not mutate state)
+    const sortedMail = [...mail].sort((a, b) => {
       if (a.receivedTime > b.receivedTime) {
         return -1;
       }
@@ -66,7 +67,7 @@ const actions = {
     commit("addEmail", payload);
   },
   senderIsSelected({ commit }, selectedSenderId) {
-    commit("moveSenderToFirst", selectedSenderId);
+    commit("selectSender", selectedSenderId);
   },
 };
 
@@ -88,6 +89,9 @@ const mutations = {
     };
 
     sender.push(newEmail);
+  },
+  selectSender(state, payload) {
+    state.selectedSenderId = payload;
   },
 };
 
