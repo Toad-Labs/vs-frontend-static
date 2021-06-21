@@ -10,7 +10,7 @@
       <message-card
         v-for="email of emails"
         :key="email.emailId"
-        :timestamp="email.receivedTime.toDateString()"
+        :timestamp="createTimestamp(email.receivedTime)"
         :title="email.messageTitle"
         :paragraphs="email.messageBody"
       />
@@ -32,11 +32,24 @@ export default {
   setup() {
     const store = useStore();
     const emails = computed(
-      () => store.getters["emails/getEmailsMostRecentFirst"]
+      () => store.getters["emails/getEmailsOrderByDateAsc"]
     );
-
+    //creates a timestamp with js's default date methods
+    const createTimestamp = (date) => {
+      const dateArr = date.toString().split(" ");
+      return (
+        dateArr[0] +
+        ", " +
+        dateArr[1] +
+        " " +
+        dateArr[2] +
+        ", " +
+        date.toTimeString().slice(0, 5)
+      );
+    };
     return {
       emails,
+      createTimestamp,
     };
   },
 };
