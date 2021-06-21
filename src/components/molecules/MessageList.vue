@@ -21,6 +21,7 @@
 <script>
 import MessageCard from "./MessageCard.vue";
 import MessageHeader from "../atoms/MessageHeader.vue";
+import EmailService from "../../services/emails/emails.js";
 import { useStore } from "vuex";
 import { computed } from "vue";
 
@@ -35,7 +36,8 @@ export default {
       () => store.getters["emails/getEmailsOrderByDateAsc"]
     );
     //creates a timestamp with js's default date methods
-    const createTimestamp = (date) => {
+    const createTimestamp = (dateString) => {
+      const date = new Date(dateString);
       const dateArr = date.toString().split(" ");
       return (
         dateArr[0] +

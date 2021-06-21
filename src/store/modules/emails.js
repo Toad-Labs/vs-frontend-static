@@ -1,31 +1,8 @@
+import emailService from "../../services/emails/emails";
+
 const state = {
   selectedSenderId: 1,
-  mailObject: [
-    {
-      senderId: 1,
-      senderName: "Jerry",
-      senderIcon: "logo.png",
-      emails: [
-        {
-          emailId: 1,
-          receivedTime: new Date("May 14, 2021 10:04:00"),
-          messageTitle:
-            "Your Employment Insurance Claim - You've been subscribed to Job Alerts",
-          messageBody: `You are receiving this email because you recently completed an application for Employment Insurance. When you filed your claim, you agreed to be actively looking for work. To help you with your job search, we’ve subscribed you to Job Alerts.
-  
-  Thank you,
-  
-  Job Bank`,
-        },
-        {
-          emailId: 2,
-          receivedTime: new Date(),
-          messageTitle: "New Inbox Message!",
-          messageBody: "Lorem Ipsum",
-        },
-      ],
-    },
-  ],
+  mailObject: [],
 };
 
 // getters
@@ -69,10 +46,28 @@ const actions = {
   senderIsSelected({ commit }, selectedSenderId) {
     commit("selectSender", selectedSenderId);
   },
+  async initializeMailObject({ commit, state, getters }) {
+    await emailService
+      .getAll()
+      .then((emails) => commit("setMailObject", emails));
+  },
 };
 
 // mutations
 const mutations = {
+  setMailObject(state, payload) {
+    if (payload) {
+      //sets the entire mailobject
+      state.mailObject = payload;
+    }
+  },
+  setSelectedSenderEmails(state, getters, payload) {
+    if (payload) {
+      //takes the state's selected inbox/mailObject and sets its emails to be this functions payload
+      getters.getSelectedSenderObject.emails = payload;
+    }
+  },
+  //not to be used for a while
   addEmail(state, payload) {
     //gets whoever the sender is, based on payload's id
     const sender = state.find((sender) => payload.senderId === sender.senderId);
