@@ -11,8 +11,6 @@
         class="w-12 h-12 md:w-12 md:h-12"
         :src="icons[inboxItem.senderIcon]"
         alt="Inbox icon"
-        role="presentation"
-        aria-hidden="true"
       />
     </div>
     <div class="flex-1 truncate">
