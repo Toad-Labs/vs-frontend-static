@@ -31,7 +31,7 @@ export default {
   },
   emits: ["add-message"],
   setup(_, context) {
-    const text = ref();
+    const text = ref("");
     function sendText() {
       if (this.text.length > 0) {
         context.emit("add-message", this.text);

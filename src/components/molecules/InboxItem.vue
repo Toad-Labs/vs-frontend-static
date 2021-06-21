@@ -1,15 +1,16 @@
 <template>
   <div
+    @click="selectInboxItem"
     :class="[
-      selected ? 'bg-blue-selected rounded-none' : '',
+      inboxItem.selected ? 'bg-blue-selected rounded-none' : '',
       'flex items-center w-full h-16 md:h-20 rounded focus:border-black hover:bg-gray-infolt cursor-pointer',
     ]"
   >
     <div class="p-1">
       <img
         class="w-12 h-12 md:w-12 md:h-12"
-        :src="icons[imageName]"
-        :alt="altText"
+        :src="icons[inboxItem.senderIcon]"
+        alt="Inbox icon"
         role="presentation"
         aria-hidden="true"
       />
@@ -17,43 +18,39 @@
     <div class="flex-1 truncate">
       <p
         :class="[
-          !dayRead ? 'font-bold' : '',
+          !inboxItem.dayRead ? 'font-bold' : '',
           'font-body md:text-lg truncate overflow-ellipsis text-gray-dark pl-1',
         ]"
       >
-        {{ senderName }}
+        {{ inboxItem.senderName }}
       </p>
       <p
         :class="[
-          !dayRead ? 'font-body' : 'font-heading font-light',
+          !inboxItem.dayRead ? 'font-body' : 'font-heading font-light',
           'text-sm md:text-lg truncate overflow-ellipsis text-gray-dark pl-1',
         ]"
       >
-        {{ bodyText }}
+        {{ inboxItem.teaserText }}
       </p>
     </div>
     <div>
-      <read-notification v-bind:dayRead="dayRead" />
+      <read-notification v-bind:dayRead="inboxItem.dayRead" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import icons from "../../assets/UserAccount/icons.js";
+import icons from "../../assets/icons.js";
 import ReadNotification from "../atoms/ReadNotification.vue";
 export default {
   props: {
-    dayRead: String,
-    selected: Boolean,
-    imageName: String,
-    senderName: String,
-    bodyText: String,
-    altText: String,
+    inboxItem: Object,
   },
-  setup() {
-    return {
-      icons,
-    };
+  setup(props, context) {
+    function selectInboxItem() {
+      context.emit("select-inbox-item", props.inboxItem.id);
+    }
+    return { selectInboxItem, icons };
   },
   components: {
     ReadNotification,

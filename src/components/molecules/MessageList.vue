@@ -1,7 +1,11 @@
 <template>
   <div class="w-full h-full flex flex-col">
-    <message-header imageName="Mail" altText="Mail" headerText="Job Bank" />
-
+    <message-header
+      backIcon="Back"
+      imageName="Mail"
+      altText="Mail"
+      headerText="Job Bank"
+    />
     <div class="flex bg-gray-infolt flex-col p-6 space-y-6 overflow-auto">
       <message-card
         v-for="email of emails"
