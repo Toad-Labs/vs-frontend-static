@@ -1,0 +1,20 @@
+
+{
+  "emails":[
+    {
+      "emailId": 1,
+      "receivedTime": "August 11, 2020 23:15:30",
+      "lastRead": null,
+      "messageTitle":
+        "Your Employment Insurance Claim - You've been subscribed to Job Alerts",
+      "messageBody": "You are receiving this email because you recently completed an application for Employment Insurance. When you filed your claim, you agreed to be actively looking for work. To help you with your job search, we’ve subscribed you to Job Alerts. Thank you, Job Bank"
+    },
+    {
+      "emailId": 2,
+      "receivedTime": "August 15, 2020 23:15:30",
+      "lastRead": null,
+      "messageTitle": "New Inbox Message!",
+      "messageBody": "Lorem Ipsum"
+    }
+  ]
+}
