@@ -8,7 +8,6 @@ const state = {
 const getters = {
   // Get virtual concierge items
   getChatMessagesOrderedByDate(state) {
-    // state[0] will change to the selected inbox item
     if (state.chatMessages.length !== 0) {
       // [...state.chatMessages[0].messages] makes a copy of the state array. Getters cannot mutate the state directly.
       const conversation = [...state.chatMessages[0].messages].sort((a, b) => {
