@@ -5,6 +5,7 @@
     "chatId": 1,
     "senderName": "Virtual Concierge",
     "senderIcon": "logo.png",
+    "lastRead": null,
     "messages": [
       {
         "chatMessageId": 1,
