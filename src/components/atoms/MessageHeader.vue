@@ -9,7 +9,9 @@
       />
     </span>
     <img :src="icons[imageName]" :alt="altText" class="h-10 mt-auto w-10" />
-    <span class="font-bold font-body pt-2 pl-2">{{ headerText }}</span>
+    <span class="font-bold font-body pt-2 pl-2 text-gray-dark">{{
+      headerText
+    }}</span>
   </div>
 </template>
 
