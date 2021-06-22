@@ -6,7 +6,10 @@
       altText="Mail"
       headerText="Job Bank"
     />
-    <div class="flex bg-gray-infolt flex-col p-6 space-y-6 overflow-auto">
+    <div
+      class="flex bg-gray-infolt flex-col p-6 space-y-6 overflow-auto"
+      tabindex="0"
+    >
       <message-card
         v-for="email of emails"
         :key="email.emailId"
