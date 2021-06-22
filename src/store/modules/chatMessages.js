@@ -7,10 +7,10 @@ const state = {
 // getters
 const getters = {
   // Get virtual concierge items
-  getChatMessagesOrderedByDate(state) {
-    if (state.chatMessages.length !== 0) {
-      // [...state.chatMessages[0].messages] makes a copy of the state array. Getters cannot mutate the state directly.
-      const conversation = [...state.chatMessages[0].messages].sort((a, b) => {
+  getChatMessageByIdOrderedByMessagesDate: (state, getters) => (id) => {
+    let cm = { ...getters.getChatMessageById(id) };
+    if (cm.messages.length !== 0) {
+      cm.messages = [...cm.messages].sort((a, b) => {
         const firstDate = new Date(a.receivedTime).getTime();
         const secondDate = new Date(b.receivedTime).getTime();
         if (firstDate > secondDate) {
@@ -21,13 +21,12 @@ const getters = {
         }
         return 0;
       });
-      return conversation;
     }
-    return null;
+    return cm;
   },
-  getChatMessageObject(state) {
-    // state[0] will change to the selected inbox item
-    return state.chatMessages[0];
+  getChatMessageById: (state, getters) => (id) => {
+    let cm = state.chatMessages.find((chatMessage) => chatMessage.id === id);
+    return cm;
   },
 };
 

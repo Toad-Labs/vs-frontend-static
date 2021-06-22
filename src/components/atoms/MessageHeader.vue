@@ -17,11 +17,6 @@
 import icons from "../../assets/icons.js";
 import { useStore } from "vuex";
 export default {
-  data() {
-    return {
-      icons,
-    };
-  },
   props: {
     imageName: String,
     backIcon: String,
@@ -33,7 +28,7 @@ export default {
     function clickBack() {
       store.dispatch("inbox/closeInboxItem");
     }
-    return { clickBack };
+    return { clickBack, icons };
   },
 };
 </script>
