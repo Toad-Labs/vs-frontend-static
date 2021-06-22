@@ -134,6 +134,7 @@
 <script lang="ts">
 import Menu from "../atoms/Menu.vue";
 import Banner from "../atoms/Banner.vue";
+
 export default {
   name: "TheHeader",
   components: {
