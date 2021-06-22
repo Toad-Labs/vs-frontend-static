@@ -64,7 +64,7 @@ const mutations = {
   //not to be used for a while
   addEmail(state, payload) {
     //gets whoever the sender is, based on payload's id
-    const sender = state.find((sender) => payload.senderId === sender.senderId);
+    const sender = state.find((sender) => payload.id === sender.id);
 
     //finds the largest emailId amongst the ones that already exist, adds one to it
     const emailId = Math.max(...sender.messages.map((email) => email.id)) + 1;
