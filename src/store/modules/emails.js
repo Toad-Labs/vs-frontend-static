@@ -18,17 +18,19 @@ const getters = {
   getMailObjectEmailsOrderByDateAsc: (state, getters) => (id) => {
     //get list of emails
     var mailObject = { ...getters.getMailObjectById(id) };
-    //sorts a copy of the list of mail (getters should not mutate state)
-    mailObject.emails = [...mailObject.emails].sort((a, b) => {
-      if (a.receivedTime > b.receivedTime) {
-        return -1;
-      }
-      if (a.receivedTime < b.receivedTime) {
-        return 1;
-      }
-      return 0;
-    });
 
+    if (mailObject != undefined) {
+      //sorts a copy of the list of mail (getters should not mutate state)
+      mailObject.emails = [...mailObject.emails].sort((a, b) => {
+        if (a.receivedTime > b.receivedTime) {
+          return -1;
+        }
+        if (a.receivedTime < b.receivedTime) {
+          return 1;
+        }
+        return 0;
+      });
+    }
     return mailObject;
   },
 };
