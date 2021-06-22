@@ -4,6 +4,7 @@
     placeholder="Write something..."
     class="w-full border-t border-b border-gray-200 p-3"
     v-model="text"
+    aria-label="Send message"
     @keyup.enter="sendText"
   />
   <div class="w-full bg-gray-infolt mt-px text-gray-dark">
@@ -13,8 +14,16 @@
       :text="option"
       @send-button="sendBtnText"
     />
-    <button class="float-right cursor-pointer" @click="sendText">
-      <img src="../../assets/Send/Active/Default.svg" alt="Bot Image." />
+    <button
+      class="float-right cursor-pointer"
+      aria-label="Send message"
+      @click="sendText"
+    >
+      <img
+        src="../../assets/Send/Active/Default.svg"
+        alt="Send Image."
+        aria-hidden="true"
+      />
     </button>
   </div>
 </template>
