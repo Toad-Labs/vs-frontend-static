@@ -1,6 +1,8 @@
 <template>
   <div>
     <header>
+      <the-skip-nav />
+
       <div class="pb-2 sm:pb-4 sm:border-b sm:border-gray-infomd">
         <!-- Hidden heading -->
         <h2 class="sr-only">Site Header Information</h2>
@@ -130,11 +132,14 @@
 <script lang="ts">
 import Menu from "../atoms/Menu.vue";
 import Banner from "../atoms/Banner.vue";
+import TheSkipNav from "./TheSkipNav.vue";
+
 export default {
   name: "TheHeader",
   components: {
     Menu,
     Banner,
+    TheSkipNav,
   },
   setup() {
     return {};

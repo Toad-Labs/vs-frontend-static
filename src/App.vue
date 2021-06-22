@@ -1,9 +1,6 @@
 <template>
   <div id="app">
     <!-- The header component -->
-    <the-skip-nav />
-
-    <!-- The header component -->
     <the-header />
 
     <!-- Page content -->
@@ -23,7 +20,6 @@
 </template>
 
 <script lang="ts">
-import TheSkipNav from "./components/molecules/TheSkipNav.vue";
 import TheHeader from "./components/molecules/TheHeader.vue";
 import TheFooter from "./components/molecules/TheFooter.vue";
 import FeedbackButton from "./components/atoms/FeedbackButton.vue";
@@ -31,7 +27,6 @@ import FeedbackButton from "./components/atoms/FeedbackButton.vue";
 export default {
   name: "App",
   components: {
-    TheSkipNav,
     TheHeader,
     TheFooter,
     FeedbackButton,
