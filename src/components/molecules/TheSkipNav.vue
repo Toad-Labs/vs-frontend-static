@@ -1,12 +1,12 @@
 <template>
-  <div>
+  <nav>
     <!-- Site Accessibility Navigation -->
-    <ul class="sr-only">
+    <ul class="sr-only" aria-label="Skip Navigation Link">
       <li>
         <a href="#maincontent">Skip to main content</a>
       </li>
     </ul>
-  </div>
+  </nav>
 </template>
 
 <script lang="ts">

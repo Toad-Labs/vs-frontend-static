@@ -1,9 +1,9 @@
 <template>
-  <div class="bg-white p-6 space-y-3">
+  <div class="bg-white p-6 space-y-3 text-gray-dark">
     <span class="uppercase text-sm font-heading font-light">{{
       timestamp
     }}</span>
-    <h1 class="font-heading text-2xl font-semibold">{{ title }}</h1>
+    <h3 class="font-heading text-2xl font-bold">{{ title }}</h3>
     <p class="font-normal font-body text-lg whitespace-pre-line">
       {{ paragraphs }}
     </p>

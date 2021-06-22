@@ -2,67 +2,68 @@
 {
   "chatMessages":[
     {
-    "chatId": 1,
+    "id": 1,
     "senderName": "Virtual Concierge",
-    "senderIcon": "logo.png",
+    "senderIcon": "VC",
+    "senderIconAltText": "Virtual Concierge icon",
     "lastRead": null,
     "messages": [
       {
-        "chatMessageId": 1,
+        "id": 1,
         "receivedTime": "August 11, 1975 23:15:30",
         "isUser": false,
         "text": "Hi, how can I help you?"
       },
       {
-        "chatMessageId": 2,
+        "id": 2,
         "receivedTime": "August 13, 1975 23:15:30",
         "isUser": true,
         "text": "I need help! My desk is on fire!"
       },
       {
-        "chatMessageId": 3,
+        "id": 3,
         "receivedTime": "August 15, 1975 23:15:30",
         "isUser": false,
         "text": "I appreciate your concern. Apply water vigorously and call 911."
       },
       {
-        "chatMessageId": 4,
+        "id": 4,
         "receivedTime": "August 17, 1975 23:15:30",
         "isUser": true,
         "text": "I meant I am working too hard; I am all fired up right now."
       },
       {
-        "chatMessageId": 5,
+        "id": 5,
         "receivedTime": "August 19, 1975 23:15:30",
         "isUser": false,
         "text": "Oh... Well, this is akward."
       },
       {
-        "chatMessageId": 6,
+        "id": 6,
         "receivedTime": "August 20, 1975 23:15:30",
         "isUser": false,
         "text": "Hi, how can I help you?"
       },
       {
-        "chatMessageId": 7,
+        "id": 7,
         "receivedTime": "August 22, 1975 23:15:30",
         "isUser": true,
         "text": "I need help! My desk is on fire!"
       },
       {
-        "chatMessageId": 8,
+        "id": 8,
         "receivedTime": "August 23, 1975 23:15:30",
         "isUser": false,
         "text": "I appreciate your concern. Apply water vigorously and call 911."
       },
       {
-        "chatMessageId": 9,
+        "id": 9,
         "receivedTime": "August 25, 1975 23:15:30",
         "isUser": true,
         "text": "I meant I am working too hard; I am all fired up right now."
       },
       {
-        "chatMessageId": 10,
+        "id": 10,
         "receivedTime": "August 27, 1975 23:15:30",
         "isUser": false,
         "text": "Oh... Well, this is akward."
