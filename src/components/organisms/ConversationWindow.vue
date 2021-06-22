@@ -2,20 +2,20 @@
   <div class="w-full h-full flex flex-col p-4 sm:p-0">
     <message-header
       backIcon="Back"
-      imageName="VC"
-      altText="Virtual Concierge"
-      headerText="Virtual Concierge"
+      :imageName="chatMessage.senderIcon"
+      :altText="chatMessage.senderIconAltText"
+      :headerText="chatMessage.senderName"
     />
     <div class="flex h-full overflow-auto">
       <img
-        src="../../assets/UserAccount/VirtualConcierge.svg"
-        alt="Bot Image."
+        :src="icons[chatMessage.senderIcon]"
+        :alt="chatMessage.senderIconAltText"
         class="h-6 mt-auto w-10 mb-3"
       />
       <div class="w-full pr-6 overflow-auto flex flex-col-reverse" tabindex="0">
         <ConversationMessage
-          v-for="message in chatbotConvo"
-          :key="message.chatMessageId"
+          v-for="message in chatMessage.messages"
+          :key="message.id"
           :isUser="message.isUser"
           :text="message.text"
         />
@@ -33,7 +33,7 @@ import MessageHeader from "../atoms/MessageHeader.vue";
 import TextInput from "../atoms/TextInput.vue";
 import { useStore } from "vuex";
 import { computed } from "vue";
-
+import icons from "../../assets/icons.js";
 export default {
   name: "ConversationWindow",
   components: {
@@ -43,23 +43,26 @@ export default {
   },
   setup() {
     const store = useStore();
-    const chatbotObject = computed(
-      () => store.getters["chatMessages/getChatMessageObject"]
+    const selectedInboxItemId = store.getters["inbox/getSelectedInboxItem"].id;
+
+    const chatMessage = computed(() =>
+      store.getters["chatMessages/getChatMessageByIdOrderedByMessagesDate"](
+        selectedInboxItemId
+      )
     );
-    const chatbotConvo = computed(
-      () => store.getters["chatMessages/getChatMessagesOrderedByDate"]
-    );
+
     function sendMessage(msg) {
       const newMessage = {
-        chatId: chatbotObject.value.chatId,
+        id: chatMessage.value.id,
         isUser: true,
         text: msg,
       };
       store.dispatch("chatMessages/sendMessage", newMessage);
     }
     return {
-      chatbotConvo,
+      chatMessage,
       sendMessage,
+      icons,
     };
   },
 };
