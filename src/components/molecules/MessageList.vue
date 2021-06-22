@@ -21,7 +21,6 @@
 <script>
 import MessageCard from "./MessageCard.vue";
 import MessageHeader from "../atoms/MessageHeader.vue";
-import EmailService from "../../services/emails/emails.js";
 import { useStore } from "vuex";
 import { computed } from "vue";
 
