@@ -11,7 +11,7 @@ const getters = {
   getInboxItems(state) {
     let inboxItems = [
       {
-        id: 5,
+        id: 1,
         senderIcon: "VC",
         senderName: "Virtual Concierge",
         teaserText: "Hi, how can I help you?",
@@ -20,7 +20,7 @@ const getters = {
         type: "chat",
       },
       {
-        id: 100,
+        id: 2,
         senderIcon: "Mail",
         senderName: "Job Bank",
         teaserText:
