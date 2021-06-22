@@ -1,5 +1,5 @@
 <template>
-  <div class="flex border-b border-gray-200 p-2">
+  <div class="flex border-b border-gray-200 px-2 py-4">
     <span>
       <img
         :src="icons[backIcon]"

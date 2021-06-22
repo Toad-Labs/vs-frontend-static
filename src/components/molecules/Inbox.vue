@@ -1,5 +1,5 @@
 <template>
-  <h1 class="font-heading font-bold text-4xl pl-3 pt-4">Inbox</h1>
+  <h1 class="font-heading font-bold text-4xl pl-3 pt-4 pb-4">Inbox</h1>
   <div class="md:overflow-auto space-y-1">
     <inbox-item
       v-for="inboxItem in inboxItems"
