@@ -7,11 +7,11 @@ function getAll() {
   })
     .then((response) => {
       let emails = [];
-      const emailList = response.emails;
+      const emailList = response.mailObject;
       if (Array.isArray(emailList) && emailList?.length > 0) {
-        emailList.forEach((convo) => {
+        emailList.forEach((mail) => {
           // Here we can use the response adapter to create a objects of each email.
-          emails.push(convo);
+          emails.push(mail);
         });
       }
       return emails;
