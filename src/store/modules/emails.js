@@ -17,7 +17,7 @@ const getters = {
   //returns all the emails, with most recent ones first
   getMailObjectEmailsOrderByDateAsc: (state, getters) => (id) => {
     //get list of emails
-    var mailObject = { ...getters.getMailObjectById(id) };
+    let mailObject = { ...getters.getMailObjectById(id) };
 
     if (mailObject != undefined) {
       //sorts a copy of the list of mail (getters should not mutate state)
