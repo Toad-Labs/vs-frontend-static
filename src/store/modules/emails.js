@@ -20,16 +20,18 @@ const getters = {
     let mailObject = { ...getters.getMailObjectById(id) };
 
     if (mailObject != undefined) {
-      //sorts a copy of the list of mail (getters should not mutate state)
-      mailObject.emails = [...mailObject.emails].sort((a, b) => {
-        if (a.receivedTime > b.receivedTime) {
-          return -1;
-        }
-        if (a.receivedTime < b.receivedTime) {
-          return 1;
-        }
-        return 0;
-      });
+      if (mailObject.emails.length !== 0) {
+        //sorts a copy of the list of mail (getters should not mutate state)
+        mailObject.emails = [...mailObject.emails].sort((a, b) => {
+          if (a.receivedTime > b.receivedTime) {
+            return -1;
+          }
+          if (a.receivedTime < b.receivedTime) {
+            return 1;
+          }
+          return 0;
+        });
+      }
     }
     return mailObject;
   },
