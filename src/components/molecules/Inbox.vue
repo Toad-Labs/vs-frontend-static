@@ -1,10 +1,9 @@
 <template>
   <h1 class="font-heading font-bold text-4xl pl-3 pt-4">Inbox</h1>
-  <div class="md:overflow-auto space-y-1">
+  <div class="md:overflow-auto space-y-1" role="list">
     <inbox-item
       v-for="inboxItem in inboxItems"
       :key="inboxItem.id"
-      tabindex="0"
       :inboxItem="inboxItem"
       @select-inbox-item="selectInboxItem"
     />
