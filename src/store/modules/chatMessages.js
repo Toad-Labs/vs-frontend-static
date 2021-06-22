@@ -9,23 +9,25 @@ const getters = {
   // Get virtual concierge items
   getChatMessageByIdOrderedByMessagesDate: (state, getters) => (id) => {
     let cm = { ...getters.getChatMessageById(id) };
-    if (cm.messages.length !== 0) {
-      cm.messages = [...cm.messages].sort((a, b) => {
-        const firstDate = new Date(a.receivedTime).getTime();
-        const secondDate = new Date(b.receivedTime).getTime();
-        if (firstDate > secondDate) {
-          return -1;
-        }
-        if (firstDate < secondDate) {
-          return 1;
-        }
-        return 0;
-      });
+    if (cm != undefined) {
+      if (cm.messages.length !== 0) {
+        cm.messages = [...cm.messages].sort((a, b) => {
+          const firstDate = new Date(a.receivedTime).getTime();
+          const secondDate = new Date(b.receivedTime).getTime();
+          if (firstDate > secondDate) {
+            return -1;
+          }
+          if (firstDate < secondDate) {
+            return 1;
+          }
+          return 0;
+        });
+      }
     }
     return cm;
   },
   getChatMessageById: (state, getters) => (id) => {
-    let cm = state.chatMessages.find((chatMessage) => chatMessage.id === id);
+    const cm = state.chatMessages.find((chatMessage) => chatMessage.id === id);
     return cm;
   },
 };
@@ -55,14 +57,14 @@ const mutations = {
   addChatbotMessage(state, payload) {
     // Find the conversation to use the messages of that conversation.
     const conversation = state.chatMessages.find(
-      (chat) => chat.chatId === payload.chatId
+      (chat) => chat.id === payload.id
     );
     // Find the next message id.
     const nextMessageId =
-      Math.max(...conversation.messages.map((msg) => msg.chatMessageId)) + 1;
+      Math.max(...conversation.messages.map((msg) => msg.id)) + 1;
     // Create the new message object.
     const newMessage = {
-      chatMessageId: nextMessageId,
+      id: nextMessageId,
       receivedTime: Date.now(),
       isUser: payload.isUser,
       text: payload.text,

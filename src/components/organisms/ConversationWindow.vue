@@ -53,7 +53,7 @@ export default {
 
     function sendMessage(msg) {
       const newMessage = {
-        chatId: chatMessage.value.chatId,
+        id: chatMessage.value.id,
         isUser: true,
         text: msg,
       };
