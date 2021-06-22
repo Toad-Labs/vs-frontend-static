@@ -12,7 +12,16 @@
         alt="Bot Image."
         class="h-6 mt-auto w-10 mb-3"
       />
-      <div class="w-full pr-6 overflow-auto flex flex-col-reverse">
+      <div
+        class="
+          w-full
+          pr-6
+          overflow-auto
+          flex flex-col-reverse
+          font-body
+          text-gray-dark
+        "
+      >
         <ConversationMessage
           v-for="message in chatbotConvo"
           :key="message.chatMessageId"

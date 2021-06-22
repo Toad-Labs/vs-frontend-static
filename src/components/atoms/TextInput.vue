@@ -6,7 +6,7 @@
     v-model="text"
     @keyup.enter="sendText"
   />
-  <div class="w-full bg-gray-infolt mt-px">
+  <div class="w-full bg-gray-infolt mt-px text-gray-dark">
     <chat-option-button
       v-for="(option, index) in buttonOptions"
       :key="index"

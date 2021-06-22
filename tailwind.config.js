@@ -12,6 +12,7 @@ module.exports = {
       },
       backgroundImage: (theme) => ({
         "banner-img": "url('../../assets/v-c-banner.jpg')",
+        "banner-img-lg": "url('../../assets/vc-banner-large.png')",
       }),
       colors: {
         blue: {
