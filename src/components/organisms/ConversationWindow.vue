@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full flex flex-col p-4 sm:p-0">
+  <div class="w-full h-full flex flex-col p-4 sm:p-0 text-gray-dark">
     <message-header
       backIcon="Back"
       :imageName="chatMessage.senderIcon"

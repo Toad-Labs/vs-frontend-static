@@ -1,5 +1,5 @@
 <template>
-  <div class="flex md:h-vh-1/2">
+  <div class="flex md:h-vh-1/2 text-gray-dark">
     <div
       class="
         w-full
