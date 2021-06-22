@@ -2,17 +2,17 @@
   <div class="w-full h-full flex flex-col">
     <message-header
       backIcon="Back"
-      imageName="Mail"
-      altText="Mail"
-      headerText="Job Bank"
+      :imageName="mailObject.senderIcon"
+      :altText="mailObject.senderIconAltText"
+      :headerText="mailObject.senderName"
     />
     <div
       class="flex bg-gray-infolt flex-col p-6 space-y-6 overflow-auto"
       tabindex="0"
     >
       <message-card
-        v-for="email of emails"
-        :key="email.emailId"
+        v-for="email of mailObject.emails"
+        :key="email.id"
         :timestamp="createTimestamp(email.receivedTime)"
         :title="email.messageTitle"
         :paragraphs="email.messageBody"
@@ -26,6 +26,7 @@ import MessageCard from "./MessageCard.vue";
 import MessageHeader from "../atoms/MessageHeader.vue";
 import { useStore } from "vuex";
 import { computed } from "vue";
+import icons from "../../assets/icons.js";
 
 export default {
   components: {
@@ -34,8 +35,11 @@ export default {
   },
   setup() {
     const store = useStore();
-    const emails = computed(
-      () => store.getters["emails/getEmailsOrderByDateAsc"]
+    const selectedInboxItemId = store.getters["inbox/getSelectedInboxItem"].id;
+    const mailObject = computed(() =>
+      store.getters["emails/getMailObjectEmailsOrderByDateAsc"](
+        selectedInboxItemId
+      )
     );
     //creates a timestamp with js's default date methods
     const createTimestamp = (dateString) => {
@@ -52,8 +56,9 @@ export default {
       );
     };
     return {
-      emails,
+      mailObject,
       createTimestamp,
+      icons,
     };
   },
 };

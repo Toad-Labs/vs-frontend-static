@@ -2,34 +2,38 @@
 // import InboxService from '../../services/inbox/inbox';
 
 const state = {
-  selectedInboxItemId: 5,
+  selectedInboxItemId: 0,
   mobileDrawerOpen: false,
 };
 
 // getters
 const getters = {
-  getInboxItems(state) {
-    let inboxItems = [
-      {
-        id: 5,
-        senderIcon: "VC",
-        senderName: "Virtual Concierge",
-        teaserText: "Hi, how can I help you?",
-        dayRead: "",
+  getInboxItems(state, getters, rootState, rootGetters) {
+    let inboxItems = [];
+
+    rootGetters["chatMessages/getAllChatMessages"].forEach((item) => {
+      inboxItems.push({
+        id: item.id,
+        senderIcon: item.senderIcon,
+        senderName: item.senderName,
+        teaserText: "",
+        dayRead: "tues",
         selected: false,
         type: "chat",
-      },
-      {
-        id: 100,
-        senderIcon: "Mail",
-        senderName: "Job Bank",
-        teaserText:
-          "You are receiving this email because you recently completed an application for Employment Insurance.",
-        dayRead: "Weds",
+      });
+    });
+
+    rootGetters["emails/getMailObject"].forEach((item) => {
+      inboxItems.push({
+        id: item.id,
+        senderIcon: item.senderIcon,
+        senderName: item.senderName,
+        teaserText: "",
+        dayRead: "wed",
         selected: false,
         type: "email",
-      },
-    ];
+      });
+    });
 
     let selectedItem = inboxItems.find(
       (inboxItem) => inboxItem.id === state.selectedInboxItemId

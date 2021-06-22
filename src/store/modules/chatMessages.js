@@ -29,6 +29,9 @@ const getters = {
     // state[0] will change to the selected inbox item
     return state.chatMessages[0];
   },
+  getAllChatMessages(state) {
+    return state.chatMessages;
+  },
 };
 
 // actions
