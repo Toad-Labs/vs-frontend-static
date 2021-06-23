@@ -20,7 +20,8 @@
           flex flex-col-reverse
           font-body
           text-gray-dark
-          p-px
+          py-px
+          px-3
         "
         tabindex="0"
       >
@@ -30,7 +31,7 @@
           :isUser="message.isUser"
           :text="message.text"
         />
-        <p class="text-center font-heading font-light text-gray-dark">
+        <p class="text-center font-heading text-sm font-light text-gray-dark">
           WEDS 10:04 AM
         </p>
       </div>
