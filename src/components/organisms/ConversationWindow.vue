@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full flex flex-col p-4 sm:p-0 text-gray-dark">
+  <div class="w-full h-full flex flex-col text-gray-dark">
     <message-header
       backIcon="Back"
       :imageName="chatMessage.senderIcon"
@@ -15,7 +15,7 @@
       <div
         class="
           w-full
-          pr-6
+          space-y-2 space-y-reverse
           overflow-auto
           flex flex-col-reverse
           font-body
@@ -29,7 +29,9 @@
           :isUser="message.isUser"
           :text="message.text"
         />
-        <p class="text-center font-light text-gray-dark">WEDS 10:04 AM</p>
+        <p class="text-center font-heading font-light text-gray-dark">
+          WEDS 10:04 AM
+        </p>
       </div>
     </div>
     <!-- The logic on how the buttonOptions are passed as props will 
