@@ -54,7 +54,7 @@ export default {
   setup() {
     const store = useStore();
     const selectedInboxItemId = store.getters["inbox/getSelectedInboxItem"].id;
-
+    store.dispatch("chatMessages/markChatRead", selectedInboxItemId);
     const chatMessage = computed(() =>
       store.getters["chatMessages/getChatMessageByIdOrderedByMessagesDate"](
         selectedInboxItemId

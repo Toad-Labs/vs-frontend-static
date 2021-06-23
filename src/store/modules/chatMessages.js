@@ -53,6 +53,10 @@ const actions = {
     // make await api call here with the text
     context.commit("addChatbotMessage", payload);
   },
+
+  async markChatRead(context, id) {
+    context.commit("setLastRead", id);
+  },
 };
 
 // mutations
@@ -80,6 +84,11 @@ const mutations = {
     if (payload) {
       state.chatMessages = payload;
     }
+  },
+
+  setLastRead(state, id) {
+    const conversation = state.chatMessages.find((chat) => chat.id === id);
+    conversation.lastRead = Date.now();
   },
 };
 
