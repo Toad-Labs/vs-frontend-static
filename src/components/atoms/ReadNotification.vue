@@ -18,15 +18,7 @@
   </div>
   <div
     v-else
-    class="
-      flex
-      place-items-center
-      justify-center
-      h-16
-      w-16
-      md:h-20 md:w-20
-      pb-5
-    "
+    class="flex place-items-center justify-center h-16 w-16 md:h-20 md:w-20"
   >
     <div class="bg-alert-main rounded-full w-4 h-4" />
   </div>
