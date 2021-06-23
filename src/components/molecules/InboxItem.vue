@@ -6,7 +6,7 @@
     @keyup.enter="selectInboxItem"
     :class="[
       inboxItem.selected ? 'bg-blue-selected rounded-none' : '',
-      'flex items-center w-full h-16 md:h-20 rounded focus:border-black hover:bg-gray-infolt cursor-pointer',
+      'flex items-center w-full h-16 md:h-20 rounded focus:border-black hover:bg-gray-infolt cursor-pointer ',
     ]"
   >
     <div class="p-1">

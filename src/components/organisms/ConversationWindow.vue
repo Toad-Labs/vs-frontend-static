@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full flex flex-col p-4 sm:p-0">
+  <div class="w-full h-full flex flex-col p-4 sm:p-0 text-gray-dark">
     <message-header
       backIcon="Back"
       :imageName="chatMessage.senderIcon"
@@ -12,7 +12,17 @@
         :alt="chatMessage.senderIconAltText"
         class="h-6 mt-auto w-10 mb-3"
       />
-      <div class="w-full pr-6 overflow-auto flex flex-col-reverse" tabindex="0">
+      <div
+        class="
+          w-full
+          pr-6
+          overflow-auto
+          flex flex-col-reverse
+          font-body
+          text-gray-dark
+        "
+        tabindex="0"
+      >
         <ConversationMessage
           v-for="message in chatMessage.messages"
           :key="message.id"
