@@ -20,6 +20,7 @@
           flex flex-col-reverse
           font-body
           text-gray-dark
+          p-px
         "
         tabindex="0"
       >
