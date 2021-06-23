@@ -26,6 +26,9 @@ const getters = {
     }
     return cm;
   },
+  getAllChatMessages(state) {
+    return state.chatMessages;
+  },
   getChatMessageById: (state, getters) => (id) =>
     state.chatMessages.find((chatMessage) => chatMessage.id === id),
 };

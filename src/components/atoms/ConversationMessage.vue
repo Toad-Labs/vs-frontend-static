@@ -2,7 +2,9 @@
   <div :class="[!isUser ? 'flex ' : '']">
     <p
       :class="[
-        !isUser ? 'bg-gray-infolt' : 'bg-blue-primary text-white float-right',
+        !isUser
+          ? 'bg-gray-infolt mr-10'
+          : 'ml-10 bg-blue-primary text-white float-right',
         ' p-3 rounded-3xl max-w-xs md:max-w-xl break-words',
       ]"
     >
