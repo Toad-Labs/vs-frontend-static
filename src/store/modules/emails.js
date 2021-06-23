@@ -1,7 +1,6 @@
 import emailService from "../../services/emails/emails";
 
 const state = {
-  selectedSenderId: 1,
   mailObject: [],
 };
 
@@ -11,28 +10,30 @@ const getters = {
     //emails will be set within state from emails service
     return state.mailObject;
   },
-  getSelectedSenderObject(state, getters) {
+  getMailObjectById: (state, getters) => (id) => {
     //finds the emails attached to the selected sender's ID
-    return getters.getMailObject.find(
-      (sender) => sender.senderId === state.selectedSenderId
-    );
+    return getters.getMailObject.find((sender) => sender.id === id);
   },
   //returns all the emails, with most recent ones first
-  getEmailsOrderByDateAsc(state, getters) {
+  getMailObjectEmailsOrderByDateAsc: (state, getters) => (id) => {
     //get list of emails
-    const mail = getters.getSelectedSenderObject.emails;
-    //sorts a copy of the list of mail (getters should not mutate state)
-    const sortedMail = [...mail].sort((a, b) => {
-      if (a.receivedTime > b.receivedTime) {
-        return -1;
-      }
-      if (a.receivedTime < b.receivedTime) {
-        return 1;
-      }
-      return 0;
-    });
+    let mailObject = { ...getters.getMailObjectById(id) };
 
-    return sortedMail;
+    if (mailObject != undefined) {
+      if (mailObject.emails.length !== 0) {
+        //sorts a copy of the list of mail (getters should not mutate state)
+        mailObject.emails = [...mailObject.emails].sort((a, b) => {
+          if (a.receivedTime > b.receivedTime) {
+            return -1;
+          }
+          if (a.receivedTime < b.receivedTime) {
+            return 1;
+          }
+          return 0;
+        });
+      }
+    }
+    return mailObject;
   },
 };
 
@@ -42,9 +43,6 @@ const actions = {
   sendEmail({ commit }, payload) {
     //adds email to display, nothing else really happens here
     commit("addEmail", payload);
-  },
-  senderIsSelected({ commit }, selectedSenderId) {
-    commit("selectSender", selectedSenderId);
   },
   async initializeMailObject({ commit, state, getters }) {
     await emailService
@@ -70,23 +68,19 @@ const mutations = {
   //not to be used for a while
   addEmail(state, payload) {
     //gets whoever the sender is, based on payload's id
-    const sender = state.find((sender) => payload.senderId === sender.senderId);
+    const sender = state.find((sender) => payload.id === sender.id);
 
     //finds the largest emailId amongst the ones that already exist, adds one to it
-    const emailId =
-      Math.max(...sender.messages.map((email) => email.emailId)) + 1;
+    const emailId = Math.max(...sender.messages.map((email) => email.id)) + 1;
 
     const newEmail = {
-      emailId: emailId,
+      id: emailId,
       messageTitle: payload.messageTitle,
       messageBody: payload.messageBody,
       receivedTime: Date.now(),
     };
 
     sender.push(newEmail);
-  },
-  selectSender(state, payload) {
-    state.selectedSenderId = payload;
   },
 };
 
