@@ -40,10 +40,12 @@ const actions = {
   },
 
   // Fetch and load the categories
-  async fetchChatMessages({ commit, state, getters }) {
+  async fetchChatMessages({ commit, state, getters, dispatch }) {
     // Get all of the Chat Messages from the API
     await ChatMessageService.getAll().then((chatMessages) => {
       commit("setChatMessages", chatMessages);
+      if (chatMessages[0])
+        this.dispatch("inbox/selectInboxItem", chatMessages[0].id);
     });
   },
 
