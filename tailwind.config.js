@@ -58,6 +58,9 @@ module.exports = {
         "vh-1/3": "calc(100vh / 3)",
         "vh-1/4": "calc(100vh / 4)",
         "vh-1/5": "calc(100vh / 5)",
+      },
+      minWidth: {
+        "7/2r": "3.5rem"
       }
     },
   },
