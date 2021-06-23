@@ -3,7 +3,7 @@
     <p
       :class="[
         !isUser ? 'bg-gray-infolt' : 'bg-blue-primary text-white float-right',
-        ' p-3 rounded-3xl max-w-xs md:max-w-xl',
+        ' p-3 rounded-3xl max-w-xs md:max-w-xl min-w-msg text-center',
       ]"
     >
       {{ text }}
