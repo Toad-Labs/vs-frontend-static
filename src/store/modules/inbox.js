@@ -94,6 +94,9 @@ const getters = {
 
 // actions
 const actions = {
+  async selectDefaultInboxItem(context, id) {
+    context.commit("updateSelectedInboxItemId", id);
+  },
   async selectInboxItem(context, id) {
     context.commit("updateSelectedInboxItemId", id);
     context.commit("updateMobileDrawerOpen", true);

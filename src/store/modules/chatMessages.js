@@ -45,7 +45,7 @@ const actions = {
     await ChatMessageService.getAll().then((chatMessages) => {
       commit("setChatMessages", chatMessages);
       if (chatMessages[0])
-        this.dispatch("inbox/selectInboxItem", chatMessages[0].id);
+        this.dispatch("inbox/selectDefaultInboxItem", chatMessages[0].id);
     });
   },
 
