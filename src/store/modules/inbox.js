@@ -12,24 +12,58 @@ const getters = {
     let inboxItems = [];
 
     rootGetters["chatMessages/getAllChatMessages"].forEach((item) => {
+      //get last message for teaser Text
+      const messagesList = item.messages.sort(function (a, b) {
+        return new Date(a.receivedTime) - new Date(b.receivedTime);
+      });
+      const lastMessage = messagesList[messagesList.length - 1];
+
+      //dayRead will be unread if no value provided. The design currently accounts for only the weekday to be displayed
+      let dayRead = undefined;
+      if (
+        item.lastRead != null &&
+        new Date(item.lastRead) >= new Date(lastMessage.receivedTime)
+      ) {
+        dayRead = new Date(lastMessage.receivedTime).toLocaleDateString("En", {
+          weekday: "short",
+        });
+      }
+
       inboxItems.push({
         id: item.id,
         senderIcon: item.senderIcon,
         senderName: item.senderName,
-        teaserText: "Hi Mary, I'm your Virtual Concierge",
-        dayRead: "tues",
+        teaserText: lastMessage.text,
+        dayRead: dayRead,
         selected: false,
         type: "chat",
       });
     });
 
     rootGetters["emails/getMailObject"].forEach((item) => {
+      //get last message for teaser Text
+      const emailsList = item.emails.sort(function (a, b) {
+        return new Date(a.receivedTime) - new Date(b.receivedTime);
+      });
+      const lastEmail = emailsList[emailsList.length - 1];
+
+      //dayRead will be unread if no value provided. The design currently accounts for only the weekday to be displayed
+      let dayRead = undefined;
+      if (
+        item.lastRead != null &&
+        new Date(item.lastRead) >= new Date(lastEmail.receivedTime)
+      ) {
+        dayRead = new Date(lastEmail.receivedTime).toLocaleDateString("En", {
+          weekday: "short",
+        });
+      }
+
       inboxItems.push({
         id: item.id,
         senderIcon: item.senderIcon,
         senderName: item.senderName,
-        teaserText: "Your Employment Insurance",
-        dayRead: "wed",
+        teaserText: lastEmail.messageTitle,
+        dayRead: dayRead,
         selected: false,
         type: "email",
       });
