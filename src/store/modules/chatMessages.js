@@ -49,9 +49,14 @@ const actions = {
     });
   },
 
-  async sendMessage(context, payload) {
+  async sendMessage({ commit, rootGetters }, payload) {
     // make await api call here with the text
-    context.commit("addChatbotMessage", payload);
+    commit("addChatbotMessage", payload);
+
+    //When adding a message setLastRead date to include it
+    if (payload.id === rootGetters["inbox/getSelectedInboxItem"].id) {
+      commit("setLastRead", payload.id);
+    }
   },
 
   async markChatRead(context, id) {
