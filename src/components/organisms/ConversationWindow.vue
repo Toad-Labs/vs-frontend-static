@@ -1,13 +1,11 @@
 <template>
   <div class="w-full h-full flex flex-col p-4 sm:p-0 text-gray-dark">
-    <div class="sticky top-0 opacity-95 bg-white md:opacity-100">
-      <message-header
-        backIcon="Back"
-        :imageName="chatMessage.senderIcon"
-        :altText="chatMessage.senderIconAltText"
-        :headerText="chatMessage.senderName"
-      />
-    </div>
+    <message-header
+      backIcon="Back"
+      :imageName="chatMessage.senderIcon"
+      :altText="chatMessage.senderIconAltText"
+      :headerText="chatMessage.senderName"
+    />
     <div class="flex h-full overflow-auto">
       <img
         :src="icons[chatMessage.senderIcon]"
@@ -34,11 +32,9 @@
         <p class="text-center font-light text-gray-dark">WEDS 10:04 AM</p>
       </div>
     </div>
-    <div class="sticky bottom-0">
-      <!-- The logic on how the buttonOptions are passed as props will 
+    <!-- The logic on how the buttonOptions are passed as props will 
                  depend on how we get the possible answers from VC. -->
-      <TextInput :buttonOptions="['Yes', 'No']" @add-message="sendMessage" />
-    </div>
+    <TextInput :buttonOptions="['Yes', 'No']" @add-message="sendMessage" />
   </div>
 </template>
 <script>
