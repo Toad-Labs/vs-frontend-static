@@ -21,7 +21,7 @@
           font-body
           text-gray-dark
           py-px
-          px-3
+          px-2
         "
         tabindex="0"
       >
