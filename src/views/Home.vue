@@ -17,8 +17,8 @@ export default {
     // Use the store
     const store = useStore();
     // Initialize the chat messages
-    store.dispatch("chatMessages/initializeChatMessages");
-    store.dispatch("emails/initializeMailObject");
+    // store.dispatch("chatMessages/initializeChatMessages");
+    // store.dispatch("emails/initializeMailObject");
   },
 };
 </script>
