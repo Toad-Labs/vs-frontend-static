@@ -6,14 +6,20 @@
     @keyup.enter="selectInboxItem"
     :class="[
       inboxItem.selected ? 'bg-blue-selected rounded-none' : '',
+      inboxItem.id ? '' : 'bg-gray-infolt',
       'flex items-center w-full h-16 md:h-20 rounded focus:border-black hover:bg-gray-infolt cursor-pointer ',
     ]"
   >
     <div class="p-1">
       <img
+        v-if="inboxItem.senderIcon"
         class="w-12 h-12 md:w-12 md:h-12"
         :src="icons[inboxItem.senderIcon]"
         alt="Inbox icon"
+      />
+      <div
+        v-else
+        class="w-12 h-12 md:w-12 md:h-12 bg-blue-light rounded-full"
       />
     </div>
     <div class="flex-1 truncate">
@@ -35,7 +41,10 @@
       </p>
     </div>
     <div>
-      <read-notification v-bind:dayRead="inboxItem.dayRead" />
+      <read-notification
+        v-if="inboxItem.id"
+        v-bind:dayRead="inboxItem.dayRead"
+      />
     </div>
   </div>
 </template>
