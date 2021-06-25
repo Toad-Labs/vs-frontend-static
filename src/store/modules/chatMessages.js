@@ -42,14 +42,15 @@ const actions = {
   // Fetch and load the categories
   async fetchChatMessages({ commit, state, getters }) {
     // Get all of the Chat Messages from the API
-    await ChatMessageService.getAll().then((chatMessages) => {
-      commit("setChatMessages", chatMessages);
-    });
+    const conversation = await ChatMessageService.getAll();
+    // console.log(conversation);
+    commit("setChatMessages", conversation);
   },
 
-  async sendMessage(context, payload) {
+  async sendMessage({ commit }, payload) {
     // make await api call here with the text
-    context.commit("addChatbotMessage", payload);
+    await ChatMessageService.sendMessage(payload);
+    // commit("addChatbotMessage", payload);
   },
 };
 
