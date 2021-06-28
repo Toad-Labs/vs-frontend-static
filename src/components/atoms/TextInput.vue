@@ -2,7 +2,7 @@
   <input
     type="text"
     placeholder="Write something..."
-    class="w-auto border-t border-b border-gray-200 p-3"
+    class="w-auto border-t border-b border-gray-200 p-3 bg-clip-padding"
     v-model="text"
     aria-label="Send message"
     @keyup.enter="sendText"
@@ -60,4 +60,3 @@ export default {
   },
 };
 </script>
-<style scoped></style>
