@@ -35,7 +35,7 @@ const getters = {
 
 // actions
 const actions = {
-  initializeChatMessages({ dispatch, commit, rootGetters }) {
+  initializeChatMessages({ commit, rootGetters }) {
     const conversationId = "VC01";
     let directLineMessageRecievedHandler = (userName, message) => {
       commit("addMessageToConversation", {
@@ -48,10 +48,13 @@ const actions = {
       }
     };
 
-    ChatMessageService.initConnection(
-      directLineMessageRecievedHandler,
-      "userName"
-    );
+    ChatMessageService.initConnection("userName")
+      .then((res) => {
+        directLineMessageRecievedHandler(res.user, res.text);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 
     const botChatMessage = {
       id: conversationId,
@@ -69,7 +72,6 @@ const actions = {
   async fetchChatMessages({ commit, state, getters, dispatch }) {
     // Get all of the Chat Messages from the API
     const conversation = await ChatMessageService.getAll();
-    // console.log(conversation);
     commit("setChatConversation", conversation);
   },
 
