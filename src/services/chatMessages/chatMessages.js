@@ -1,5 +1,10 @@
 import { DirectLine } from "botframework-directlinejs";
-import request from "../api";
+
+/**
+ * Initializes chat bot conversation.
+ * @param messageRecievedHandler Overwrites the directLineMessageRecievedHandler function with parameters: userName and messagetext.
+ * @param userName user name sending the message.
+ */
 
 const initConnection = (messageRecievedHandler, userName) => {
   if (messageRecievedHandler)
@@ -8,13 +13,12 @@ const initConnection = (messageRecievedHandler, userName) => {
     secret: "yUFfstW-qB4.-5pEc2KNRFxKZt4sbzLnvMAn4NWok31MfECCT6lMMX0",
   });
   receiveMessageHandler();
-  sendMessage("Initialise", userName);
-  return 1;
+  sendMessage("Initialize", userName);
 };
 
 let directLine;
 //directLineMessageRecievedHandler can be Overwritten with a function to handle directLine responses
-let directLineMessageRecievedHandler = (messageId, messageText) => {
+let directLineMessageRecievedHandler = (userName, messageText) => {
   console.log(
     "Overwrite directLineMessageRecievedHandler to capture messages returned"
   );
@@ -36,12 +40,7 @@ const sendMessage = (msg, userName) => {
 
 const receiveMessageHandler = () => {
   directLine.activity$.subscribe((activity) => {
-    directLineMessageRecievedHandler(
-      //activity.conversation.id,
-      1,
-      activity.from.name,
-      activity.text
-    );
+    directLineMessageRecievedHandler(activity.from.name, activity.text);
   });
 };
 
@@ -49,14 +48,8 @@ const connectionErrorHandler = (err) => {
   console.log(err);
 };
 
-//TODO: implement getAll()
-function getAll() {
-  return [];
-}
-
 const ChatMessagesService = {
-  getAll,
-  sendMessage, //, update, delete, etc. ...
+  sendMessage,
   initConnection,
 };
 

@@ -36,11 +36,8 @@ const getters = {
 // actions
 const actions = {
   initializeChatMessages({ dispatch, commit, rootGetters }) {
-    let directLineMessageRecievedHandler = (
-      conversationId,
-      userName,
-      message
-    ) => {
+    const conversationId = "VC01";
+    let directLineMessageRecievedHandler = (userName, message) => {
       commit("addMessageToConversation", {
         id: conversationId,
         isUser: "userName" === userName,
@@ -51,10 +48,11 @@ const actions = {
       }
     };
 
-    const conversationId = ChatMessageService.initConnection(
+    ChatMessageService.initConnection(
       directLineMessageRecievedHandler,
       "userName"
     );
+
     const botChatMessage = {
       id: conversationId,
       senderName: "Virtual Concierge",
