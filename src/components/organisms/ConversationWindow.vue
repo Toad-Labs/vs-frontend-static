@@ -39,6 +39,8 @@
     <!-- The logic on how the buttonOptions are passed as props will 
                  depend on how we get the possible answers from VC. -->
     <TextInput :buttonOptions="['Yes', 'No']" @add-message="sendMessage" />
+    <!-- padding at the bottom of the screen on mobile -->
+    <span class="bg-gray-infolt p-4 sm:p-0"></span>
   </div>
 </template>
 <script>
