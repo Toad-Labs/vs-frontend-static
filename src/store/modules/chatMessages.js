@@ -40,16 +40,27 @@ const actions = {
   },
 
   // Fetch and load the categories
-  async fetchChatMessages({ commit, state, getters }) {
+  async fetchChatMessages({ commit, state, getters, dispatch }) {
     // Get all of the Chat Messages from the API
     await ChatMessageService.getAll().then((chatMessages) => {
       commit("setChatMessages", chatMessages);
+      if (chatMessages[0])
+        this.dispatch("inbox/selectDefaultInboxItem", chatMessages[0].id);
     });
   },
 
-  async sendMessage(context, payload) {
+  async sendMessage({ commit, rootGetters }, payload) {
     // make await api call here with the text
-    context.commit("addChatbotMessage", payload);
+    commit("addChatbotMessage", payload);
+
+    //When adding a message setLastRead date to include it
+    if (payload.id === rootGetters["inbox/getSelectedInboxItem"].id) {
+      commit("setLastRead", payload.id);
+    }
+  },
+
+  async markChatRead(context, id) {
+    context.commit("setLastRead", id);
   },
 };
 
@@ -78,6 +89,11 @@ const mutations = {
     if (payload) {
       state.chatMessages = payload;
     }
+  },
+
+  setLastRead(state, id) {
+    const conversation = state.chatMessages.find((chat) => chat.id === id);
+    conversation.lastRead = Date.now();
   },
 };
 
