@@ -35,7 +35,7 @@ const getters = {
 
 // actions
 const actions = {
-  initializeChatMessages({ dispatch, commit }) {
+  initializeChatMessages({ dispatch, commit, rootGetters }) {
     let directLineMessageRecievedHandler = (
       conversationId,
       userName,
@@ -46,6 +46,9 @@ const actions = {
         isUser: "userName" === userName,
         text: message,
       });
+      if (conversationId === rootGetters["inbox/getSelectedInboxItem"].id) {
+        commit("setLastRead", conversationId);
+      }
     };
 
     const conversationId = ChatMessageService.initConnection(
@@ -93,7 +96,9 @@ const actions = {
 const mutations = {
   addMessageToConversation(state, payload) {
     // Find the conversation to use the messages of that conversation.
-    const conversation = state.chatConversation.find((chat) => chat.id === 1);
+    const conversation = state.chatConversation.find(
+      (chat) => chat.id === payload.id
+    );
     // Find the next message id.
     // const nextMessageId =
     //   Math.max(...conversation.messages.map((msg) => msg.id)) + 1;
@@ -105,6 +110,7 @@ const mutations = {
     };
     // Add the new message to the correct conversation.
     conversation.messages.push(newMessage);
+    if (payload.markRead) setLastRead(payload.id);
   },
 
   setChatConversation(state, payload) {

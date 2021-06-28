@@ -37,7 +37,8 @@ const sendMessage = (msg, userName) => {
 const receiveMessageHandler = () => {
   directLine.activity$.subscribe((activity) => {
     directLineMessageRecievedHandler(
-      activity.conversation.id,
+      //activity.conversation.id,
+      1,
       activity.from.name,
       activity.text
     );
