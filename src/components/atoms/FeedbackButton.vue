@@ -1,9 +1,9 @@
 <template>
   <div class="px-2 sm:px-0">
-    <div class="mx-auto container pt-6">
+    <div class="mx-auto container">
       <button
         :class="
-          'w-full rounded justify-center py-2 sm:w-2/5 md:w-1/3 md:max-w-sm' +
+          'w-full rounded justify-center py-2 mt-6 sm:w-2/5 md:w-1/3 md:max-w-sm' +
           ' ' +
           colorClass
         "
