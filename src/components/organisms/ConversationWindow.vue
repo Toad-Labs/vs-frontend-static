@@ -20,8 +20,8 @@
           flex flex-col-reverse
           font-body
           text-gray-dark
-          py-px
-          px-2
+          pb-4
+          pt-2
         "
         tabindex="0"
       >
