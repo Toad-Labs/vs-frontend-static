@@ -71,9 +71,10 @@ const actions = {
     commit("setChatConversation", conversation);
   },
 
-  async sendMessage({ commit }, payload) {
+  async sendChatMessage({ commit }, payload) {
     // make await api call here with the text
-    await ChatMessageService.sendMessage(payload.msg, payload.username);
+    //TODO: get username
+    ChatMessageService.sendMessage(payload.message, "userName");
   },
 };
 
