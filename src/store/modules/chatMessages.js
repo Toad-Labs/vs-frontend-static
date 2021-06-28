@@ -1,7 +1,7 @@
 import ChatMessageService from "../../services/chatMessages/chatMessages";
 
 const state = {
-  chatMessages: [],
+  chatConversation: [],
 };
 
 // getters
@@ -27,16 +27,40 @@ const getters = {
     return cm;
   },
   getAllChatMessages(state) {
-    return state.chatMessages;
+    return state.chatConversation;
   },
   getChatMessageById: (state, getters) => (id) =>
-    state.chatMessages.find((chatMessage) => chatMessage.id === id),
+    state.chatConversation.find((chatMessage) => chatMessage.id === id),
 };
 
 // actions
 const actions = {
-  initializeChatMessages({ dispatch }) {
-    dispatch("fetchChatMessages");
+  initializeChatMessages({ dispatch, commit }) {
+    let directLineMessageRecievedHandler = (
+      conversationId,
+      userName,
+      message
+    ) => {
+      commit("addMessageToConversation", {
+        id: conversationId,
+        isUser: "userName" === userName,
+        text: message,
+      });
+    };
+
+    const conversationId = ChatMessageService.initConnection(
+      directLineMessageRecievedHandler,
+      "userName"
+    );
+    const botChatMessage = {
+      id: conversationId,
+      senderName: "Virtual Concierge",
+      senderIcon: "VC",
+      senderIconAltText: "Virtual Concierge icon",
+      lastRead: new Date(),
+      messages: [],
+    };
+    commit("addChatConversation", botChatMessage);
   },
 
   // Fetch and load the categories
@@ -44,29 +68,25 @@ const actions = {
     // Get all of the Chat Messages from the API
     const conversation = await ChatMessageService.getAll();
     // console.log(conversation);
-    commit("setChatMessages", conversation);
+    commit("setChatConversation", conversation);
   },
 
   async sendMessage({ commit }, payload) {
     // make await api call here with the text
-    await ChatMessageService.sendMessage(payload);
-    // commit("addChatbotMessage", payload);
+    await ChatMessageService.sendMessage(payload.msg, payload.username);
   },
 };
 
 // mutations
 const mutations = {
-  addChatbotMessage(state, payload) {
+  addMessageToConversation(state, payload) {
     // Find the conversation to use the messages of that conversation.
-    const conversation = state.chatMessages.find(
-      (chat) => chat.id === payload.id
-    );
+    const conversation = state.chatConversation.find((chat) => chat.id === 1);
     // Find the next message id.
-    const nextMessageId =
-      Math.max(...conversation.messages.map((msg) => msg.id)) + 1;
+    // const nextMessageId =
+    //   Math.max(...conversation.messages.map((msg) => msg.id)) + 1;
     // Create the new message object.
     const newMessage = {
-      id: nextMessageId,
       receivedTime: Date.now(),
       isUser: payload.isUser,
       text: payload.text,
@@ -75,10 +95,21 @@ const mutations = {
     conversation.messages.push(newMessage);
   },
 
-  setChatMessages(state, payload) {
+  setChatConversation(state, payload) {
     if (payload) {
-      state.chatMessages = payload;
+      state.chatConversation = payload;
     }
+  },
+
+  addChatConversation(state, payload) {
+    state.chatConversation.push({
+      id: payload.id,
+      senderName: payload.senderName,
+      senderIcon: payload.senderIcon,
+      senderIconAltText: payload.senderIconAltText,
+      lastRead: payload.lastRead,
+      messages: payload.messages,
+    });
   },
 };
 
