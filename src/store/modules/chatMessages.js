@@ -61,20 +61,31 @@ const actions = {
       messages: [],
     };
     commit("addChatConversation", botChatMessage);
+    this.dispatch("inbox/selectDefaultInboxItem", conversationId);
   },
 
   // Fetch and load the categories
-  async fetchChatMessages({ commit, state, getters }) {
+  async fetchChatMessages({ commit, state, getters, dispatch }) {
     // Get all of the Chat Messages from the API
     const conversation = await ChatMessageService.getAll();
     // console.log(conversation);
     commit("setChatConversation", conversation);
   },
 
-  async sendChatMessage({ commit }, payload) {
+  async sendChatMessage({ commit, rootGetters }, payload) {
     // make await api call here with the text
     //TODO: get username
     ChatMessageService.sendMessage(payload.message, "userName");
+
+    //When adding a message setLastRead date to include it
+
+    if (payload.id === rootGetters["inbox/getSelectedInboxItem"].id) {
+      commit("setLastRead", payload.id);
+    }
+  },
+
+  async markChatRead(context, id) {
+    context.commit("setLastRead", id);
   },
 };
 
@@ -111,6 +122,10 @@ const mutations = {
       lastRead: payload.lastRead,
       messages: payload.messages,
     });
+  },
+  setLastRead(state, id) {
+    const conversation = state.chatConversation.find((chat) => chat.id === id);
+    conversation.lastRead = Date.now();
   },
 };
 

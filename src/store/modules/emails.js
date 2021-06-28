@@ -49,6 +49,9 @@ const actions = {
       .getAll()
       .then((emails) => commit("setMailObject", emails));
   },
+  async markEmailRead(context, id) {
+    context.commit("setLastRead", id);
+  },
 };
 
 // mutations
@@ -81,6 +84,10 @@ const mutations = {
     };
 
     sender.push(newEmail);
+  },
+  setLastRead(state, id) {
+    const email = state.mailObject.find((email) => email.id === id);
+    email.lastRead = Date.now();
   },
 };
 
