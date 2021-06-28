@@ -2,12 +2,12 @@
   <input
     type="text"
     placeholder="Write something..."
-    class="w-full border-t border-b border-gray-200 p-3"
+    class="w-auto border-t border-b border-gray-200 p-3"
     v-model="text"
     aria-label="Send message"
     @keyup.enter="sendText"
   />
-  <div class="w-full bg-gray-infolt mt-px text-gray-dark">
+  <div class="w-auto bg-gray-infolt text-gray-dark mb-6 sm:mb-0">
     <chat-option-button
       v-for="(option, index) in buttonOptions"
       :key="index"
