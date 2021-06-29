@@ -10,7 +10,7 @@
       <img
         :src="icons[chatMessage.senderIcon]"
         :alt="chatMessage.senderIconAltText"
-        class="h-6 mt-auto w-10 mb-3"
+        class="h-6 mt-auto w-8 mb-3"
       />
       <div
         class="
@@ -20,8 +20,9 @@
           flex flex-col-reverse
           font-body
           text-gray-dark
-          py-px
-          px-2
+          py-2
+          pl-0
+          pr-2
         "
         tabindex="0"
       >
