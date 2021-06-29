@@ -1,7 +1,7 @@
 import ChatMessageService from "../../services/chatMessages/chatMessages";
 
 const state = {
-  chatMessages: [],
+  chatConversation: [],
 };
 
 // getters
@@ -27,33 +27,59 @@ const getters = {
     return cm;
   },
   getAllChatMessages(state) {
-    return state.chatMessages;
+    return state.chatConversation;
   },
   getChatMessageById: (state, getters) => (id) =>
-    state.chatMessages.find((chatMessage) => chatMessage.id === id),
+    state.chatConversation.find((chatMessage) => chatMessage.id === id),
 };
 
 // actions
 const actions = {
-  initializeChatMessages({ dispatch }) {
-    dispatch("fetchChatMessages");
+  initializeChatMessages({ dispatch, commit, rootGetters }) {
+    const conversationId = "VC01";
+    let directLineMessageRecievedHandler = (userName, message) => {
+      commit("addMessageToConversation", {
+        id: conversationId,
+        isUser: "userName" === userName,
+        text: message,
+      });
+      if (conversationId === rootGetters["inbox/getSelectedInboxItem"].id) {
+        commit("setLastRead", conversationId);
+      }
+    };
+
+    ChatMessageService.initConnection(
+      directLineMessageRecievedHandler,
+      "userName"
+    );
+
+    const botChatMessage = {
+      id: conversationId,
+      senderName: "Virtual Concierge",
+      senderIcon: "VC",
+      senderIconAltText: "Virtual Concierge icon",
+      lastRead: new Date(),
+      messages: [],
+    };
+    commit("addChatConversation", botChatMessage);
+    this.dispatch("inbox/selectDefaultInboxItem", conversationId);
   },
 
   // Fetch and load the categories
   async fetchChatMessages({ commit, state, getters, dispatch }) {
     // Get all of the Chat Messages from the API
-    await ChatMessageService.getAll().then((chatMessages) => {
-      commit("setChatMessages", chatMessages);
-      if (chatMessages[0])
-        this.dispatch("inbox/selectDefaultInboxItem", chatMessages[0].id);
-    });
+    const conversation = await ChatMessageService.getAll();
+    // console.log(conversation);
+    commit("setChatConversation", conversation);
   },
 
-  async sendMessage({ commit, rootGetters }, payload) {
+  async sendChatMessage({ commit, rootGetters }, payload) {
     // make await api call here with the text
-    commit("addChatbotMessage", payload);
+    //TODO: get username
+    ChatMessageService.sendMessage(payload.message, "userName");
 
     //When adding a message setLastRead date to include it
+
     if (payload.id === rootGetters["inbox/getSelectedInboxItem"].id) {
       commit("setLastRead", payload.id);
     }
@@ -66,33 +92,43 @@ const actions = {
 
 // mutations
 const mutations = {
-  addChatbotMessage(state, payload) {
+  addMessageToConversation(state, payload) {
     // Find the conversation to use the messages of that conversation.
-    const conversation = state.chatMessages.find(
+    const conversation = state.chatConversation.find(
       (chat) => chat.id === payload.id
     );
     // Find the next message id.
-    const nextMessageId =
-      Math.max(...conversation.messages.map((msg) => msg.id)) + 1;
+    // const nextMessageId =
+    //   Math.max(...conversation.messages.map((msg) => msg.id)) + 1;
     // Create the new message object.
     const newMessage = {
-      id: nextMessageId,
       receivedTime: Date.now(),
       isUser: payload.isUser,
       text: payload.text,
     };
     // Add the new message to the correct conversation.
     conversation.messages.push(newMessage);
+    if (payload.markRead) setLastRead(payload.id);
   },
 
-  setChatMessages(state, payload) {
+  setChatConversation(state, payload) {
     if (payload) {
-      state.chatMessages = payload;
+      state.chatConversation = payload;
     }
   },
 
+  addChatConversation(state, payload) {
+    state.chatConversation.push({
+      id: payload.id,
+      senderName: payload.senderName,
+      senderIcon: payload.senderIcon,
+      senderIconAltText: payload.senderIconAltText,
+      lastRead: payload.lastRead,
+      messages: payload.messages,
+    });
+  },
   setLastRead(state, id) {
-    const conversation = state.chatMessages.find((chat) => chat.id === id);
+    const conversation = state.chatConversation.find((chat) => chat.id === id);
     conversation.lastRead = Date.now();
   },
 };

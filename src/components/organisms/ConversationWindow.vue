@@ -38,7 +38,7 @@
     </div>
     <!-- The logic on how the buttonOptions are passed as props will 
                  depend on how we get the possible answers from VC. -->
-    <TextInput :buttonOptions="['Yes', 'No']" @add-message="sendMessage" />
+    <TextInput :buttonOptions="['Yes', 'No']" @add-message="sendChatMessage" />
     <!-- padding at the bottom of the screen on mobile -->
     <span class="bg-gray-infolt p-2 sm:p-0"></span>
   </div>
@@ -67,17 +67,16 @@ export default {
       )
     );
 
-    function sendMessage(msg) {
+    function sendChatMessage(msg) {
       const newMessage = {
         id: chatMessage.value.id,
-        isUser: true,
-        text: msg,
+        message: msg,
       };
-      store.dispatch("chatMessages/sendMessage", newMessage);
+      store.dispatch("chatMessages/sendChatMessage", newMessage);
     }
     return {
       chatMessage,
-      sendMessage,
+      sendChatMessage,
       icons,
     };
   },
