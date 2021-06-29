@@ -21,7 +21,6 @@
           font-body
           text-gray-dark
           py-2
-          pl-0
           pr-2
         "
         tabindex="0"
