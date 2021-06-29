@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home mx-auto container">
     <messages-container />
   </div>
 </template>
