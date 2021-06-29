@@ -19,11 +19,13 @@
       <div
         class="
           w-full
-          pr-6
+          space-y-2 space-y-reverse
           overflow-auto
           flex flex-col-reverse
           font-body
           text-gray-dark
+          py-px
+          px-2
         "
         tabindex="0"
       >
@@ -33,14 +35,18 @@
           :isUser="message.isUser"
           :text="message.text"
         />
-        <p class="text-center font-light text-gray-dark">WEDS 10:04 AM</p>
+        <p class="text-center font-heading text-sm font-light text-gray-dark">
+          WEDS 10:04 AM
+        </p>
       </div>
     </div>
     <div class="sticky bottom-0">
-      <!-- The logic on how the buttonOptions are passed as props will 
-                 depend on how we get the possible answers from VC. -->
+      <!-- The logic on how the buttonOptions are passed as props will
+                   depend on how we get the possible answers from VC. -->
       <TextInput :buttonOptions="['Yes', 'No']" @add-message="sendMessage" />
     </div>
+    <!-- padding at the bottom of the screen on mobile -->
+    <span class="bg-gray-infolt p-4 sm:p-0"></span>
   </div>
 </template>
 <script>
@@ -60,7 +66,7 @@ export default {
   setup() {
     const store = useStore();
     const selectedInboxItemId = store.getters["inbox/getSelectedInboxItem"].id;
-
+    store.dispatch("chatMessages/markChatRead", selectedInboxItemId);
     const chatMessage = computed(() =>
       store.getters["chatMessages/getChatMessageByIdOrderedByMessagesDate"](
         selectedInboxItemId
