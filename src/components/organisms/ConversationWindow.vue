@@ -20,6 +20,7 @@
           flex flex-col-reverse
           font-body
           text-gray-dark
+          pr-6
           pb-4
           pt-2
         "
