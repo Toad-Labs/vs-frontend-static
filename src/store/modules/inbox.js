@@ -22,6 +22,7 @@ const getters = {
       let dayRead = undefined;
       if (
         item.lastRead != null &&
+        lastMessage &&
         new Date(item.lastRead) >= new Date(lastMessage.receivedTime)
       ) {
         dayRead = new Date(lastMessage.receivedTime).toLocaleDateString("En", {
@@ -33,7 +34,7 @@ const getters = {
         id: item.id,
         senderIcon: item.senderIcon,
         senderName: item.senderName,
-        teaserText: lastMessage.text,
+        teaserText: lastMessage?.text,
         dayRead: dayRead,
         selected: false,
         type: "chat",
