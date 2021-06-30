@@ -6,7 +6,7 @@
     v-model="text"
     aria-label="Send message"
     @keyup.enter="sendText"
-    @onchange="checkSendBtnActive"
+    @change="checkSendBtnActive"
   />
   <div class="w-auto bg-gray-infolt text-gray-dark">
     <chat-option-button
@@ -56,6 +56,7 @@ export default {
       if (this.text.length > 0) {
         context.emit("add-message", this.text);
         text.value = "";
+        checkSendBtnActive();
       }
     }
     function sendBtnText(btnText) {
