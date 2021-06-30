@@ -64,6 +64,11 @@ module.exports = {
       }
     },
   },
-  variants: {},
+  variants: {
+    extend: {
+      backgroundColor: ['active'],
+      borderRadius: ['active'],
+    }
+  },
   plugins: [],
 };
