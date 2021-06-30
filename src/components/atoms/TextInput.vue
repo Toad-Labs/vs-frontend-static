@@ -6,7 +6,7 @@
     v-model="text"
     aria-label="Send message"
     @keyup.enter="sendText"
-    @change="checkSendBtnActive"
+    @input="checkSendBtnActive"
   />
   <div class="w-auto bg-gray-infolt text-gray-dark">
     <chat-option-button
