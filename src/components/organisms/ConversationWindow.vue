@@ -10,7 +10,7 @@
       <img
         :src="icons[chatMessage.senderIcon]"
         :alt="chatMessage.senderIconAltText"
-        class="h-6 mt-auto w-10 mb-3"
+        class="h-6 mt-auto w-8 mb-3"
       />
       <div
         class="
@@ -20,8 +20,8 @@
           flex flex-col-reverse
           font-body
           text-gray-dark
-          py-px
-          px-2
+          py-2
+          pr-2
         "
         tabindex="0"
       >
@@ -39,6 +39,8 @@
     <!-- The logic on how the buttonOptions are passed as props will 
                  depend on how we get the possible answers from VC. -->
     <TextInput :buttonOptions="['Yes', 'No']" @add-message="sendChatMessage" />
+    <!-- padding at the bottom of the screen on mobile -->
+    <span class="bg-gray-infolt p-2 sm:p-0"></span>
   </div>
 </template>
 <script>

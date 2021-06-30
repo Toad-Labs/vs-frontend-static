@@ -7,7 +7,7 @@
     <the-header />
 
     <!-- Page content -->
-    <div class="w-full mx-auto container pb-3 sm:p-3">
+    <div class="w-full pb-3 sm:p-3">
       <main>
         <router-view />
         <feedback-button

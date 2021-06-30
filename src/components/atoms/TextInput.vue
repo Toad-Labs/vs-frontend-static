@@ -7,7 +7,7 @@
     aria-label="Send message"
     @keyup.enter="sendText"
   />
-  <div class="w-auto bg-gray-infolt text-gray-dark mb-6 sm:mb-0">
+  <div class="w-auto bg-gray-infolt text-gray-dark">
     <chat-option-button
       v-for="(option, index) in buttonOptions"
       :key="index"
