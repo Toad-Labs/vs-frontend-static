@@ -1,10 +1,6 @@
 <template>
   <h1 class="font-heading font-bold text-4xl pl-3 pt-6 pb-3">Inbox</h1>
-  <div
-    v-if="inboxItems.length === 0"
-    class="md:overflow-auto space-y-1"
-    role="list"
-  >
+  <div v-if="!inboxLoaded" class="md:overflow-auto space-y-1" role="list">
     <inbox-item :inboxItem="{}" />
     <inbox-item :inboxItem="{}" />
   </div>
@@ -26,12 +22,14 @@ export default {
   setup() {
     const store = useStore();
     const inboxItems = computed(() => store.getters["inbox/getInboxItems"]);
+    const inboxLoaded = computed(() => store.getters["inbox/isLoaded"]);
     function selectInboxItem(index) {
       store.dispatch("inbox/selectInboxItem", index);
     }
     return {
       inboxItems,
       selectInboxItem,
+      inboxLoaded,
     };
   },
   components: {
