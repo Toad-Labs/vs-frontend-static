@@ -93,7 +93,6 @@ export default {
 
     function scrollToBottomOfMessages() {
       conversationWindow.value.children[0].scrollIntoView(false);
-      console.log("attempted scroll");
     }
 
     return {
