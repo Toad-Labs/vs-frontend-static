@@ -17,6 +17,7 @@
         class="h-6 mt-auto w-8 mb-3"
       />
       <div
+        ref="conversationWindow"
         class="
           w-full
           space-y-2 space-y-reverse
@@ -57,7 +58,7 @@ import ConversationMessage from "../atoms/ConversationMessage.vue";
 import MessageHeader from "../atoms/MessageHeader.vue";
 import TextInput from "../atoms/TextInput.vue";
 import { useStore } from "vuex";
-import { computed } from "vue";
+import { computed, onMounted, ref } from "vue";
 import icons from "../../assets/icons.js";
 export default {
   name: "ConversationWindow",
@@ -67,6 +68,7 @@ export default {
     TextInput,
   },
   setup() {
+    const conversationWindow = ref(null);
     const store = useStore();
     const selectedInboxItemId = store.getters["inbox/getSelectedInboxItem"].id;
     store.dispatch("chatMessages/markChatRead", selectedInboxItemId);
@@ -76,14 +78,26 @@ export default {
       )
     );
 
+    onMounted(() => {
+      scrollToBottomOfMessages();
+    });
+
     function sendChatMessage(msg) {
       const newMessage = {
         id: chatMessage.value.id,
         message: msg,
       };
       store.dispatch("chatMessages/sendChatMessage", newMessage);
+      scrollToBottomOfMessages();
     }
+
+    function scrollToBottomOfMessages() {
+      conversationWindow.value.children[0].scrollIntoView(false);
+      console.log("attempted scroll");
+    }
+
     return {
+      conversationWindow,
       chatMessage,
       sendChatMessage,
       icons,
