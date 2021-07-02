@@ -6,7 +6,7 @@
     @keyup.enter="selectInboxItem"
     :class="[
       inboxItem.selected ? 'focus:bg-blue-selected rounded-none' : '',
-      inboxItem.id ? '' : 'bg-gray-infolt',
+      inboxItem.id ? '' : 'bg-gray-infolt animate-pulse',
       'flex items-center w-full h-16 md:h-20 rounded focus:border-black focus:bg-gray-infolt active:bg-blue-selected hover:bg-gray-infolt cursor-pointer ',
     ]"
   >
