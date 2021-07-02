@@ -1,5 +1,8 @@
 <template>
-  <h1 class="font-heading font-bold text-4xl pl-3 pt-6 pb-3">Inbox</h1>
+  <div class="px-3 pt-6 pb-3">
+    <div v-if="!inboxLoaded" class="bg-gray-infolt h-10 w-2/3"></div>
+    <h1 v-else class="font-heading font-bold text-4xl">Inbox</h1>
+  </div>
   <div v-if="!inboxLoaded" class="md:overflow-auto space-y-1" role="list">
     <inbox-item :inboxItem="{}" />
     <inbox-item :inboxItem="{}" />
