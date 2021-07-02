@@ -91,7 +91,7 @@ const getters = {
   isMobileDrawerOpen(state, getters) {
     return state.mobileDrawerOpen;
   },
-  isLoaded(state, getters, rootState, rootGetters) {
+  isLoaded(state, getters, rootState) {
     const chatMessagesLoaded = rootState.chatMessages.loaded;
     const emailsLoaded = rootState.emails.loaded;
     return chatMessagesLoaded && emailsLoaded;
