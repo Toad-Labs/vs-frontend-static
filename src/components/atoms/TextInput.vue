@@ -17,10 +17,9 @@
       @send-button="sendBtnText"
     />
     <button
-      ref="sendMsgBtn"
       class="float-right cursor-pointer"
       aria-label="Send message"
-      tabindex="0"
+      :tabindex="sendMsgBtnTabIndex"
       @click="sendText"
       @focus="onSendBtnFocus"
       @mouseover="onSendBtnFocus"
@@ -42,8 +41,6 @@ import icons from "../../assets/icons.js";
 import ChatOptionButton from "./ChatOptionButton.vue";
 import { ref } from "vue";
 
-//let iconState = "SendInactive"
-
 export default {
   name: "TextInput",
   props: {
@@ -55,12 +52,12 @@ export default {
   emits: ["add-message"],
   setup(_, context) {
     const text = ref("");
+    const sendMsgBtnTabIndex = ref(-1); //should be inactive as there's no input text at the start
     const iconState = ref("SendInactive");
 
-    //these refs are reassigned to their respective components on mounting
-    //as with other refs, the actual elements are accessed with .value (input.value, for example)
+    //this ref are reassigned to their respective components on mounting
+    //the actual component is accessed by using input.value
     const input = ref(null);
-    const sendMsgBtn = ref(null);
 
     function sendText() {
       if (this.text.length > 0) {
@@ -81,11 +78,11 @@ export default {
     }
     function checkSendBtnActive() {
       let textEmpty = text.value === "";
-      sendMsgBtn.value.tabIndex = textEmpty ? -1 : 0; //the send button will be untabbable if there's no text
+      sendMsgBtnTabIndex.value = textEmpty ? -1 : 0; //the send button will be untabbable if there's no text
       iconState.value = textEmpty ? "SendInactive" : "SendActive";
     }
     return {
-      sendMsgBtn,
+      sendMsgBtnTabIndex,
       input,
       text,
       icons,
