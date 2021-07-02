@@ -19,7 +19,7 @@
       />
       <div
         v-else
-        class="w-12 h-12 md:w-12 md:h-12 bg-blue-light rounded-full"
+        class="w-12 h-12 md:w-12 md:h-12 bg-gray-infomd rounded-full"
       />
     </div>
     <div class="flex-1 truncate">
