@@ -1,5 +1,5 @@
 <template>
-  <h1 class="font-heading font-bold text-4xl pl-3 pt-6 pb-2">Inbox</h1>
+  <h1 class="font-heading font-bold text-4xl pl-3 pt-6 pb-3">Inbox</h1>
   <div
     v-if="inboxItems.length === 0"
     class="md:overflow-auto space-y-1"

@@ -36,6 +36,7 @@ export default {
   setup() {
     const store = useStore();
     const selectedInboxItemId = store.getters["inbox/getSelectedInboxItem"].id;
+    store.dispatch("emails/markEmailRead", selectedInboxItemId);
     const mailObject = computed(() =>
       store.getters["emails/getMailObjectEmailsOrderByDateAsc"](
         selectedInboxItemId

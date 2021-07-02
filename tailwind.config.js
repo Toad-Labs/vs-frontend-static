@@ -54,6 +54,7 @@ module.exports = {
       height:{
         "vh-1/2": "50vh",
         "vh-2/3": "66vh",
+        "vh-3/5": "60vh",
         "vh-1/3": "calc(100vh / 3)",
         "vh-1/4": "calc(100vh / 4)",
         "vh-1/5": "calc(100vh / 5)",
@@ -63,6 +64,11 @@ module.exports = {
       }
     },
   },
-  variants: {},
+  variants: {
+    extend: {
+      backgroundColor: ['active'],
+      borderRadius: ['active'],
+    }
+  },
   plugins: [],
 };
