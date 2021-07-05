@@ -92,7 +92,8 @@ export default {
     }
 
     function scrollToBottomOfMessages() {
-      conversationWindow.value.children[0].scrollIntoView(false);
+      conversationWindow.value.scrollTop =
+        conversationWindow.value.scrollHeight;
     }
 
     return {
