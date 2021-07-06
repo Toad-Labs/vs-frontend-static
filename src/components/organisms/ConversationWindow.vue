@@ -1,46 +1,84 @@
 <template>
+  <!-- start  test 1 -->
   <div
-    class="w-full h-full flex flex-col p-4 sm:p-0 text-gray-dark sm:relative"
+    class="
+      w-full
+      h-full
+      flex flex-col flex-1
+      p-4
+      sm:p-1
+      text-gray-dark
+      sm:overflow-y-auto sm:relative
+      bg-pink-100
+    "
   >
-    <div class="sticky top-0 opacity-95 bg-white md:opacity-100">
-      <message-header
-        backIcon="Back"
-        :imageName="chatMessage.senderIcon"
-        :altText="chatMessage.senderIconAltText"
-        :headerText="chatMessage.senderName"
-      />
-    </div>
-    <div class="flex h-full overflow-auto">
-      <img
-        :src="icons[chatMessage.senderIcon]"
-        :alt="chatMessage.senderIconAltText"
-        class="h-6 mt-auto w-8 mb-3"
-      />
-      <div
-        class="
-          w-full
-          space-y-2 space-y-reverse
-          overflow-auto
-          flex flex-col-reverse
-          font-body
-          text-gray-dark
-          py-2
-          pr-2
-        "
-        tabindex="0"
-      >
-        <ConversationMessage
-          v-for="message in chatMessage.messages"
-          :key="message.id"
-          :isUser="message.isUser"
-          :text="message.text"
-        />
-        <p class="text-center font-heading text-sm font-light text-gray-dark">
-          WEDS 10:04 AM
-        </p>
+    <!-- start  test 2 -->
+
+    <!-- start -->
+    <!-- <span class="bg-green-200 p-1  sm:relative"> -->
+
+    <div
+      class="
+        w-full
+        h-full
+        flex flex-col flex-1
+        sm:overflow-auto
+        p-1
+        text-gray-dark
+        bg-blue-100
+      "
+    >
+      <!-- new div here -->
+      <div class="bg-red-400 p-1 flex-1">
+        <div class="lg:sticky top-0 opacity-95 bg-yellow-100 md:opacity-100">
+          <message-header
+            backIcon="Back"
+            :imageName="chatMessage.senderIcon"
+            :altText="chatMessage.senderIconAltText"
+            :headerText="chatMessage.senderName"
+          />
+        </div>
+        <div class="flex h-full overflow-auto">
+          <img
+            :src="icons[chatMessage.senderIcon]"
+            :alt="chatMessage.senderIconAltText"
+            class="h-6 mt-auto w-8 mb-3"
+          />
+          <div
+            class="
+              w-full
+              space-y-2 space-y-reverse
+              flex flex-col-reverse
+              font-body
+              text-gray-dark
+              py-2
+              pr-2
+            "
+            tabindex="0"
+          >
+            <ConversationMessage
+              v-for="message in chatMessage.messages"
+              :key="message.id"
+              :isUser="message.isUser"
+              :text="message.text"
+            />
+            <p
+              class="text-center font-heading text-sm font-light text-gray-dark"
+            >
+              WEDS 10:04 AM
+            </p>
+          </div>
+        </div>
       </div>
+      <!-- new div ends here -->
     </div>
-    <div class="sticky bottom-0">
+
+    <!-- </span> -->
+    <!-- end -->
+
+    <!--  end test 2 -->
+
+    <div class="sticky bottom-0 w-full">
       <!-- The logic on how the buttonOptions are passed as props will
                    depend on how we get the possible answers from VC. -->
       <TextInput
@@ -51,6 +89,7 @@
     <!-- padding at the bottom of the screen on mobile -->
     <span class="bg-gray-infolt p-2 sm:p-0"></span>
   </div>
+  <!--  end test 1-->
 </template>
 <script>
 import ConversationMessage from "../atoms/ConversationMessage.vue";
