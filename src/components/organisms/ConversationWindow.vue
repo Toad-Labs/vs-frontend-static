@@ -21,7 +21,7 @@
           w-full
           space-y-2 space-y-reverse
           overflow-auto
-          flex flex-col-reverse
+          flex flex-col
           font-body
           text-gray-dark
           py-2
@@ -29,15 +29,15 @@
         "
         tabindex="0"
       >
+        <p class="text-center font-heading text-sm font-light text-gray-dark">
+          WEDS 10:04 AM
+        </p>
         <ConversationMessage
           v-for="message in chatMessage.messages"
           :key="message.id"
           :isUser="message.isUser"
           :text="message.text"
         />
-        <p class="text-center font-heading text-sm font-light text-gray-dark">
-          WEDS 10:04 AM
-        </p>
       </div>
     </div>
     <div class="sticky bottom-0">
