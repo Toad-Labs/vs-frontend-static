@@ -9,7 +9,7 @@
         class="w-max bg-blue-deep text-white mt-2 p-2 rounded inline-block"
         @click="toMain"
       >
-        <a href="#maincontent">Skip to main content</a>
+        <a href="#index-header">Skip to main content</a>
       </li>
     </ul>
   </nav>
