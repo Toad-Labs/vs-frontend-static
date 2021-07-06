@@ -19,7 +19,7 @@
         class="
           w-full
           h-full
-          flex flex-col flex-1
+          flex flex-col
           sm:overflow-auto
           p-1
           text-gray-dark
