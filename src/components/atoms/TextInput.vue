@@ -84,7 +84,6 @@ export default {
     }
 
     function changeInputFocusStyles(event, focusClass) {
-      console.log(event.target);
       inputFocusClass.value = focusClass;
     }
 
