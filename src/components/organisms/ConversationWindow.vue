@@ -22,6 +22,7 @@
           space-y-2 space-y-reverse
           overflow-auto
           flex flex-col
+          justify-end
           font-body
           text-gray-dark
           py-2
