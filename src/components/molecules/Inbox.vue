@@ -1,5 +1,11 @@
 <template>
-  <h1 class="font-heading font-bold text-4xl pl-3 pt-6 pb-3">Inbox</h1>
+  <h1
+    id="inbox-header"
+    class="font-heading font-bold text-4xl pl-3 pt-6 pb-3"
+    @blur="$event.target.tabIndex = -1"
+  >
+    Inbox
+  </h1>
   <div class="md:overflow-auto space-y-1" role="list">
     <inbox-item
       v-for="inboxItem in inboxItems"
