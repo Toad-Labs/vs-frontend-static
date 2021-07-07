@@ -3,7 +3,14 @@
     ref="input"
     type="text"
     placeholder="Write something..."
-    class="w-full border-t border-b border-gray-200 p-3 bg-clip-padding"
+    class="
+      w-full
+      border-t border-b border-gray-200
+      p-3
+      focus:outline-none
+      focus-visible:ring-2 focus-visible:ring-black
+      bg-clip-padding
+    "
     v-model="text"
     aria-label="Send message"
     @keyup.enter="sendText"

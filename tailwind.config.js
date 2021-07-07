@@ -68,6 +68,10 @@ module.exports = {
     extend: {
       backgroundColor: ['active'],
       borderRadius: ['active'],
+      outline: ['focus-visible'],
+      ringColor: ['focus-visible'],
+      ringWidth: ['focus-visible'],
+
     }
   },
   plugins: [],
