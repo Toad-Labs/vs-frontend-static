@@ -84,7 +84,6 @@ export default {
     }
 
     function changeInputFocusStyles(event, focusClass) {
-      console.log(event);
       if (event.type === "mousedown") {
         event.preventDefault();
         event.target.focus();
