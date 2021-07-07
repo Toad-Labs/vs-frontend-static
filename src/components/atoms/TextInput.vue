@@ -3,9 +3,14 @@
     ref="input"
     type="text"
     placeholder="Write something..."
-    class="w-full border-t border-b border-gray-200 p-3 bg-clip-padding"
+    :class="
+      'w-full border-t border-b border-gray-200 p-3 bg-clip-padding ' +
+      inputFocusClass
+    "
     v-model="text"
     aria-label="Send message"
+    @click="changeInputFocusStyles($event, ' focus:outline-none')"
+    @blur="changeInputFocusStyles($event, ' ')"
     @keyup.enter="sendText"
     @input="checkSendBtnActive"
   />
@@ -51,6 +56,7 @@ export default {
   },
   emits: ["add-message"],
   setup(_, context) {
+    const inputFocusClass = ref("");
     const text = ref("");
     const sendMsgBtnTabIndex = ref(-1); //should be inactive as there's no input text at the start
     const iconState = ref("SendInactive");
@@ -76,6 +82,12 @@ export default {
       iconState.value =
         text.value === "" ? "SendInactive" : "SendActiveFocused";
     }
+
+    function changeInputFocusStyles(event, focusClass) {
+      console.log(event.target);
+      inputFocusClass.value = focusClass;
+    }
+
     function checkSendBtnActive() {
       let textEmpty = text.value === "";
       sendMsgBtnTabIndex.value = textEmpty ? -1 : 0; //the send button will be untabbable if there's no text
@@ -91,6 +103,8 @@ export default {
       sendBtnText,
       onSendBtnFocus,
       checkSendBtnActive,
+      changeInputFocusStyles,
+      inputFocusClass,
     };
   },
 };
