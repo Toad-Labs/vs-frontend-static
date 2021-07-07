@@ -9,8 +9,8 @@
     "
     v-model="text"
     aria-label="Send message"
-    @click="changeInputFocusStyles($event, ' focus:outline-none')"
-    @blur="changeInputFocusStyles($event, ' ')"
+    @focus="changeInputFocusStyles($event, ' ')"
+    @mousedown="changeInputFocusStyles($event, ' focus:outline-none')"
     @keyup.enter="sendText"
     @input="checkSendBtnActive"
   />
@@ -84,6 +84,11 @@ export default {
     }
 
     function changeInputFocusStyles(event, focusClass) {
+      console.log(event);
+      if (event.type === "mousedown") {
+        event.preventDefault();
+        event.target.focus();
+      }
       inputFocusClass.value = focusClass;
     }
 
