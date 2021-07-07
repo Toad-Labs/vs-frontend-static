@@ -20,6 +20,7 @@
           w-full
           h-full
           flex flex-col
+          justify-end
           sm:overflow-auto
           p-1
           text-gray-dark
@@ -57,17 +58,17 @@
             "
             tabindex="0"
           >
+            <p
+              class="text-center font-heading text-sm font-light text-gray-dark"
+            >
+              WEDS 10:04 AM
+            </p>
             <ConversationMessage
               v-for="message in chatMessage.messages"
               :key="message.id"
               :isUser="message.isUser"
               :text="message.text"
             />
-            <p
-              class="text-center font-heading text-sm font-light text-gray-dark"
-            >
-              WEDS 10:04 AM
-            </p>
           </div>
         </div>
 
