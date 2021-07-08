@@ -15,10 +15,10 @@ const getters = {
         cm.messages = [...cm.messages].sort((a, b) => {
           const firstDate = new Date(a.receivedTime).getTime();
           const secondDate = new Date(b.receivedTime).getTime();
-          if (firstDate > secondDate) {
+          if (firstDate < secondDate) {
             return -1;
           }
-          if (firstDate < secondDate) {
+          if (firstDate > secondDate) {
             return 1;
           }
           return 0;

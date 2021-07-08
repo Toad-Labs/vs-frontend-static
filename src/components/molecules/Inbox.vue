@@ -4,7 +4,14 @@
       v-if="!inboxLoaded"
       class="bg-gray-infolt h-10 w-2/3 animate-pulse"
     ></div>
-    <h1 v-else class="font-heading font-bold text-4xl">Inbox</h1>
+    <h1
+      v-else
+      id="inbox-header"
+      class="font-heading font-bold text-4xl"
+      @blur="$event.target.tabIndex = -1"
+    >
+      Inbox
+    </h1>
   </div>
   <div v-if="!inboxLoaded" class="md:overflow-auto space-y-1" role="list">
     <inbox-item :inboxItem="{}" />
