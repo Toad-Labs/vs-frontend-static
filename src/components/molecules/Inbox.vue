@@ -1,13 +1,16 @@
 <template>
+  <!-- Loading State -->
   <span v-if="!inboxLoaded">
     <div class="px-3 pt-6 pb-3">
       <div class="bg-gray-infolt h-10 w-2/3 animate-pulse"></div>
     </div>
     <div class="md:overflow-auto space-y-1" role="list">
+      <!-- Empty inbox items -->
       <inbox-item :inboxItem="{}" />
       <inbox-item :inboxItem="{}" />
     </div>
   </span>
+  <!-- Loaded State -->
   <span v-else>
     <h1
       id="inbox-header"
