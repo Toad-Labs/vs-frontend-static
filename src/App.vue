@@ -7,7 +7,7 @@
     <the-header />
 
     <!-- Page content -->
-    <div class="w-full pb-3 sm:p-3">
+    <div class="w-full sm:p-3 sm:pb-0">
       <main>
         <router-view />
         <feedback-button
