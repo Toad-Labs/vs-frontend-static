@@ -12,7 +12,7 @@
       bg-white
       hover:bg-gray-infolt
     "
-    aria-label="Quick reply"
+    :aria-label="'Quick reply with ' + text"
     @click="sendFromButton"
   >
     {{ text }}
@@ -25,7 +25,6 @@ export default {
   },
   setup(props, context) {
     function sendFromButton() {
-      // console.log(props.text);
       context.emit("send-button", props.text);
     }
     return {

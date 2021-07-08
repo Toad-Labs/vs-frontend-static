@@ -1,6 +1,7 @@
 <template>
   <h1
     id="inbox-header"
+    aria-label="Inbox header, press tab or click to access inbox items"
     class="font-heading font-bold text-4xl pl-3 pt-6 pb-3"
     @blur="$event.target.tabIndex = -1"
   >

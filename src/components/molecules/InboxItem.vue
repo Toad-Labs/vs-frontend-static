@@ -13,10 +13,11 @@
       <img
         class="w-12 h-12 md:w-12 md:h-12"
         :src="icons[inboxItem.senderIcon]"
-        alt="Inbox icon"
+        alt="Inbox icon."
       />
     </div>
     <div class="flex-1 truncate">
+      <span class="sr-only">Inbox for sender:</span>
       <p
         :class="[
           !inboxItem.dayRead ? 'font-bold' : '',
@@ -25,6 +26,9 @@
       >
         {{ inboxItem.senderName }}
       </p>
+      <span class="sr-only"
+        >{{ getStatusText() }}. Teaser text of latest message:</span
+      >
       <p
         :class="[
           !inboxItem.dayRead ? 'font-body' : 'font-heading font-light',
@@ -51,7 +55,12 @@ export default {
     function selectInboxItem() {
       context.emit("select-inbox-item", props.inboxItem.id);
     }
-    return { selectInboxItem, icons };
+    function getStatusText() {
+      return props.inboxItem.selected === true
+        ? ", which is currently selected and displayed"
+        : ", click or press enter to access";
+    }
+    return { selectInboxItem, icons, getStatusText };
   },
   components: {
     ReadNotification,
