@@ -1,30 +1,30 @@
 <template>
-  <div class="px-3 pt-6 pb-3">
-    <div
-      v-if="!inboxLoaded"
-      class="bg-gray-infolt h-10 w-2/3 animate-pulse"
-    ></div>
+  <span v-if="!inboxLoaded">
+    <div class="px-3 pt-6 pb-3">
+      <div class="bg-gray-infolt h-10 w-2/3 animate-pulse"></div>
+    </div>
+    <div class="md:overflow-auto space-y-1" role="list">
+      <inbox-item :inboxItem="{}" />
+      <inbox-item :inboxItem="{}" />
+    </div>
+  </span>
+  <span v-else>
     <h1
-      v-else
       id="inbox-header"
-      class="font-heading font-bold text-4xl"
+      class="font-heading font-bold text-4xl px-3 pt-6 pb-3"
       @blur="$event.target.tabIndex = -1"
     >
       Inbox
     </h1>
-  </div>
-  <div v-if="!inboxLoaded" class="md:overflow-auto space-y-1" role="list">
-    <inbox-item :inboxItem="{}" />
-    <inbox-item :inboxItem="{}" />
-  </div>
-  <div v-else class="md:overflow-auto space-y-1" role="list">
-    <inbox-item
-      v-for="inboxItem in inboxItems"
-      :key="inboxItem.id"
-      :inboxItem="inboxItem"
-      @select-inbox-item="selectInboxItem"
-    />
-  </div>
+    <div class="md:overflow-auto space-y-1" role="list">
+      <inbox-item
+        v-for="inboxItem in inboxItems"
+        :key="inboxItem.id"
+        :inboxItem="inboxItem"
+        @select-inbox-item="selectInboxItem"
+      />
+    </div>
+  </span>
 </template>
 
 <script lang="ts">
