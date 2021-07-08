@@ -111,9 +111,6 @@ const mutations = {
     const conversation = state.chatConversation.find(
       (chat) => chat.id === payload.id
     );
-    // Find the next message id.
-    // const nextMessageId =
-    //   Math.max(...conversation.messages.map((msg) => msg.id)) + 1;
     // Create the new message object.
     const newMessage = {
       receivedTime: Date.now(),
@@ -141,13 +138,7 @@ const mutations = {
       messages: payload.messages,
     });
   },
-  // setChatConversationId(state, payload){
-  //   const conversation = state.chatConversation.find(
-  //     (chat) => chat.id === payload.id
-  //   );
-  //   if (payload.newId)
-  //     conversation.id = payload.newId;
-  // },
+
   setLastRead(state, id) {
     const conversation = state.chatConversation.find((chat) => chat.id === id);
     conversation.lastRead = Date.now();
