@@ -14,13 +14,13 @@ const initConnection = (messageRecievedHandler, userName) => {
       secret: "yUFfstW-qB4.-5pEc2KNRFxKZt4sbzLnvMAn4NWok31MfECCT6lMMX0",
     });
     receiveMessageHandler();
-    sendMessage("Initialize", userName)
-      .then((res) => {
-        resolve(res);
-      })
-      .catch((err) => {
-        reject(err);
-      });
+
+    //When connected ie status 2 return the conversationId
+    directLine.connectionStatus$.subscribe(
+      (connectionStatus) =>
+        connectionStatus === 2 ? resolve(directLine.conversationId) : undefined,
+      (error) => reject(error)
+    );
   });
 };
 

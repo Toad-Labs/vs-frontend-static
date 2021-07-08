@@ -37,17 +37,6 @@ const getters = {
 const actions = {
   initializeChatMessages({ dispatch, commit, rootGetters }) {
     let directLineMessageRecievedHandler = (userName, message, convoId) => {
-      if (!state.chatConversation.some((chat) => chat.id === convoId)) {
-        commit("addChatConversation", {
-          id: convoId,
-          senderName: "Virtual Concierge",
-          senderIcon: "VC",
-          senderIconAltText: "Virtual Concierge icon",
-          lastRead: new Date(),
-          messages: [],
-        });
-        this.dispatch("inbox/selectDefaultInboxItem", convoId);
-      }
       commit("addMessageToConversation", {
         id: convoId,
         isUser: "userName" === userName,
@@ -63,22 +52,35 @@ const actions = {
     ChatMessageService.initConnection(
       directLineMessageRecievedHandler,
       "userName"
-    ).catch((err) => {
-      commit("addChatConversation", {
-        id: 1,
-        senderName: "Virtual Concierge",
-        senderIcon: "VC",
-        senderIconAltText: "Virtual Concierge icon",
-        lastRead: new Date(),
-        messages: [
-          {
-            receivedTime: Date.now(),
-            isUser: false,
-            text: err.message.charAt(0).toUpperCase() + err.message.slice(1),
-          },
-        ],
+    )
+      .then((conversationId) => {
+        console.log(conversationId);
+        commit("addChatConversation", {
+          id: conversationId,
+          senderName: "Virtual Concierge",
+          senderIcon: "VC",
+          senderIconAltText: "Virtual Concierge icon",
+          lastRead: new Date(),
+          messages: [],
+        });
+        this.dispatch("inbox/selectDefaultInboxItem", conversationId);
+      })
+      .catch((err) => {
+        commit("addChatConversation", {
+          id: 1,
+          senderName: "Virtual Concierge",
+          senderIcon: "VC",
+          senderIconAltText: "Virtual Concierge icon",
+          lastRead: new Date(),
+          messages: [
+            {
+              receivedTime: Date.now(),
+              isUser: false,
+              text: err.message.charAt(0).toUpperCase() + err.message.slice(1),
+            },
+          ],
+        });
       });
-    });
   },
 
   async sendChatMessage({ commit, rootGetters }, payload) {
