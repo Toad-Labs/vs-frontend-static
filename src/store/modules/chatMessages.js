@@ -54,7 +54,6 @@ const actions = {
       "userName"
     )
       .then((conversationId) => {
-        console.log(conversationId);
         commit("addChatConversation", {
           id: conversationId,
           senderName: "Virtual Concierge",
