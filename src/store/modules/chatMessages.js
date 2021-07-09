@@ -36,47 +36,62 @@ const getters = {
 // actions
 const actions = {
   initializeChatMessages({ dispatch, commit, rootGetters }) {
-    const conversationId = "VC01";
-    let directLineMessageRecievedHandler = (userName, message) => {
+    let directLineMessageRecievedHandler = (userName, message, convoId) => {
       commit("addMessageToConversation", {
-        id: conversationId,
+        id: convoId,
         isUser: "userName" === userName,
         text: message,
       });
-      if (conversationId === rootGetters["inbox/getSelectedInboxItem"].id) {
-        commit("setLastRead", conversationId);
+      if (convoId === rootGetters["inbox/getSelectedInboxItem"].id) {
+        commit("setLastRead", convoId);
       }
     };
 
+    // Init call
+    // Add .then() if needed.
     ChatMessageService.initConnection(
       directLineMessageRecievedHandler,
       "userName"
-    );
-
-    const botChatMessage = {
-      id: conversationId,
-      senderName: "Virtual Concierge",
-      senderIcon: "VC",
-      senderIconAltText: "Virtual Concierge icon",
-      lastRead: new Date(),
-      messages: [],
-    };
-    commit("addChatConversation", botChatMessage);
-    this.dispatch("inbox/selectDefaultInboxItem", conversationId);
-  },
-
-  // Fetch and load the categories
-  async fetchChatMessages({ commit, state, getters, dispatch }) {
-    // Get all of the Chat Messages from the API
-    const conversation = await ChatMessageService.getAll();
-    // console.log(conversation);
-    commit("setChatConversation", conversation);
+    )
+      .then((conversationId) => {
+        commit("addChatConversation", {
+          id: conversationId,
+          senderName: "Virtual Concierge",
+          senderIcon: "VC",
+          senderIconAltText: "Virtual Concierge icon",
+          lastRead: new Date(),
+          messages: [],
+        });
+        this.dispatch("inbox/selectDefaultInboxItem", conversationId);
+      })
+      .catch((err) => {
+        commit("addChatConversation", {
+          id: 1,
+          senderName: "Virtual Concierge",
+          senderIcon: "VC",
+          senderIconAltText: "Virtual Concierge icon",
+          lastRead: new Date(),
+          messages: [
+            {
+              receivedTime: Date.now(),
+              isUser: false,
+              text: err.message.charAt(0).toUpperCase() + err.message.slice(1),
+            },
+          ],
+        });
+      });
   },
 
   async sendChatMessage({ commit, rootGetters }, payload) {
     // make await api call here with the text
     //TODO: get username
-    ChatMessageService.sendMessage(payload.message, "userName");
+    ChatMessageService.sendMessage(payload.message, "userName")
+      .then((res) => {
+        console.log("sending message response: ", res);
+      })
+      .catch((err) => {
+        console.log("ERROR sending message: ", err.message);
+      });
 
     //When adding a message setLastRead date to include it
 
@@ -97,9 +112,6 @@ const mutations = {
     const conversation = state.chatConversation.find(
       (chat) => chat.id === payload.id
     );
-    // Find the next message id.
-    // const nextMessageId =
-    //   Math.max(...conversation.messages.map((msg) => msg.id)) + 1;
     // Create the new message object.
     const newMessage = {
       receivedTime: Date.now(),
@@ -127,6 +139,7 @@ const mutations = {
       messages: payload.messages,
     });
   },
+
   setLastRead(state, id) {
     const conversation = state.chatConversation.find((chat) => chat.id === id);
     conversation.lastRead = Date.now();
