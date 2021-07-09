@@ -23,6 +23,7 @@ export default {
   props: {
     text: String,
   },
+  emits: ["send-button"],
   setup(props, context) {
     function sendFromButton() {
       context.emit("send-button", props.text);

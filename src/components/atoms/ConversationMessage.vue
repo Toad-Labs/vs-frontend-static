@@ -1,5 +1,10 @@
 <template>
-  <div :class="[!isUser ? 'flex ' : '']">
+  <div
+    :class="[!isUser ? 'flex ' : '']"
+    :tabindex="tabindex"
+    @keyup.esc="returnToChatWindow"
+  >
+    <span class="sr-only">{{ isUser ? "You " : senderName }} said:</span>
     <p
       :class="[
         !isUser
@@ -15,9 +20,18 @@
 <script>
 export default {
   name: "ConversationMessage",
+  emits: ["return-to-chat-window"],
   props: {
     isUser: Boolean,
     text: String,
+    tabindex: Number,
+    senderName: String,
+  },
+  setup(_, context) {
+    function returnToChatWindow() {
+      context.emit("return-to-chat-window");
+    }
+    return { returnToChatWindow };
   },
 };
 </script>
