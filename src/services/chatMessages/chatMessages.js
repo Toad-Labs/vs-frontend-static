@@ -15,10 +15,14 @@ const initConnection = (messageRecievedHandler, userName) => {
     });
     receiveMessageHandler();
 
-    //When connected ie status 2 return the conversationId
+    //Subscribe to connectionStatus updates
     directLine.connectionStatus$.subscribe(
-      (connectionStatus) =>
-        connectionStatus === 2 ? resolve(directLine.conversationId) : undefined,
+      (connectionStatus) => {
+        //Resolve conversationId on Online connectionStatus
+        if (connectionStatus === 2) resolve(directLine.conversationId);
+        //Reject FailedToConnect connectionStatus
+        else if (connectionStatus === 4) reject(Error("Connection Failed"));
+      },
       (error) => reject(error)
     );
   });
