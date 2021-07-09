@@ -13,7 +13,7 @@
       <message-card
         v-for="email of mailObject.emails"
         :key="email.id"
-        :timestamp="createTimestamp(email.receivedTime)"
+        :timestamps="createTimestamps(email.receivedTime)"
         :title="email.messageTitle"
         :paragraphs="email.messageBody"
       />
@@ -43,22 +43,33 @@ export default {
       )
     );
     //creates a timestamp with js's default date methods
-    const createTimestamp = (dateString) => {
+    const createTimestamps = (dateString) => {
+      const options = { weekday: "long", month: "long", day: "numeric" }; //returns "Weekday, Month Date" format in toLocaleDateString
       const date = new Date(dateString);
       const dateArr = date.toString().split(" ");
-      return (
+
+      //this is what's actually displayed
+      const timestamp =
         dateArr[0] +
         ", " +
         dateArr[1] +
         " " +
         dateArr[2] +
         ", " +
-        date.toTimeString().slice(0, 5)
-      );
+        date.toTimeString().slice(0, 5);
+
+      //this is what is read by screen readers
+      //locale could be changed in the future for french compatibility
+      const fullTimestamp =
+        date.toLocaleDateString("en-CA", options) +
+        ", at " +
+        date.toTimeString().slice(0, 5);
+      return { timestamp: timestamp, fullTimestamp: fullTimestamp };
     };
+
     return {
       mailObject,
-      createTimestamp,
+      createTimestamps,
       icons,
     };
   },
