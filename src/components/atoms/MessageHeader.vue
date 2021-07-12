@@ -1,13 +1,13 @@
 <template>
   <div class="flex border-b border-gray-200 px-2 py-4">
-    <img
-      :src="icons[backIcon]"
-      :alt="altText"
-      class="sm:hidden h-10 mt-auto w-10 mr-4"
-      @click="clickBack"
-      aria-label="close modal"
-      tabindex="0"
-    />
+    <button @click="clickBack" aria-label="back to inbox" tabindex="0">
+      <img
+        :src="icons[backIcon]"
+        :alt="altText"
+        class="sm:hidden h-10 mt-auto w-10 mr-4"
+      />
+    </button>
+
     <img
       :src="icons[imageName]"
       :alt="altText"
