@@ -3,6 +3,10 @@
     :class="[!isUser ? 'flex ' : '']"
     :tabindex="tabindex"
     @keyup.esc="returnToChatWindow"
+    @keydown.prevent.up="prevElement($event)"
+    @keydown.prevent.shift.tab="prevElement($event)"
+    @keydown.prevent.down="nextElement($event)"
+    @keydown.prevent.exact.tab="nextElement($event)"
   >
     <span class="sr-only">{{ isUser ? "You " : senderName }} said:</span>
     <p
@@ -18,6 +22,7 @@
   </div>
 </template>
 <script>
+import { ConversationTabbables } from "./ConversationTabbables.js";
 export default {
   name: "ConversationMessage",
   emits: ["return-to-chat-window"],
@@ -28,10 +33,9 @@ export default {
     senderName: String,
   },
   setup(_, context) {
-    function returnToChatWindow() {
-      context.emit("return-to-chat-window");
-    }
-    return { returnToChatWindow };
+    const { returnToChatWindow, nextElement, prevElement } =
+      ConversationTabbables(_, context);
+    return { returnToChatWindow, nextElement, prevElement };
   },
 };
 </script>

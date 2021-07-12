@@ -30,8 +30,9 @@
           pr-2
         "
         tabindex="0"
-        aria-label="Press enter to begin navigating through the messages, and use the up and down arrow keys to navigate between each message. Press escape to exit thereafter."
-        @keyup.enter="accessIndividualMessages"
+        aria-label="Press enter to begin navigating through the chat messages, and use the up and down arrow keys to navigate between each message. You may also tab regularly, and press shift+enter to start from the latest chat message. Press escape to exit thereafter."
+        @keyup.exact.enter="accessIndividualMessages(0)"
+        @keyup.shift.enter="accessIndividualMessages(-1)"
       >
         <p class="text-center font-heading text-sm font-light text-gray-dark">
           WEDS 10:04 AM
@@ -45,6 +46,11 @@
           :isUser="message.isUser"
           :senderName="chatMessage.senderName"
           :text="message.text"
+        />
+        <ConversationFooter
+          :tabindex="tabbable"
+          @focusout="checkFocusingOutsideWindow($event)"
+          @return-to-chat-window="returnToChatWindow"
         />
       </div>
     </div>
@@ -62,6 +68,7 @@
 </template>
 <script>
 import ConversationMessage from "../atoms/ConversationMessage.vue";
+import ConversationFooter from "../atoms/ConversationFooter.vue";
 import MessageHeader from "../atoms/MessageHeader.vue";
 import TextInput from "../atoms/TextInput.vue";
 import { useStore } from "vuex";
@@ -73,6 +80,7 @@ export default {
     ConversationMessage,
     MessageHeader,
     TextInput,
+    ConversationFooter,
   },
   setup() {
     const chatWindow = ref(null);
@@ -95,24 +103,31 @@ export default {
       store.dispatch("chatMessages/sendChatMessage", newMessage);
     }
 
-    function accessIndividualMessages() {
+    function accessIndividualMessages(start) {
+      //start = 0 for seeing the first message (children[1]), -1 for the last
+      let chatMessages = chatWindow.value.children;
+      let index = start === 0 ? 1 : chatMessages.length - 2;
       tabbable.value = 0; //enable focusing on chat messages
-      chatWindow.value.children[1].focus(); //focus on first message
+      chatMessages[index].focus(); //focus on first message
     }
 
     function returnToChatWindow() {
+      console.log("returned to chat window");
       chatWindow.value.focus(); // focus on main window
       tabbable.value = -1; //disable focusing on chat messages
     }
 
     function checkFocusingOutsideWindow(event) {
-      //checks if the element that is about to be tabbed to is an input element or has a label (none of the messages do)
-      //effectively just checks if it's tabbing out of the chat window, in which case it returns to the window
+      //checks if the element that is about to be tabbed to is an input element or has the chat window id
+      //in which case it returns to the window (basically returns if it's tabbing out of the chat window)
       if (
-        event.relatedTarget.tagName === "INPUT" ||
-        event.relatedTarget.id === chatWindow.value.id
+        event.relatedTarget?.tagName === "INPUT" ||
+        event.relatedTarget?.id === chatWindow.value.id
       ) {
         returnToChatWindow();
+      } else {
+        //if the user clicks away from the messages, reset their tabindex
+        tabbable.value = -1;
       }
     }
 
