@@ -2,6 +2,7 @@ import ChatMessageService from "../../services/chatMessages/chatMessages";
 
 const state = {
   chatConversation: [],
+  loaded: false,
 };
 
 // getters
@@ -31,6 +32,9 @@ const getters = {
   },
   getChatMessageById: (state, getters) => (id) =>
     state.chatConversation.find((chatMessage) => chatMessage.id === id),
+  isLoaded() {
+    return state.loaded;
+  },
 };
 
 // actions
@@ -80,6 +84,7 @@ const actions = {
           ],
         });
       });
+    commit("setLoaded");
   },
 
   async sendChatMessage({ commit, rootGetters }, payload) {
@@ -143,6 +148,9 @@ const mutations = {
   setLastRead(state, id) {
     const conversation = state.chatConversation.find((chat) => chat.id === id);
     conversation.lastRead = Date.now();
+  },
+  setLoaded(state) {
+    state.loaded = true;
   },
 };
 
