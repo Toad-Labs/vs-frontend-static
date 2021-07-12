@@ -17,7 +17,7 @@
       class="font-heading font-bold text-4xl px-3 pt-6 pb-3"
       @blur="$event.target.tabIndex = -1"
     >
-      Inbox
+      {{ $t("inbox") }}
     </h1>
     <div class="md:overflow-auto space-y-1" role="list">
       <inbox-item
