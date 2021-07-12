@@ -17,16 +17,15 @@
             justify-end
           "
         >
-          <a
+          <router-link
             id="lang-toggle-full"
             class="px-5 py-1 font-body underline text-blue-link"
             aria-label="Change language"
             tabindex="0"
-            @click="selectLanguage"
-            @keyup.enter="selectLanguage"
+            :to="changeLanguageTo == 'fr' ? '/' : '/fr'"
           >
             {{ $t("changeLanguage") }}
-          </a>
+          </router-link>
         </div>
         <!-- end lang toggle desktop -->
 
@@ -41,7 +40,7 @@
               src="../../assets/sig-blk-en.svg"
               alt="canada logo en"
             />
-            <a
+            <router-link
               id="lang-toggle-small"
               class="
                 sm:hidden
@@ -53,11 +52,10 @@
               "
               aria-label="Change language"
               tabindex="0"
-              @click="selectLanguage"
-              @keyup.enter="selectLanguage"
+              :to="changeLanguageTo == 'fr' ? '/' : '/fr'"
             >
               {{ $t("changeLanguageAbrv") }}
-            </a>
+            </router-link>
           </div>
           <!-- end gc logo -->
           <!-- start gc search bar -->
@@ -137,7 +135,7 @@
 import Menu from "../atoms/Menu.vue";
 import Banner from "../atoms/Banner.vue";
 import { useI18n } from "vue-i18n";
-
+import { computed } from "vue";
 export default {
   name: "TheHeader",
   components: {
@@ -145,13 +143,8 @@ export default {
     Banner,
   },
   setup() {
-    const i18n = useI18n();
-    function selectLanguage() {
-      i18n.locale.value === "en"
-        ? (i18n.locale.value = "fr")
-        : (i18n.locale.value = "en");
-    }
-    return { selectLanguage };
+    const changeLanguageTo = computed(() => useI18n().locale.value);
+    return { changeLanguageTo };
   },
 };
 </script>
