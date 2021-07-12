@@ -22,9 +22,10 @@
             class="px-5 py-1 font-body underline text-blue-link"
             aria-label="Change language"
             tabindex="0"
+            @click="selectLanguage"
+            @keyup.enter="selectLanguage"
           >
-            Français
-            <!-- {language === "en" ? "English" : "Français"} -->
+            {{ $t("changeLanguage") }}
           </a>
         </div>
         <!-- end lang toggle desktop -->
@@ -52,9 +53,10 @@
               "
               aria-label="Change language"
               tabindex="0"
+              @click="selectLanguage"
+              @keyup.enter="selectLanguage"
             >
-              FR
-              <!-- {language === "en" ? "EN" : "FR"} -->
+              {{ $t("changeLanguageAbrv") }}
             </a>
           </div>
           <!-- end gc logo -->
@@ -134,6 +136,7 @@
 <script lang="ts">
 import Menu from "../atoms/Menu.vue";
 import Banner from "../atoms/Banner.vue";
+import { useI18n } from "vue-i18n";
 
 export default {
   name: "TheHeader",
@@ -142,7 +145,13 @@ export default {
     Banner,
   },
   setup() {
-    return {};
+    const i18n = useI18n();
+    function selectLanguage() {
+      i18n.locale.value == "en"
+        ? (i18n.locale.value = "fr")
+        : (i18n.locale.value = "en");
+    }
+    return { selectLanguage };
   },
 };
 </script>
