@@ -147,7 +147,7 @@ export default {
   setup() {
     const i18n = useI18n();
     function selectLanguage() {
-      i18n.locale.value == "en"
+      i18n.locale.value === "en"
         ? (i18n.locale.value = "fr")
         : (i18n.locale.value = "en");
     }
