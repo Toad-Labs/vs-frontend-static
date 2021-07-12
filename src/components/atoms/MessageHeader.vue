@@ -1,6 +1,6 @@
 <template>
   <div class="flex border-b border-gray-200 px-2 py-4">
-    <button @click="clickBack" aria-label="back to inbox" tabindex="0">
+    <button @click="clickBack" aria-label="back to inbox">
       <img
         :src="icons[backIcon]"
         :alt="altText"
