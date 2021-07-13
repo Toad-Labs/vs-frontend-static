@@ -13,6 +13,7 @@ module.exports = {
       backgroundImage: (theme) => ({
         "banner-img": "url('../../assets/v-c-banner.jpg')",
         "banner-img-lg": "url('../../assets/vc-banner-large.png')",
+        "splash-img": "url('../../assets/sp-bg-2.jpg')",
       }),
       colors: {
         blue: {
@@ -20,7 +21,9 @@ module.exports = {
           light: "#C7CFEF",
           selected: "#E6E9F7",
           link: "#284162",
-          deep: "#26374A"
+          deep: "#26374A",
+          hover: "#1c578a",
+          mild: "#335075",
         },
         gray: {
           dark: "#252525",
@@ -28,6 +31,7 @@ module.exports = {
           light: "#8c8c8c",
           infomd: "#DEDEDE",
           infolt: "#F8F8F8",
+          mild: "#e1e4e7",
         },
         alert: {
           main: "#2698BA",
@@ -58,6 +62,10 @@ module.exports = {
         "vh-1/3": "calc(100vh / 3)",
         "vh-1/4": "calc(100vh / 4)",
         "vh-1/5": "calc(100vh / 5)",
+      },
+      width: {
+        "300px": "300px",
+        "500px": "500px",
       },
       minWidth: {
         "7/2r": "3.5rem"
