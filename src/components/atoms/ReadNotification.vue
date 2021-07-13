@@ -3,7 +3,7 @@
     v-if="dayRead"
     class="flex-auto items-baseline h-16 w-16 md:h-20 md:w-20"
   >
-    <span class="sr-only">This message was read on:</span>
+    <span class="sr-only">This message was sent on:</span>
     <p
       class="
         font-heading font-light
