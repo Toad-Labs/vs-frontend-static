@@ -1,6 +1,7 @@
 <template>
   <input
     ref="input"
+    id="send-message-input"
     type="text"
     placeholder="Write something..."
     :class="
@@ -11,6 +12,7 @@
     aria-label="Send message"
     @focus="changeInputFocusStyles($event, ' ')"
     @mousedown="changeInputFocusStyles($event, ' focus:outline-none')"
+    @keydown.up.prevent="moveToMostRecentMessage"
     @keyup.enter="sendText"
     @input="checkSendBtnActive"
   />
@@ -54,7 +56,7 @@ export default {
   components: {
     ChatOptionButton,
   },
-  emits: ["add-message"],
+  emits: ["add-message", "move-to-most-recent-message"],
   setup(_, context) {
     const inputFocusClass = ref("");
     const text = ref("");
@@ -96,7 +98,13 @@ export default {
       sendMsgBtnTabIndex.value = textEmpty ? -1 : 0; //the send button will be untabbable if there's no text
       iconState.value = textEmpty ? "SendInactive" : "SendActive";
     }
+
+    function moveToMostRecentMessage() {
+      context.emit("move-to-most-recent-message");
+    }
+
     return {
+      moveToMostRecentMessage,
       sendMsgBtnTabIndex,
       input,
       text,

@@ -30,7 +30,7 @@
           pr-2
         "
         tabindex="0"
-        aria-label="Press enter to begin navigating through the chat messages, and use the up and down arrow keys to navigate between each message. You may also tab regularly, and press shift+enter to start from the latest chat message. Press escape to exit thereafter."
+        aria-label="Press enter to begin navigating through the chat messages and input box. Use the up and down arrow keys to navigate between each message, going all the way down lets you reach the input box. You may also use tab/shift+tab, and press shift+enter to view the latest chat message. Press escape to exit."
         @keyup.exact.enter="accessIndividualMessages(0)"
         @keyup.shift.enter="accessIndividualMessages(-1)"
       >
@@ -51,6 +51,7 @@
           :tabindex="tabbable"
           @focusout="checkFocusingOutsideWindow($event)"
           @return-to-chat-window="returnToChatWindow"
+          @exit-to-input="focusOnInput"
         />
       </div>
     </div>
@@ -60,6 +61,7 @@
       <TextInput
         :buttonOptions="['Yes', 'No']"
         @add-message="sendChatMessage"
+        @move-to-most-recent-message="accessIndividualMessages(-1)"
       />
     </div>
     <!-- padding at the bottom of the screen on mobile -->
@@ -108,27 +110,28 @@ export default {
       let chatMessages = chatWindow.value.children;
       let index = start === 0 ? 1 : chatMessages.length - 2;
       tabbable.value = 0; //enable focusing on chat messages
-      chatMessages[index].focus(); //focus on first message
+      chatMessages[index].focus(); //focus on chosen  message
     }
 
     function returnToChatWindow() {
-      console.log("returned to chat window");
       chatWindow.value.focus(); // focus on main window
       tabbable.value = -1; //disable focusing on chat messages
     }
 
     function checkFocusingOutsideWindow(event) {
-      //checks if the element that is about to be tabbed to is an input element or has the chat window id
+      //checks if the element that is about to be tabbed to has the chat window id
       //in which case it returns to the window (basically returns if it's tabbing out of the chat window)
-      if (
-        event.relatedTarget?.tagName === "INPUT" ||
-        event.relatedTarget?.id === chatWindow.value.id
-      ) {
+      //it can, however, return to the input
+      if (event.relatedTarget?.id === chatWindow.value.id) {
         returnToChatWindow();
       } else {
         //if the user clicks away from the messages, reset their tabindex
         tabbable.value = -1;
       }
+    }
+
+    function focusOnInput() {
+      document.getElementById("send-message-input").focus();
     }
 
     return {
@@ -140,6 +143,7 @@ export default {
       tabbable,
       icons,
       chatWindow,
+      focusOnInput,
     };
   },
 };
