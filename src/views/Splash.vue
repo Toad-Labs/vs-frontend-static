@@ -21,7 +21,7 @@
           alt="Symbol of the Government of Canada"
         />
         <div class="flex w-max container py-11 mx-auto font-display">
-          <a
+          <router-link
             class="
               focus:ring-1 focus:ring-black focus:ring-offset-2
               px-4
@@ -42,10 +42,10 @@
             data-cy="english-button"
             role="button"
             draggable="false"
-            href="/en"
-            >English</a
+            to="/en"
+            >English</router-link
           >
-          <a
+          <router-link
             class="
               focus:ring-1 focus:ring-black focus:ring-offset-2
               px-4
@@ -65,8 +65,8 @@
             data-cy="french-button"
             role="button"
             draggable="false"
-            href="/fr"
-            >Français</a
+            to="/fr"
+            >Français</router-link
           >
         </div>
       </div>
