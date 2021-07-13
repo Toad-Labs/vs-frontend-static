@@ -17,7 +17,7 @@
       <div class="bg-white h-auto min-w-300px w-300px xl:w-500px">
         <img
           class="h-auto w-64 container mx-auto pt-6 xl:w-2/3 xl:mx-0 xl:px-6"
-          src="src/assets/sig-blk-en.svg"
+          src="./assets/sig-blk-en.svg"
           alt="Symbol of the Government of Canada"
         />
         <div class="flex w-max container py-11 mx-auto font-display">
@@ -118,7 +118,7 @@
         </div>
         <img
           class="h-auto w-24 xl:w-28"
-          src="src/assets/wmms-blk.svg"
+          src="./assets/wmms-blk.svg"
           alt="Symbol of the Government of Canada"
         />
       </div>
