@@ -14,30 +14,34 @@
     @keyup.enter="sendText"
     @input="checkSendBtnActive"
   />
-  <div class="w-auto bg-gray-infolt text-gray-dark">
-    <chat-option-button
-      v-for="(option, index) in buttonOptions"
-      :key="index"
-      :text="option"
-      @send-button="sendBtnText"
-    />
-    <button
-      class="float-right cursor-pointer"
-      aria-label="Send message"
-      :tabindex="sendMsgBtnTabIndex"
-      @click="sendText"
-      @focus="onSendBtnFocus"
-      @mouseover="onSendBtnFocus"
-      @mouseleave="checkSendBtnActive"
-      @blur="checkSendBtnActive"
-    >
-      <img
-        class="focus:border-none"
-        :src="icons[iconState]"
-        alt="Send Image."
-        aria-hidden="true"
+  <div class="flex flex-row bg-gray-infolt text-gray-dark">
+    <div class="w-auto">
+      <chat-option-button
+        v-for="(option, index) in buttonOptions"
+        :key="index"
+        :text="option"
+        @send-button="sendBtnText"
       />
-    </button>
+    </div>
+    <div class="relative flex w-12 flex-shrink-0">
+      <button
+        class="cursor-pointer absolute right-0 top-0"
+        aria-label="Send message"
+        :tabindex="sendMsgBtnTabIndex"
+        @click="sendText"
+        @focus="onSendBtnFocus"
+        @mouseover="onSendBtnFocus"
+        @mouseleave="checkSendBtnActive"
+        @blur="checkSendBtnActive"
+      >
+        <img
+          class="focus:border-none"
+          :src="icons[iconState]"
+          alt="Send Image."
+          aria-hidden="true"
+        />
+      </button>
+    </div>
   </div>
 </template>
 <script>

@@ -42,7 +42,23 @@
       <!-- The logic on how the buttonOptions are passed as props will
                    depend on how we get the possible answers from VC. -->
       <TextInput
-        :buttonOptions="['Yes', 'No']"
+        :buttonOptions="[
+          'Yes',
+          'Yea',
+          'Yeah',
+          'Sure',
+          'Yeah, sure',
+          'Of course',
+          'Certainly',
+          'Nuh uh',
+          'Nay',
+          'Never',
+          'No',
+          'No way!',
+          'No way, Jose!',
+          'Maybe?',
+          'Perhaps',
+        ]"
         @add-message="sendChatMessage"
       />
     </div>
