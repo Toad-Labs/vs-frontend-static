@@ -40,8 +40,10 @@ export default {
     // Use the store
     const store = useStore();
     // Initialize the chat messages
-    store.dispatch("chatMessages/initializeChatMessages");
-    store.dispatch("emails/initializeMailObject");
+    if (!store.getters["chatMessages/isLoaded"])
+      store.dispatch("chatMessages/initializeChatMessages");
+    if (!store.getters["emails/isLoaded"])
+      store.dispatch("emails/initializeMailObject");
   },
 };
 </script>
