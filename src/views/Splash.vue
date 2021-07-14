@@ -33,7 +33,9 @@
               active:bg-blue-deep
               hover:bg-blue-hover
               text-center text-md
-              w-138px
+              h-11
+              xl:h-10
+              w-28
               xl:w-138px
               py-3.5
               mr-6
@@ -57,7 +59,9 @@
               active:bg-blue-deep
               hover:bg-blue-hover
               text-center text-md
-              w-138px
+              h-11
+              xl:h-10
+              w-28
               xl:w-138px
               py-3.5
               rounded
