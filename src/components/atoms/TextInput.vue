@@ -15,7 +15,7 @@
     @input="checkSendBtnActive"
   />
   <div class="flex flex-row bg-gray-infolt text-gray-dark">
-    <div class="w-auto">
+    <div class="w-full">
       <chat-option-button
         v-for="(option, index) in buttonOptions"
         :key="index"
