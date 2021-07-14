@@ -64,8 +64,9 @@ module.exports = {
         "vh-1/5": "calc(100vh / 5)",
       },
       width: {
-        "300px": "300px",
-        "500px": "500px",
+        "138px": "8.625rem",
+        "300px": "18.75rem",
+        "500px": "31.25rem",
       },
       minWidth: {
         "7/2r": "3.5rem"
