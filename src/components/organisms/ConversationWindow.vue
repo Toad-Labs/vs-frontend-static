@@ -1,10 +1,7 @@
 <template>
-  <div
-    class="w-full h-full flex flex-col p-4 sm:p-0 text-gray-dark sm:relative"
-  >
+  <div class="w-full h-full flex flex-col text-gray-dark sm:relative">
     <div class="sticky top-0 opacity-95 bg-white md:opacity-100">
       <message-header
-        backIcon="Back"
         :imageName="chatMessage.senderIcon"
         :altText="chatMessage.senderIconAltText"
         :headerText="chatMessage.senderName"
@@ -14,7 +11,7 @@
       <img
         :src="icons[chatMessage.senderIcon]"
         :alt="chatMessage.senderIconAltText"
-        class="h-6 mt-auto w-8 mb-3"
+        class="h-6 mt-auto w-10 mb-3"
       />
       <div
         class="

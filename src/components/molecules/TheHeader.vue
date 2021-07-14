@@ -17,15 +17,15 @@
             justify-end
           "
         >
-          <a
+          <router-link
             id="lang-toggle-full"
             class="px-5 py-1 font-body underline text-blue-link"
             aria-label="Change language"
             tabindex="0"
+            :to="changeLanguageTo == 'fr' ? '/' : '/fr'"
           >
-            Français
-            <!-- {language === "en" ? "English" : "Français"} -->
-          </a>
+            {{ $t("changeLanguage") }}
+          </router-link>
         </div>
         <!-- end lang toggle desktop -->
 
@@ -40,7 +40,7 @@
               src="../../assets/sig-blk-en.svg"
               alt="canada logo en"
             />
-            <a
+            <router-link
               id="lang-toggle-small"
               class="
                 sm:hidden
@@ -52,10 +52,10 @@
               "
               aria-label="Change language"
               tabindex="0"
+              :to="changeLanguageTo == 'fr' ? '/en' : '/fr'"
             >
-              FR
-              <!-- {language === "en" ? "EN" : "FR"} -->
-            </a>
+              {{ $t("changeLanguageAbrv") }}
+            </router-link>
           </div>
           <!-- end gc logo -->
           <!-- start gc search bar -->
@@ -134,7 +134,8 @@
 <script lang="ts">
 import Menu from "../atoms/Menu.vue";
 import Banner from "../atoms/Banner.vue";
-
+import { useI18n } from "vue-i18n";
+import { computed } from "vue";
 export default {
   name: "TheHeader",
   components: {
@@ -142,7 +143,8 @@ export default {
     Banner,
   },
   setup() {
-    return {};
+    const changeLanguageTo = computed(() => useI18n().locale.value);
+    return { changeLanguageTo };
   },
 };
 </script>
