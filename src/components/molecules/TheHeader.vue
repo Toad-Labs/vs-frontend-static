@@ -20,7 +20,7 @@
           <router-link
             id="lang-toggle-full"
             class="px-5 py-1 font-body underline text-blue-link"
-            :to="changeLanguageTo == 'fr' ? '/' : '/fr'"
+            :to="changeLanguageTo == 'fr' ? '/en' : '/fr'"
           >
             {{ $t("changeLanguage") }}
           </router-link>
@@ -48,7 +48,7 @@
                 underline
                 text-blue-link
               "
-              :to="changeLanguageTo == 'fr' ? '/' : '/fr'"
+              :to="changeLanguageTo == 'fr' ? '/en' : '/fr'"
             >
               {{ $t("changeLanguageAbrv") }}
             </router-link>
