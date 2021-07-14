@@ -1,7 +1,9 @@
 <template>
   <section>
     <!-- Background image -->
-    <div class="bg-splash-img h-screen min-w-300px min-h-screen blur"></div>
+    <div
+      class="bg-splash-img h-screen min-w-300px min-h-screen filter blur-sm"
+    ></div>
     <div
       class="
         absolute
