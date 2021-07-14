@@ -8,7 +8,7 @@
       inputFocusClass
     "
     v-model="text"
-    aria-label="Send message"
+    :aria-label="$t('writeSomething')"
     @focus="changeInputFocusStyles($event, ' ')"
     @mousedown="changeInputFocusStyles($event, ' focus:outline-none')"
     @keyup.enter="sendText"
@@ -23,7 +23,7 @@
     />
     <button
       class="float-right cursor-pointer"
-      aria-label="Send message"
+      :aria-label="$t('sendMessage')"
       :tabindex="sendMsgBtnTabIndex"
       @click="sendText"
       @focus="onSendBtnFocus"
@@ -34,7 +34,7 @@
       <img
         class="focus:border-none"
         :src="icons[iconState]"
-        alt="Send Image."
+        alt="Send icon"
         aria-hidden="true"
       />
     </button>

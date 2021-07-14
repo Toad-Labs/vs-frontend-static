@@ -20,8 +20,6 @@
           <router-link
             id="lang-toggle-full"
             class="px-5 py-1 font-body underline text-blue-link"
-            aria-label="Change language"
-            tabindex="0"
             :to="changeLanguageTo == 'fr' ? '/' : '/fr'"
           >
             {{ $t("changeLanguage") }}
@@ -50,8 +48,6 @@
                 underline
                 text-blue-link
               "
-              aria-label="Change language"
-              tabindex="0"
               :to="changeLanguageTo == 'fr' ? '/' : '/fr'"
             >
               {{ $t("changeLanguageAbrv") }}

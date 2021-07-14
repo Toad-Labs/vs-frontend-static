@@ -27,7 +27,7 @@
         tabindex="0"
       >
         <p class="text-center font-heading text-sm font-light text-gray-dark">
-          WEDS 10:04 AM
+          {{ $t("messageTime") }}
         </p>
         <ConversationMessage
           v-for="message in chatMessage.messages"

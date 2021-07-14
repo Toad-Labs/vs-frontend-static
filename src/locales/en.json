@@ -1,5 +1,8 @@
 {
   "changeLanguage": "Français",
   "changeLanguageAbrv": "FR",
-  "inbox": "Inbox"
+  "inbox": "Inbox",
+  "writeSomething": "write something",
+  "sendMessage": "send message",
+  "messageTime": "WEDS 10:08 AM"
 }
