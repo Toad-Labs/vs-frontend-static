@@ -52,7 +52,7 @@
               "
               aria-label="Change language"
               tabindex="0"
-              :to="changeLanguageTo == 'fr' ? '/' : '/fr'"
+              :to="changeLanguageTo == 'fr' ? '/en' : '/fr'"
             >
               {{ $t("changeLanguageAbrv") }}
             </router-link>
