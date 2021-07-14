@@ -41,6 +41,7 @@
               mr-6
               rounded
               leading-3
+              shadow-lg
             "
             id="english-button"
             data-cy="english-button"
@@ -66,6 +67,7 @@
               py-3.5
               rounded
               leading-3
+              shadow-lg
             "
             id="french-button"
             data-cy="french-button"
