@@ -1,22 +1,12 @@
 <template>
-  <section>
+  <section class="flex h-screen">
     <!-- Background image -->
     <div
-      class="bg-splash-img h-screen min-w-300px min-h-screen filter blur-sm"
+      class="z-0 fixed inset-0 bg-splash-img min-w-300px filter blur-sm"
     ></div>
-    <div
-      class="
-        absolute
-        inset-0
-        -mt-12
-        xl:mb-0
-        flex flex-col
-        justify-center
-        items-center
-      "
-    >
+    <div class="flex flex-col justify-center items-center m-auto">
       <!-- English or French -->
-      <div class="bg-white h-auto min-w-300px w-300px xl:w-500px">
+      <div class="z-10 bg-white h-auto min-w-300px w-300px xl:w-500px">
         <img
           class="h-auto w-64 container mx-auto pt-6 xl:w-2/3 xl:mx-0 xl:px-6"
           src="../assets/sig-blk-en.svg"
