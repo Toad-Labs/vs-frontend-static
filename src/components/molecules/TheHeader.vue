@@ -22,7 +22,7 @@
             class="px-5 py-1 font-body underline text-blue-link"
             aria-label="Change language"
             tabindex="0"
-            :to="changeLanguageTo == 'fr' ? '/' : '/fr'"
+            :to="changeLanguageTo == 'fr' ? '/en' : '/fr'"
           >
             {{ $t("changeLanguage") }}
           </router-link>
