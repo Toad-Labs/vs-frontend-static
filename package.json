@@ -21,10 +21,12 @@
     "lint-staged": "^10.5.4",
     "prettier": "^2.3.0",
     "vue": "^3.1.2",
+    "vue-i18n": "^9.1.6",
     "vue-router": "^4.0.10",
     "vuex": "^4.0.2"
   },
   "devDependencies": {
+    "@intlify/vite-plugin-vue-i18n": "^2.3.1",
     "@tailwindcss/forms": "^0.3.3",
     "@vitejs/plugin-vue": "^1.2.3",
     "@vue/compiler-sfc": "^3.1.2",

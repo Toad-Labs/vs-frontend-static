@@ -1,15 +1,29 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
+import Splash from "../views/Splash.vue";
+import { i18n } from "./../../i18n";
 
 const NotFound = () => import("../views/NotFound.vue");
 
+const locales = "en|fr";
 export const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
       path: "/",
-      name: "home",
+      name: "splash",
+      component: Splash,
+    },
+    {
+      path: "/:lang(en|fr)",
       component: Home,
+      children: [
+        {
+          path: "home",
+          name: "home",
+          component: Home,
+        },
+      ],
     },
     {
       path: "/404",
@@ -30,4 +44,16 @@ export const router = createRouter({
       return { top: 0 };
     }
   },
+});
+router.beforeEach((to, from, next) => {
+  // use the language from the routing param or default language
+  let language = to.params.lang;
+  if (!language) {
+    language = "en";
+  }
+
+  // set the current language for vuex-i18n. note that translation data
+  // for the language might need to be loaded first
+  i18n.global.locale.value = language;
+  next();
 });
