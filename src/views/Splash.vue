@@ -64,6 +64,7 @@
             role="button"
             draggable="false"
             to="/fr"
+            lang="fr"
             >Français</router-link
           >
         </div>
