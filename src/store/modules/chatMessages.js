@@ -1,4 +1,5 @@
 import ChatMessageService from "../../services/chatMessages/chatMessages";
+import { i18n } from "./../../../i18n";
 
 const state = {
   chatConversation: [],
@@ -90,7 +91,11 @@ const actions = {
   async sendChatMessage({ commit, rootGetters }, payload) {
     // make await api call here with the text
     //TODO: get username
-    ChatMessageService.sendMessage(payload.message, "userName")
+    ChatMessageService.sendMessage(
+      payload.message,
+      "userName",
+      i18n.global.locale.value
+    )
       .then((res) => {
         console.log("sending message response: ", res);
       })
