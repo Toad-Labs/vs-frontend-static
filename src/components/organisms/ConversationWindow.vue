@@ -27,7 +27,7 @@
         tabindex="0"
       >
         <p class="text-center font-heading text-sm font-light text-gray-dark">
-          WEDS 10:04 AM
+          {{ $t("messageTime") }}
         </p>
         <ConversationMessage
           v-for="message in chatMessage.messages"
@@ -41,7 +41,7 @@
       <!-- The logic on how the buttonOptions are passed as props will
                    depend on how we get the possible answers from VC. -->
       <TextInput
-        :buttonOptions="['Yes', 'No']"
+        :buttonOptions="[$t('yes'), $t('no')]"
         @add-message="sendChatMessage"
       />
     </div>

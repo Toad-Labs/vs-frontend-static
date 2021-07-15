@@ -1,5 +1,11 @@
 {
   "changeLanguage": "English",
   "changeLanguageAbrv": "EN",
-  "inbox": "FR: Inbox"
+  "inbox": "FR: Inbox",
+  "writeSomething": "(FR) write something",
+  "sendMessage": "(FR) send message",
+  "messageTime": "(FR) WEDS 10:08 AM",
+  "yes": "Oui",
+  "no": "Non",
+  "sendIcon": "(FR) Send Icon"
 }
