@@ -2,7 +2,16 @@
   <section class="flex h-screen">
     <!-- Background image -->
     <div
-      class="z-0 fixed inset-0 bg-splash-img min-w-300px filter blur-sm"
+      class="
+        z-0
+        fixed
+        bg-cover bg-center
+        inset-0
+        bg-splash-img
+        min-w-300px
+        filter
+        blur-sm
+      "
     ></div>
     <div class="flex flex-col justify-center items-center m-auto">
       <!-- English or French -->
