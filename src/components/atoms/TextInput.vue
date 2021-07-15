@@ -34,7 +34,7 @@
       <img
         class="focus:border-none"
         :src="icons[iconState]"
-        alt="Send icon"
+        :alt="$t('sendIcon')"
         aria-hidden="true"
       />
     </button>

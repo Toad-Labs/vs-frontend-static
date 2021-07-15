@@ -4,5 +4,8 @@
   "inbox": "Inbox",
   "writeSomething": "write something",
   "sendMessage": "send message",
-  "messageTime": "WEDS 10:08 AM"
+  "messageTime": "WEDS 10:08 AM",
+  "yes": "Yes",
+  "no": "No",
+  "sendIcon": "Send Icon"
 }
