@@ -58,6 +58,7 @@
           'No way, Jose!',
           'Maybe?',
           'Perhaps',
+          'We wish you a Merry Christmas and a Happy New Year!',
         ]"
         @add-message="sendChatMessage"
       />
