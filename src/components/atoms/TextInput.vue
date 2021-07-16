@@ -15,27 +15,15 @@
     @input="checkSendBtnActive"
   />
   <div class="flex flex-row bg-gray-infolt text-gray-dark">
-    <!-- quick reply options -->
-    <div :class="['w-full', moreQuickRepliesDisplay]">
+    <div class="w-full">
       <chat-option-button
         v-for="(option, index) in buttonOptions"
         :key="index"
         :text="option"
         @send-button="sendBtnText"
       />
-      <chat-option-button
-        :extraClasses="lessButtonStyles"
-        @send-button="showMoreOrLessOptions(false)"
-        :text="'Less...'"
-      />
     </div>
-    <!-- more/less quick reply options + send button  -->
-    <div class="relative flex w-auto min-w-12 flex-shrink-0">
-      <chat-option-button
-        :extraClasses="'mr-12 ' + moreButtonStyles"
-        @send-button="showMoreOrLessOptions(true)"
-        :text="'More...'"
-      />
+    <div class="relative flex w-12 flex-shrink-0">
       <button
         class="cursor-pointer absolute right-0 top-0"
         aria-label="Send message"
@@ -60,7 +48,7 @@
 import icons from "../../assets/icons.js";
 
 import ChatOptionButton from "./ChatOptionButton.vue";
-import { computed, ref } from "vue";
+import { ref } from "vue";
 
 export default {
   name: "TextInput",
@@ -76,13 +64,6 @@ export default {
     const text = ref("");
     const sendMsgBtnTabIndex = ref(-1); //should be inactive as there's no input text at the start
     const iconState = ref("SendInactive");
-    const moreShown = ref(false);
-
-    const moreButtonStyles = computed(() => (moreShown.value ? "hidden" : ""));
-    const lessButtonStyles = computed(() => (moreShown.value ? "" : "hidden"));
-    const moreQuickRepliesDisplay = computed(() =>
-      moreShown.value ? "" : "h-12 overflow-hidden"
-    );
 
     //this ref are reassigned to their respective components on mounting
     //the actual component is accessed by using input.value
@@ -96,13 +77,11 @@ export default {
         input.value.focus();
       }
     }
-
     function sendBtnText(btnText) {
       if (btnText.length > 0) {
         context.emit("add-message", btnText);
       }
     }
-
     function onSendBtnFocus() {
       iconState.value =
         text.value === "" ? "SendInactive" : "SendActiveFocused";
@@ -121,11 +100,6 @@ export default {
       sendMsgBtnTabIndex.value = textEmpty ? -1 : 0; //the send button will be untabbable if there's no text
       iconState.value = textEmpty ? "SendInactive" : "SendActive";
     }
-
-    function showMoreOrLessOptions(showingMore) {
-      moreShown.value = showingMore;
-    }
-
     return {
       sendMsgBtnTabIndex,
       input,
@@ -138,11 +112,6 @@ export default {
       checkSendBtnActive,
       changeInputFocusStyles,
       inputFocusClass,
-      moreShown,
-      showMoreOrLessOptions,
-      moreButtonStyles,
-      lessButtonStyles,
-      moreQuickRepliesDisplay,
     };
   },
 };
