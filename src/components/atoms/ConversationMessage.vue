@@ -22,7 +22,6 @@
   </div>
 </template>
 <script>
-import { ConversationTabbables } from "./ConversationTabbables.js";
 export default {
   name: "ConversationMessage",
   emits: ["return-to-chat-window"],
@@ -33,9 +32,14 @@ export default {
     senderName: String,
   },
   setup(_, context) {
-    const { returnToChatWindow, nextElement, prevElement } =
-      ConversationTabbables(_, context);
-    return { returnToChatWindow, nextElement, prevElement };
+    const returnToChatWindow = () => context.emit("return-to-chat-window");
+    const nextElement = (event) => event.target.nextElementSibling?.focus();
+    const prevElement = (event) => event.target.previousElementSibling?.focus();
+    return {
+      returnToChatWindow,
+      nextElement,
+      prevElement,
+    };
   },
 };
 </script>
