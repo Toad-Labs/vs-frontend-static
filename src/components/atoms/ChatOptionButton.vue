@@ -12,7 +12,7 @@
       bg-white
       hover:bg-gray-infolt
     "
-    aria-label="Quick reply"
+    :aria-label="text"
     @click="sendFromButton"
   >
     {{ text }}
