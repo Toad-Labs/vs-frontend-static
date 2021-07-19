@@ -8,11 +8,6 @@
       />
     </div>
     <div class="flex h-full overflow-auto">
-      <img
-        :src="icons[chatMessage.senderIcon]"
-        :alt="chatMessage.senderIconAltText"
-        class="h-6 mt-auto w-10 mb-3"
-      />
       <div
         class="
           w-full
@@ -30,10 +25,13 @@
           {{ $t("messageTime") }}
         </p>
         <ConversationMessage
-          v-for="message in chatMessage.messages"
+          v-for="(message, index) in chatMessage.messages"
           :key="message.id"
           :isUser="message.isUser"
           :text="message.text"
+          :senderIcon="chatMessage.senderIcon"
+          :senderIconAltText="chatMessage.senderIconAltText"
+          :isLastMessage="index === chatMessage.messages.length - 1"
         />
       </div>
     </div>
