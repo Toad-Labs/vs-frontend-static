@@ -2,6 +2,7 @@ import emailService from "../../services/emails/emails";
 
 const state = {
   mailObject: [],
+  loaded: false,
 };
 
 // getters
@@ -35,6 +36,9 @@ const getters = {
     }
     return mailObject;
   },
+  isLoaded() {
+    return state.loaded;
+  },
 };
 
 // actions
@@ -45,9 +49,10 @@ const actions = {
     commit("addEmail", payload);
   },
   async initializeMailObject({ commit, state, getters }) {
-    await emailService
-      .getAll()
-      .then((emails) => commit("setMailObject", emails));
+    await emailService.getAll().then((emails) => {
+      commit("setMailObject", emails);
+      commit("setLoaded");
+    });
   },
   async markEmailRead(context, id) {
     context.commit("setLastRead", id);
@@ -88,6 +93,9 @@ const mutations = {
   setLastRead(state, id) {
     const email = state.mailObject.find((email) => email.id === id);
     email.lastRead = Date.now();
+  },
+  setLoaded(state) {
+    state.loaded = true;
   },
 };
 

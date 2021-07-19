@@ -7,13 +7,25 @@ import { DirectLine } from "botframework-directlinejs";
  */
 
 const initConnection = (messageRecievedHandler, userName) => {
-  if (messageRecievedHandler)
-    directLineMessageRecievedHandler = messageRecievedHandler;
-  directLine = new DirectLine({
-    secret: "yUFfstW-qB4.-5pEc2KNRFxKZt4sbzLnvMAn4NWok31MfECCT6lMMX0",
+  return new Promise((resolve, reject) => {
+    if (messageRecievedHandler)
+      directLineMessageRecievedHandler = messageRecievedHandler;
+    directLine = new DirectLine({
+      secret: "yUFfstW-qB4.-5pEc2KNRFxKZt4sbzLnvMAn4NWok31MfECCT6lMMX0",
+    });
+    receiveMessageHandler();
+
+    //Subscribe to connectionStatus updates
+    directLine.connectionStatus$.subscribe(
+      (connectionStatus) => {
+        //Resolve conversationId on Online connectionStatus
+        if (connectionStatus === 2) resolve(directLine.conversationId);
+        //Reject FailedToConnect connectionStatus
+        else if (connectionStatus === 4) reject(Error("Connection Failed"));
+      },
+      (error) => reject(error)
+    );
   });
-  receiveMessageHandler();
-  sendMessage("Initialize", userName);
 };
 
 let directLine;
@@ -24,28 +36,35 @@ let directLineMessageRecievedHandler = (userName, messageText) => {
   );
 };
 
-const sendMessage = (msg, userName) => {
-  directLine
-    .postActivity({
-      // "from" is when the app support user accounts
-      from: { id: "UserId", name: userName }, // (from.name is optional)
-      type: "message",
-      text: msg,
-    })
-    .subscribe(
-      (id) => console.log("SEND ID Posted activity, assigned ID ", id),
-      (error) => connectionErrorHandler(error)
-    );
-};
-
-const receiveMessageHandler = () => {
-  directLine.activity$.subscribe((activity) => {
-    directLineMessageRecievedHandler(activity.from.name, activity.text);
+const sendMessage = (msg, userName, lang) => {
+  return new Promise((resolve, reject) => {
+    directLine
+      .postActivity({
+        // "from" is when the app support user accounts (authentication)
+        from: { id: "UserId", name: userName }, // (from.name is optional)
+        type: "message",
+        text: msg,
+        locale: lang,
+      })
+      .subscribe(
+        (id) => resolve(id),
+        (error) => reject(error)
+      );
   });
 };
 
-const connectionErrorHandler = (err) => {
-  console.log(err);
+const receiveMessageHandler = () => {
+  directLine.activity$.subscribe(
+    (activity) => {
+      // If messages need their own id, pass activity.id as a parameter in the function below.
+      directLineMessageRecievedHandler(
+        activity.from.name,
+        activity.text,
+        activity.conversation.id
+      );
+    },
+    (err) => console.log(err)
+  );
 };
 
 const ChatMessagesService = {

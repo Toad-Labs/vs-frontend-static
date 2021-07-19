@@ -1,21 +1,13 @@
 <template>
-  <div
-    class="w-full h-full flex flex-col p-4 sm:p-0 text-gray-dark sm:relative"
-  >
+  <div class="w-full h-full flex flex-col text-gray-dark sm:relative">
     <div class="sticky top-0 opacity-95 bg-white md:opacity-100">
       <message-header
-        backIcon="Back"
         :imageName="chatMessage.senderIcon"
         :altText="chatMessage.senderIconAltText"
         :headerText="chatMessage.senderName"
       />
     </div>
     <div class="flex h-full overflow-auto">
-      <img
-        :src="icons[chatMessage.senderIcon]"
-        :alt="chatMessage.senderIconAltText"
-        class="h-6 mt-auto w-8 mb-3"
-      />
       <div
         ref="chatWindow"
         id="chatWindow"
@@ -35,10 +27,10 @@
         @keyup.shift.enter="accessIndividualMessages(-1)"
       >
         <p class="text-center font-heading text-sm font-light text-gray-dark">
-          WEDS 10:04 AM
+          {{ $t("messageTime") }}
         </p>
         <ConversationMessage
-          v-for="message in chatMessage.messages"
+          v-for="(message, index) in chatMessage.messages"
           @return-to-chat-window="returnToChatWindow"
           @focusout="checkFocusingOutsideWindow($event)"
           :tabindex="tabbable"
@@ -46,6 +38,9 @@
           :isUser="message.isUser"
           :senderName="chatMessage.senderName"
           :text="message.text"
+          :senderIcon="chatMessage.senderIcon"
+          :senderIconAltText="chatMessage.senderIconAltText"
+          :isLastMessage="index === chatMessage.messages.length - 1"
         />
         <ConversationFooter
           :tabindex="tabbable"
@@ -59,7 +54,7 @@
       <!-- The logic on how the buttonOptions are passed as props will
                    depend on how we get the possible answers from VC. -->
       <TextInput
-        :buttonOptions="['Yes', 'No']"
+        :buttonOptions="[$t('yes'), $t('no')]"
         @add-message="sendChatMessage"
         @move-to-most-recent-message="accessIndividualMessages(-1)"
       />
