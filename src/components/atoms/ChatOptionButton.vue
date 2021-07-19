@@ -11,6 +11,8 @@
       rounded-3xl
       bg-white
       hover:bg-gray-infolt
+      break-words
+      text-left
     "
     :aria-label="text"
     @click="sendFromButton"
