@@ -20,7 +20,10 @@
           <router-link
             id="lang-toggle-full"
             class="px-5 py-1 font-body underline text-blue-link"
-            :to="changeLanguageTo == 'fr' ? '/en' : '/fr'"
+            aria-label="Change language"
+            tabindex="0"
+            :to="'/' + changeLanguageTo"
+            :lang="changeLanguageTo"
           >
             {{ $t("changeLanguage") }}
           </router-link>
@@ -48,7 +51,10 @@
                 underline
                 text-blue-link
               "
-              :to="changeLanguageTo == 'fr' ? '/en' : '/fr'"
+              aria-label="Change language"
+              tabindex="0"
+              :to="'/' + changeLanguageTo"
+              :lang="changeLanguageTo"
             >
               {{ $t("changeLanguageAbrv") }}
             </router-link>
@@ -139,7 +145,9 @@ export default {
     Banner,
   },
   setup() {
-    const changeLanguageTo = computed(() => useI18n().locale.value);
+    const changeLanguageTo = computed(() =>
+      useI18n().locale.value == "fr" ? "en" : "fr"
+    );
     return { changeLanguageTo };
   },
 };

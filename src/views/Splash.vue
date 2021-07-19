@@ -47,6 +47,7 @@
             role="button"
             draggable="false"
             to="/en"
+            lang="en"
             >English</router-link
           >
           <router-link
@@ -73,6 +74,7 @@
             role="button"
             draggable="false"
             to="/fr"
+            lang="fr"
             >Français</router-link
           >
         </div>
@@ -107,6 +109,7 @@
               text-lg
             "
             href="https://www.canada.ca/en/transparency/terms.html"
+            lang="en"
             >Terms &amp; conditions</a
           >
           <span class="text-gray-light"> • </span>
