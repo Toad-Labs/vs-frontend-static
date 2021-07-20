@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="focus:ring focus:ring-black">
     <router-view />
   </div>
 </template>
@@ -10,5 +10,3 @@ export default {
   components: {},
 };
 </script>
-
-<style></style>
