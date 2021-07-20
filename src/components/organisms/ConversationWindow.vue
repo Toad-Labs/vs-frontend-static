@@ -37,7 +37,7 @@
     </div>
     <div class="sticky bottom-0">
       <!-- The logic on how the buttonOptions are passed as props will
-                   depend on how we get the possible answers from VC. -->
+                   depend on how we get the possible answers from VA. -->
       <TextInput
         :buttonOptions="[$t('yes'), $t('no')]"
         @add-message="sendChatMessage"
