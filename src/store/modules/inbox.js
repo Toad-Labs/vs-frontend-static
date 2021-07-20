@@ -1,6 +1,3 @@
-// Don't mind this import. I will use it in my next PR.
-// import InboxService from '../../services/inbox/inbox';
-
 const state = {
   selectedInboxItemId: 0,
   mobileDrawerOpen: false,
@@ -26,6 +23,11 @@ const getters = {
         new Date(item.lastRead) >= new Date(lastMessage.receivedTime)
       ) {
         dayRead = new Date(lastMessage.receivedTime).toLocaleDateString("En", {
+          weekday: "short",
+        });
+      } else if (item.lastRead !== null) {
+        //to account for empty conversation/inbox item, so it doesn't remain always unread
+        dayRead = new Date(item.lastRead).toLocaleDateString("En", {
           weekday: "short",
         });
       }
