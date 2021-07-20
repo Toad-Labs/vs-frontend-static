@@ -4,13 +4,13 @@
     type="text"
     placeholder="Write something..."
     :class="
-      'w-full border-t border-b border-gray-200 p-3 bg-clip-padding ' +
+      'w-full border-t border-b border-gray-200 placeholder-gray-light p-3 bg-clip-padding ' +
       inputFocusClass
     "
     v-model="text"
     :aria-label="$t('writeSomething')"
     @focus="changeInputFocusStyles($event, ' ')"
-    @mousedown="changeInputFocusStyles($event, ' focus:outline-none')"
+    @mousedown="changeInputFocusStyles($event, ' focus:ring-transparent')"
     @keyup.enter="sendText"
     @input="checkSendBtnActive"
   />
@@ -88,7 +88,7 @@ export default {
         event.preventDefault();
         event.target.focus();
       }
-      inputFocusClass.value = focusClass;
+      inputFocusClass.value = " " + focusClass;
     }
 
     function checkSendBtnActive() {
