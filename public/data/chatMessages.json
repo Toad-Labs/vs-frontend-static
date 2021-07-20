@@ -3,9 +3,9 @@
   "chatMessages":[
     {
     "id": 1,
-    "senderName": "Virtual Concierge",
-    "senderIcon": "VC",
-    "senderIconAltText": "Virtual Concierge icon",
+    "senderName": "Virtual Assistant",
+    "senderIcon": "VA",
+    "senderIconAltText": "Virtual Assistant icon",
     "lastRead": null,
     "messages": [
       {

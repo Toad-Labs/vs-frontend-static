@@ -8,7 +8,7 @@ const state = {
 
 // getters
 const getters = {
-  // Get virtual concierge items
+  // Get virtual Assistant items
   getChatMessageByIdOrderedByMessagesDate: (state, getters) => (id) => {
     let cm = { ...getters.getChatMessageById(id) };
     if (cm != undefined) {
@@ -61,9 +61,9 @@ const actions = {
       .then((conversationId) => {
         commit("addChatConversation", {
           id: conversationId,
-          senderName: "Virtual Concierge",
-          senderIcon: "VC",
-          senderIconAltText: "Virtual Concierge icon",
+          senderName: "Virtual Assistant",
+          senderIcon: "VA",
+          senderIconAltText: "Virtual Assistant icon",
           lastRead: new Date(),
           messages: [],
         });
@@ -72,9 +72,9 @@ const actions = {
       .catch((err) => {
         commit("addChatConversation", {
           id: 1,
-          senderName: "Virtual Concierge",
-          senderIcon: "VC",
-          senderIconAltText: "Virtual Concierge icon",
+          senderName: "Virtual Assistant",
+          senderIcon: "VA",
+          senderIconAltText: "Virtual Assistant icon",
           lastRead: new Date(),
           messages: [
             {
