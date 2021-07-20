@@ -1,7 +1,5 @@
 <template>
-  <div id="app" class="focus:ring focus:ring-black">
-    <router-view />
-  </div>
+  <router-view />
 </template>
 
 <script lang="ts">
