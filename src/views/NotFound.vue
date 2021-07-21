@@ -7,11 +7,12 @@
   <div class="w-full sm:p-3 sm:pb-0">
     <main>
       <section>
-        <div class="text-4xl">Not found</div>
+        <h1 class="text-4xl">{{ $t("notFoundTitle") }}</h1>
+        <h2 class="text-2xl">{{ $t("notFoundStatus") }}</h2>
       </section>
       <feedback-button
         colorClass="bg-blue-primary text-white"
-        text="Provide Feedback"
+        :text="$t('provideFeedback')"
       />
     </main>
   </div>
