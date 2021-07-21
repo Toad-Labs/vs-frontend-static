@@ -1,4 +1,5 @@
 import ChatMessageService from "../../services/chatMessages/chatMessages";
+import { i18n } from "./../../../i18n";
 
 const state = {
   chatConversation: [],
@@ -7,7 +8,7 @@ const state = {
 
 // getters
 const getters = {
-  // Get virtual concierge items
+  // Get virtual Assistant items
   getChatMessageByIdOrderedByMessagesDate: (state, getters) => (id) => {
     let cm = { ...getters.getChatMessageById(id) };
     if (cm != undefined) {
@@ -60,9 +61,9 @@ const actions = {
       .then((conversationId) => {
         commit("addChatConversation", {
           id: conversationId,
-          senderName: "Virtual Concierge",
-          senderIcon: "VC",
-          senderIconAltText: "Virtual Concierge icon",
+          senderName: "Virtual Assistant",
+          senderIcon: "VA",
+          senderIconAltText: "Virtual Assistant icon",
           lastRead: new Date(),
           messages: [],
         });
@@ -71,9 +72,9 @@ const actions = {
       .catch((err) => {
         commit("addChatConversation", {
           id: 1,
-          senderName: "Virtual Concierge",
-          senderIcon: "VC",
-          senderIconAltText: "Virtual Concierge icon",
+          senderName: "Virtual Assistant",
+          senderIcon: "VA",
+          senderIconAltText: "Virtual Assistant icon",
           lastRead: new Date(),
           messages: [
             {
@@ -90,7 +91,11 @@ const actions = {
   async sendChatMessage({ commit, rootGetters }, payload) {
     // make await api call here with the text
     //TODO: get username
-    ChatMessageService.sendMessage(payload.message, "userName")
+    ChatMessageService.sendMessage(
+      payload.message,
+      "userName",
+      i18n.global.locale.value
+    )
       .then((res) => {
         console.log("sending message response: ", res);
       })

@@ -1,5 +1,19 @@
 {
+  "siteHeaderInfo": "Site Header Information",
+  "searchCanada": "Search Canada.ca",
   "changeLanguage": "Français",
   "changeLanguageAbrv": "FR",
-  "inbox": "Inbox"
+  "bannerTitle": "Service Canada Labs",
+  "bannerBody": "This site will change as we test ideas",
+  "inbox": "Inbox",
+  "writeSomething": "Write something...",
+  "sendMessage": "Send message",
+  "messageTime": "WEDS 10:08 AM",
+  "yes": "Yes",
+  "no": "No",
+  "sendIcon": "Send Icon",
+  "dateModified": "Date modified:",
+  "provideFeedback": "Provide Feedback",
+  "notFoundTitle": "Page not found",
+  "notFoundStatus": "Error: 404"
 }

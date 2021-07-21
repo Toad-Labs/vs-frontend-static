@@ -36,7 +36,7 @@ let directLineMessageRecievedHandler = (userName, messageText) => {
   );
 };
 
-const sendMessage = (msg, userName) => {
+const sendMessage = (msg, userName, lang) => {
   return new Promise((resolve, reject) => {
     directLine
       .postActivity({
@@ -44,6 +44,7 @@ const sendMessage = (msg, userName) => {
         from: { id: "UserId", name: userName }, // (from.name is optional)
         type: "message",
         text: msg,
+        locale: lang,
       })
       .subscribe(
         (id) => resolve(id),

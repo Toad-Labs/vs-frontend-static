@@ -2,18 +2,12 @@
   <div class="w-full h-full flex flex-col text-gray-dark sm:relative">
     <div class="sticky top-0 opacity-95 bg-white md:opacity-100">
       <message-header
-        backIcon="Back"
         :imageName="chatMessage.senderIcon"
         :altText="chatMessage.senderIconAltText"
         :headerText="chatMessage.senderName"
       />
     </div>
     <div class="flex h-full overflow-auto">
-      <img
-        :src="icons[chatMessage.senderIcon]"
-        :alt="chatMessage.senderIconAltText"
-        class="h-6 mt-auto w-10 mb-3"
-      />
       <div
         class="
           w-full
@@ -28,36 +22,27 @@
         tabindex="0"
       >
         <p class="text-center font-heading text-sm font-light text-gray-dark">
-          WEDS 10:04 AM
+          {{ $t("messageTime") }}
         </p>
         <ConversationMessage
-          v-for="message in chatMessage.messages"
+          v-for="(message, index) in chatMessage.messages"
           :key="message.id"
           :isUser="message.isUser"
           :text="message.text"
+          :senderIcon="chatMessage.senderIcon"
+          :senderIconAltText="chatMessage.senderIconAltText"
+          :isLastMessage="index === chatMessage.messages.length - 1"
         />
       </div>
     </div>
     <div class="sticky bottom-0">
       <!-- The logic on how the buttonOptions are passed as props will
-                   depend on how we get the possible answers from VC. -->
+                   depend on how we get the possible answers from VA. -->
       <TextInput
         :buttonOptions="[
-          'Yes',
-          'Yea',
-          'Yeah',
-          'Sure',
-          'Yeah, sure',
-          'Of course',
-          'Certainly',
-          'Nuh uh',
-          'Nay',
-          'Never',
-          'No',
-          'No way!',
-          'No way, Jose!',
-          'Maybe?',
-          'Perhaps',
+          $t('yes'),
+          $t('no'),
+          'A particularly long sentence to display the modified behaviour of this component',
         ]"
         @add-message="sendChatMessage"
       />

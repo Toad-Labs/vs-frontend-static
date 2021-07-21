@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
+import Splash from "../views/Splash.vue";
 import { i18n } from "./../../i18n";
 
 const NotFound = () => import("../views/NotFound.vue");
@@ -10,8 +11,8 @@ export const router = createRouter({
   routes: [
     {
       path: "/",
-      name: Home,
-      component: Home,
+      name: "splash",
+      component: Splash,
     },
     {
       path: "/:lang(en|fr)",
