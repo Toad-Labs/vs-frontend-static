@@ -16,18 +16,23 @@ const getters = {
       const lastMessage = messagesList[messagesList.length - 1];
 
       //dayRead will be unread if no value provided. The design currently accounts for only the weekday to be displayed
-      let dayRead = undefined;
+      let dayRead;
+      const lastReadDate = item.lastRead ? new Date(item.lastRead) : null;
+      const lastMessageReceivedDate = lastMessage?.receivedTime
+        ? new Date(lastMessage.receivedTime)
+        : null;
+
       if (
-        item.lastRead != null &&
-        lastMessage &&
-        new Date(item.lastRead) >= new Date(lastMessage.receivedTime)
+        lastReadDate !== null &&
+        lastMessageReceivedDate !== null &&
+        lastReadDate >= lastMessageReceivedDate
       ) {
-        dayRead = new Date(lastMessage.receivedTime).toLocaleDateString("En", {
+        dayRead = lastMessageReceivedDate.toLocaleDateString("En", {
           weekday: "short",
         });
-      } else if (item.lastRead !== null) {
+      } else if (lastReadDate !== null) {
         //to account for empty conversation/inbox item, so it doesn't remain always unread
-        dayRead = new Date(item.lastRead).toLocaleDateString("En", {
+        dayRead = lastReadDate.toLocaleDateString("En", {
           weekday: "short",
         });
       }
