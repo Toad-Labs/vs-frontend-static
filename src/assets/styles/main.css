@@ -13,10 +13,10 @@
         @apply focus-visible:ring-1;
         @apply focus-visible:ring-black;
     }
-    div:focus {
-        @apply ring-inset;
+    div, li {
+        @apply focus:ring-inset;
     }
-    input:focus {
-        @apply ring-transparent;
+    input {
+        @apply focus:ring-transparent;
     }
 }

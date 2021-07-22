@@ -2,7 +2,7 @@
   <input
     ref="input"
     type="text"
-    placeholder="Write something..."
+    :placeholder="$t('writeSomething')"
     :class="
       'w-full border-t border-b border-gray-200 placeholder-gray-light p-3 bg-clip-padding ' +
       inputFocusClass

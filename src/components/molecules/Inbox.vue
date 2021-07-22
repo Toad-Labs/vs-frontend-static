@@ -19,14 +19,14 @@
     >
       {{ $t("inbox") }}
     </h1>
-    <div class="md:overflow-auto space-y-1" role="list">
+    <ul class="md:overflow-auto space-y-1" role="list">
       <inbox-item
         v-for="inboxItem in inboxItems"
         :key="inboxItem.id"
         :inboxItem="inboxItem"
         @select-inbox-item="selectInboxItem"
       />
-    </div>
+    </ul>
   </span>
 </template>
 

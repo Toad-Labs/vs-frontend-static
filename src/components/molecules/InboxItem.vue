@@ -1,5 +1,5 @@
 <template>
-  <div
+  <li
     role="listitem"
     tabindex="0"
     @click="selectInboxItem"
@@ -46,7 +46,7 @@
         v-bind:dayRead="inboxItem.dayRead"
       />
     </div>
-  </div>
+  </li>
 </template>
 
 <script lang="ts">

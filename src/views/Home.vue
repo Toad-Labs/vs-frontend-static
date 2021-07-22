@@ -11,7 +11,7 @@
       </div>
       <feedback-button
         colorClass="bg-blue-primary text-white"
-        text="Provide Feedback"
+        :text="$t('provideFeedback')"
       />
     </main>
   </div>
