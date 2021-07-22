@@ -8,7 +8,7 @@
       />
     </div>
     <div class="flex h-full overflow-auto">
-      <div
+      <ul
         class="
           w-full
           space-y-2 space-y-reverse
@@ -21,9 +21,11 @@
         "
         tabindex="0"
       >
-        <p class="text-center font-heading text-sm font-light text-gray-dark">
-          {{ $t("messageTime") }}
-        </p>
+        <li>
+          <p class="text-center font-heading text-sm font-light text-gray-dark">
+            {{ $t("messageTime") }}
+          </p>
+        </li>
         <ConversationMessage
           v-for="(message, index) in chatMessage.messages"
           :key="message.id"
@@ -33,7 +35,7 @@
           :senderIconAltText="chatMessage.senderIconAltText"
           :isLastMessage="index === chatMessage.messages.length - 1"
         />
-      </div>
+      </ul>
     </div>
     <div class="sticky bottom-0">
       <!-- The logic on how the buttonOptions are passed as props will

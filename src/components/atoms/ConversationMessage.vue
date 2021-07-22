@@ -1,5 +1,5 @@
 <template>
-  <div :class="[!isUser ? 'flex ' : '', 'pl-10 relative']">
+  <li :class="[!isUser ? 'flex ' : '', 'pl-10 relative']">
     <p
       :class="[
         !isUser
@@ -17,7 +17,7 @@
       :alt="senderIconAltText"
       class="h-6 w-10 absolute left-0 bottom-0"
     />
-  </div>
+  </li>
 </template>
 <script>
 import icons from "../../assets/icons.js";
