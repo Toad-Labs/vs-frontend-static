@@ -8,13 +8,16 @@
 @tailwind utilities;
 
 @layer base {
-    *:focus {
-        @apply outline-none;
-        @apply ring-1;
-        @apply focus:ring-black;
+    * {
+        @apply focus:outline-none;
+        @apply focus-visible:ring-1;
+        @apply focus-visible:ring-black;
     }
-    div:focus {
-        @apply ring-inset;
+    div, li {
+        @apply focus:ring-inset;
+    }
+    input {
+        @apply focus:ring-transparent;
     }
 }
 
