@@ -6,3 +6,17 @@
 @tailwind components;
 
 @tailwind utilities;
+
+@layer base {
+    *:focus {
+        @apply outline-none;
+        @apply ring-1;
+        @apply focus:ring-black;
+    }
+    div:focus {
+        @apply ring-inset;
+    }
+    li:focus {
+        @apply ring-inset;
+    }
+}
