@@ -16,4 +16,7 @@
     div:focus {
         @apply ring-inset;
     }
+    li:focus {
+        @apply ring-inset;
+    }
 }
