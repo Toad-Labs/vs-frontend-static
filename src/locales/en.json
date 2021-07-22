@@ -16,5 +16,6 @@
   "dateModified": "Date modified:",
   "provideFeedback": "Provide Feedback",
   "notFoundTitle": "Page not found",
-  "notFoundStatus": "Error: 404"
+  "notFoundStatus": "Error: 404",
+  "skipToMain": "Skip to main content"
 }
