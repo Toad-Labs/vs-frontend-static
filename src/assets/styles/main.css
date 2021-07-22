@@ -17,3 +17,43 @@
         @apply ring-inset;
     }
 }
+
+/* Chat bubble animations*/
+.moveUp {
+    animation: slideUp 0.167s cubic-bezier(.4,0,.2,1);
+}
+
+.userMessage{
+    animation: slideUpAndRight 0.167s cubic-bezier(.4,0,.2,1);
+}
+
+.botMessage {
+    animation: slideUpAndLeft 0.167s cubic-bezier(.4,0,.2,1);
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(44px);
+    }
+    to {
+        transform: none;
+    }
+}
+
+@keyframes slideUpAndRight {
+    from {
+        transform: translateX(-100px) translateY(44px);
+    }
+    to {
+        transform: none;
+    }
+}
+
+@keyframes slideUpAndLeft {
+    from {
+        transform: translateX(100px) translateY(44px);
+    }
+    to {
+        transform: none;
+    }
+}

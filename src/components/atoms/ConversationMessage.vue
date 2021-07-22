@@ -3,10 +3,11 @@
     <p
       :class="[
         !isUser
-          ? 'bg-gray-infolt mr-10'
-          : 'bg-blue-primary text-white float-right ml-10 ',
-        ' p-3 rounded-3xl max-w-xs md:max-w-xl min-w-7/2r break-words',
+          ? 'bg-gray-infolt mr-10 botMessage'
+          : 'bg-blue-primary text-white float-right ml-10 userMessage',
+        ' p-3 rounded-3xl max-w-xs md:max-w-xl min-w-7/2r break-words transition ease-linear duration-500 hover:bg-gray-600 moveUp',
       ]"
+      id="testok"
     >
       {{ text }}
     </p>
