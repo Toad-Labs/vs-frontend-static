@@ -101,11 +101,4 @@ export default {
 .slide-leave-to {
   transform: translateX(700px);
 }
-
-/* .slide-enter-active {
-  transition: all 1s ease-in;
-}
-.slide-enter-to {
-  transform: translateX(-400px);
-}  */
 </style>
