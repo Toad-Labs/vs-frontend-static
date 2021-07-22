@@ -7,7 +7,6 @@
           : 'bg-blue-primary text-white float-right ml-10 userMessage',
         ' p-3 rounded-3xl max-w-xs md:max-w-xl min-w-7/2r break-words transition ease-linear duration-500 hover:bg-gray-600',
       ]"
-      id="testok"
     >
       {{ text }}
     </p>
