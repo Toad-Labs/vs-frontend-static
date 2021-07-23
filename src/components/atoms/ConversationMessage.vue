@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="[!isUser ? 'flex ' : 'pl-10 relative']"
+    :class="[!isUser ? 'flex ' : '', 'pl-10 relative py-px']"
     :tabindex="tabindex"
     @keyup.esc="returnToChatWindow"
     @keydown.prevent.up="prevElement($event)"
@@ -50,10 +50,6 @@ export default {
       returnToChatWindow,
       nextElement,
       prevElement,
-    };
-  },
-  setup() {
-    return {
       icons,
     };
   },

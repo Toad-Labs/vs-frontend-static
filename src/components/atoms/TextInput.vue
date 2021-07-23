@@ -13,6 +13,7 @@
     @focus="changeInputFocusStyles($event, ' ')"
     @mousedown="changeInputFocusStyles($event, ' focus:ring-transparent')"
     @keydown.up.prevent="moveToMostRecentMessage"
+    @blur="resetChatWindow"
     @keyup.enter="sendText"
     @input="checkSendBtnActive"
   />
@@ -56,7 +57,7 @@ export default {
   components: {
     ChatOptionButton,
   },
-  emits: ["add-message", "move-to-most-recent-message"],
+  emits: ["add-message", "move-to-most-recent-message", "reset-chat-window"],
   setup(_, context) {
     const inputFocusClass = ref("");
     const text = ref("");
@@ -103,6 +104,10 @@ export default {
       context.emit("move-to-most-recent-message");
     }
 
+    function resetChatWindow() {
+      context.emit("reset-chat-window");
+    }
+
     return {
       moveToMostRecentMessage,
       sendMsgBtnTabIndex,
@@ -116,6 +121,7 @@ export default {
       checkSendBtnActive,
       changeInputFocusStyles,
       inputFocusClass,
+      resetChatWindow,
     };
   },
 };

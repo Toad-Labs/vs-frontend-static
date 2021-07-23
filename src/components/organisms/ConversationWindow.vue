@@ -55,6 +55,7 @@
                    depend on how we get the possible answers from VA. -->
       <TextInput
         :buttonOptions="[$t('yes'), $t('no')]"
+        @reset-chat-window="resetChatWindow"
         @add-message="sendChatMessage"
         @move-to-most-recent-message="accessIndividualMessages(-1)"
       />
@@ -129,6 +130,10 @@ export default {
       document.getElementById("send-message-input").focus();
     }
 
+    function resetChatWindow() {
+      tabbable.value = -1;
+    }
+
     return {
       chatMessage,
       sendChatMessage,
@@ -139,6 +144,7 @@ export default {
       icons,
       chatWindow,
       focusOnInput,
+      resetChatWindow,
     };
   },
 };

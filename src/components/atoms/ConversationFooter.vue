@@ -1,17 +1,19 @@
 <template>
-  <span
-    class="sr-only focus:not-sr-only font-body"
+  <div
+    class="sr-only focus:not-sr-only font-body focus:p-2"
     :tabindex="tabindex"
     @keyup.esc="returnToChatWindow"
     @keydown.up.prevent="prevElement($event)"
     @keydown.down.prevent="exitToInput"
     @keydown.shift.tab.prevent="prevElement($event)"
   >
-    You have reached the end of the conversation, press escape to exit to the
-    conversation window. Press down or tab if you want to send a message. Press
-    shift+tab or up to revisit the conversation, press enter to return to the
-    top of the conversation.
-  </span>
+    <span>
+      You have reached the end of the conversation, press escape to exit to the
+      conversation window. Press down or tab if you want to send a message.
+      Press shift+tab or up to revisit the conversation, press enter to return
+      to the top of the conversation.
+    </span>
+  </div>
 </template>
 <script>
 export default {
