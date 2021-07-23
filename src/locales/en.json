@@ -2,6 +2,7 @@
   "siteHeaderInfo": "Site Header Information",
   "searchCanada": "Search Canada.ca",
   "changeLanguage": "Français",
+  "changeLanguageTo": "Changer la langue en ",
   "changeLanguageAbrv": "FR",
   "bannerTitle": "Service Canada Labs",
   "bannerBody": "This site will change as we test ideas",
@@ -15,5 +16,6 @@
   "dateModified": "Date modified:",
   "provideFeedback": "Provide Feedback",
   "notFoundTitle": "Page not found",
-  "notFoundStatus": "Error: 404"
+  "notFoundStatus": "Error: 404",
+  "skipToMain": "Skip to main content"
 }
