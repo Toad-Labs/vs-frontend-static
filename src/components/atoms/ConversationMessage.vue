@@ -37,4 +37,31 @@ export default {
   },
 };
 </script>
-<style scoped></style>
+<style scoped>
+/* Chat bubble animations*/
+.userMessage {
+  animation: slideUpAndRight 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.botMessage {
+  animation: slideUpAndLeft 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideUpAndRight {
+  from {
+    transform: translateX(0px) translateY(50px);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes slideUpAndLeft {
+  from {
+    transform: translateX(0px) translateY(50px);
+  }
+  to {
+    transform: none;
+  }
+}
+</style>
