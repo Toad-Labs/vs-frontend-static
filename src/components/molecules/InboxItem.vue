@@ -23,31 +23,47 @@
       />
     </div>
     <div class="flex-1 truncate">
-      <span class="sr-only">Inbox for sender:</span>
-      <p
+      <span :id="'sender-name-label-' + indexNum" class="hidden">
+        Inbox for sender:
+      </span>
+      <h2
+        :id="'sender-name-' + indexNum"
+        :aria-labelledby="
+          'sender-name-label-' + indexNum + ' sender-name-' + indexNum
+        "
         :class="[
           !inboxItem.dayRead ? 'font-bold' : '',
           'font-body md:text-lg truncate overflow-ellipsis text-gray-dark pl-1',
         ]"
       >
         {{ inboxItem.senderName }}
-      </p>
-      <span class="sr-only"
+      </h2>
+      <span class="hidden" :id="'status-and-teaser-announcement-' + indexNum"
         >{{ getStatusText() }}. Teaser text of latest message:</span
       >
-      <p
+      <h2
+        :id="'teaser-text-' + indexNum"
+        :aria-labelledby="
+          'status-and-teaser-announcement-' +
+          indexNum +
+          ' teaser-text-' +
+          indexNum
+        "
         :class="[
           !inboxItem.dayRead ? 'font-body' : 'font-heading font-light',
           'text-sm md:text-lg truncate overflow-ellipsis text-gray-dark pl-1',
         ]"
       >
-        {{ inboxItem.teaserText }}
-      </p>
+        {{
+          inboxItem.teaserText ? inboxItem.teaserText : "No messages available"
+        }}
+      </h2>
     </div>
     <div>
       <read-notification
         v-if="inboxItem.id"
         v-bind:dayRead="inboxItem.dayRead"
+        :indexNum="indexNum"
       />
     </div>
   </li>
@@ -59,6 +75,7 @@ import ReadNotification from "../atoms/ReadNotification.vue";
 export default {
   props: {
     inboxItem: Object,
+    indexNum: Number,
   },
   setup(props, context) {
     function selectInboxItem() {
@@ -66,8 +83,9 @@ export default {
     }
     function getStatusText() {
       return props.inboxItem.selected === true
-        ? ", which is currently selected and displayed"
-        : ", click or press enter to access";
+        ? "This inbox item is currently selected and displayed (unless you are on mobile, please tap)"
+        : "Click or press enter to access this inbox item which is " +
+            (props.inboxItem.dayRead ? "  already read" : " unread");
     }
     return { selectInboxItem, icons, getStatusText };
   },

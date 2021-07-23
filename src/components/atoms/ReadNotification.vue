@@ -3,8 +3,12 @@
     v-if="dayRead"
     class="flex-auto items-baseline h-16 w-16 md:h-20 md:w-20"
   >
-    <span class="sr-only">This message was sent on:</span>
-    <p
+    <span class="hidden" :id="'day-read-label-' + indexNum"
+      >This message was sent on:</span
+    >
+    <h3
+      :id="'day-read-' + indexNum"
+      :aria-labelledby="'day-read-label-' + indexNum + ' day-read-' + indexNum"
       class="
         font-heading font-light
         text-sm
@@ -15,13 +19,12 @@
       "
     >
       {{ dayRead }}.
-    </p>
+    </h3>
   </div>
   <div
     v-else
     class="flex place-items-center justify-center h-16 w-16 md:h-20 md:w-20"
   >
-    <span class="sr-only">This message is unread. Press enter to read it</span>
     <div class="bg-alert-main rounded-full w-4 h-4" />
   </div>
 </template>
@@ -30,6 +33,7 @@
 export default {
   props: {
     dayRead: String,
+    indexNum: Number,
   },
   setup() {
     return {};
