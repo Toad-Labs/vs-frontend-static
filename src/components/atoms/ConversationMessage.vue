@@ -10,7 +10,7 @@
   >
     <!-- <span class="sr-only">{{ (isUser ? "You " : senderName) }} said:</span> -->
     <h4
-      :aria-label="(isUser ? 'You' : senderName) + ' said:' + text"
+      :aria-label="(isUser ? $t('you') : senderName) + $t('said') + text"
       :class="[
         !isUser
           ? 'bg-gray-infolt mr-10'

@@ -24,7 +24,7 @@
     </div>
     <div class="flex-1 truncate">
       <span :id="'sender-name-label-' + indexNum" class="hidden">
-        Inbox for sender:
+        {{ $t("inboxFor") }}
       </span>
       <h2
         :id="'sender-name-' + indexNum"
@@ -39,7 +39,12 @@
         {{ inboxItem.senderName }}
       </h2>
       <span class="hidden" :id="'status-and-teaser-announcement-' + indexNum"
-        >{{ getStatusText() }}. Teaser text of latest message:</span
+        >{{
+          inboxItem.selected === true
+            ? $t("currentlySelected")
+            : $t("accessInboxItem") +
+              (inboxItem.dayRead ? $t("alreadyRead") : $t("unread"))
+        }}. {{ $t("teaserText") }}:</span
       >
       <h2
         :id="'teaser-text-' + indexNum"
@@ -81,13 +86,7 @@ export default {
     function selectInboxItem() {
       context.emit("select-inbox-item", props.inboxItem.id);
     }
-    function getStatusText() {
-      return props.inboxItem.selected === true
-        ? "This inbox item is currently selected and displayed (unless you are on mobile, please tap)"
-        : "Click or press enter to access this inbox item which is " +
-            (props.inboxItem.dayRead ? "  already read" : " unread");
-    }
-    return { selectInboxItem, icons, getStatusText };
+    return { selectInboxItem, icons };
   },
   components: {
     ReadNotification,

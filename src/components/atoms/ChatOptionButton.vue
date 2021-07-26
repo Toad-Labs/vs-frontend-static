@@ -14,7 +14,7 @@
       break-words
       text-left
     "
-    :aria-label="'Quick reply with ' + text"
+    :aria-label="$t('quickReply') + text"
     @click="sendFromButton"
   >
     {{ text }}

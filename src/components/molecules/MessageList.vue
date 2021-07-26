@@ -24,6 +24,7 @@
 <script>
 import MessageCard from "./MessageCard.vue";
 import MessageHeader from "../atoms/MessageHeader.vue";
+import { useI18n } from "vue-i18n";
 import { useStore } from "vuex";
 import { computed } from "vue";
 import icons from "../../assets/icons.js";
@@ -61,8 +62,8 @@ export default {
       //this is what is read by screen readers
       //locale could be changed in the future for french compatibility
       const fullTimestamp =
-        date.toLocaleDateString("en-CA", options) +
-        ", at " +
+        date.toLocaleDateString(useI18n().locale.value + "-CA", options) +
+        ", " +
         date.toTimeString().slice(0, 5);
       return { timestamp: timestamp, fullTimestamp: fullTimestamp };
     };

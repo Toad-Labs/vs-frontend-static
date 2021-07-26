@@ -3,9 +3,9 @@
     v-if="dayRead"
     class="flex-auto items-baseline h-16 w-16 md:h-20 md:w-20"
   >
-    <span class="hidden" :id="'day-read-label-' + indexNum"
-      >This message was sent on:</span
-    >
+    <span class="hidden" :id="'day-read-label-' + indexNum">{{
+      $t("msgSentOn")
+    }}</span>
     <h3
       :id="'day-read-' + indexNum"
       :aria-labelledby="'day-read-label-' + indexNum + ' day-read-' + indexNum"

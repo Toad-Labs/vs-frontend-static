@@ -8,10 +8,7 @@
     @keydown.shift.tab.prevent="prevElement($event)"
   >
     <span>
-      You have reached the end of the conversation, press escape to exit to the
-      conversation window. Press down or tab if you want to send a message.
-      Press shift+tab or up to revisit the conversation, press enter to return
-      to the top of the conversation.
+      {{ $t("conversationFooter") }}
     </span>
   </div>
 </template>
