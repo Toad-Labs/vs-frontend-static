@@ -6,7 +6,9 @@
     class="
       w-full
       border-t border-b border-gray-200
-      placeholder-gray-light
+      placeholder-gray-mediumlt
+      text-gray-dark
+      font-body
       p-3
       bg-clip-padding
     "
