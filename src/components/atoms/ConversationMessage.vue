@@ -3,8 +3,13 @@
     <p
       :class="[
         !isUser
-          ? 'bg-gray-infolt mr-10 botMessage'
-          : 'bg-blue-primary text-white float-right ml-10 userMessage',
+          ? 'bg-gray-infolt mr-10'
+          : 'bg-blue-primary text-white float-right ml-10',
+        isLastMessage && isUser
+          ? 'userMessage'
+          : isLastMessage
+          ? 'botMessage'
+          : '',
         ' p-3 rounded-3xl max-w-xs md:max-w-xl min-w-7/2r break-words',
       ]"
     >
