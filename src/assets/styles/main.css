@@ -13,7 +13,7 @@
         @apply focus-visible:ring-1;
         @apply focus-visible:ring-black;
     }
-    div, li {
+    div, ul, li {
         @apply focus:ring-inset;
     }
     input {
