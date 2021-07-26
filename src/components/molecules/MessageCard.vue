@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white p-6 space-y-3 text-gray-dark">
+  <li class="bg-white p-6 space-y-3 text-gray-dark">
     <span class="sr-only">
       {{ timestamps.fullTimestamp }}
     </span>
@@ -10,7 +10,7 @@
     <p class="font-normal font-body text-lg whitespace-pre-line">
       {{ paragraphs }}
     </p>
-  </div>
+  </li>
 </template>
 
 <script>

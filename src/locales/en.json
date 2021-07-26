@@ -2,6 +2,7 @@
   "siteHeaderInfo": "Site Header Information",
   "searchCanada": "Search Canada.ca",
   "changeLanguage": "Français",
+  "changeLanguageTo": "Changer la langue en ",
   "changeLanguageAbrv": "FR",
   "bannerTitle": "Service Canada Labs",
   "bannerBody": "This site will change as we test ideas",
@@ -26,5 +27,6 @@
   "accessInboxItem": "Click or press enter to access this inbox item which is ",
   "alreadyRead": "already read ",
   "unread": "unread ",
-  "conversationFooter": "You have reached the end of the conversation, press escape to exit to the conversation window. Press down or tab if you want to send a message. Press shift+tab or up to revisit the conversation, press enter to return to the top of the conversation."
+  "conversationFooter": "You have reached the end of the conversation, press escape to exit to the conversation window. Press down or tab if you want to send a message. Press shift+tab or up to revisit the conversation, press enter to return to the top of the conversation.",
+  "skipToMain": "Skip to main content"
 }

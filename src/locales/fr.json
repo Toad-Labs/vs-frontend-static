@@ -2,6 +2,7 @@
   "siteHeaderInfo": "Informations sur l'en-tête du site",
   "searchCanada": "Rechercher dans Canada.ca",
   "changeLanguage": "English",
+  "changeLanguageTo": "Change the language to ",
   "changeLanguageAbrv": "EN",
   "bannerTitle": "Laboratoires de Service Canada",
   "bannerBody": "Ce site changera au fur et à mesure que nous testerons des idées",
@@ -26,5 +27,6 @@
   "accessInboxItem": "(FR) Click or press enter to access this inbox item ",
   "alreadyRead": "est déjà lu ",
   "unread": "n'est pas encore lu ",
-  "conversationFooter": "(FR) You have reached the end of the conversation, press escape to exit to the conversation window. Press down or tab if you want to send a message. Press shift+tab or up to revisit the conversation, press enter to return to the top of the conversation."
+  "conversationFooter": "(FR) You have reached the end of the conversation, press escape to exit to the conversation window. Press down or tab if you want to send a message. Press shift+tab or up to revisit the conversation, press enter to return to the top of the conversation.",
+  "skipToMain": "Passer au contenu principal"
 }

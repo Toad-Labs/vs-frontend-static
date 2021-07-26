@@ -8,7 +8,7 @@
       />
     </div>
     <div class="flex h-full overflow-auto">
-      <div
+      <ul
         ref="chatWindow"
         id="chatWindow"
         class="
@@ -26,9 +26,11 @@
         @keyup.exact.enter="accessIndividualMessages(0)"
         @keyup.shift.enter="accessIndividualMessages(-1)"
       >
-        <p class="text-center font-heading text-sm font-light text-gray-dark">
-          {{ $t("messageTime") }}
-        </p>
+        <li>
+          <p class="text-center font-heading text-sm font-light text-gray-dark">
+            {{ $t("messageTime") }}
+          </p>
+        </li>
         <ConversationMessage
           v-for="(message, index) in chatMessage.messages"
           @return-to-chat-window="returnToChatWindow"
@@ -48,7 +50,7 @@
           @return-to-chat-window="returnToChatWindow"
           @exit-to-input="focusOnInput"
         />
-      </div>
+      </ul>
     </div>
     <div class="sticky bottom-0">
       <!-- The logic on how the buttonOptions are passed as props will

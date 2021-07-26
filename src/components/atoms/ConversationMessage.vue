@@ -1,5 +1,5 @@
 <template>
-  <div
+  <li
     :class="[!isUser ? 'flex ' : '', 'pl-10 relative py-px']"
     :tabindex="tabindex"
     @keyup.esc="returnToChatWindow"
@@ -14,7 +14,12 @@
       :class="[
         !isUser
           ? 'bg-gray-infolt mr-10'
-          : 'bg-blue-primary text-white float-right ml-10 ',
+          : 'bg-blue-primary text-white float-right ml-10',
+        isLastMessage && isUser
+          ? 'userMessage'
+          : isLastMessage
+          ? 'botMessage'
+          : '',
         ' p-3 rounded-3xl max-w-xs md:max-w-xl min-w-7/2r break-words',
       ]"
     >
@@ -27,7 +32,7 @@
       :alt="senderIconAltText"
       class="h-6 w-10 absolute left-0 bottom-0"
     />
-  </div>
+  </li>
 </template>
 <script>
 import icons from "../../assets/icons.js";
@@ -56,4 +61,31 @@ export default {
   },
 };
 </script>
-<style scoped></style>
+<style scoped>
+/* Chat bubble animations*/
+.userMessage {
+  animation: slideUpAndRight 0.5s ease-in;
+}
+
+.botMessage {
+  animation: slideUpAndLeft 0.5s ease-in;
+}
+
+@keyframes slideUpAndRight {
+  from {
+    transform: translateY(50px);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes slideUpAndLeft {
+  from {
+    transform: translateY(50px);
+  }
+  to {
+    transform: none;
+  }
+}
+</style>

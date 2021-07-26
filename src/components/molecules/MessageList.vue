@@ -6,7 +6,7 @@
       :altText="mailObject.senderIconAltText"
       :headerText="mailObject.senderName"
     />
-    <div
+    <ul
       class="flex bg-gray-infolt flex-col p-6 space-y-6 overflow-auto"
       tabindex="0"
     >
@@ -17,7 +17,7 @@
         :title="email.messageTitle"
         :paragraphs="email.messageBody"
       />
-    </div>
+    </ul>
   </div>
 </template>
 

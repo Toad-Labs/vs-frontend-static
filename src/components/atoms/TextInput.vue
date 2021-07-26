@@ -4,43 +4,48 @@
     id="send-message-input"
     type="text"
     :placeholder="$t('writeSomething')"
-    :class="
-      'w-full border-t border-b border-gray-200 placeholder-gray-light p-3 bg-clip-padding ' +
-      inputFocusClass
+    class="
+      w-full
+      border-t border-b border-gray-200
+      placeholder-gray-light
+      p-3
+      bg-clip-padding
     "
     v-model="text"
     :aria-label="$t('writeSomething')"
-    @focus="changeInputFocusStyles($event, ' ')"
-    @mousedown="changeInputFocusStyles($event, ' focus:ring-transparent')"
     @keydown.up.prevent="moveToMostRecentMessage"
     @blur="resetChatWindow"
     @keyup.enter="sendText"
     @input="checkSendBtnActive"
   />
-  <div class="w-auto bg-gray-infolt text-gray-dark">
-    <chat-option-button
-      v-for="(option, index) in buttonOptions"
-      :key="index"
-      :text="option"
-      @send-button="sendBtnText"
-    />
-    <button
-      class="float-right cursor-pointer"
-      :aria-label="$t('sendMessage')"
-      :tabindex="sendMsgBtnTabIndex"
-      @click="sendText"
-      @focus="onSendBtnFocus"
-      @mouseover="onSendBtnFocus"
-      @mouseleave="checkSendBtnActive"
-      @blur="checkSendBtnActive"
-    >
-      <img
-        class="focus:border-none"
-        :src="icons[iconState]"
-        :alt="$t('sendIcon')"
-        aria-hidden="true"
+  <div class="flex flex-row bg-gray-infolt text-gray-dark">
+    <div class="w-full">
+      <chat-option-button
+        v-for="(option, index) in buttonOptions"
+        :key="index"
+        :text="option"
+        @send-button="sendBtnText"
       />
-    </button>
+    </div>
+    <div class="relative flex w-12 flex-shrink-0">
+      <button
+        class="cursor-pointer absolute right-0 top-0"
+        :aria-label="$t('sendMessage')"
+        :tabindex="sendMsgBtnTabIndex"
+        @click="sendText"
+        @focus="onSendBtnFocus"
+        @mouseover="onSendBtnFocus"
+        @mouseleave="checkSendBtnActive"
+        @blur="checkSendBtnActive"
+      >
+        <img
+          class="focus:border-none"
+          :src="icons[iconState]"
+          :alt="$t('sendIcon')"
+          aria-hidden="true"
+        />
+      </button>
+    </div>
   </div>
 </template>
 <script>
@@ -59,7 +64,6 @@ export default {
   },
   emits: ["add-message", "move-to-most-recent-message", "reset-chat-window"],
   setup(_, context) {
-    const inputFocusClass = ref("");
     const text = ref("");
     const sendMsgBtnTabIndex = ref(-1); //should be inactive as there's no input text at the start
     const iconState = ref("SendInactive");
@@ -84,14 +88,6 @@ export default {
     function onSendBtnFocus() {
       iconState.value =
         text.value === "" ? "SendInactive" : "SendActiveFocused";
-    }
-
-    function changeInputFocusStyles(event, focusClass) {
-      if (event.type === "mousedown") {
-        event.preventDefault();
-        event.target.focus();
-      }
-      inputFocusClass.value = " " + focusClass;
     }
 
     function checkSendBtnActive() {
@@ -119,8 +115,6 @@ export default {
       sendBtnText,
       onSendBtnFocus,
       checkSendBtnActive,
-      changeInputFocusStyles,
-      inputFocusClass,
       resetChatWindow,
     };
   },
