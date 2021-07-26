@@ -77,6 +77,8 @@ module.exports = {
     extend: {
       backgroundColor: ['active'],
       borderRadius: ['active'],
+      ringColor: ['focus-visible'],
+      ringWidth: ['focus-visible'],
     }
   },
   plugins: [],
