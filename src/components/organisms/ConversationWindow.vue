@@ -1,6 +1,6 @@
 <template>
   <div class="w-full h-full flex flex-col text-gray-dark sm:relative">
-    <div class="sticky top-0 opacity-95 bg-white md:opacity-100">
+    <div class="sticky top-0 opacity-95 z-10 bg-white md:opacity-100">
       <message-header
         :imageName="chatMessage.senderIcon"
         :altText="chatMessage.senderIconAltText"
