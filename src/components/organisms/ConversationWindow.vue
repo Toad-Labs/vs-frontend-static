@@ -1,6 +1,6 @@
 <template>
   <div class="w-full h-full flex flex-col text-gray-dark sm:relative">
-    <div class="sticky top-0 opacity-95 bg-white md:opacity-100">
+    <div class="sticky top-0 opacity-95 z-10 bg-white md:opacity-100">
       <message-header
         :imageName="chatMessage.senderIcon"
         :altText="chatMessage.senderIconAltText"
@@ -8,13 +8,7 @@
       />
     </div>
     <div class="flex h-full overflow-auto">
-      <img
-        :src="icons[chatMessage.senderIcon]"
-        :alt="chatMessage.senderIconAltText"
-        class="h-6 mt-auto w-10 mb-3"
-      />
-      <div
-        ref="conversationWindow"
+      <ul
         class="
           w-full
           space-y-2 space-y-reverse
@@ -25,24 +19,30 @@
           py-2
           pr-2
         "
+        ref="conversationWindow"
         tabindex="0"
       >
-        <p class="text-center font-heading text-sm font-light text-gray-dark">
-          WEDS 10:04 AM
-        </p>
+        <li>
+          <p class="text-center font-heading text-sm font-light text-gray-dark">
+            {{ $t("messageTime") }}
+          </p>
+        </li>
         <ConversationMessage
-          v-for="message in chatMessage.messages"
+          v-for="(message, index) in chatMessage.messages"
           :key="message.id"
           :isUser="message.isUser"
           :text="message.text"
+          :senderIcon="chatMessage.senderIcon"
+          :senderIconAltText="chatMessage.senderIconAltText"
+          :isLastMessage="index === chatMessage.messages.length - 1"
         />
-      </div>
+      </ul>
     </div>
     <div class="sticky bottom-0">
       <!-- The logic on how the buttonOptions are passed as props will
-                   depend on how we get the possible answers from VC. -->
+                   depend on how we get the possible answers from VA. -->
       <TextInput
-        :buttonOptions="['Yes', 'No']"
+        :buttonOptions="[$t('yes'), $t('no')]"
         @add-message="sendChatMessage"
       />
     </div>
@@ -55,7 +55,7 @@ import ConversationMessage from "../atoms/ConversationMessage.vue";
 import MessageHeader from "../atoms/MessageHeader.vue";
 import TextInput from "../atoms/TextInput.vue";
 import { useStore } from "vuex";
-import { computed, onMounted, ref } from "vue";
+import { computed, ref, watch } from "vue";
 import icons from "../../assets/icons.js";
 export default {
   name: "ConversationWindow",
@@ -75,29 +75,27 @@ export default {
       )
     );
 
-    onMounted(() => {
-      scrollToBottomOfMessages();
-    });
-
     function sendChatMessage(msg) {
       const newMessage = {
         id: chatMessage.value.id,
         message: msg,
       };
       store.dispatch("chatMessages/sendChatMessage", newMessage);
-      scrollToBottomOfMessages();
     }
 
+    watch(chatMessage, () => {
+      if (conversationWindow.value) setTimeout(scrollToBottomOfMessages, 100);
+    });
     function scrollToBottomOfMessages() {
       conversationWindow.value.scrollTop =
         conversationWindow.value.scrollHeight;
     }
 
     return {
-      conversationWindow,
       chatMessage,
       sendChatMessage,
       icons,
+      conversationWindow,
     };
   },
 };
