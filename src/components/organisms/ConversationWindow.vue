@@ -13,7 +13,7 @@
           w-full
           space-y-2 space-y-reverse
           overflow-auto
-          flex flex-col
+          flex flex-col-reverse
           font-body
           text-gray-dark
           py-2
@@ -23,11 +23,6 @@
         id="conversationWindow"
         tabindex="0"
       >
-        <li>
-          <p class="text-center font-heading text-sm font-light text-gray-dark">
-            {{ $t("messageTime") }}
-          </p>
-        </li>
         <ConversationMessage
           v-for="(message, index) in chatMessage.messages"
           :key="message.id"
@@ -35,8 +30,13 @@
           :text="message.text"
           :senderIcon="chatMessage.senderIcon"
           :senderIconAltText="chatMessage.senderIconAltText"
-          :isLastMessage="index === chatMessage.messages.length - 1"
+          :isLastMessage="index === 0"
         />
+        <li>
+          <p class="text-center font-heading text-sm font-light text-gray-dark">
+            {{ $t("messageTime") }}
+          </p>
+        </li>
       </ul>
     </div>
     <div class="sticky bottom-0">
@@ -56,7 +56,7 @@ import ConversationMessage from "../atoms/ConversationMessage.vue";
 import MessageHeader from "../atoms/MessageHeader.vue";
 import TextInput from "../atoms/TextInput.vue";
 import { useStore } from "vuex";
-import { computed, ref, onMounted, watch } from "vue";
+import { computed } from "vue";
 import icons from "../../assets/icons.js";
 export default {
   name: "ConversationWindow",
@@ -66,7 +66,6 @@ export default {
     TextInput,
   },
   setup() {
-    const conversationWindow = ref(null);
     const store = useStore();
     const selectedInboxItemId = store.getters["inbox/getSelectedInboxItem"].id;
     store.dispatch("chatMessages/markChatRead", selectedInboxItemId);
@@ -84,25 +83,10 @@ export default {
       store.dispatch("chatMessages/sendChatMessage", newMessage);
     }
 
-    watch(chatMessage, () => {
-      if (conversationWindow.value) setTimeout(scrollToBottomOfMessages, 100);
-    });
-
-    onMounted(() => {
-      if (conversationWindow.value) setTimeout(scrollToBottomOfMessages, 100);
-    });
-
-    if (conversationWindow.value) setTimeout(scrollToBottomOfMessages, 100);
-    function scrollToBottomOfMessages() {
-      conversationWindow.value.scrollTop =
-        conversationWindow.value.scrollHeight;
-    }
-
     return {
       chatMessage,
       sendChatMessage,
       icons,
-      conversationWindow,
     };
   },
 };
