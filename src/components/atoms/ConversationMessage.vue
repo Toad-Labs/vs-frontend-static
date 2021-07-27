@@ -54,7 +54,7 @@ export default {
 
 @keyframes slideUpAndRight {
   from {
-    transform: translateY(50px);
+    transform: translateY(30px);
   }
   to {
     transform: none;
@@ -63,7 +63,7 @@ export default {
 
 @keyframes slideUpAndLeft {
   from {
-    transform: translateY(50px);
+    transform: translateY(30px);
   }
   to {
     transform: none;

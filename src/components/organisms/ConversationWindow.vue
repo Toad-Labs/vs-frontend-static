@@ -19,6 +19,7 @@
           py-2
           pr-2
         "
+        ref="conversationWindow"
         tabindex="0"
       >
         <li>
@@ -54,7 +55,7 @@ import ConversationMessage from "../atoms/ConversationMessage.vue";
 import MessageHeader from "../atoms/MessageHeader.vue";
 import TextInput from "../atoms/TextInput.vue";
 import { useStore } from "vuex";
-import { computed } from "vue";
+import { computed, onMounted, ref, watchEffect, watch } from "vue";
 import icons from "../../assets/icons.js";
 export default {
   name: "ConversationWindow",
@@ -64,6 +65,7 @@ export default {
     TextInput,
   },
   setup() {
+    const conversationWindow = ref(null);
     const store = useStore();
     const selectedInboxItemId = store.getters["inbox/getSelectedInboxItem"].id;
     store.dispatch("chatMessages/markChatRead", selectedInboxItemId);
@@ -80,10 +82,20 @@ export default {
       };
       store.dispatch("chatMessages/sendChatMessage", newMessage);
     }
+
+    watch(chatMessage, () => {
+      if (conversationWindow.value) setTimeout(scrollToBottomOfMessages, 100);
+    });
+    function scrollToBottomOfMessages() {
+      conversationWindow.value.scrollTop =
+        conversationWindow.value.scrollHeight;
+    }
+
     return {
       chatMessage,
       sendChatMessage,
       icons,
+      conversationWindow,
     };
   },
 };
