@@ -20,6 +20,7 @@
           pr-2
         "
         ref="conversationWindow"
+        id="conversationWindow"
         tabindex="0"
       >
         <li>
@@ -55,7 +56,7 @@ import ConversationMessage from "../atoms/ConversationMessage.vue";
 import MessageHeader from "../atoms/MessageHeader.vue";
 import TextInput from "../atoms/TextInput.vue";
 import { useStore } from "vuex";
-import { computed, ref, watch } from "vue";
+import { computed, ref, onMounted, watch } from "vue";
 import icons from "../../assets/icons.js";
 export default {
   name: "ConversationWindow",
@@ -86,6 +87,12 @@ export default {
     watch(chatMessage, () => {
       if (conversationWindow.value) setTimeout(scrollToBottomOfMessages, 100);
     });
+
+    onMounted(() => {
+      if (conversationWindow.value) setTimeout(scrollToBottomOfMessages, 100);
+    });
+
+    if (conversationWindow.value) setTimeout(scrollToBottomOfMessages, 100);
     function scrollToBottomOfMessages() {
       conversationWindow.value.scrollTop =
         conversationWindow.value.scrollHeight;
