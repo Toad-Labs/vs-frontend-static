@@ -1,8 +1,9 @@
 import request from "../api";
+import { i18n } from "./../../../i18n";
 
 function getAll() {
   return request({
-    url: "/data/emails.json",
+    url: "/data/" + i18n.global.locale.value + "/emails.json",
     method: "GET",
   })
     .then((response) => {
