@@ -53,6 +53,15 @@ const actions = {
       }
     };
 
+    const senderName =
+      i18n.global.locale.value === "fr"
+        ? "Assistant virtuel"
+        : "Virtual Assistant";
+    const senderIconAltText =
+      i18n.global.locale.value === "fr"
+        ? "Assistant virtuel icon"
+        : "Virtual Assistant icon";
+
     // Init call
     // Add .then() if needed.
     ChatMessageService.initConnection(
@@ -62,9 +71,9 @@ const actions = {
       .then((conversationId) => {
         commit("addChatConversation", {
           id: conversationId,
-          senderName: "Virtual Assistant",
+          senderName: senderName,
           senderIcon: "VA",
-          senderIconAltText: "Virtual Assistant icon",
+          senderIconAltText: senderIconAltText,
           lastRead: new Date(),
           messages: [],
         });
@@ -73,9 +82,9 @@ const actions = {
       .catch((err) => {
         commit("addChatConversation", {
           id: 1,
-          senderName: "Virtual Assistant",
+          senderName: senderName,
           senderIcon: "VA",
-          senderIconAltText: "Virtual Assistant icon",
+          senderIconAltText: senderIconAltText,
           lastRead: new Date(),
           messages: [
             {
