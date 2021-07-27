@@ -41,6 +41,7 @@ const getters = {
 // actions
 const actions = {
   initializeChatMessages({ dispatch, commit, rootGetters }) {
+    commit("setDefaultState");
     let directLineMessageRecievedHandler = (userName, message, convoId) => {
       commit("addMessageToConversation", {
         id: convoId,
@@ -117,6 +118,11 @@ const actions = {
 
 // mutations
 const mutations = {
+  //reset state to it's initial values
+  setDefaultState(state) {
+    state.chatConversation = [];
+    state.loaded = false;
+  },
   addMessageToConversation(state, payload) {
     // Find the conversation to use the messages of that conversation.
     const conversation = state.chatConversation.find(
