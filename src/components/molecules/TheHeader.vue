@@ -17,7 +17,7 @@
             justify-end
           "
         >
-          <router-link
+          <a
             id="lang-toggle-full"
             class="px-5 py-1 font-body underline text-blue-link"
             :aria-label="
@@ -25,11 +25,11 @@
               (changeLanguageTo === 'fr' ? 'français' : 'english')
             "
             tabindex="0"
-            :to="'/' + changeLanguageTo"
+            :href="'/' + changeLanguageTo"
             :lang="changeLanguageTo"
           >
             {{ $t("changeLanguage") }}
-          </router-link>
+          </a>
         </div>
         <!-- end lang toggle desktop -->
 
@@ -44,7 +44,7 @@
               src="../../assets/sig-blk-en.svg"
               alt="canada logo en"
             />
-            <router-link
+            <a
               id="lang-toggle-small"
               class="
                 sm:hidden
@@ -59,11 +59,11 @@
                 (changeLanguageTo === 'fr' ? 'français' : 'english')
               "
               tabindex="0"
-              :to="'/' + changeLanguageTo"
+              :href="'/' + changeLanguageTo"
               :lang="changeLanguageTo"
             >
               {{ $t("changeLanguageAbrv") }}
-            </router-link>
+            </a>
           </div>
           <!-- end gc logo -->
           <!-- start gc search bar -->
