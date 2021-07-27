@@ -13,19 +13,16 @@
           w-full
           space-y-2 space-y-reverse
           overflow-auto
-          flex flex-col
+          flex flex-col-reverse
           font-body
           text-gray-dark
           py-2
           pr-2
         "
+        ref="conversationWindow"
+        id="conversationWindow"
         tabindex="0"
       >
-        <li>
-          <p class="text-center font-heading text-sm font-light text-gray-dark">
-            {{ $t("messageTime") }}
-          </p>
-        </li>
         <ConversationMessage
           v-for="(message, index) in chatMessage.messages"
           :key="message.id"
@@ -33,8 +30,13 @@
           :text="message.text"
           :senderIcon="chatMessage.senderIcon"
           :senderIconAltText="chatMessage.senderIconAltText"
-          :isLastMessage="index === chatMessage.messages.length - 1"
+          :isLastMessage="index === 0"
         />
+        <li>
+          <p class="text-center font-heading text-sm font-light text-gray-dark">
+            {{ $t("messageTime") }}
+          </p>
+        </li>
       </ul>
     </div>
     <div class="sticky bottom-0">
@@ -80,6 +82,7 @@ export default {
       };
       store.dispatch("chatMessages/sendChatMessage", newMessage);
     }
+
     return {
       chatMessage,
       sendChatMessage,
