@@ -3,7 +3,7 @@
     <header>
       <div class="pb-2 sm:pb-4 sm:border-b sm:border-gray-infomd">
         <!-- Hidden heading -->
-        <h2 class="sr-only">Site Header Information</h2>
+        <h2 class="sr-only">{{ $t("siteHeaderInfo") }}</h2>
         <!-- Language toggle on desktop -->
         <div
           class="
@@ -20,9 +20,13 @@
           <router-link
             id="lang-toggle-full"
             class="px-5 py-1 font-body underline text-blue-link"
-            aria-label="Change language"
+            :aria-label="
+              $t('changeLanguageTo') +
+              (changeLanguageTo === 'fr' ? 'français' : 'english')
+            "
             tabindex="0"
-            :to="changeLanguageTo == 'fr' ? '/en' : '/fr'"
+            :to="'/' + changeLanguageTo"
+            :lang="changeLanguageTo"
           >
             {{ $t("changeLanguage") }}
           </router-link>
@@ -50,9 +54,13 @@
                 underline
                 text-blue-link
               "
-              aria-label="Change language"
+              :aria-label="
+                $t('changeLanguageTo') +
+                (changeLanguageTo === 'fr' ? 'français' : 'english')
+              "
               tabindex="0"
-              :to="changeLanguageTo == 'fr' ? '/en' : '/fr'"
+              :to="'/' + changeLanguageTo"
+              :lang="changeLanguageTo"
             >
               {{ $t("changeLanguageAbrv") }}
             </router-link>
@@ -65,9 +73,9 @@
             >
               <input
                 id="searchbar"
-                aria-label="Search"
+                :aria-label="$t('searchCanada')"
                 type="text"
-                placeholder="Search Canada.ca"
+                :placeholder="$t('searchCanada')"
                 className="w-full placeholder-gray-light text-gray-dark font-body py-1 px-2 focus:outline-none"
               />
 
@@ -122,10 +130,7 @@
         ></Menu>
       </div>
       <div class="sm:py-4">
-        <Banner
-          title="Service Canada Labs"
-          body="This site will change as we test ideas"
-        ></Banner>
+        <Banner :title="$t('bannerTitle')" :body="$t('bannerBody')"></Banner>
       </div>
     </header>
   </div>
@@ -143,7 +148,9 @@ export default {
     Banner,
   },
   setup() {
-    const changeLanguageTo = computed(() => useI18n().locale.value);
+    const changeLanguageTo = computed(() =>
+      useI18n().locale.value == "fr" ? "en" : "fr"
+    );
     return { changeLanguageTo };
   },
 };

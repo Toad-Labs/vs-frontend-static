@@ -1,5 +1,21 @@
 {
+  "siteHeaderInfo": "Informations sur l'en-tête du site",
+  "searchCanada": "Rechercher dans Canada.ca",
   "changeLanguage": "English",
+  "changeLanguageTo": "Change the language to ",
   "changeLanguageAbrv": "EN",
-  "inbox": "FR: Inbox"
+  "bannerTitle": "Laboratoires de Service Canada",
+  "bannerBody": "Ce site changera au fur et à mesure que nous testerons des idées",
+  "inbox": "Boîte de réception",
+  "writeSomething": "Écrivez quelque chose...",
+  "sendMessage": "Envoyer un message",
+  "messageTime": "Mer 10:08 AM",
+  "yes": "Oui",
+  "no": "Non",
+  "sendIcon": "Icône d'envoi",
+  "dateModified": "Date modifiée:",
+  "provideFeedback": "Fournir un retour d'information",
+  "notFoundTitle": "Page non trouvée",
+  "notFoundStatus": "Erreur: 404",
+  "skipToMain": "Passer au contenu principal"
 }

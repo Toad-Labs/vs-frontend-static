@@ -6,3 +6,17 @@
 @tailwind components;
 
 @tailwind utilities;
+
+@layer base {
+    * {
+        @apply focus:outline-none;
+        @apply focus-visible:ring-1;
+        @apply focus-visible:ring-black;
+    }
+    div, ul, li {
+        @apply focus:ring-inset;
+    }
+    input {
+        @apply focus:ring-transparent;
+    }
+}
