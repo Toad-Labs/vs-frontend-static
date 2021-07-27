@@ -4,14 +4,14 @@
     <div class="px-3 pt-6 pb-3">
       <div class="bg-gray-infolt h-10 w-2/3 animate-pulse"></div>
     </div>
-    <div class="md:overflow-auto space-y-1" role="list">
+    <div class="sm:overflow-auto overflow-y space-y-1" role="list">
       <!-- Empty inbox items -->
       <inbox-item :inboxItem="{}" />
       <inbox-item :inboxItem="{}" />
     </div>
   </span>
   <!-- Loaded State -->
-  <span v-else>
+  <div v-else class="w-full sm:h-vh-3/5 xl:h-vh-2/3 flex flex-col">
     <h1
       id="inbox-header"
       class="font-heading font-bold text-4xl px-3 pt-6 pb-3"
@@ -19,7 +19,7 @@
     >
       {{ $t("inbox") }}
     </h1>
-    <ul class="md:overflow-auto space-y-1" role="list">
+    <ul class="sm:overflow-auto space-y-1" role="list">
       <inbox-item
         v-for="inboxItem in inboxItems"
         :key="inboxItem.id"
@@ -27,7 +27,7 @@
         @select-inbox-item="selectInboxItem"
       />
     </ul>
-  </span>
+  </div>
 </template>
 
 <script lang="ts">
