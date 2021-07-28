@@ -17,8 +17,8 @@
     <!-- Conversation Window -->
     <div
       :class="[
-      isMobileDrawerOpen ? 'left-0' : 'left-full', 
-      'inbox-transition fixed bg-white top-0 bottom-0 w-screen sm:left-0 sm:min-h-0 sm:h-vh-3/5 sm:relative sm:flex-auto sm:block sm:border sm:border-gray xl:h-vh-2/3',
+        isMobileDrawerOpen ? 'left-0' : 'left-full',
+        'inbox-transition fixed bg-white top-0 bottom-0 w-screen sm:left-0 sm:min-h-0 sm:h-vh-3/5 sm:relative sm:flex-auto sm:block sm:border sm:border-gray xl:h-vh-2/3',
       ]"
     >
       <ConversationWindow v-if="inboxItemType === 'chat'" />
@@ -94,6 +94,6 @@ export default {
 
 <style scoped>
 .inbox-transition {
-    transition: 1s;
+  transition: 1s;
 }
 </style>
