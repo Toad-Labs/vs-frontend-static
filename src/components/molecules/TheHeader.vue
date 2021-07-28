@@ -17,7 +17,7 @@
             justify-end
           "
         >
-          <router-link
+          <a
             id="lang-toggle-full"
             class="px-5 py-1 font-body underline text-blue-link"
             :aria-label="
@@ -25,11 +25,11 @@
               (changeLanguageTo === 'fr' ? 'français' : 'english')
             "
             tabindex="0"
-            :to="'/' + changeLanguageTo"
+            :href="'/' + changeLanguageTo"
             :lang="changeLanguageTo"
           >
             {{ $t("changeLanguage") }}
-          </router-link>
+          </a>
         </div>
         <!-- end lang toggle desktop -->
 
@@ -38,13 +38,13 @@
         <div
           className="flex flex-col sm:flex-row container w-full mx-auto py-1 px-5 justify-between items-center"
         >
-          <div className="flex flex-row items-center w-full justify-between">
+          <div className="flex flex-row items-center justify-between">
             <img
               className="h-5 xs:h-7 sm:h-8 md:h-9 mx-3 xs:mx-0"
               src="../../assets/sig-blk-en.svg"
               alt="canada logo en"
             />
-            <router-link
+            <a
               id="lang-toggle-small"
               class="
                 sm:hidden
@@ -59,60 +59,13 @@
                 (changeLanguageTo === 'fr' ? 'français' : 'english')
               "
               tabindex="0"
-              :to="'/' + changeLanguageTo"
+              :href="'/' + changeLanguageTo"
               :lang="changeLanguageTo"
             >
               {{ $t("changeLanguageAbrv") }}
-            </router-link>
+            </a>
           </div>
           <!-- end gc logo -->
-          <!-- start gc search bar -->
-          <div className=" sm:flex hidden w-full sm:w-80 sm:h-10">
-            <form
-              className="w-full inline-flex border border-gray-infomd mx-2 sm:mx-0"
-            >
-              <input
-                id="searchbar"
-                :aria-label="$t('searchCanada')"
-                type="text"
-                :placeholder="$t('searchCanada')"
-                className="w-full placeholder-gray-light text-gray-dark font-body py-1 px-2 focus:outline-none"
-              />
-
-              <button
-                id="searchbutton"
-                title="Search bar button"
-                type="submit"
-                class="
-                  bg-blue-deep
-                  text-white text-center
-                  p-2
-                  rounded-none
-                  hover:bg-gray-dark
-                  active:bg-gray-dark
-                  focus:bg-gray-dark
-                "
-                aria-label="Search"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                  />
-                </svg>
-              </button>
-            </form>
-          </div>
-          <!-- end search bar -->
         </div>
       </div>
       <div class="sm:flex hidden">
@@ -136,7 +89,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import Menu from "../atoms/Menu.vue";
 import Banner from "../atoms/Banner.vue";
 import { useI18n } from "vue-i18n";

@@ -28,6 +28,7 @@ import { useI18n } from "vue-i18n";
 import { useStore } from "vuex";
 import { computed } from "vue";
 import icons from "../../assets/icons.js";
+import { i18n } from "./../../../i18n";
 
 export default {
   components: {
@@ -44,28 +45,14 @@ export default {
       )
     );
     //creates a timestamp with js's default date methods
-    const createTimestamps = (dateString) => {
-      const options = { weekday: "long", month: "long", day: "numeric" }; //returns "Weekday, Month Date" format in toLocaleDateString
-      const date = new Date(dateString);
-      const dateArr = date.toString().split(" ");
-
-      //this is what's actually displayed
-      const timestamp =
-        dateArr[0] +
-        ", " +
-        dateArr[1] +
-        " " +
-        dateArr[2] +
-        ", " +
-        date.toTimeString().slice(0, 5);
-
-      //this is what is read by screen readers
-      //locale could be changed in the future for french compatibility
-      const fullTimestamp =
-        date.toLocaleDateString(useI18n().locale.value + "-CA", options) +
-        ", " +
-        date.toTimeString().slice(0, 5);
-      return { timestamp: timestamp, fullTimestamp: fullTimestamp };
+    const createTimestamp = (dateString) => {
+      return new Date(dateString).toLocaleDateString(i18n.global.locale.value, {
+        weekday: "short",
+        month: "short",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+      });
     };
 
     return {

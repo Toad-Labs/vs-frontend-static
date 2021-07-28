@@ -29,14 +29,11 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 export default {
   props: {
     dayRead: String,
     indexNum: Number,
-  },
-  setup() {
-    return {};
   },
 };
 </script>

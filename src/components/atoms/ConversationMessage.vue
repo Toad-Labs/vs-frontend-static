@@ -64,16 +64,16 @@ export default {
 <style scoped>
 /* Chat bubble animations*/
 .userMessage {
-  animation: slideUpAndRight 0.5s ease-in;
+  animation: slideUpAndRight 0.1s ease-in;
 }
 
 .botMessage {
-  animation: slideUpAndLeft 0.5s ease-in;
+  animation: slideUpAndLeft 0.1s ease-in;
 }
 
 @keyframes slideUpAndRight {
   from {
-    transform: translateY(50px);
+    transform: translateY(30px);
   }
   to {
     transform: none;
@@ -82,7 +82,7 @@ export default {
 
 @keyframes slideUpAndLeft {
   from {
-    transform: translateY(50px);
+    transform: translateY(30px);
   }
   to {
     transform: none;

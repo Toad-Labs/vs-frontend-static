@@ -7,7 +7,7 @@
     :class="[
       inboxItem.selected ? 'focus:bg-blue-selected rounded-none' : '',
       inboxItem.id ? '' : 'bg-gray-infolt animate-pulse',
-      'flex items-center w-full h-16 md:h-20 rounded focus:border-black focus:bg-gray-infolt active:bg-blue-selected hover:bg-gray-infolt cursor-pointer ',
+      'flex items-center w-full h-16 md:h-20 rounded focus:bg-gray-infolt active:bg-blue-selected hover:bg-gray-infolt cursor-pointer ',
     ]"
   >
     <div class="p-1">
@@ -74,7 +74,7 @@
   </li>
 </template>
 
-<script lang="ts">
+<script>
 import icons from "../../assets/icons.js";
 import ReadNotification from "../atoms/ReadNotification.vue";
 export default {

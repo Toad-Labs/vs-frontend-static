@@ -28,6 +28,7 @@ module.exports = {
         gray: {
           dark: "#252525",
           medium: "#636367",
+          mediumlt: "#767676",
           light: "#8c8c8c",
           infomd: "#DEDEDE",
           infolt: "#F8F8F8",

@@ -9,7 +9,7 @@
   "inbox": "Boîte de réception",
   "writeSomething": "Écrivez quelque chose...",
   "sendMessage": "Envoyer un message",
-  "messageTime": "Mer 10:08 AM",
+  "messageTime": "MER 10:08 AM",
   "yes": "Oui",
   "no": "Non",
   "sendIcon": "Icône d'envoi",
@@ -28,5 +28,6 @@
   "alreadyRead": "est déjà lu ",
   "unread": "n'est pas encore lu ",
   "conversationFooter": "(FR) You have reached the end of the conversation, press escape to exit to the conversation window. Press down or tab if you want to send a message. Press shift+tab or up to revisit the conversation, press enter to return to the top of the conversation.",
-  "skipToMain": "Passer au contenu principal"
+  "skipToMain": "Passer au contenu principal",
+  "skipNavLink": "(FR) Skip Navigation Link"
 }
