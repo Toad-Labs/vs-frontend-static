@@ -29,8 +29,5 @@ export default {
   props: {
     dayRead: String,
   },
-  setup() {
-    return {};
-  },
 };
 </script>

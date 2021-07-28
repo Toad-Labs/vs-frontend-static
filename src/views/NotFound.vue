@@ -32,6 +32,5 @@ export default {
     TheSkipNav,
     FeedbackButton,
   },
-  setup() {},
 };
 </script>

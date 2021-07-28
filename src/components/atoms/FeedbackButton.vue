@@ -19,8 +19,5 @@ export default {
     text: String,
     colorClass: String,
   },
-  setup() {
-    return {};
-  },
 };
 </script>

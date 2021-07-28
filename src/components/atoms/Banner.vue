@@ -53,8 +53,5 @@ export default {
     title: String,
     body: String,
   },
-  setup() {
-    return {};
-  },
 };
 </script>

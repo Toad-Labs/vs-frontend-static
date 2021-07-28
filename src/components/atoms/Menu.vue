@@ -27,8 +27,5 @@ export default {
   props: {
     text: String,
   },
-  setup() {
-    return {};
-  },
 };
 </script>
