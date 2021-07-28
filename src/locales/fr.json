@@ -17,5 +17,6 @@
   "provideFeedback": "Fournir un retour d'information",
   "notFoundTitle": "Page non trouvée",
   "notFoundStatus": "Erreur: 404",
-  "skipToMain": "Passer au contenu principal"
+  "skipToMain": "Passer au contenu principal",
+  "skipNavLink": "(FR) Skip Navigation Link"
 }

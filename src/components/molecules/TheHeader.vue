@@ -38,7 +38,7 @@
         <div
           className="flex flex-col sm:flex-row container w-full mx-auto py-1 px-5 justify-between items-center"
         >
-          <div className="flex flex-row items-center w-full justify-between">
+          <div className="flex flex-row items-center justify-between">
             <img
               className="h-5 xs:h-7 sm:h-8 md:h-9 mx-3 xs:mx-0"
               src="../../assets/sig-blk-en.svg"
@@ -136,7 +136,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import Menu from "../atoms/Menu.vue";
 import Banner from "../atoms/Banner.vue";
 import { useI18n } from "vue-i18n";

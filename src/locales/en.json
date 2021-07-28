@@ -17,5 +17,6 @@
   "provideFeedback": "Provide Feedback",
   "notFoundTitle": "Page not found",
   "notFoundStatus": "Error: 404",
-  "skipToMain": "Skip to main content"
+  "skipToMain": "Skip to main content",
+  "skipNavLink": "Skip Navigation Link"
 }

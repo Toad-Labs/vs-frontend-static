@@ -4,13 +4,3 @@
     <p>{{ $t("dateModified") }} {{ Date() }}</p>
   </div>
 </template>
-
-<script lang="ts">
-export default {
-  setup(props) {
-    return {
-      Date,
-    };
-  },
-};
-</script>
