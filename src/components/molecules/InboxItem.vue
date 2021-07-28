@@ -49,7 +49,7 @@
   </li>
 </template>
 
-<script lang="ts">
+<script>
 import icons from "../../assets/icons.js";
 import ReadNotification from "../atoms/ReadNotification.vue";
 export default {

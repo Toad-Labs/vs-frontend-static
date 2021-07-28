@@ -30,7 +30,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import InboxItem from "./InboxItem.vue";
 import { useStore } from "vuex";
 import { computed } from "vue";
