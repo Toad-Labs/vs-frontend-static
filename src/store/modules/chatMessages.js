@@ -41,6 +41,7 @@ const getters = {
 // actions
 const actions = {
   initializeChatMessages({ dispatch, commit, rootGetters }) {
+    commit("setDefaultState");
     let directLineMessageRecievedHandler = (userName, message, convoId) => {
       commit("addMessageToConversation", {
         id: convoId,
@@ -52,6 +53,15 @@ const actions = {
       }
     };
 
+    const senderName =
+      i18n.global.locale.value === "fr"
+        ? "Assistant virtuel"
+        : "Virtual Assistant";
+    const senderIconAltText =
+      i18n.global.locale.value === "fr"
+        ? "Assistant virtuel icon"
+        : "Virtual Assistant icon";
+
     // Init call
     // Add .then() if needed.
     ChatMessageService.initConnection(
@@ -61,9 +71,9 @@ const actions = {
       .then((conversationId) => {
         commit("addChatConversation", {
           id: conversationId,
-          senderName: "Virtual Assistant",
+          senderName: senderName,
           senderIcon: "VA",
-          senderIconAltText: "Virtual Assistant icon",
+          senderIconAltText: senderIconAltText,
           lastRead: new Date(),
           messages: [],
         });
@@ -72,9 +82,9 @@ const actions = {
       .catch((err) => {
         commit("addChatConversation", {
           id: 1,
-          senderName: "Virtual Assistant",
+          senderName: senderName,
           senderIcon: "VA",
-          senderIconAltText: "Virtual Assistant icon",
+          senderIconAltText: senderIconAltText,
           lastRead: new Date(),
           messages: [
             {
@@ -117,6 +127,11 @@ const actions = {
 
 // mutations
 const mutations = {
+  //reset state to it's initial values
+  setDefaultState(state) {
+    state.chatConversation = [];
+    state.loaded = false;
+  },
   addMessageToConversation(state, payload) {
     // Find the conversation to use the messages of that conversation.
     const conversation = state.chatConversation.find(

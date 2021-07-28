@@ -1,0 +1,20 @@
+{
+  "mailObject": [
+    {
+      "id": 2,
+      "senderName": "Guichet emplois",
+      "senderIcon": "Mail",
+      "senderIconAltText": "Icône de courrier",
+      "lastRead": "August 9, 2020 23:15:31",
+      "emails": [
+        {
+          "id": 1,
+          "receivedTime": "August 11, 2020 10:04",
+          "lastRead": null,
+          "messageTitle": "Votre demande d'assurance-emploi - Vous avez été abonné aux alertes d'emploi",
+          "messageBody": "Vous recevez ce courriel parce que vous avez récemment rempli une demande d'assurance-emploi. Lorsque vous avez rempli votre demande, vous avez accepté de chercher activement du travail. Pour vous aider dans votre recherche d'emploi, nous vous avons inscrit aux alertes d'emploi. \n\nMerci, \n\nGuichet emplois"
+        }
+      ]
+    }
+  ]
+}

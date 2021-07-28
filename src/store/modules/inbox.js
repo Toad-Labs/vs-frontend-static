@@ -1,3 +1,5 @@
+import { i18n } from "./../../../i18n";
+
 const state = {
   selectedInboxItemId: 0,
   mobileDrawerOpen: false,
@@ -27,12 +29,15 @@ const getters = {
         lastMessageReceivedDate !== null &&
         lastReadDate >= lastMessageReceivedDate
       ) {
-        dayRead = lastMessageReceivedDate.toLocaleDateString("En", {
-          weekday: "short",
-        });
+        dayRead = lastMessageReceivedDate.toLocaleDateString(
+          i18n.global.locale.value,
+          {
+            weekday: "short",
+          }
+        );
       } else if (lastReadDate !== null) {
         //to account for empty conversation/inbox item, so it doesn't remain always unread
-        dayRead = lastReadDate.toLocaleDateString("En", {
+        dayRead = lastReadDate.toLocaleDateString(i18n.global.locale.value, {
           weekday: "short",
         });
       }
@@ -61,9 +66,12 @@ const getters = {
         item.lastRead != null &&
         new Date(item.lastRead) >= new Date(lastEmail.receivedTime)
       ) {
-        dayRead = new Date(lastEmail.receivedTime).toLocaleDateString("En", {
-          weekday: "short",
-        });
+        dayRead = new Date(lastEmail.receivedTime).toLocaleDateString(
+          i18n.global.locale.value,
+          {
+            weekday: "short",
+          }
+        );
       }
 
       inboxItems.push({

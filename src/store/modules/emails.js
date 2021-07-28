@@ -49,6 +49,7 @@ const actions = {
     commit("addEmail", payload);
   },
   async initializeMailObject({ commit, state, getters }) {
+    commit("setDefaultState");
     await emailService.getAll().then((emails) => {
       commit("setMailObject", emails);
       commit("setLoaded");
@@ -61,6 +62,11 @@ const actions = {
 
 // mutations
 const mutations = {
+  //reset state to it's initial values
+  setDefaultState(state) {
+    state.mailObject = [];
+    state.loaded = false;
+  },
   setMailObject(state, payload) {
     if (payload) {
       //sets the entire mailobject
