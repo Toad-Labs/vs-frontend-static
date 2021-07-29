@@ -6,7 +6,14 @@
     :clickOutsideDeactivates="true"
     :returnFocusOnDeactivate="false"
   >
-    <div class="w-full h-full flex flex-col" ref="messageHeader" :tabindex="-1">
+    <div
+      :class="[
+        'w-full h-full flex-col',
+        isMobileDrawerOpen ? 'flex' : 'hidden',
+      ]"
+      ref="messageHeader"
+      :tabindex="-1"
+    >
       <message-header
         :imageName="mailObject.senderIcon"
         :altText="mailObject.senderIconAltText"
