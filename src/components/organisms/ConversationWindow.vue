@@ -1,89 +1,50 @@
 <template>
-  <!-- start   -->
-  <div
-    class="
-      w-full
-      h-screen
-      sm:h-full
-      flex flex-col flex-1
-      p-2
-      sm:p-1
-      text-gray-dark
-      sm:overflow-auto sm:relative
-      bg-pink-100
-    "
-  >
-    <!-- start of scroll window-->
-    <span class="bg-green-200 p-1 h-screen sm:h-full sm:relative">
-      <div
+  <div class="w-full h-full flex flex-col text-gray-dark sm:relative">
+    <div class="sticky top-0 opacity-95 z-10 bg-white md:opacity-100">
+      <message-header
+        :imageName="chatMessage.senderIcon"
+        :altText="chatMessage.senderIconAltText"
+        :headerText="chatMessage.senderName"
+      />
+    </div>
+    <div class="flex h-full overflow-auto">
+      <ul
         class="
           w-full
-          h-full
-          flex flex-col
-          justify-end
-          sm:overflow-auto
-          p-1
+          space-y-2
+          overflow-auto
+          flex flex-col-reverse
+          font-body
           text-gray-dark
           sm:sticky
           top-0
-          bg-blue-100
+          bg-blue-50
         "
+        ref="conversationWindow"
+        id="conversationWindow"
+        tabindex="0"
       >
-        <!-- the header -->
-
-        <div class="sticky top-0 opacity-95 bg-yellow-100 md:opacity-100">
-          <message-header
-            backIcon="Back"
-            :imageName="chatMessage.senderIcon"
-            :altText="chatMessage.senderIconAltText"
-            :headerText="chatMessage.senderName"
-          />
-        </div>
-        <!-- the message window -->
-        <div class="flex h-full sm:overflow-auto">
-          <img
-            :src="icons[chatMessage.senderIcon]"
-            :alt="chatMessage.senderIconAltText"
-            class="h-6 mt-auto w-8 mb-3"
-          />
-          <div
-            class="
-              w-full
-              space-y-2 space-y-reverse
-              flex flex-col-reverse
-              font-body
-              text-gray-dark
-              py-2
-              pr-2
-            "
-            tabindex="0"
-          >
-            <p
-              class="text-center font-heading text-sm font-light text-gray-dark"
-            >
-              WEDS 10:04 AM
-            </p>
-            <ConversationMessage
-              v-for="message in chatMessage.messages"
-              :key="message.id"
-              :isUser="message.isUser"
-              :text="message.text"
-            />
-          </div>
-        </div>
-
-        <!-- new div ends here -->
-      </div>
-    </span>
-    <!-- end of scroll -->
-
-    <!--  text input and yes no buttons-->
-
-    <div class="sticky bottom-0 w-full">
+        <ConversationMessage
+          v-for="(message, index) in chatMessage.messages"
+          :key="message.id"
+          :isUser="message.isUser"
+          :text="message.text"
+          :senderIcon="chatMessage.senderIcon"
+          :senderIconAltText="chatMessage.senderIconAltText"
+          :isLastMessage="index === 0"
+        />
+        <li>
+          <p class="text-center font-heading text-sm font-light text-gray-dark">
+            {{ $t("messageTime") }}
+          </p>
+        </li>
+      </ul>
+    </div>
+    <div class="sticky bottom-0">
       <!-- The logic on how the buttonOptions are passed as props will
-                   depend on how we get the possible answers from VC. -->
+                   depend on how we get the possible answers from VA. -->
       <TextInput
-        :buttonOptions="['Yes', 'No']"
+        :buttonOptions="[$t('yes'), $t('no')]"
         @add-message="sendChatMessage"
       />
     </div>
@@ -123,6 +84,7 @@ export default {
       };
       store.dispatch("chatMessages/sendChatMessage", newMessage);
     }
+
     return {
       chatMessage,
       sendChatMessage,

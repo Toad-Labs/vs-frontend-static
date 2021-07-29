@@ -1,6 +1,6 @@
 //Message header icons
 import Mail from "./UserAccount/Mail.svg";
-import VC from "./UserAccount/VirtualConcierge.svg";
+import VA from "./UserAccount/VirtualAssistant.svg";
 
 //"go back" icon variants (for mobile)
 import Back from "./Back/default.svg";
@@ -13,7 +13,7 @@ import SendInactive from "./Send/Inactive/Default.svg";
 
 export default {
   Mail,
-  VC,
+  VA,
   Back,
   BackFocused,
   SendActive,

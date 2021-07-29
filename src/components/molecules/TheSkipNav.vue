@@ -3,19 +3,19 @@
     <!-- Site Accessibility Navigation -->
     <ul
       class="sr-only focus-within:not-sr-only text-center"
-      aria-label="Skip Navigation Link"
+      :aria-label="$t('skipNavLink')"
     >
       <li
         class="w-max bg-blue-deep text-white mt-2 p-2 rounded inline-block"
         @click="toMain"
       >
-        <a href="#index-header">Skip to main content</a>
+        <a href="#index-header">{{ $t("skipToMain") }}</a>
       </li>
     </ul>
   </nav>
 </template>
 
-<script lang="ts">
+<script>
 export default {
   setup() {
     function toMain() {

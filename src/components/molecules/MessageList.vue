@@ -6,7 +6,7 @@
       :altText="mailObject.senderIconAltText"
       :headerText="mailObject.senderName"
     />
-    <div
+    <ul
       class="flex bg-gray-infolt flex-col p-6 space-y-6 overflow-auto"
       tabindex="0"
     >
@@ -17,7 +17,7 @@
         :title="email.messageTitle"
         :paragraphs="email.messageBody"
       />
-    </div>
+    </ul>
   </div>
 </template>
 
@@ -27,6 +27,7 @@ import MessageHeader from "../atoms/MessageHeader.vue";
 import { useStore } from "vuex";
 import { computed } from "vue";
 import icons from "../../assets/icons.js";
+import { i18n } from "./../../../i18n";
 
 export default {
   components: {
@@ -44,17 +45,13 @@ export default {
     );
     //creates a timestamp with js's default date methods
     const createTimestamp = (dateString) => {
-      const date = new Date(dateString);
-      const dateArr = date.toString().split(" ");
-      return (
-        dateArr[0] +
-        ", " +
-        dateArr[1] +
-        " " +
-        dateArr[2] +
-        ", " +
-        date.toTimeString().slice(0, 5)
-      );
+      return new Date(dateString).toLocaleDateString(i18n.global.locale.value, {
+        weekday: "short",
+        month: "short",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+      });
     };
     return {
       mailObject,

@@ -3,7 +3,7 @@
     <header>
       <div class="pb-2 sm:pb-4 sm:border-b sm:border-gray-infomd">
         <!-- Hidden heading -->
-        <h2 class="sr-only">Site Header Information</h2>
+        <h2 class="sr-only">{{ $t("siteHeaderInfo") }}</h2>
         <!-- Language toggle on desktop -->
         <div
           class="
@@ -20,11 +20,15 @@
           <a
             id="lang-toggle-full"
             class="px-5 py-1 font-body underline text-blue-link"
-            aria-label="Change language"
+            :aria-label="
+              $t('changeLanguageTo') +
+              (changeLanguageTo === 'fr' ? 'français' : 'english')
+            "
             tabindex="0"
+            :href="'/' + changeLanguageTo"
+            :lang="changeLanguageTo"
           >
-            Français
-            <!-- {language === "en" ? "English" : "Français"} -->
+            {{ $t("changeLanguage") }}
           </a>
         </div>
         <!-- end lang toggle desktop -->
@@ -34,7 +38,7 @@
         <div
           className="flex flex-col sm:flex-row container w-full mx-auto py-1 px-5 justify-between items-center"
         >
-          <div className="flex flex-row items-center w-full justify-between">
+          <div className="flex flex-row items-center justify-between">
             <img
               className="h-5 xs:h-7 sm:h-8 md:h-9 mx-3 xs:mx-0"
               src="../../assets/sig-blk-en.svg"
@@ -50,61 +54,18 @@
                 underline
                 text-blue-link
               "
-              aria-label="Change language"
+              :aria-label="
+                $t('changeLanguageTo') +
+                (changeLanguageTo === 'fr' ? 'français' : 'english')
+              "
               tabindex="0"
+              :href="'/' + changeLanguageTo"
+              :lang="changeLanguageTo"
             >
-              FR
-              <!-- {language === "en" ? "EN" : "FR"} -->
+              {{ $t("changeLanguageAbrv") }}
             </a>
           </div>
           <!-- end gc logo -->
-          <!-- start gc search bar -->
-          <div className=" sm:flex hidden w-full sm:w-80 sm:h-10">
-            <form
-              className="w-full inline-flex border border-gray-infomd mx-2 sm:mx-0"
-            >
-              <input
-                id="searchbar"
-                aria-label="Search"
-                type="text"
-                placeholder="Search Canada.ca"
-                className="w-full placeholder-gray-light text-gray-dark font-body py-1 px-2 focus:outline-none"
-              />
-
-              <button
-                id="searchbutton"
-                title="Search bar button"
-                type="submit"
-                class="
-                  bg-blue-deep
-                  text-white text-center
-                  p-2
-                  rounded-none
-                  hover:bg-gray-dark
-                  active:bg-gray-dark
-                  focus:bg-gray-dark
-                "
-                aria-label="Search"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                  />
-                </svg>
-              </button>
-            </form>
-          </div>
-          <!-- end search bar -->
         </div>
       </div>
       <div class="sm:flex hidden">
@@ -122,19 +83,17 @@
         ></Menu>
       </div>
       <div class="sm:py-4">
-        <Banner
-          title="Service Canada Labs"
-          body="This site will change as we test ideas"
-        ></Banner>
+        <Banner :title="$t('bannerTitle')" :body="$t('bannerBody')"></Banner>
       </div>
     </header>
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import Menu from "../atoms/Menu.vue";
 import Banner from "../atoms/Banner.vue";
-
+import { useI18n } from "vue-i18n";
+import { computed } from "vue";
 export default {
   name: "TheHeader",
   components: {
@@ -142,7 +101,10 @@ export default {
     Banner,
   },
   setup() {
-    return {};
+    const changeLanguageTo = computed(() =>
+      useI18n().locale.value == "fr" ? "en" : "fr"
+    );
+    return { changeLanguageTo };
   },
 };
 </script>

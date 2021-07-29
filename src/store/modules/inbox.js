@@ -1,5 +1,4 @@
-// Don't mind this import. I will use it in my next PR.
-// import InboxService from '../../services/inbox/inbox';
+import { i18n } from "./../../../i18n";
 
 const state = {
   selectedInboxItemId: 0,
@@ -19,13 +18,26 @@ const getters = {
       const lastMessage = messagesList[messagesList.length - 1];
 
       //dayRead will be unread if no value provided. The design currently accounts for only the weekday to be displayed
-      let dayRead = undefined;
+      let dayRead;
+      const lastReadDate = item.lastRead ? new Date(item.lastRead) : null;
+      const lastMessageReceivedDate = lastMessage?.receivedTime
+        ? new Date(lastMessage.receivedTime)
+        : null;
+
       if (
-        item.lastRead != null &&
-        lastMessage &&
-        new Date(item.lastRead) >= new Date(lastMessage.receivedTime)
+        lastReadDate !== null &&
+        lastMessageReceivedDate !== null &&
+        lastReadDate >= lastMessageReceivedDate
       ) {
-        dayRead = new Date(lastMessage.receivedTime).toLocaleDateString("En", {
+        dayRead = lastMessageReceivedDate.toLocaleDateString(
+          i18n.global.locale.value,
+          {
+            weekday: "short",
+          }
+        );
+      } else if (lastReadDate !== null) {
+        //to account for empty conversation/inbox item, so it doesn't remain always unread
+        dayRead = lastReadDate.toLocaleDateString(i18n.global.locale.value, {
           weekday: "short",
         });
       }
@@ -54,9 +66,12 @@ const getters = {
         item.lastRead != null &&
         new Date(item.lastRead) >= new Date(lastEmail.receivedTime)
       ) {
-        dayRead = new Date(lastEmail.receivedTime).toLocaleDateString("En", {
-          weekday: "short",
-        });
+        dayRead = new Date(lastEmail.receivedTime).toLocaleDateString(
+          i18n.global.locale.value,
+          {
+            weekday: "short",
+          }
+        );
       }
 
       inboxItems.push({
@@ -90,6 +105,11 @@ const getters = {
   },
   isMobileDrawerOpen(state, getters) {
     return state.mobileDrawerOpen;
+  },
+  isLoaded(state, getters, rootState) {
+    const chatMessagesLoaded = rootState.chatMessages.loaded;
+    const emailsLoaded = rootState.emails.loaded;
+    return chatMessagesLoaded && emailsLoaded;
   },
 };
 
