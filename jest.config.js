@@ -8,7 +8,7 @@
     ],
     transform: {
         "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
-        "^[^.]+.vue$": "vue-jest",
+        "^[^.]+(.vue|.svg)$": "vue-jest",
       },
 
   }
