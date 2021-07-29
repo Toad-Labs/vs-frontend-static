@@ -1,6 +1,6 @@
 <template>
-  <div class="w-full h-full flex flex-col text-gray-dark sm:relative">
-    <div class="sticky top-0 opacity-95 z-10 bg-white md:opacity-100">
+  <div class="w-full h-full flex flex-col text-gray-dark sm:relative bg-black">
+    <div class="fixed w-full top-0 opacity-95 z-10 bg-white md:opacity-100">
       <message-header
         :imageName="chatMessage.senderIcon"
         :altText="chatMessage.senderIconAltText"
@@ -39,7 +39,7 @@
         </li>
       </ul>
     </div>
-    <div class="sticky bottom-0">
+    <div class="fixed bottom-0 w-full">
       <!-- The logic on how the buttonOptions are passed as props will
                    depend on how we get the possible answers from VA. -->
       <TextInput
