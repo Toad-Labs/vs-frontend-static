@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full flex flex-col text-gray-dark sm:relative bg-black">
+  <div class="w-full h-full flex flex-col text-gray-dark sm:relative">
     <div
       class="
         sm:fixed
