@@ -1,9 +1,13 @@
 import { createI18n } from 'vue-i18n'
-import messages from '@intlify/vite-plugin-vue-i18n/messages'
+import en from "./src/locales/en.json"
+import fr from "./src/locales/fr.json"
 
 export const i18n = createI18n({
   legacy: false,
   locale: 'en',
   globalInjection: true,
-  messages
+  messages: {
+    en,
+    fr
+  }
 })
