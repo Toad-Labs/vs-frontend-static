@@ -2,17 +2,15 @@
   <FocusTrap
     ref="focusTrap"
     :active="isMobileDrawerOpen"
-    :onPostActivate="focusOnMessageHeader"
+    :initial-focus="focusOnMessageHeader"
     :clickOutsideDeactivates="true"
-    :returnFocusOnDeactivate="false"
+    :returnFocusOnDeactivate="true"
   >
     <div
       :class="[
         'w-full h-full flex-col sm:flex',
         isMobileDrawerOpen ? 'flex' : 'hidden',
       ]"
-      ref="messageHeader"
-      :tabindex="-1"
       :aria-modal="isMobileDrawerOpen"
     >
       <message-header
@@ -64,10 +62,9 @@ export default {
     const isMobileDrawerOpen = computed(
       () => store.getters["inbox/isMobileDrawerOpen"]
     );
-    const messageHeader = ref(null);
 
     const focusOnMessageHeader = () => {
-      messageHeader.value?.focus();
+      return document.getElementById(mailObject.value.senderName);
     };
 
     //creates a timestamp with js's default date methods
@@ -85,7 +82,6 @@ export default {
       createTimestamp,
       icons,
       isMobileDrawerOpen,
-      messageHeader,
       focusOnMessageHeader,
     };
   },

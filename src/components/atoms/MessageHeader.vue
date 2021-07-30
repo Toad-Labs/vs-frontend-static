@@ -1,5 +1,9 @@
 <template>
-  <div class="flex border-b border-gray-200 px-2 py-4">
+  <div
+    class="flex border-b border-gray-200 px-2 py-4"
+    :tabindex="-1"
+    :id="headerText"
+  >
     <button
       ref="backBtn"
       :tabindex="backBtnTabbable"
@@ -24,14 +28,9 @@
       class="h-10 mt-auto w-10"
       aria-hidden="true"
     />
-    <span
-      class="font-bold font-body pt-2 pl-2"
-      tabindex="-1"
-      :id="headerText"
-      >{{
-        headerText + (isMobileDrawerOpen ? " — " + $t("escText") : "")
-      }}</span
-    >
+    <span class="font-bold font-body pt-2 pl-2"
+      >{{ headerText + (isMobileDrawerOpen ? " — " + $t("escText") : "") }}
+    </span>
   </div>
 </template>
 

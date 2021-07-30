@@ -2,9 +2,9 @@
   <FocusTrap
     ref="focusTrap"
     :active="isMobileDrawerOpen"
-    :onPostActivate="focusOnMessageHeader"
+    :initial-focus="() => $refs.messageHeader"
     :clickOutsideDeactivates="true"
-    :returnFocusOnDeactivate="false"
+    :returnFocusOnDeactivate="true"
   >
     <div
       :class="[
@@ -16,12 +16,13 @@
       <div
         class="sticky top-0 opacity-95 z-10 bg-white md:opacity-100"
         ref="messageHeader"
-        tabindex="-1"
+        :tabindex="-1"
       >
         <message-header
           :imageName="chatMessage.senderIcon"
           :altText="chatMessage.senderIconAltText"
           :headerText="chatMessage.senderName"
+          @exit-drawer="() => $refs.focusTrap.deactivate()"
         />
       </div>
       <div class="flex h-full overflow-auto">
@@ -99,12 +100,6 @@ export default {
     const isMobileDrawerOpen = computed(
       () => store.getters["inbox/isMobileDrawerOpen"]
     );
-    const messageHeader = ref(null);
-
-    function focusOnMessageHeader() {
-      console.log(messageHeader.value);
-      messageHeader.value?.focus();
-    }
 
     function sendChatMessage(msg) {
       const newMessage = {
@@ -119,8 +114,6 @@ export default {
       sendChatMessage,
       icons,
       isMobileDrawerOpen,
-      focusOnMessageHeader,
-      messageHeader,
     };
   },
 };
