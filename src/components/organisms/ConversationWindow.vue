@@ -1,7 +1,7 @@
 <template>
   <FocusTrap
     ref="focusTrap"
-    v-model:active="isMobileDrawerOpen"
+    :active="isMobileDrawerOpen"
     :onPostActivate="focusOnMessageHeader"
     :clickOutsideDeactivates="true"
     :returnFocusOnDeactivate="false"
@@ -11,6 +11,7 @@
         'w-full h-full flex-col text-gray-dark sm:relative',
         isMobileDrawerOpen ? 'flex' : 'hidden',
       ]"
+      :aria-modal="isMobileDrawerOpen"
     >
       <div
         class="sticky top-0 opacity-95 z-10 bg-white md:opacity-100"

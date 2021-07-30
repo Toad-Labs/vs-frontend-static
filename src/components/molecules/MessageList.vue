@@ -1,7 +1,7 @@
 <template>
   <FocusTrap
     ref="focusTrap"
-    v-model:active="isMobileDrawerOpen"
+    :active="isMobileDrawerOpen"
     :onPostActivate="focusOnMessageHeader"
     :clickOutsideDeactivates="true"
     :returnFocusOnDeactivate="false"
@@ -13,6 +13,7 @@
       ]"
       ref="messageHeader"
       :tabindex="-1"
+      :aria-modal="isMobileDrawerOpen"
     >
       <message-header
         :imageName="mailObject.senderIcon"
