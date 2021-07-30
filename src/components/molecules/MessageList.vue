@@ -8,7 +8,7 @@
   >
     <div
       :class="[
-        'w-full h-full flex-col',
+        'w-full h-full flex-col sm:flex',
         isMobileDrawerOpen ? 'flex' : 'hidden',
       ]"
       ref="messageHeader"

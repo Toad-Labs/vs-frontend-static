@@ -8,7 +8,7 @@
   >
     <div
       :class="[
-        'w-full h-full flex-col text-gray-dark sm:relative',
+        'w-full h-full flex-col text-gray-dark sm:relative sm:flex',
         isMobileDrawerOpen ? 'flex' : 'hidden',
       ]"
       :aria-modal="isMobileDrawerOpen"
@@ -101,9 +101,10 @@ export default {
     );
     const messageHeader = ref(null);
 
-    const focusOnMessageHeader = () => {
+    function focusOnMessageHeader() {
+      console.log(messageHeader.value);
       messageHeader.value?.focus();
-    };
+    }
 
     function sendChatMessage(msg) {
       const newMessage = {
