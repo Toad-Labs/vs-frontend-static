@@ -34,8 +34,12 @@ describe("ConversationWindow component", () => {
     });
   });
 
-  it("Check for message header", () => {
+  it("Check for message header component", () => {
     expect(wrapper.findComponent(MessageHeader).exists()).toBe(true);
+  });
+
+  it("Check for text input component", () => {
+    expect(wrapper.findComponent(TextInput).exists()).toBe(true);
   });
 
   it("Test sendChatMessage", async () => {
