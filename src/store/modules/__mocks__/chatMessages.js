@@ -1,10 +1,28 @@
 const getters = {
+  getChatMessageByIdOrderedByMessagesDate: (state, getters) => (id) => {
+    return {
+      id: 1,
+      receivedTime: new Date(2018, 11, 24, 10, 33, 30, 0),
+      isUser: true,
+      text: "test message text",
+    };
+  },
   isLoaded() {
     return true;
+  },
+};
+
+const actions = {
+  markChatRead(context, id) {
+    jest.fn();
+  },
+  sendChatMessage({ commit, rootGetters }, payload) {
+    jest.fn();
   },
 };
 
 export default {
   namespaced: true,
   getters,
+  actions,
 };

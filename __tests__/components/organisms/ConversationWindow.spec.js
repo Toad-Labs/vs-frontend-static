@@ -1,0 +1,56 @@
+import { shallowMount } from "@vue/test-utils";
+import ConversationWindow from "../../../src/components/organisms/ConversationWindow";
+import TextInput from "../../../src/components/atoms/TextInput";
+import MessageHeader from "../../../src/components/atoms/MessageHeader";
+import { createStore, useStore } from "vuex";
+import { i18n } from "../../../i18n";
+import chatMessages from "../../../src/store/modules/chatMessages";
+jest.mock("../../../src/store/modules/chatMessages");
+import emails from "../../../src/store/modules/emails";
+jest.mock("../../../src/store/modules/emails");
+import inbox from "../../../src/store/modules/inbox";
+jest.mock("../../../src/store/modules/inbox");
+
+describe("ConversationWindow component", () => {
+  let wrapper;
+  let store;
+  beforeAll(() => {
+    chatMessages.actions.sendChatMessage = jest.fn();
+    store = createStore({
+      modules: {
+        chatMessages,
+        emails,
+        inbox,
+      },
+    });
+
+    wrapper = shallowMount(ConversationWindow, {
+      global: {
+        provide: {
+          store,
+        },
+        plugins: [i18n],
+      },
+    });
+  });
+
+  it("Check for message header", () => {
+    expect(wrapper.findComponent(MessageHeader).exists()).toBe(true);
+  });
+
+  it("Test sendChatMessage", async () => {
+    // const textInput = wrapper.find('#textInputInput')
+    // await textInput.setValue('test value')
+    // const sendTextInputButton = wrapper.find("#sendTextInputButton");
+    // sendTextInputButton.trigger('click');
+
+    wrapper.findComponent(TextInput).vm.$emit("add-message", "test value");
+
+    expect(chatMessages.actions.sendChatMessage).toHaveBeenCalledTimes(1);
+
+    const sendChatMessageArgs =
+      chatMessages.actions.sendChatMessage.mock.calls[0][1];
+    expect(sendChatMessageArgs.id).toBe(1);
+    expect(sendChatMessageArgs.message).toBe("test value");
+  });
+});
