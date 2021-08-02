@@ -23,13 +23,11 @@
 <script>
 import TheHeader from "../components/molecules/TheHeader.vue";
 import TheFooter from "../components/molecules/TheFooter.vue";
-import TheSkipNav from "../components/molecules/TheSkipNav.vue";
 import FeedbackButton from "../components/atoms/FeedbackButton.vue";
 export default {
   components: {
     TheHeader,
     TheFooter,
-    TheSkipNav,
     FeedbackButton,
   },
 };

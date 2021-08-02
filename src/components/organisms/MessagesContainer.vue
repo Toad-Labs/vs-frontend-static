@@ -68,9 +68,6 @@ import MessageList from "../molecules/MessageList.vue";
 import { useStore } from "vuex";
 import { computed } from "vue";
 export default {
-  props: {
-    drawerOpen: Boolean,
-  },
   components: {
     ConversationWindow,
     MessageList,

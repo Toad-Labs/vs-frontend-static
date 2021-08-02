@@ -24,7 +24,6 @@ import MessagesContainer from "../components/organisms/MessagesContainer.vue";
 import { useStore } from "vuex";
 import TheHeader from "../components/molecules/TheHeader.vue";
 import TheFooter from "../components/molecules/TheFooter.vue";
-import TheSkipNav from "../components/molecules/TheSkipNav.vue";
 import FeedbackButton from "../components/atoms/FeedbackButton.vue";
 
 export default {
@@ -33,7 +32,6 @@ export default {
     MessagesContainer,
     TheHeader,
     TheFooter,
-    TheSkipNav,
     FeedbackButton,
   },
   setup() {
