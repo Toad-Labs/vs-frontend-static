@@ -24,7 +24,6 @@ describe("ReadNotification component", () => {
         };
       },
     });
-    console.log(wrapper.html());
     expect(wrapper.find("#read").exists()).toBe(true);
   });
 });
