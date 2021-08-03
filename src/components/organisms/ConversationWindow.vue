@@ -1,9 +1,7 @@
 <template>
   <div
-    :class="[
-      'w-full h-full flex flex-col text-gray-dark sm:relative',
-      isMobileDrawerOpen ? 'flex' : 'hidden',
-    ]"
+    class="w-full h-full flex flex-col text-gray-dark sm:relative"
+    v-show="isMobileDrawerOpen"
   >
     <div class="sticky top-0 opacity-95 z-10 bg-white md:opacity-100">
       <message-header
