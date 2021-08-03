@@ -43,11 +43,6 @@ describe("ConversationWindow component", () => {
   });
 
   it("Test sendChatMessage", async () => {
-    // const textInput = wrapper.find('#textInputInput')
-    // await textInput.setValue('test value')
-    // const sendTextInputButton = wrapper.find("#sendTextInputButton");
-    // sendTextInputButton.trigger('click');
-
     wrapper.findComponent(TextInput).vm.$emit("add-message", "test value");
 
     expect(chatMessages.actions.sendChatMessage).toHaveBeenCalledTimes(1);
