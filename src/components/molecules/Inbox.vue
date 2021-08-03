@@ -14,7 +14,7 @@
   <div v-else class="w-full sm:h-vh-3/5 xl:h-vh-2/3 flex flex-col">
     <h1
       id="inbox-header"
-      class="font-heading font-bold text-4xl px-3 pt-6 pb-3"
+      class="font-heading font-bold text-4xl px-3 pt-6 pb-3 focus:ring-inset"
       @blur="$event.target.tabIndex = -1"
     >
       {{ $t("inbox") }}
