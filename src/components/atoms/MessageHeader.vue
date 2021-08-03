@@ -1,5 +1,9 @@
 <template>
-  <div class="flex border-b border-gray-200 px-2 py-4">
+  <div
+    class="flex border-b border-gray-200 px-2 py-4"
+    :tabindex="-1"
+    :id="headerText"
+  >
     <button
       ref="backBtn"
       :tabindex="backBtnTabbable"
@@ -24,7 +28,9 @@
       class="h-10 mt-auto w-10"
       aria-hidden="true"
     />
-    <span class="font-bold font-body pt-2 pl-2">{{ headerText }}</span>
+    <span class="font-bold font-body pt-2 pl-2"
+      >{{ headerText + (isMobileDrawerOpen ? " — " + $t("escText") : "") }}
+    </span>
   </div>
 </template>
 
@@ -38,7 +44,8 @@ export default {
     altText: String,
     headerText: String,
   },
-  setup() {
+  emits: ["exit-drawer"],
+  setup(_, context) {
     const store = useStore();
     const backIcon = ref("Back");
     const backBtn = ref(null);
@@ -49,9 +56,13 @@ export default {
       //if backBtn is hidden, don't allow for it to be tabbed to
       return backBtn.value.style.display === "none" ? -1 : 0;
     });
+    const isMobileDrawerOpen = computed(
+      () => store.getters["inbox/isMobileDrawerOpen"]
+    );
 
     function clickBack() {
       store.dispatch("inbox/closeInboxItem");
+      context.emit("exit-drawer");
     }
     function setBackIcon(icon) {
       backIcon.value = icon;
@@ -63,6 +74,7 @@ export default {
       backIcon,
       backBtn,
       backBtnTabbable,
+      isMobileDrawerOpen,
     };
   },
 };

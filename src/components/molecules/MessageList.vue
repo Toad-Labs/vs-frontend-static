@@ -1,31 +1,46 @@
 <template>
-  <div class="w-full h-full flex flex-col">
-    <message-header
-      backIcon="Back"
-      :imageName="mailObject.senderIcon"
-      :altText="mailObject.senderIconAltText"
-      :headerText="mailObject.senderName"
-    />
-    <ul
-      class="flex bg-gray-infolt flex-col p-6 space-y-6 overflow-auto"
-      tabindex="0"
+  <FocusTrap
+    ref="focusTrap"
+    :active="isMobileDrawerOpen"
+    :initial-focus="focusOnMessageHeader"
+    :clickOutsideDeactivates="true"
+    :returnFocusOnDeactivate="true"
+  >
+    <div
+      :class="[
+        'w-full h-full flex-col sm:flex',
+        isMobileDrawerOpen ? 'flex' : 'hidden',
+      ]"
+      :aria-modal="isMobileDrawerOpen"
     >
-      <message-card
-        v-for="email of mailObject.emails"
-        :key="email.id"
-        :timestamp="createTimestamp(email.receivedTime)"
-        :title="email.messageTitle"
-        :paragraphs="email.messageBody"
+      <message-header
+        :imageName="mailObject.senderIcon"
+        :altText="mailObject.senderIconAltText"
+        :headerText="mailObject.senderName"
+        @exit-drawer="() => $refs.focusTrap.deactivate()"
       />
-    </ul>
-  </div>
+      <ul
+        class="flex bg-gray-infolt flex-col p-6 space-y-6 overflow-auto"
+        tabindex="0"
+      >
+        <message-card
+          v-for="email of mailObject.emails"
+          :key="email.id"
+          :timestamp="createTimestamp(email.receivedTime)"
+          :title="email.messageTitle"
+          :paragraphs="email.messageBody"
+        />
+      </ul>
+    </div>
+  </FocusTrap>
 </template>
 
 <script>
 import MessageCard from "./MessageCard.vue";
 import MessageHeader from "../atoms/MessageHeader.vue";
+import { FocusTrap } from "focus-trap-vue";
 import { useStore } from "vuex";
-import { computed } from "vue";
+import { computed, ref } from "vue";
 import icons from "../../assets/icons.js";
 import { i18n } from "./../../../i18n";
 
@@ -33,6 +48,7 @@ export default {
   components: {
     MessageCard,
     MessageHeader,
+    FocusTrap,
   },
   setup() {
     const store = useStore();
@@ -43,6 +59,14 @@ export default {
         selectedInboxItemId
       )
     );
+    const isMobileDrawerOpen = computed(
+      () => store.getters["inbox/isMobileDrawerOpen"]
+    );
+
+    const focusOnMessageHeader = () => {
+      return document.getElementById(mailObject.value.senderName);
+    };
+
     //creates a timestamp with js's default date methods
     const createTimestamp = (dateString) => {
       return new Date(dateString).toLocaleDateString(i18n.global.locale.value, {
@@ -57,6 +81,8 @@ export default {
       mailObject,
       createTimestamp,
       icons,
+      isMobileDrawerOpen,
+      focusOnMessageHeader,
     };
   },
 };

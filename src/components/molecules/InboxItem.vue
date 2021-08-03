@@ -3,7 +3,7 @@
     role="listitem"
     tabindex="0"
     @click="selectInboxItem"
-    @keyup.enter="selectInboxItem"
+    @keydown.enter="selectInboxItem"
     :class="[
       inboxItem.selected ? 'focus:bg-blue-selected rounded-none' : '',
       inboxItem.id ? '' : 'bg-gray-infolt animate-pulse',
