@@ -1,5 +1,8 @@
 <template>
-  <div class="w-full h-full flex flex-col text-gray-dark sm:relative">
+  <div
+    class="w-full h-full flex flex-col text-gray-dark sm:relative"
+    v-show="isMobileDrawerOpen"
+  >
     <div class="sticky top-0 opacity-95 z-10 bg-white md:opacity-100">
       <message-header
         :imageName="chatMessage.senderIcon"
@@ -74,6 +77,9 @@ export default {
         selectedInboxItemId
       )
     );
+    const isMobileDrawerOpen = computed(
+      () => store.getters["inbox/isMobileDrawerOpen"]
+    );
 
     function sendChatMessage(msg) {
       const newMessage = {
@@ -86,6 +92,7 @@ export default {
     return {
       chatMessage,
       sendChatMessage,
+      isMobileDrawerOpen,
       icons,
     };
   },

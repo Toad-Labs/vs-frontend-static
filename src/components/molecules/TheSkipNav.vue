@@ -1,12 +1,25 @@
 <template>
-  <nav>
+  <nav class="relative">
     <!-- Site Accessibility Navigation -->
     <ul
       class="sr-only focus-within:not-sr-only text-center"
       :aria-label="$t('skipNavLink')"
     >
       <li
-        class="w-max bg-blue-deep text-white mt-2 p-2 rounded inline-block"
+        class="
+          transform
+          -translate-x-1/2
+          absolute
+          left-1/2
+          top-0
+          w-max
+          bg-blue-deep
+          text-white
+          mt-2
+          p-2
+          rounded
+          block
+        "
         @click="toMain"
       >
         <a href="#index-header">{{ $t("skipToMain") }}</a>
