@@ -2,6 +2,7 @@ import { shallowMount } from "@vue/test-utils";
 import ConversationWindow from "../../../src/components/organisms/ConversationWindow";
 import TextInput from "../../../src/components/atoms/TextInput";
 import MessageHeader from "../../../src/components/atoms/MessageHeader";
+import ConversationMessage from "../../../src/components/atoms/ConversationMessage";
 import { createStore, useStore } from "vuex";
 import { i18n } from "../../../i18n";
 import chatMessages from "../../../src/store/modules/chatMessages";
@@ -36,6 +37,10 @@ describe("ConversationWindow component", () => {
 
   it("Check for message header component", () => {
     expect(wrapper.findComponent(MessageHeader).exists()).toBe(true);
+  });
+
+  it("Check for conversation message component", () => {
+    expect(wrapper.findComponent(ConversationMessage).exists()).toBe(true);
   });
 
   it("Check for text input component", () => {

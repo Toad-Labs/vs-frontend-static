@@ -2,9 +2,14 @@ const getters = {
   getChatMessageByIdOrderedByMessagesDate: (state, getters) => (id) => {
     return {
       id: 1,
-      receivedTime: new Date(2018, 11, 24, 10, 33, 30, 0),
-      isUser: true,
-      text: "test message text",
+      messages: {
+        id: 1,
+        receivedTime: new Date(2018, 11, 24, 10, 33, 30, 0),
+        isUser: true,
+        text: "test message text",
+        senderIcon: "test icon",
+        senderIconAltText: "test alt text",
+      },
     };
   },
   isLoaded() {
