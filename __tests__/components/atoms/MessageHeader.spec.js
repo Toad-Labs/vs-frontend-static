@@ -14,7 +14,7 @@ describe("MessageHeader component", () => {
     });
   });
 
-  it("ensures that the MessageHeader is displayed", () => {
+  it("ensures that the MessageHeader text is displayed", () => {
     const wrapper = shallowMount(MessageHeader, {
       props: {
         headerText: "Header Text",
@@ -28,7 +28,7 @@ describe("MessageHeader component", () => {
     expect(wrapper.text()).toContain("Header Text");
   });
 
-  it("ensures that the MessageHeader is displayed", () => {
+  it("ensures that the MessageHeader back button functions when clicked", () => {
     const wrapper = shallowMount(MessageHeader, {
       global: {
         provide: {
