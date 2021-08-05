@@ -73,12 +73,6 @@ const mutations = {
       state.mailObject = payload;
     }
   },
-  setSelectedSenderEmails(state, getters, payload) {
-    if (payload) {
-      //takes the state's selected inbox/mailObject and sets its emails to be this functions payload
-      getters.getSelectedSenderObject.emails = payload;
-    }
-  },
   //not to be used for a while
   addEmail(state, payload) {
     //gets whoever the sender is, based on payload's id
