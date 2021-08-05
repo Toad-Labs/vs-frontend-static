@@ -5,6 +5,50 @@ jest.mock("../../../src/services/emails/emails");
 
 describe("emails getters", () => {});
 
+describe("emails mutations", () => {
+  it("setDefaultState", () => {
+    const state = {
+      mailObject: [],
+      loaded: false,
+    };
+    emails.mutations.setDefaultState(state);
+
+    expect(state.mailObject.length).toBe(0);
+    expect(state.loaded).toBe(false);
+  });
+  it("setMailObject", () => {
+    const state = {
+      mailObject: [],
+    };
+    emails.mutations.setMailObject(state, ["test"]);
+
+    expect(state.mailObject[0]).toBe("test");
+  });
+  //Skipping test as addEmail was never implemented
+  it.skip("addEmail", () => {});
+  it("setLastRead", () => {
+    const state = {
+      mailObject: [
+        {
+          id: 5,
+          lastRead: undefined,
+        },
+      ],
+    };
+    emails.mutations.setLastRead(state, 5);
+
+    expect(state.mailObject[0].lastRead).not.toBe(undefined);
+  });
+  it("setLoaded", () => {
+    const state = {
+      loaded: false,
+    };
+    emails.mutations.setLoaded(state);
+
+    expect(state.loaded).toBe(true);
+  });
+});
+
 describe("emails actions", () => {
   let store;
   let mockedMutations;
