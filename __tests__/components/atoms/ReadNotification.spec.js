@@ -13,7 +13,7 @@ describe("ReadNotification component", () => {
   // false by default (not read)
   it("ensures ReadNotification icon is shown (message has not been read)", () => {
     const wrapper = mount(ReadNotification);
-    expect(wrapper.find("#not-read").exists()).toBe(true);
+    expect(wrapper.find("p").exists()).toBe(false); //unread notification has no text/ <p> tag
   });
 
   it("ensures dayRead date is shown (message has been read)", () => {
@@ -24,6 +24,6 @@ describe("ReadNotification component", () => {
         };
       },
     });
-    expect(wrapper.find("#read").exists()).toBe(true);
+    expect(wrapper.find("p").exists()).toBe(true); //likewise, the day the message was read should appear here.
   });
 });
