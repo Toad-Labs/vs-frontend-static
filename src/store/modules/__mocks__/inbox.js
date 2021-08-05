@@ -4,7 +4,12 @@ const getters = {
   },
 };
 
+const actions = {
+  closeInboxItem: jest.fn(),
+};
+
 export default {
   namespaced: true,
   getters,
+  actions,
 };
