@@ -1,0 +1,55 @@
+import emails from "../../../src/store/modules/emails";
+import { createStore, useStore } from "vuex";
+import emailService from "../../../src/services/emails/emails";
+jest.mock("../../../src/services/emails/emails");
+
+describe("emails getters", () => {});
+
+describe("emails actions", () => {
+  let store;
+  let mockedMutations;
+  beforeEach(() => {
+    mockedMutations = {
+      addEmail: jest.fn(),
+      setDefaultState: jest.fn(),
+      setMailObject: jest.fn(),
+      setLoaded: jest.fn(),
+      setLastRead: jest.fn(),
+    };
+    store = createStore({
+      modules: {
+        emails: {
+          namespaced: true,
+          actions: emails.actions,
+          mutations: mockedMutations,
+        },
+      },
+    });
+  });
+
+  it("sendEmail", () => {
+    store.dispatch("emails/sendEmail", 5);
+
+    const addEmailArgs = mockedMutations.addEmail.mock.calls[0][1];
+    expect(addEmailArgs).toBe(5);
+    expect(mockedMutations.addEmail).toHaveBeenCalledTimes(1);
+  });
+
+  it("initializeMailObject", async () => {
+    await store.dispatch("emails/initializeMailObject");
+
+    expect(mockedMutations.setDefaultState).toHaveBeenCalledTimes(1);
+    const setMailObjectArgs = mockedMutations.setMailObject.mock.calls[0][1];
+    expect(setMailObjectArgs.length).toBe(1);
+    expect(mockedMutations.setMailObject).toHaveBeenCalledTimes(1);
+    expect(mockedMutations.setLoaded).toHaveBeenCalledTimes(1);
+  });
+
+  it("markEmailRead", () => {
+    store.dispatch("emails/markEmailRead", 5);
+
+    const setLastReadArgs = mockedMutations.setLastRead.mock.calls[0][1];
+    expect(setLastReadArgs).toBe(5);
+    expect(mockedMutations.setLastRead).toHaveBeenCalledTimes(1);
+  });
+});
