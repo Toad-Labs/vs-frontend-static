@@ -3,7 +3,31 @@ import { createStore, useStore } from "vuex";
 import emailService from "../../../src/services/emails/emails";
 jest.mock("../../../src/services/emails/emails");
 
-describe("emails getters", () => {});
+describe("emails getters", () => {
+  it("getMailObject", () => {
+    let state = {
+      mailObject: "test",
+    };
+    expect(emails.getters.getMailObject(state)).toBe("test");
+  });
+  it("getMailObjectById", () => {
+    emails.state = {
+      mailObject: [
+        {
+          id: 5,
+          value: "test",
+        },
+      ],
+    };
+    const store = createStore({
+      modules: {
+        emails,
+      },
+    });
+    const email = store.getters["emails/getMailObjectById"](5);
+    expect(email.value).toBe("test");
+  });
+});
 
 describe("emails mutations", () => {
   it("setDefaultState", () => {
