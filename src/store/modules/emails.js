@@ -36,7 +36,7 @@ const getters = {
     }
     return mailObject;
   },
-  isLoaded() {
+  isLoaded(state) {
     return state.loaded;
   },
 };
@@ -71,12 +71,6 @@ const mutations = {
     if (payload) {
       //sets the entire mailobject
       state.mailObject = payload;
-    }
-  },
-  setSelectedSenderEmails(state, getters, payload) {
-    if (payload) {
-      //takes the state's selected inbox/mailObject and sets its emails to be this functions payload
-      getters.getSelectedSenderObject.emails = payload;
     }
   },
   //not to be used for a while
