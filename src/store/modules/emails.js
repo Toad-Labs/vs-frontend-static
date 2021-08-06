@@ -36,7 +36,7 @@ const getters = {
     }
     return mailObject;
   },
-  isLoaded() {
+  isLoaded(state) {
     return state.loaded;
   },
 };

@@ -4,6 +4,42 @@ import emailService from "../../../src/services/emails/emails";
 jest.mock("../../../src/services/emails/emails");
 
 describe("emails getters", () => {
+  let store;
+  beforeAll(() => {
+    //Created crafted email state to test getter functionality
+    emails.state = {
+      mailObject: [
+        {
+          id: 5,
+          emails: [
+            {
+              id: 1,
+              messageTitle: "test title 1",
+              messageBody: "test body 1",
+              receivedTime: new Date(2021, 6, 20, 4, 30, 20),
+            },
+            {
+              id: 2,
+              messageTitle: "test title 2",
+              messageBody: "test body 2",
+              receivedTime: new Date(2021, 6, 29, 4, 30, 20),
+            },
+            {
+              id: 3,
+              messageTitle: "test title 3",
+              messageBody: "test body 3",
+              receivedTime: new Date(2021, 6, 22, 4, 30, 20),
+            },
+          ],
+        },
+      ],
+    };
+    store = createStore({
+      modules: {
+        emails,
+      },
+    });
+  });
   it("getMailObject", () => {
     let state = {
       mailObject: "test",
@@ -11,21 +47,24 @@ describe("emails getters", () => {
     expect(emails.getters.getMailObject(state)).toBe("test");
   });
   it("getMailObjectById", () => {
-    emails.state = {
-      mailObject: [
-        {
-          id: 5,
-          value: "test",
-        },
-      ],
+    const mailObject = store.getters["emails/getMailObjectById"](5);
+    //check id is correct and all emails returned
+    expect(mailObject.id).toBe(5);
+    expect(mailObject.emails.length).toBe(3);
+  });
+  it("getMailObjectEmailsOrderByDateAsc", () => {
+    const orderedEmails =
+      store.getters["emails/getMailObjectEmailsOrderByDateAsc"](5).emails;
+    //Check emails are reordered
+    expect(orderedEmails[0].id).toBe(2);
+    expect(orderedEmails[1].id).toBe(3);
+    expect(orderedEmails[2].id).toBe(1);
+  });
+  it("isLoaded", () => {
+    let state = {
+      loaded: true,
     };
-    const store = createStore({
-      modules: {
-        emails,
-      },
-    });
-    const email = store.getters["emails/getMailObjectById"](5);
-    expect(email.value).toBe("test");
+    expect(emails.getters.isLoaded(state)).toBe(true);
   });
 });
 
