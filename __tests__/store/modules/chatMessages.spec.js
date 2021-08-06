@@ -5,7 +5,73 @@ jest.mock("../../../src/services/chatMessages/chatMessages");
 import inbox from "../../../src/store/modules/inbox";
 jest.mock("../../../src/store/modules/inbox");
 
-describe("chatMessages getters", () => {});
+describe("chatMessages getters", () => {
+  let store;
+  beforeAll(() => {
+    const state = (chatMessages.state = {
+      chatConversation: [
+        {
+          id: 4,
+          messages: [
+            {
+              id: 1,
+              messageTitle: "test title 1",
+              messageBody: "test body 1",
+              receivedTime: new Date(2021, 6, 20, 4, 30, 20),
+            },
+            {
+              id: 2,
+              messageTitle: "test title 2",
+              messageBody: "test body 2",
+              receivedTime: new Date(2021, 6, 29, 4, 30, 20),
+            },
+            {
+              id: 3,
+              messageTitle: "test title 3",
+              messageBody: "test body 3",
+              receivedTime: new Date(2021, 6, 22, 4, 30, 20),
+            },
+          ],
+        },
+        {
+          id: 5,
+        },
+      ],
+      loaded: true,
+    });
+    store = createStore({
+      modules: {
+        chatMessages: {
+          namespaced: true,
+          state: state,
+          getters: chatMessages.getters,
+        },
+      },
+    });
+  });
+
+  it("getChatMessageByIdOrderedByMessagesDate", () => {
+    const orderedEmails =
+      store.getters["chatMessages/getChatMessageByIdOrderedByMessagesDate"](
+        4
+      ).messages;
+    //Check emails are reordered
+    expect(orderedEmails[0].id).toBe(2);
+    expect(orderedEmails[1].id).toBe(3);
+    expect(orderedEmails[2].id).toBe(1);
+  });
+  it("getAllChatMessages", () => {
+    const allChatMessages = store.getters["chatMessages/getAllChatMessages"];
+    expect(allChatMessages.length).toBe(2);
+  });
+  it("getChatMessageById", () => {
+    const chatMessage = store.getters["chatMessages/getChatMessageById"](4);
+    expect(chatMessage.id).toBe(4);
+  });
+  it("isLoaded", () => {
+    expect(store.getters["chatMessages/isLoaded"]).toBe(true);
+  });
+});
 
 describe("chatMessages mutations", () => {
   it("setDefaultState", () => {

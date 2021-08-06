@@ -31,9 +31,9 @@ const getters = {
   getAllChatMessages(state) {
     return state.chatConversation;
   },
-  getChatMessageById: (state, getters) => (id) =>
+  getChatMessageById: (state) => (id) =>
     state.chatConversation.find((chatMessage) => chatMessage.id === id),
-  isLoaded() {
+  isLoaded(state) {
     return state.loaded;
   },
 };
