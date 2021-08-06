@@ -6,6 +6,7 @@ const getters = {
 
 const actions = {
   closeInboxItem: jest.fn(),
+  selectDefaultInboxItem: jest.fn(),
 };
 
 export default {

@@ -1,4 +1,9 @@
 import chatMessages from "../../../src/store/modules/chatMessages";
+import { createStore, useStore } from "vuex";
+import chatMessagesService from "../../../src/services/chatMessages/chatMessages";
+jest.mock("../../../src/services/chatMessages/chatMessages");
+import inbox from "../../../src/store/modules/inbox";
+jest.mock("../../../src/store/modules/inbox");
 
 describe("chatMessages getters", () => {});
 
@@ -84,4 +89,47 @@ describe("chatMessages mutations", () => {
   });
 });
 
-describe("chatMessages actions", () => {});
+describe("chatMessages actions", () => {
+  let store;
+  let mockedMutations;
+  beforeEach(() => {
+    mockedMutations = {
+      setDefaultState: jest.fn(),
+      addMessageToConversation: jest.fn(),
+      setChatConversation: jest.fn(),
+      addChatConversation: jest.fn(),
+      setLoaded: jest.fn(),
+      setLastRead: jest.fn(),
+    };
+    store = createStore({
+      modules: {
+        inbox,
+        chatMessages: {
+          namespaced: true,
+          actions: chatMessages.actions,
+          mutations: mockedMutations,
+        },
+      },
+    });
+  });
+  it("initializeChatMessages", async () => {
+    const payload = {};
+    await store.dispatch("chatMessages/initializeChatMessages", payload);
+    expect(mockedMutations.setDefaultState).toHaveBeenCalledTimes(1);
+    expect(inbox.actions.selectDefaultInboxItem).toHaveBeenCalledTimes(1);
+    expect(mockedMutations.addChatConversation).toHaveBeenCalledTimes(1);
+    expect(mockedMutations.setLoaded).toHaveBeenCalledTimes(1);
+  });
+  it("sendChatMessage", async () => {
+    const payload = {};
+    await store.dispatch("chatMessages/sendChatMessage", payload);
+  });
+  it("markChatRead", () => {
+    store.dispatch("chatMessages/markChatRead", 5);
+
+    //Test argument being passed to mutation correctly
+    const setLastReadArgs = mockedMutations.setLastRead.mock.calls[0][1];
+    expect(setLastReadArgs).toBe(5);
+    expect(mockedMutations.setLastRead).toHaveBeenCalledTimes(1);
+  });
+});
