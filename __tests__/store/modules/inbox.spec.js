@@ -89,6 +89,7 @@ describe("inbox actions", () => {
   it("selectDefaultInboxItem", () => {
     store.dispatch("inbox/selectDefaultInboxItem", 5);
 
+    //Test argument being passed to mutation correctly
     const updateSelectedInboxItemIdArgs =
       mockedMutations.updateSelectedInboxItemId.mock.calls[0][1];
     expect(updateSelectedInboxItemIdArgs).toBe(5);
@@ -97,6 +98,7 @@ describe("inbox actions", () => {
   it("selectInboxItem", () => {
     store.dispatch("inbox/selectInboxItem", 5);
 
+    //Test argument being passed to mutation correctly
     const updateSelectedInboxItemIdArgs =
       mockedMutations.updateSelectedInboxItemId.mock.calls[0][1];
     expect(updateSelectedInboxItemIdArgs).toBe(5);
@@ -109,6 +111,7 @@ describe("inbox actions", () => {
   it("closeInboxItem", () => {
     store.dispatch("inbox/closeInboxItem");
 
+    //Test argument being passed to mutation correctly
     const updateMobileDrawerOpenArgs =
       mockedMutations.updateMobileDrawerOpen.mock.calls[0][1];
     expect(updateMobileDrawerOpenArgs).toBe(false);
