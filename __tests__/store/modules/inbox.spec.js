@@ -6,6 +6,7 @@ import emails from "../../../src/store/modules/emails";
 jest.mock("../../../src/store/modules/emails");
 
 describe("inbox getters", () => {
+  
   let store;
   beforeAll(() => {
     store = createStore({
@@ -24,6 +25,7 @@ describe("inbox getters", () => {
     expect(inboxItems[1].type).toBe("email");
   });
   it("getSelectedInboxItem", () => {
+    
     //get inbox item id of 1 which is the mocked chat
     store.state.inbox.selectedInboxItemId = 1;
 
@@ -32,6 +34,7 @@ describe("inbox getters", () => {
     expect(inboxItem.type).toBe("chat");
   });
   it("getSelectedInboxItemType", () => {
+
     store.state.inbox.selectedInboxItemId = 1;
 
     const inboxItemType = store.getters["inbox/getSelectedInboxItemType"];
@@ -48,6 +51,7 @@ describe("inbox getters", () => {
     expect(inbox.getters.isMobileDrawerOpen(state)).toBe(false);
   });
   it("isLoaded", () => {
+
     const loaded = store.getters["inbox/isLoaded"];
     expect(loaded).toBe(true);
   });
