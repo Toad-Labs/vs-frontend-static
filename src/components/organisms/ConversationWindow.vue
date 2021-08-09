@@ -48,7 +48,7 @@
       <!-- The logic on how the buttonOptions are passed as props will
                    depend on how we get the possible answers from VA. -->
       <TextInput
-        :buttonOptions="suggestedActions ?? [$t('yes'), $t('no')]"
+        :buttonOptions="suggestedActions"
         @add-message="sendChatMessage"
       />
     </div>
