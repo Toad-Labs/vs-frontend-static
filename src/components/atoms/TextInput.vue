@@ -22,7 +22,7 @@
       <chat-option-button
         v-for="(option, index) in buttonOptions"
         :key="index"
-        :text="option"
+        :text="option?.value ?? option"
         @send-button="sendBtnText"
       />
     </div>

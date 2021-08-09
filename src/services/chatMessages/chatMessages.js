@@ -57,7 +57,6 @@ const receiveMessageHandler = () => {
   directLine.activity$.subscribe(
     (activity) => {
       // If messages need their own id, pass activity.id as a parameter in the function below.
-      console.log(activity);
       directLineMessageRecievedHandler(
         activity.from.name,
         activity.text,

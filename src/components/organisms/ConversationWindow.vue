@@ -83,9 +83,11 @@ export default {
       () => store.getters["inbox/isMobileDrawerOpen"]
     );
     const suggestedActions = computed(() => {
-      const messages = chatMessage.messages;
+      const messages = chatMessage.value.messages;
       const noMessages = messages.length === 0;
-      return noMessages ? null : messages[messages.length - 1].suggestedActions;
+      return noMessages
+        ? null
+        : messages[messages.length - 1].suggestedActions?.actions;
     });
 
     function sendChatMessage(msg) {
@@ -96,11 +98,21 @@ export default {
       store.dispatch("chatMessages/sendChatMessage", newMessage);
     }
 
+    function processSuggestedActions() {
+      const replies = suggestedActions.value; //shorter name
+      if (replies ?? true) return null;
+      console.log(replies);
+      console.log(replies[0]);
+      return replies;
+    }
+
     return {
       chatMessage,
       sendChatMessage,
       isMobileDrawerOpen,
       icons,
+      suggestedActions,
+      processSuggestedActions,
     };
   },
 };
