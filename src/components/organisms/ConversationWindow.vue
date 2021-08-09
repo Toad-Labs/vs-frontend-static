@@ -1,10 +1,16 @@
 <template>
-  <div class="w-full h-full flex flex-col text-gray-dark sm:relative">
+  <div
+    :class="[
+      'w-full h-full flex-col text-gray-dark sm:relative sm:flex',
+      isMobileDrawerOpen ? 'flex' : 'hidden',
+    ]"
+  >
     <div
       class="
         sm:fixed
         md:sticky
         w-full
+        sticky
         top-0
         opacity-95
         z-10
@@ -22,9 +28,9 @@
       <ul
         class="
           w-full
-          space-y-2 space-y-reverse
+          space-y-2
           overflow-auto
-          flex flex-col-reverse
+          flex flex-col
           font-body
           text-gray-dark
           py-2
@@ -34,6 +40,11 @@
         id="conversationWindow"
         tabindex="0"
       >
+        <li>
+          <p class="text-center font-heading text-sm font-light text-gray-dark">
+            {{ $t("messageTime") }}
+          </p>
+        </li>
         <ConversationMessage
           v-for="(message, index) in chatMessage.messages"
           :key="message.id"
@@ -41,13 +52,8 @@
           :text="message.text"
           :senderIcon="chatMessage.senderIcon"
           :senderIconAltText="chatMessage.senderIconAltText"
-          :isLastMessage="index === 0"
+          :isLastMessage="index === chatMessage.messages.length - 1"
         />
-        <li>
-          <p class="text-center font-heading text-sm font-light text-gray-dark">
-            {{ $t("messageTime") }}
-          </p>
-        </li>
       </ul>
     </div>
     <div class="sm:fixed md:sticky bottom-0 w-full">
@@ -85,6 +91,9 @@ export default {
         selectedInboxItemId
       )
     );
+    const isMobileDrawerOpen = computed(
+      () => store.getters["inbox/isMobileDrawerOpen"]
+    );
 
     function sendChatMessage(msg) {
       const newMessage = {
@@ -97,9 +106,14 @@ export default {
     return {
       chatMessage,
       sendChatMessage,
+      isMobileDrawerOpen,
       icons,
     };
   },
 };
 </script>
-<style scoped></style>
+<style scoped>
+#conversationWindow > :first-child {
+  margin-top: auto !important;
+}
+</style>
