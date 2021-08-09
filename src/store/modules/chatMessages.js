@@ -17,10 +17,10 @@ const getters = {
           const firstDate = new Date(a.receivedTime).getTime();
           const secondDate = new Date(b.receivedTime).getTime();
           if (firstDate > secondDate) {
-            return -1;
+            return 1;
           }
           if (firstDate < secondDate) {
-            return 1;
+            return -1;
           }
           return 0;
         });
