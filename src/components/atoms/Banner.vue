@@ -9,7 +9,7 @@
       2xl:py-6
     "
   >
-    <div class="mx-auto container sm:px-3" role="presentation">
+    <div class="mx-auto container sm:px-3">
       <h1
         class="
           text-2xl
