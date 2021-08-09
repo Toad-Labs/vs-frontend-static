@@ -1,5 +1,10 @@
 <template>
-  <div class="w-full h-full flex flex-col text-gray-dark sm:relative">
+  <div
+    :class="[
+      'w-full h-full flex-col text-gray-dark sm:relative sm:flex',
+      isMobileDrawerOpen ? 'flex' : 'hidden',
+    ]"
+  >
     <div class="sticky top-0 opacity-95 z-10 bg-white md:opacity-100">
       <message-header
         :imageName="chatMessage.senderIcon"
@@ -13,9 +18,9 @@
         id="chatWindow"
         class="
           w-full
-          space-y-2 space-y-reverse
+          space-y-2
           overflow-auto
-          flex flex-col-reverse
+          flex flex-col
           font-body
           text-gray-dark
           py-2
@@ -26,12 +31,11 @@
         @keyup.exact.enter="accessIndividualMessages(0)"
         @keyup.shift.enter="accessIndividualMessages(-1)"
       >
-        <ConversationFooter
-          :tabindex="tabbable"
-          @focusout="checkFocusingOutsideWindow($event)"
-          @return-to-chat-window="returnToChatWindow"
-          @exit-to-input="focusOnInput"
-        />
+        <li>
+          <p class="text-center font-heading text-sm font-light text-gray-dark">
+            {{ $t("messageTime") }}
+          </p>
+        </li>
         <ConversationMessage
           v-for="(message, index) in chatMessage.messages"
           @return-to-chat-window="returnToChatWindow"
@@ -43,13 +47,14 @@
           :text="message.text"
           :senderIcon="chatMessage.senderIcon"
           :senderIconAltText="chatMessage.senderIconAltText"
-          :isLastMessage="index === 0"
+          :isLastMessage="index === chatMessage.messages.length - 1"
         />
-        <li>
-          <p class="text-center font-heading text-sm font-light text-gray-dark">
-            {{ $t("messageTime") }}
-          </p>
-        </li>
+        <ConversationFooter
+          :tabindex="tabbable"
+          @focusout="checkFocusingOutsideWindow($event)"
+          @return-to-chat-window="returnToChatWindow"
+          @exit-to-input="focusOnInput"
+        />
       </ul>
     </div>
     <div class="sticky bottom-0">
@@ -93,6 +98,9 @@ export default {
       store.getters["chatMessages/getChatMessageByIdOrderedByMessagesDate"](
         selectedInboxItemId
       )
+    );
+    const isMobileDrawerOpen = computed(
+      () => store.getters["inbox/isMobileDrawerOpen"]
     );
 
     function sendChatMessage(msg) {
@@ -143,6 +151,7 @@ export default {
       checkFocusingOutsideWindow,
       returnToChatWindow,
       tabbable,
+      isMobileDrawerOpen,
       icons,
       chatWindow,
       focusOnInput,
@@ -151,4 +160,8 @@ export default {
   },
 };
 </script>
-<style scoped></style>
+<style scoped>
+#conversationWindow > :first-child {
+  margin-top: auto !important;
+}
+</style>

@@ -33,7 +33,7 @@
       <button
         class="cursor-pointer absolute right-0 top-0"
         :aria-label="$t('sendMessage')"
-        :tabindex="sendMsgBtnTabIndex"
+        :disabled="isDisabled"
         @click="sendText"
         @focus="onSendBtnFocus"
         @mouseover="onSendBtnFocus"
@@ -67,7 +67,7 @@ export default {
   emits: ["add-message", "move-to-most-recent-message", "reset-chat-window"],
   setup(_, context) {
     const text = ref("");
-    const sendMsgBtnTabIndex = ref(-1); //should be inactive as there's no input text at the start
+    const isDisabled = ref(true); //should be inactive as there's no input text at the start
     const iconState = ref("SendInactive");
 
     //this ref are reassigned to their respective components on mounting
@@ -93,9 +93,8 @@ export default {
     }
 
     function checkSendBtnActive() {
-      let textEmpty = text.value === "";
-      sendMsgBtnTabIndex.value = textEmpty ? -1 : 0; //the send button will be untabbable if there's no text
-      iconState.value = textEmpty ? "SendInactive" : "SendActive";
+      isDisabled.value = text.value === ""; //the send button will be untabbable if there's no text
+      iconState.value = isDisabled.value ? "SendInactive" : "SendActive";
     }
 
     function moveToMostRecentMessage() {
@@ -108,7 +107,7 @@ export default {
 
     return {
       moveToMostRecentMessage,
-      sendMsgBtnTabIndex,
+      isDisabled,
       input,
       text,
       icons,

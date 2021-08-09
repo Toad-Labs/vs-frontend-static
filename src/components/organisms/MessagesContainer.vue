@@ -94,6 +94,6 @@ export default {
 
 <style scoped>
 .inbox-transition {
-  transition: 1s;
+  transition: 0.5s;
 }
 </style>

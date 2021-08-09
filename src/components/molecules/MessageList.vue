@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full flex flex-col">
+  <div class="w-full h-full flex flex-col" v-show="isMobileDrawerOpen">
     <message-header
       backIcon="Back"
       :imageName="mailObject.senderIcon"
@@ -44,6 +44,10 @@ export default {
         selectedInboxItemId
       )
     );
+
+    const isMobileDrawerOpen = computed(
+      () => store.getters["inbox/isMobileDrawerOpen"]
+    );
     //creates a timestamp with js's default date methods
     const createTimestamp = (dateString) => {
       return new Date(dateString).toLocaleDateString(i18n.global.locale.value, {
@@ -58,6 +62,7 @@ export default {
     return {
       mailObject,
       createTimestamps,
+      isMobileDrawerOpen,
       icons,
     };
   },

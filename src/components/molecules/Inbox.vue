@@ -18,7 +18,7 @@
     <h1
       id="inbox-header"
       :aria-labelledby="'inboxHeaderDesc'"
-      class="font-heading font-bold text-4xl pl-3 pt-6 pb-3"
+      class="font-heading font-bold text-4xl px-3 pt-6 pb-3 focus:ring-inset"
       @blur="$event.target.tabIndex = -1"
     >
       {{ $t("inbox") }}
