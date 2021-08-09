@@ -56,9 +56,9 @@ describe("chatMessages getters", () => {
         4
       ).messages;
     //Check emails are reordered
-    expect(orderedEmails[0].id).toBe(2);
+    expect(orderedEmails[0].id).toBe(1);
     expect(orderedEmails[1].id).toBe(3);
-    expect(orderedEmails[2].id).toBe(1);
+    expect(orderedEmails[2].id).toBe(2);
   });
   it("getAllChatMessages", () => {
     const allChatMessages = store.getters["chatMessages/getAllChatMessages"];
