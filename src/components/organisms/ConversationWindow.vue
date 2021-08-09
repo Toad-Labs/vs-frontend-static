@@ -48,7 +48,7 @@
       <!-- The logic on how the buttonOptions are passed as props will
                    depend on how we get the possible answers from VA. -->
       <TextInput
-        :buttonOptions="[$t('yes'), $t('no')]"
+        :buttonOptions="suggestedActions ?? [$t('yes'), $t('no')]"
         @add-message="sendChatMessage"
       />
     </div>
@@ -82,6 +82,11 @@ export default {
     const isMobileDrawerOpen = computed(
       () => store.getters["inbox/isMobileDrawerOpen"]
     );
+    const suggestedActions = computed(() => {
+      const messages = chatMessage.messages;
+      const noMessages = messages.length === 0;
+      return noMessages ? null : messages[messages.length - 1].suggestedActions;
+    });
 
     function sendChatMessage(msg) {
       const newMessage = {

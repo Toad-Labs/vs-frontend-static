@@ -42,11 +42,17 @@ const getters = {
 const actions = {
   initializeChatMessages({ dispatch, commit, rootGetters }) {
     commit("setDefaultState");
-    let directLineMessageRecievedHandler = (userName, message, convoId) => {
+    let directLineMessageRecievedHandler = (
+      userName,
+      message,
+      convoId,
+      suggestedActions
+    ) => {
       commit("addMessageToConversation", {
         id: convoId,
         isUser: "userName" === userName,
         text: message,
+        suggestedActions: suggestedActions,
       });
       if (convoId === rootGetters["inbox/getSelectedInboxItem"].id) {
         commit("setLastRead", convoId);
@@ -142,6 +148,7 @@ const mutations = {
       receivedTime: Date.now(),
       isUser: payload.isUser,
       text: payload.text,
+      suggestedActions: payload.suggestedActions,
     };
     // Add the new message to the correct conversation.
     conversation.messages.push(newMessage);
