@@ -4,7 +4,7 @@
       {{ timestamps.fullTimestamp }}
     </span>
     <span aria-hidden="true" class="uppercase text-sm font-heading font-light">
-      {{ timestamps.timestamp }}
+      {{ timestamps.shortTimestamp }}
     </span>
     <h2 class="font-heading text-2xl font-bold">{{ title }}</h2>
     <p class="font-normal font-body text-lg whitespace-pre-line">
