@@ -5,7 +5,7 @@
       isMobileDrawerOpen ? 'flex' : 'hidden',
     ]"
   >
-    <div class="sticky top-0 opacity-95 z-10 bg-white md:opacity-100">
+    <div class="w-full opacity-95 z-10 bg-white sm:opacity-100">
       <message-header
         :imageName="chatMessage.senderIcon"
         :altText="chatMessage.senderIconAltText"
@@ -57,7 +57,7 @@
         />
       </ul>
     </div>
-    <div class="sticky bottom-0">
+    <div class="w-full">
       <!-- The logic on how the buttonOptions are passed as props will
                    depend on how we get the possible answers from VA. -->
       <TextInput
