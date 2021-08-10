@@ -1,0 +1,37 @@
+<template>
+  <div className="bg-blue-medium ">
+    <div className="mx-4 ">
+      <div className="flex  flex-col sm:flex-row py-2 w-full mx-auto ">
+        <div className="flex flex-row sm:flex-col  justify-between">
+          <div
+            className="mb-3 px-4 py-1 font-body font-semibold leading-6 tracking-normal bg-white text-blue-medium w-max"
+          >
+            {{ phase }}
+          </div>
+          <div className="mb-3 font-body sm:whitespace-nowrap">
+            <a className="underline text-white" href="{link}">
+              {{ linkText }}
+            </a>
+          </div>
+        </div>
+        <p
+          className="font-body text-white block text-sm break-words pt-2 sm:ml-4"
+        >
+          {{ children }}
+        </p>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "PhaseBanner",
+  props: {
+    phase: String,
+    link: String,
+    linkText: String,
+    children: String,
+  },
+};
+</script>

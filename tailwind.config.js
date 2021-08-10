@@ -18,6 +18,7 @@ module.exports = {
       colors: {
         blue: {
           primary: "#4F5b8B",
+          medium: "#083C6C",
           light: "#C7CFEF",
           selected: "#E6E9F7",
           link: "#284162",
