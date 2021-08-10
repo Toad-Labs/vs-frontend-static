@@ -61,7 +61,7 @@
       <!-- The logic on how the buttonOptions are passed as props will
                    depend on how we get the possible answers from VA. -->
       <TextInput
-        :buttonOptions="[$t('yes'), $t('no')]"
+        :buttonOptions="suggestedActions"
         @reset-chat-window="resetChatWindow"
         @add-message="sendChatMessage"
         @move-to-most-recent-message="accessIndividualMessages(-1)"
@@ -102,6 +102,13 @@ export default {
     const isMobileDrawerOpen = computed(
       () => store.getters["inbox/isMobileDrawerOpen"]
     );
+    const suggestedActions = computed(() => {
+      const messages = chatMessage.value.messages;
+      const noMessages = messages.length === 0;
+      return noMessages
+        ? null
+        : messages[messages.length - 1].suggestedActions?.actions;
+    });
 
     function sendChatMessage(msg) {
       const newMessage = {
@@ -153,6 +160,7 @@ export default {
       tabbable,
       isMobileDrawerOpen,
       icons,
+      suggestedActions,
       chatWindow,
       focusOnInput,
       resetChatWindow,

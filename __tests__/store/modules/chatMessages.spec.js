@@ -96,7 +96,7 @@ describe("chatMessages mutations", () => {
       text: "test text",
       markRead: false,
     };
-    
+
     chatMessages.mutations.addMessageToConversation(state, payload);
     expect(state.chatConversation[0].messages.length).toBe(1);
   });

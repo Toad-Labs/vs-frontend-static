@@ -60,7 +60,8 @@ const receiveMessageHandler = () => {
       directLineMessageRecievedHandler(
         activity.from.name,
         activity.text,
-        activity.conversation.id
+        activity.conversation.id,
+        activity.suggestedActions
       );
     },
     (err) => console.log(err)
