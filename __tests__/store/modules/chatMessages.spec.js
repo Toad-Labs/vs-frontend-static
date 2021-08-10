@@ -51,14 +51,14 @@ describe("chatMessages getters", () => {
   });
 
   it("getChatMessageByIdOrderedByMessagesDate", () => {
-    const orderedEmails =
+    const orderedMessages =
       store.getters["chatMessages/getChatMessageByIdOrderedByMessagesDate"](
         4
       ).messages;
-    //Check emails are reordered
-    expect(orderedEmails[0].id).toBe(1);
-    expect(orderedEmails[1].id).toBe(3);
-    expect(orderedEmails[2].id).toBe(2);
+    //Check messages are reordered
+    expect(orderedMessages[0].id).toBe(1);
+    expect(orderedMessages[1].id).toBe(3);
+    expect(orderedMessages[2].id).toBe(2);
   });
   it("getAllChatMessages", () => {
     const allChatMessages = store.getters["chatMessages/getAllChatMessages"];
@@ -96,9 +96,9 @@ describe("chatMessages mutations", () => {
       text: "test text",
       markRead: false,
     };
+    
     chatMessages.mutations.addMessageToConversation(state, payload);
-
-    expect(state.chatConversation.length).toBe(1);
+    expect(state.chatConversation[0].messages.length).toBe(1);
   });
   it("setChatConversation", () => {
     const state = {
