@@ -23,8 +23,9 @@
           flex flex-col
           font-body
           text-gray-dark
-          py-2
-          pr-2
+          sm:sticky
+          top-0
+          bg-blue-50
         "
         tabindex="0"
         aria-label="Press enter to begin navigating through the chat messages and input box. Use the up and down arrow keys to navigate between each message, going all the way down lets you reach the input box. You may also use tab/shift+tab, and press shift+enter to view the latest chat message. Press escape to exit."
@@ -70,6 +71,7 @@
     <!-- padding at the bottom of the screen on mobile -->
     <span class="bg-gray-infolt p-2 sm:p-0"></span>
   </div>
+  <!--  end of component-->
 </template>
 <script>
 import ConversationMessage from "../atoms/ConversationMessage.vue";
