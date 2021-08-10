@@ -12,8 +12,12 @@
   </span>
   <!-- Loaded State -->
   <div v-else class="w-full sm:h-vh-3/5 xl:h-vh-2/3 flex flex-col">
+    <span :id="'inboxHeaderDesc'" class="hidden">
+      Inbox header, press tab or click to access inbox items
+    </span>
     <h1
       id="inbox-header"
+      :aria-labelledby="'inboxHeaderDesc'"
       class="font-heading font-bold text-4xl px-3 pt-6 pb-3 focus:ring-inset"
       @blur="$event.target.tabIndex = -1"
     >
@@ -21,8 +25,9 @@
     </h1>
     <ul class="sm:overflow-auto space-y-1" role="list">
       <inbox-item
-        v-for="inboxItem in inboxItems"
+        v-for="(inboxItem, index) in inboxItems"
         :key="inboxItem.id"
+        :indexNum="index"
         :inboxItem="inboxItem"
         @select-inbox-item="selectInboxItem"
       />

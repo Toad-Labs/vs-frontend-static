@@ -71,13 +71,14 @@ module.exports = {
       },
       minWidth: {
         "7/2r": "3.5rem"
-      }
+      },
     },
   },
   variants: {
     extend: {
       backgroundColor: ['active'],
       borderRadius: ['active'],
+      padding: ['focus'],
       ringColor: ['focus-visible'],
       ringWidth: ['focus-visible'],
     }

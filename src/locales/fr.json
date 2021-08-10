@@ -17,6 +17,17 @@
   "provideFeedback": "Fournir un retour d'information",
   "notFoundTitle": "Page non trouvée",
   "notFoundStatus": "Erreur: 404",
+  "quickReply": "Répondre rapidement avec ",
+  "you": "Tu",
+  "said": " as dit: ",
+  "msgSentOn": "Ce message a été envoyé sur:",
+  "inboxFor": "(FR) Inbox for sender:",
+  "teaserText": "(FR) Teaser text of latest message",
+  "currentlySelected": "(FR) This inbox item is currently selected and displayed (unless you are on mobile, please tap)",
+  "accessInboxItem": "(FR) Click or press enter to access this inbox item ",
+  "alreadyRead": "est déjà lu ",
+  "unread": "n'est pas encore lu ",
+  "conversationFooter": "(FR) You have reached the end of the conversation, press escape to exit to the conversation window. Press down or tab if you want to send a message. Press shift+tab or up to revisit the conversation, press enter to return to the top of the conversation.",
   "skipToMain": "Passer au contenu principal",
   "skipNavLink": "(FR) Skip Navigation Link"
 }
