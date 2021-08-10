@@ -74,13 +74,14 @@ module.exports = {
       },
       minHeight: {
         "12": "3rem"
-      }
+      },
     },
   },
   variants: {
     extend: {
       backgroundColor: ['active'],
       borderRadius: ['active'],
+      padding: ['focus'],
       ringColor: ['focus-visible'],
       ringWidth: ['focus-visible'],
     }

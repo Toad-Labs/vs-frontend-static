@@ -17,7 +17,7 @@
         v-if="inboxItem.senderIcon"
         class="w-12 h-12 md:w-12 md:h-12"
         :src="icons[inboxItem.senderIcon]"
-        alt="Inbox icon"
+        alt="Inbox icon."
       />
       <div
         v-else
@@ -25,27 +25,52 @@
       />
     </div>
     <div class="flex-1 truncate">
-      <p
+      <span :id="'sender-name-label-' + indexNum" class="hidden">
+        {{ $t("inboxFor") }}
+      </span>
+      <h2
+        :id="'sender-name-' + indexNum"
+        :aria-labelledby="
+          'sender-name-label-' + indexNum + ' sender-name-' + indexNum
+        "
         :class="[
           !inboxItem.dayRead ? 'font-bold' : '',
           'font-body md:text-lg truncate overflow-ellipsis text-gray-dark pl-1',
         ]"
       >
         {{ inboxItem.senderName }}
-      </p>
-      <p
+      </h2>
+      <span class="hidden" :id="'status-and-teaser-announcement-' + indexNum"
+        >{{
+          inboxItem.selected === true
+            ? $t("currentlySelected")
+            : $t("accessInboxItem") +
+              (inboxItem.dayRead ? $t("alreadyRead") : $t("unread"))
+        }}. {{ $t("teaserText") }}:</span
+      >
+      <h2
+        :id="'teaser-text-' + indexNum"
+        :aria-labelledby="
+          'status-and-teaser-announcement-' +
+          indexNum +
+          ' teaser-text-' +
+          indexNum
+        "
         :class="[
           !inboxItem.dayRead ? 'font-body' : 'font-heading font-light',
           'text-sm md:text-lg truncate overflow-ellipsis text-gray-dark pl-1',
         ]"
       >
-        {{ inboxItem.teaserText }}
-      </p>
+        {{
+          inboxItem.teaserText ? inboxItem.teaserText : "No messages available"
+        }}
+      </h2>
     </div>
     <div>
       <read-notification
         v-if="inboxItem.id"
         v-bind:dayRead="inboxItem.dayRead"
+        :indexNum="indexNum"
       />
     </div>
   </li>
@@ -57,6 +82,7 @@ import ReadNotification from "../atoms/ReadNotification.vue";
 export default {
   props: {
     inboxItem: Object,
+    indexNum: Number,
   },
   setup(props, context) {
     function selectInboxItem() {

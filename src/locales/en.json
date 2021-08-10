@@ -17,6 +17,17 @@
   "provideFeedback": "Provide Feedback",
   "notFoundTitle": "Page not found",
   "notFoundStatus": "Error: 404",
+  "quickReply": "Quick reply with ",
+  "you": "You",
+  "said": " said: ",
+  "msgSentOn": "This message was sent on:",
+  "inboxFor": "Inbox for sender:",
+  "teaserText": "Teaser text of latest message",
+  "currentlySelected": "This inbox item is currently selected and displayed (unless you are on mobile, please tap)",
+  "accessInboxItem": "Click or press enter to access this inbox item which is ",
+  "alreadyRead": "already read ",
+  "unread": "unread ",
+  "conversationFooter": "You have reached the end of the conversation, press escape to exit to the conversation window. Press down or tab if you want to send a message. Press shift+tab or up to revisit the conversation, press enter to return to the top of the conversation.",
   "skipToMain": "Skip to main content",
   "skipNavLink": "Skip Navigation Link"
 }

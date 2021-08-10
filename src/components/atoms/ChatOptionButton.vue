@@ -14,7 +14,7 @@
       break-words
       text-left
     "
-    :aria-label="text"
+    :aria-label="$t('quickReply') + text"
     @click="sendFromButton"
   >
     {{ text }}
@@ -25,9 +25,9 @@ export default {
   props: {
     text: String,
   },
+  emits: ["send-button"],
   setup(props, context) {
     function sendFromButton() {
-      // console.log(props.text);
       context.emit("send-button", props.text);
     }
     return {

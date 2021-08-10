@@ -13,7 +13,7 @@
       <message-card
         v-for="email of mailObject.emails"
         :key="email.id"
-        :timestamp="createTimestamp(email.receivedTime)"
+        :timestamps="createTimestamps(email.receivedTime)"
         :title="email.messageTitle"
         :paragraphs="email.messageBody"
       />
@@ -24,6 +24,7 @@
 <script>
 import MessageCard from "./MessageCard.vue";
 import MessageHeader from "../atoms/MessageHeader.vue";
+import { useI18n } from "vue-i18n";
 import { useStore } from "vuex";
 import { computed } from "vue";
 import icons from "../../assets/icons.js";
@@ -57,9 +58,10 @@ export default {
         minute: "2-digit",
       });
     };
+
     return {
       mailObject,
-      createTimestamp,
+      createTimestamps,
       isMobileDrawerOpen,
       icons,
     };

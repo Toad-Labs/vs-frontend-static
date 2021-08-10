@@ -1,6 +1,16 @@
 <template>
-  <li :class="[!isUser ? 'flex ' : '', 'pl-10 relative']">
-    <p
+  <li
+    :class="[!isUser ? 'flex ' : '', 'pl-10 relative py-px']"
+    :tabindex="tabindex"
+    @keyup.esc="returnToChatWindow"
+    @keydown.prevent.up="prevElement($event)"
+    @keydown.prevent.shift.tab="prevElement($event)"
+    @keydown.prevent.down="nextElement($event)"
+    @keydown.prevent.exact.tab="nextElement($event)"
+  >
+    <!-- <span class="sr-only">{{ (isUser ? "You " : senderName) }} said:</span> -->
+    <h4
+      :aria-label="(isUser ? $t('you') : senderName) + $t('said') + text"
       :class="[
         !isUser
           ? 'bg-gray-infolt mr-10'
@@ -14,7 +24,7 @@
       ]"
     >
       {{ text }}
-    </p>
+    </h4>
     <img
       v-if="isLastMessage"
       ref="chatReaderIcon"
@@ -28,15 +38,24 @@
 import icons from "../../assets/icons.js";
 export default {
   name: "ConversationMessage",
+  emits: ["return-to-chat-window"],
   props: {
     senderIcon: String,
     senderIconAltText: String,
     isUser: Boolean,
     isLastMessage: Boolean,
     text: String,
+    tabindex: Number,
+    senderName: String,
   },
-  setup() {
+  setup(_, context) {
+    const returnToChatWindow = () => context.emit("return-to-chat-window");
+    const nextElement = (event) => event.target.nextElementSibling?.focus();
+    const prevElement = (event) => event.target.previousElementSibling?.focus();
     return {
+      returnToChatWindow,
+      nextElement,
+      prevElement,
       icons,
     };
   },
