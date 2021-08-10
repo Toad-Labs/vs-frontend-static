@@ -1,5 +1,5 @@
 <template>
-  <div
+  <li
     class="sr-only focus:not-sr-only font-body focus:p-2"
     :tabindex="tabindex"
     @keyup.esc="returnToChatWindow"
@@ -10,7 +10,7 @@
     <span>
       {{ $t("conversationFooter") }}
     </span>
-  </div>
+  </li>
 </template>
 <script>
 export default {
