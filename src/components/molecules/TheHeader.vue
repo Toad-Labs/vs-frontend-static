@@ -7,7 +7,7 @@
         :linkText="$t('backToProject')"
         :children="$t('testSiteText')"
       />
-      <div class="pb-2 sm:pb-4 sm:border-b sm:border-gray-infomd">
+      <div class="pb-2 sm:pb-4 sm:border-b mb-3 sm:border-gray-infomd">
         <!-- Hidden heading -->
         <h2 class="sr-only">{{ $t("siteHeaderInfo") }}</h2>
         <!-- Language toggle on desktop -->
@@ -90,10 +90,10 @@
           text="menu"
         ></Menu>
       </div> -->
-
-      <div class="sm:py-4">
+      <!-- The banner with bg image is hidden but can be reshown if needed -->
+      <!-- <div class="sm:py-4">
         <Banner :title="$t('bannerTitle')" :body="$t('bannerBody')"></Banner>
-      </div>
+      </div> -->
     </header>
   </div>
 </template>
