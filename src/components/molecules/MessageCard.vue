@@ -16,7 +16,7 @@
 <script>
 export default {
   props: {
-    timestamps: Object,
+    timestamps: Object, // should be in form {shortTimestamp: String, fullTimestamp: String}
     title: String,
     paragraphs: String, //note that newlines will be preserved
   },

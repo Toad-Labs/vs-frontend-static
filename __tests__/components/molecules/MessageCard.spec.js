@@ -11,7 +11,10 @@ describe("MessageCard component", () => {
         plugins: [i18n],
       },
       props: {
-        timestamp: "test timestamp",
+        timestamps: {
+          shortTimestamp: "test timestamp",
+          fullTimestamp: "tst tmstmp",
+        },
         title: "test title",
         paragraphs: "test paragraphs",
       },
@@ -20,6 +23,10 @@ describe("MessageCard component", () => {
 
   it("Check for timestamp text in MessageCard", () => {
     expect(wrapper.text()).toContain("test timestamp");
+  });
+
+  it("Check for abbreviated timestamp text in MessageCard", () => {
+    expect(wrapper.text()).toContain("tst tmstmp");
   });
 
   it("Check for title text in MessageCard", () => {
