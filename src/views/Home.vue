@@ -6,13 +6,15 @@
   <!-- Page content -->
   <div class="w-full sm:p-3 sm:pb-0">
     <main>
-      <div class="home px-0.5 sm:mx-auto sm:container">
+      <div class="home px-0.5 sm:mx-auto sm:container mb-6">
         <messages-container />
       </div>
-      <feedback-button
+      <!-- Hiding the feedback button for now as it is currently not functioning -->
+      <!-- remove the mb-6 from the div above when re-implementing the feedback button -->
+      <!-- <feedback-button
         colorClass="bg-blue-primary text-white"
         :text="$t('provideFeedback')"
-      />
+      /> -->
     </main>
   </div>
   <!-- The footer component -->

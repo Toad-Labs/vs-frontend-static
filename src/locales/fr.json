@@ -29,5 +29,9 @@
   "unread": "n'est pas encore lu ",
   "conversationFooter": "(FR) You have reached the end of the conversation, press escape to exit to the conversation window. Press down or tab if you want to send a message. Press shift+tab or up to revisit the conversation, press enter to return to the top of the conversation.",
   "skipToMain": "Passer au contenu principal",
-  "skipNavLink": "(FR) Skip Navigation Link"
+  "skipNavLink": "(FR) Skip Navigation Link",
+  "alpha": "Site d’essai",
+  "testSiteText": "Vous ne pouvez pas demander de services ou de prestations par l’intermédiaire de ce site d’essai. Certaines parties du site pourraient ne pas fonctionner et seront modifiées.",
+  "backToProject": "Retourner aux projets",
+  "backToProjectsLink": "https://alpha.service.canada.ca/fr/projects"
 }

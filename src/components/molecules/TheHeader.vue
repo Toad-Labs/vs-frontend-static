@@ -1,7 +1,13 @@
 <template>
   <div>
     <header>
-      <div class="pb-2 sm:pb-4 sm:border-b sm:border-gray-infomd">
+      <PhaseBanner
+        :phase="$t('alpha')"
+        :link="$t('backToProjectsLink')"
+        :linkText="$t('backToProject')"
+        :children="$t('testSiteText')"
+      />
+      <div class="pb-2 sm:pb-4 sm:border-b mb-3 sm:border-gray-infomd">
         <!-- Hidden heading -->
         <h2 class="sr-only">{{ $t("siteHeaderInfo") }}</h2>
         <!-- Language toggle on desktop -->
@@ -68,7 +74,9 @@
           <!-- end gc logo -->
         </div>
       </div>
-      <div class="sm:flex hidden">
+
+      <!-- the menu is hidden for now until it can be implemented -->
+      <!-- <div class="sm:flex hidden">
         <Menu
           class="
             sm:pt-3
@@ -81,10 +89,11 @@
           "
           text="menu"
         ></Menu>
-      </div>
-      <div class="sm:py-4">
+      </div> -->
+      <!-- The banner with bg image is hidden but can be reshown if needed -->
+      <!-- <div class="sm:py-4">
         <Banner :title="$t('bannerTitle')" :body="$t('bannerBody')"></Banner>
-      </div>
+      </div> -->
     </header>
   </div>
 </template>
@@ -92,6 +101,7 @@
 <script>
 import Menu from "../atoms/Menu.vue";
 import Banner from "../atoms/Banner.vue";
+import PhaseBanner from "../atoms/PhaseBanner.vue";
 import { useI18n } from "vue-i18n";
 import { computed } from "vue";
 export default {
@@ -99,6 +109,7 @@ export default {
   components: {
     Menu,
     Banner,
+    PhaseBanner,
   },
   setup() {
     const changeLanguageTo = computed(() =>
