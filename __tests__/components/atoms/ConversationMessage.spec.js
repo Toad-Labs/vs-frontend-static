@@ -21,8 +21,8 @@ describe("ConversationMessage component", () => {
       text: "Hello test",
     });
     expect(wrapper.classes()).toContain("flex");
-    const message = wrapper.find("h4");
-    expect(message.classes()).toContain("botMessage");
+    const botMessage = wrapper.find(".botMessage");
+    expect(botMessage.exists()).toBe(true);
   });
 
   it("ensures message styling is from user", async () => {
@@ -32,8 +32,8 @@ describe("ConversationMessage component", () => {
       text: "Hello test",
     });
     expect(wrapper.classes()).not.toContain("flex");
-    const message = wrapper.find("h4");
-    expect(message.classes()).toContain("userMessage");
+    const userMessage = wrapper.find(".userMessage");
+    expect(userMessage.exists()).toBe(true);
   });
 
   it("ensures last message shows img", async () => {
