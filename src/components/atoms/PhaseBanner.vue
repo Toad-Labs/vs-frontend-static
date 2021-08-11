@@ -1,6 +1,6 @@
 <template>
-  <div className="bg-blue-medium ">
-    <div className="mx-4 ">
+  <div className="bg-blue-medium">
+    <div className="w-full mx-auto container px-5">
       <div className="flex  flex-col sm:flex-row py-2 w-full mx-auto ">
         <div className="flex flex-row sm:flex-col  justify-between">
           <div
