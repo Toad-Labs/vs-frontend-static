@@ -9,7 +9,7 @@
             {{ phase }}
           </div>
           <div className="pt-1 sm:pt-0 sm:mb-2 font-body sm:whitespace-nowrap">
-            <a className="underline text-white" href="{link}">
+            <a className="underline text-white" :href="link">
               {{ linkText }}
             </a>
           </div>
