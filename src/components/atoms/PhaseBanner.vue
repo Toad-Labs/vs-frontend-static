@@ -29,7 +29,6 @@ export default {
   name: "PhaseBanner",
   props: {
     phase: String,
-    href: String,
     link: String,
     linkText: String,
     children: String,
