@@ -8,14 +8,14 @@
           >
             {{ phase }}
           </div>
-          <div className="mb-2 font-body sm:whitespace-nowrap">
+          <div className="pt-1 sm:pt-0 sm:mb-2 font-body sm:whitespace-nowrap">
             <a className="underline text-white" href="{link}">
               {{ linkText }}
             </a>
           </div>
         </div>
         <p
-          className="font-body text-white block text-sm break-words pt-2 sm:ml-4"
+          className="font-body text-white block text-sm break-words pt-2 sm:ml-6"
         >
           {{ children }}
         </p>
