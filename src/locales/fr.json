@@ -33,5 +33,7 @@
   "alpha": "Site d’essai",
   "testSiteText": "Vous ne pouvez pas demander de services ou de prestations par l’intermédiaire de ce site d’essai. Certaines parties du site pourraient ne pas fonctionner et seront modifiées.",
   "backToProject": "Retourner aux projets",
+  "backToInbox": "retourner à la boîte de réception",
+  "noMessages": "Aucun message disponible",
   "backToProjectsLink": "https://alpha.service.canada.ca/fr/projects"
 }

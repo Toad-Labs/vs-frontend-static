@@ -61,9 +61,7 @@
           'text-sm md:text-lg truncate overflow-ellipsis text-gray-dark pl-1',
         ]"
       >
-        {{
-          inboxItem.teaserText ? inboxItem.teaserText : "No messages available"
-        }}
+        {{ inboxItem.teaserText ? inboxItem.teaserText : $t("noMessages") }}
       </h2>
     </div>
     <div>

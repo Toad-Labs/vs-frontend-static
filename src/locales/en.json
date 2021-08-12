@@ -33,5 +33,7 @@
   "alpha": "Test site",
   "testSiteText": "You cannot apply for services or benefits through this test site. Parts of this site may not work and will change.",
   "backToProject": "Back to projects",
+  "backToInbox": "back to inbox",
+  "noMessages": "No messages available",
   "backToProjectsLink": "https://alpha.service.canada.ca/projects"
 }

@@ -5,7 +5,7 @@
       :tabindex="backBtnTabbable"
       class="sm:hidden"
       @click="clickBack"
-      aria-label="back to inbox"
+      :aria-label="$t('backToInbox')"
       @mouseover="setBackIcon('BackFocused')"
       @mouseleave="setBackIcon('Back')"
       @focus="setBackIcon('BackFocused')"
