@@ -45,7 +45,12 @@ export default {
     const inboxItems = computed(() => store.getters["inbox/getInboxItems"]);
     const inboxLoaded = computed(() => store.getters["inbox/isLoaded"]);
     function selectInboxItem(index) {
-      store.dispatch("inbox/selectInboxItem", index);
+      store.dispatch("inbox/selectInboxItem", index).then(() => {
+        const contentWindow =
+          document.getElementById("conversationWindow") ||
+          document.getElementById("messageList");
+        contentWindow.focus();
+      });
     }
     return {
       inboxItems,
