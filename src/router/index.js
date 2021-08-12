@@ -55,5 +55,10 @@ router.beforeEach((to, from, next) => {
   // set the current language for vuex-i18n. note that translation data
   // for the language might need to be loaded first
   i18n.global.locale.value = language;
+
+  // sets the page lang attribute
+  const html = document.documentElement; // returns the html tag
+  html.setAttribute("lang", language);
+
   next();
 });
