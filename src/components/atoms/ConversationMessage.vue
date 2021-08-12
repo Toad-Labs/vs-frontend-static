@@ -8,8 +8,7 @@
     @keydown.prevent.down="nextElement($event)"
     @keydown.prevent.exact.tab="nextElement($event)"
   >
-    <!-- <span class="sr-only">{{ (isUser ? "You " : senderName) }} said:</span> -->
-    <h4
+    <span
       :aria-label="(isUser ? $t('you') : senderName) + $t('said') + text"
       :class="[
         !isUser
@@ -24,7 +23,7 @@
       ]"
     >
       {{ text }}
-    </h4>
+    </span>
     <img
       v-if="isLastMessage"
       ref="chatReaderIcon"

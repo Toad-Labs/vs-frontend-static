@@ -15,14 +15,14 @@
     <span :id="'inboxHeaderDesc'" class="hidden">
       Inbox header, press tab or click to access inbox items
     </span>
-    <h1
+    <h2
       id="inbox-header"
       :aria-labelledby="'inboxHeaderDesc'"
       class="font-heading font-bold text-4xl px-3 pt-6 pb-3 focus:ring-inset"
       @blur="$event.target.tabIndex = -1"
     >
       {{ $t("inbox") }}
-    </h1>
+    </h2>
     <ul class="sm:overflow-auto space-y-1" role="list">
       <inbox-item
         v-for="(inboxItem, index) in inboxItems"

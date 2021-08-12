@@ -28,7 +28,7 @@
       <span :id="'sender-name-label-' + indexNum" class="hidden">
         {{ $t("inboxFor") }}
       </span>
-      <h2
+      <h3
         :id="'sender-name-' + indexNum"
         :aria-labelledby="
           'sender-name-label-' + indexNum + ' sender-name-' + indexNum
@@ -39,22 +39,20 @@
         ]"
       >
         {{ inboxItem.senderName }}
-      </h2>
-      <span class="hidden" :id="'status-and-teaser-announcement-' + indexNum"
-        >{{
-          inboxItem.selected === true
-            ? $t("currentlySelected")
-            : $t("accessInboxItem") +
-              (inboxItem.dayRead ? $t("alreadyRead") : $t("unread"))
-        }}. {{ $t("teaserText") }}:</span
-      >
-      <h2
+      </h3>
+      <span
         :id="'teaser-text-' + indexNum"
-        :aria-labelledby="
-          'status-and-teaser-announcement-' +
-          indexNum +
-          ' teaser-text-' +
-          indexNum
+        :aria-label="
+          (inboxItem.selected === true
+            ? $t('currentlySelected')
+            : $t('accessInboxItem')) +
+          (inboxItem.dayRead ? $t('alreadyRead') : $t('unread')) +
+          '.' +
+          $t('teaserText') +
+          ':' +
+          inboxItem.teaserText
+            ? inboxItem.teaserText
+            : 'No messages available'
         "
         :class="[
           !inboxItem.dayRead ? 'font-body' : 'font-heading font-light',
@@ -64,7 +62,7 @@
         {{
           inboxItem.teaserText ? inboxItem.teaserText : "No messages available"
         }}
-      </h2>
+      </span>
     </div>
     <div>
       <read-notification
