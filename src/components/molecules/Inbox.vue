@@ -13,7 +13,7 @@
   <!-- Loaded State -->
   <div v-else class="w-full sm:h-vh-3/5 xl:h-vh-2/3 flex flex-col">
     <span :id="'inboxHeaderDesc'" class="hidden">
-      Inbox header, press tab or click to access inbox items
+      {{ $t("inboxHeaderDesc") }}
     </span>
     <h1
       id="inbox-header"
