@@ -88,4 +88,5 @@ module.exports = {
     }
   },
   plugins: [],
+  purge: ["./src/**/*.vue", "./src/**/*.jsx"],
 };
