@@ -33,5 +33,6 @@
   "alpha": "Site d’essai",
   "testSiteText": "Vous ne pouvez pas demander de services ou de prestations par l’intermédiaire de ce site d’essai. Certaines parties du site pourraient ne pas fonctionner et seront modifiées.",
   "backToProject": "Retourner aux projets",
-  "backToProjectsLink": "https://alpha.service.canada.ca/fr/projects"
+  "backToProjectsLink": "https://alpha.service.canada.ca/fr/projects",
+  "homeTitle": "Laboratoires de Service Canada - Assistant virtuel"
 }
