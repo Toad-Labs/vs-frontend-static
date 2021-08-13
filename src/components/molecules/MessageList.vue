@@ -10,7 +10,6 @@
       class="flex bg-gray-infolt flex-col p-6 space-y-6 overflow-auto"
       id="messageList"
       tabindex="0"
-      aria-live="polite"
     >
       <message-card
         v-for="email of mailObject.emails"
