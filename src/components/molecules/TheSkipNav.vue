@@ -16,9 +16,11 @@
           bg-blue-deep
           text-white
           mt-2
+          sm:mt-14
           p-2
           rounded
           block
+          outline-white
         "
         @click="toMain"
       >
