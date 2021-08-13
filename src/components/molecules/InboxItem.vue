@@ -27,7 +27,7 @@
       <span :id="'sender-name-label-' + indexNum" class="hidden">
         {{ $t("inboxFor") }}
       </span>
-      <h3
+      <h2
         :id="'sender-name-' + indexNum"
         :aria-labelledby="
           'sender-name-label-' + indexNum + ' sender-name-' + indexNum
@@ -38,7 +38,7 @@
         ]"
       >
         {{ inboxItem.senderName }}
-      </h3>
+      </h2>
       <span
         :id="'teaser-text-' + indexNum"
         :aria-label="
