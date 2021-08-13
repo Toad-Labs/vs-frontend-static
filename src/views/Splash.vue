@@ -19,7 +19,7 @@
         <img
           class="h-auto w-64 container mx-auto pt-6 xl:w-2/3 xl:mx-0 xl:px-6"
           src="../assets/sig-blk-en.svg"
-          alt="Symbol of the Government of Canada"
+          alt="Government of Canada / Gouvernement du Canada"
         />
         <div class="flex w-max container py-11 mx-auto font-display">
           <router-link
@@ -129,7 +129,7 @@
         <img
           class="h-auto w-24 xl:w-28"
           src="../assets/wmms-blk.svg"
-          alt="Symbol of the Government of Canada"
+          :alt="$t('canadaLogoFooter')"
         />
       </div>
     </div>

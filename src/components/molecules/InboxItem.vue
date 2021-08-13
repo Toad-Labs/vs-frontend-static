@@ -1,6 +1,5 @@
 <template>
   <li
-    role="listitem"
     tabindex="0"
     @click="selectInboxItem"
     @keyup.enter="selectInboxItem"
@@ -17,7 +16,7 @@
         v-if="inboxItem.senderIcon"
         class="w-12 h-12 md:w-12 md:h-12"
         :src="icons[inboxItem.senderIcon]"
-        alt="Inbox icon."
+        alt=""
       />
       <div
         v-else

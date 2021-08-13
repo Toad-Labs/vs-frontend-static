@@ -47,5 +47,8 @@ export default {
     if (!store.getters["emails/isLoaded"])
       store.dispatch("emails/initializeMailObject");
   },
+  created() {
+    document.title = this.$t("homeTitle");
+  },
 };
 </script>

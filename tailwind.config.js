@@ -76,6 +76,9 @@ module.exports = {
       minHeight: {
         "12": "3rem"
       },
+      outline: {
+        white: '2px solid #FFFFFF',
+      }
     },
   },
   variants: {
@@ -88,4 +91,5 @@ module.exports = {
     }
   },
   plugins: [],
+  purge: ["./src/**/*.vue", "./src/**/*.jsx"],
 };

@@ -1,4 +1,4 @@
-## [VCON-XXX](url) (Link to issue on Jira)
+## [VA-XXX](url) (Link to issue on Jira)
 
 ### Description
 
