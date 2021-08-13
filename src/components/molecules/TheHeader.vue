@@ -49,7 +49,7 @@
             <img
               className="h-5 xs:h-7 sm:h-8 md:h-9 mx-3 xs:mx-0"
               src="../../assets/sig-blk-en.svg"
-              alt="canada logo en"
+              :alt="$t('canadaLogoHeader')"
             />
             <a
               id="lang-toggle-small"
@@ -91,7 +91,7 @@
           text="menu"
         ></Menu>
       </div> -->
-      <!-- The banner with bg image is hidden but can be reshown if needed -->
+      <!-- The banner with bg image is hidden but can be reshown if needed (image has a white edge) -->
       <!-- <div class="sm:py-4">
         <Banner :title="$t('bannerTitle')" :body="$t('bannerBody')"></Banner>
       </div> -->

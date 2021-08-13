@@ -18,7 +18,7 @@
             <img
               className="h-6 sm:h-8"
               src="../../assets/wmms-blk.svg"
-              alt="canada logo"
+              :alt="$t('canadaLogoFooter')"
             />
           </div>
         </div>
