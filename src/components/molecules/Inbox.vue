@@ -4,7 +4,7 @@
     <div class="px-3 pt-6 pb-3">
       <div class="bg-gray-infolt h-10 w-2/3 animate-pulse"></div>
     </div>
-    <div class="sm:overflow-auto space-y-1" role="list">
+    <div class="sm:overflow-auto space-y-1">
       <!-- Empty inbox items -->
       <inbox-item :inboxItem="{}" />
       <inbox-item :inboxItem="{}" />
@@ -13,7 +13,7 @@
   <!-- Loaded State -->
   <div v-else class="w-full sm:h-vh-3/5 xl:h-vh-2/3 flex flex-col">
     <span :id="'inboxHeaderDesc'" class="hidden">
-      Inbox header, press tab or click to access inbox items
+      {{ $t("inboxHeaderDesc") }}
     </span>
     <h2
       id="inbox-header"
@@ -23,7 +23,7 @@
     >
       {{ $t("inbox") }}
     </h2>
-    <ul class="sm:overflow-auto space-y-1" role="list">
+    <ul class="sm:overflow-auto space-y-1">
       <inbox-item
         v-for="(inboxItem, index) in inboxItems"
         :key="inboxItem.id"
