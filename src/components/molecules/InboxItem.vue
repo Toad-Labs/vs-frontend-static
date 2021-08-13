@@ -1,6 +1,5 @@
 <template>
   <li
-    role="listitem"
     tabindex="0"
     @click="selectInboxItem"
     @keyup.enter="selectInboxItem"
