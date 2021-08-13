@@ -7,6 +7,7 @@
     @keydown.prevent.shift.tab="prevElement($event)"
     @keydown.prevent.down="nextElement($event)"
     @keydown.prevent.exact.tab="nextElement($event)"
+    aria-live="polite"
   >
     <!-- <span class="sr-only">{{ (isUser ? "You " : senderName) }} said:</span> -->
     <h4

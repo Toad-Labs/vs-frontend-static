@@ -30,6 +30,7 @@
         :aria-label="$t('conversationWindowDesc')"
         @keyup.exact.enter="accessIndividualMessages(0)"
         @keyup.shift.enter="accessIndividualMessages(-1)"
+        aria-live="polite"
       >
         <li>
           <p class="text-center font-heading text-sm font-light text-gray-dark">

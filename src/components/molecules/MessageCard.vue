@@ -1,5 +1,5 @@
 <template>
-  <li class="bg-white p-6 space-y-3 text-gray-dark">
+  <li class="bg-white p-6 space-y-3 text-gray-dark" aria-live="polite">
     <span class="sr-only">
       {{ timestamps.fullTimestamp }}
     </span>
