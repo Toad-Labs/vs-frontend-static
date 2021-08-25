@@ -1,4 +1,7 @@
-# vuejs-boiler
+# This repo is inactive
+This repo is inactive please refer to https://github.com/DTS-STN/Virtual-Assistant-Web-App for the latest version
+
+## vuejs-boiler
 
 ## Project setup
 ```
