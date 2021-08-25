@@ -1,9 +1,10 @@
 <template>
   <div class="p-2 font-body text-gray-dark text-xs sm:text-sm">
     <!-- for now this just displays the current date -->
-    <p>
-      {{ $t("dateModified") }} {{ new Date().toLocaleString(lang + "-CA") }}
-    </p>
+    <span
+      >{{ $t("dateModified") }}
+      <time> {{ new Date().toLocaleString(lang + "-CA") }}</time>
+    </span>
   </div>
 </template>
 

@@ -6,7 +6,7 @@
     <span aria-hidden="true" class="uppercase text-sm font-heading font-light">
       {{ timestamps.shortTimestamp }}
     </span>
-    <h2 class="font-heading text-2xl font-bold">{{ title }}</h2>
+    <h3 class="font-heading text-2xl font-bold">{{ title }}</h3>
     <p class="font-normal font-body text-lg whitespace-pre-line">
       {{ paragraphs }}
     </p>

@@ -39,7 +39,7 @@
   "noMessages": "Aucun message disponible",
   "inboxHeaderDesc": "(FR) Inbox header, press tab to access inbox items",
   "conversationWindowDesc": "(FR) Press enter to begin navigating through the chat messages and input box. Use the up and down arrow keys to navigate between each message, going all the way down lets you reach the input box. You may also use tab/shift+tab, and press shift+enter to view the latest chat message. Press escape to exit.",
-  
+
   "backToProjectsLink": "https://alpha.service.canada.ca/fr/projects",
   "homeTitle": "Laboratoires de Service Canada - Assistant virtuel"
 }
